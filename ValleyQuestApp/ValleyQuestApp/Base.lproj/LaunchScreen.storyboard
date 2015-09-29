@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8150" systemVersion="15A204g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8122"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -15,8 +16,28 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ValleyQuest_Logo" translatesAutoresizingMaskIntoConstraints="NO" id="wpe-VL-OOa">
+                                <rect key="frame" x="65" y="262" width="470" height="76"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="VC_LogoLockUp_blue1" translatesAutoresizingMaskIntoConstraints="NO" id="Myz-IR-hdu">
+                                <rect key="frame" x="198" y="542" width="204" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="dDQ-Hl-Tw5"/>
+                                    <constraint firstAttribute="width" constant="204" id="ze1-DN-nus"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Myz-IR-hdu" firstAttribute="centerX" secondItem="wpe-VL-OOa" secondAttribute="centerX" id="6fJ-Hh-OfX"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="wpe-VL-OOa" secondAttribute="bottom" constant="262" id="MZb-Kj-MUf"/>
+                            <constraint firstItem="wpe-VL-OOa" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="45" id="QUj-Kk-vKf"/>
+                            <constraint firstItem="wpe-VL-OOa" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="242" id="Ye5-Ye-4dr"/>
+                            <constraint firstAttribute="bottom" secondItem="Myz-IR-hdu" secondAttribute="bottom" constant="20" symbolic="YES" id="j9m-pf-H6f"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wpe-VL-OOa" secondAttribute="trailing" constant="45" id="r8w-bC-c6y"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -24,4 +45,8 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="VC_LogoLockUp_blue1" width="336" height="64"/>
+        <image name="ValleyQuest_Logo" width="336" height="50"/>
+    </resources>
 </document>
