@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5245435D1BD324390013E2B3 /* PListReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5245435C1BD324390013E2B3 /* PListReader.swift */; settings = {ASSET_TAGS = (); }; };
+<<<<<<< HEAD
+		5265BDDA1BD335E2005B5401 /* quests.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5265BDD91BD335E2005B5401 /* quests.plist */; settings = {ASSET_TAGS = (); }; };
+=======
+>>>>>>> 68957d37ba55dff87b74ea2469d93cca6f483c9f
 		52EA9F3A1BBB3B0D0063E082 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EA9F391BBB3B0D0063E082 /* AppDelegate.swift */; };
 		52EA9F3C1BBB3B0D0063E082 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EA9F3B1BBB3B0D0063E082 /* ViewController.swift */; };
 		52EA9F3F1BBB3B0D0063E082 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52EA9F3D1BBB3B0D0063E082 /* Main.storyboard */; };
@@ -34,6 +39,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5245435C1BD324390013E2B3 /* PListReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PListReader.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
+		5265BDD91BD335E2005B5401 /* quests.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = quests.plist; sourceTree = "<group>"; };
+=======
+>>>>>>> 68957d37ba55dff87b74ea2469d93cca6f483c9f
 		52EA9F361BBB3B0D0063E082 /* ValleyQuestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ValleyQuestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52EA9F391BBB3B0D0063E082 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52EA9F3B1BBB3B0D0063E082 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -102,7 +112,9 @@
 				52EA9F3D1BBB3B0D0063E082 /* Main.storyboard */,
 				52EA9F401BBB3B0E0063E082 /* Assets.xcassets */,
 				52EA9F421BBB3B0E0063E082 /* LaunchScreen.storyboard */,
+				5265BDD91BD335E2005B5401 /* quests.plist */,
 				52EA9F451BBB3B0E0063E082 /* Info.plist */,
+				5245435C1BD324390013E2B3 /* PListReader.swift */,
 			);
 			path = ValleyQuestApp;
 			sourceTree = "<group>";
@@ -231,6 +243,7 @@
 				52EA9F441BBB3B0E0063E082 /* LaunchScreen.storyboard in Resources */,
 				52EA9F411BBB3B0E0063E082 /* Assets.xcassets in Resources */,
 				52EA9F3F1BBB3B0D0063E082 /* Main.storyboard in Resources */,
+				5265BDDA1BD335E2005B5401 /* quests.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5245435D1BD324390013E2B3 /* PListReader.swift in Sources */,
 				52EA9F3C1BBB3B0D0063E082 /* ViewController.swift in Sources */,
 				52EA9F3A1BBB3B0D0063E082 /* AppDelegate.swift in Sources */,
 			);
@@ -485,6 +499,7 @@
 				52EA9F601BBB3B0E0063E082 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		52EA9F611BBB3B0E0063E082 /* Build configuration list for PBXNativeTarget "ValleyQuestAppTests" */ = {
 			isa = XCConfigurationList;
@@ -493,6 +508,7 @@
 				52EA9F631BBB3B0E0063E082 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		52EA9F641BBB3B0E0063E082 /* Build configuration list for PBXNativeTarget "ValleyQuestAppUITests" */ = {
 			isa = XCConfigurationList;
@@ -501,6 +517,7 @@
 				52EA9F661BBB3B0E0063E082 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
