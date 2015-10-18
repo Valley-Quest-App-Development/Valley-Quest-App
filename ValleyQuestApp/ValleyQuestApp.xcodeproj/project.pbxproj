@@ -14,6 +14,8 @@
 		52EA9F441BBB3B0E0063E082 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52EA9F421BBB3B0E0063E082 /* LaunchScreen.storyboard */; };
 		52EA9F4F1BBB3B0E0063E082 /* ValleyQuestAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EA9F4E1BBB3B0E0063E082 /* ValleyQuestAppTests.swift */; };
 		52EA9F5A1BBB3B0E0063E082 /* ValleyQuestAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EA9F591BBB3B0E0063E082 /* ValleyQuestAppUITests.swift */; };
+		52EAD5101BD3693B004CCCD3 /* PListReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EAD50F1BD3693B004CCCD3 /* PListReader.swift */; settings = {ASSET_TAGS = (); }; };
+		52EAD5121BD36968004CCCD3 /* quests.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52EAD5111BD36968004CCCD3 /* quests.plist */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		52EA9F551BBB3B0E0063E082 /* ValleyQuestAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ValleyQuestAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		52EA9F591BBB3B0E0063E082 /* ValleyQuestAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValleyQuestAppUITests.swift; sourceTree = "<group>"; };
 		52EA9F5B1BBB3B0E0063E082 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52EAD50F1BD3693B004CCCD3 /* PListReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PListReader.swift; sourceTree = "<group>"; };
+		52EAD5111BD36968004CCCD3 /* quests.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = quests.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,8 @@
 				52EA9F3D1BBB3B0D0063E082 /* Main.storyboard */,
 				52EA9F401BBB3B0E0063E082 /* Assets.xcassets */,
 				52EA9F421BBB3B0E0063E082 /* LaunchScreen.storyboard */,
+				52EAD50F1BD3693B004CCCD3 /* PListReader.swift */,
+				52EAD5111BD36968004CCCD3 /* quests.plist */,
 				52EA9F451BBB3B0E0063E082 /* Info.plist */,
 			);
 			path = ValleyQuestApp;
@@ -231,6 +237,7 @@
 				52EA9F441BBB3B0E0063E082 /* LaunchScreen.storyboard in Resources */,
 				52EA9F411BBB3B0E0063E082 /* Assets.xcassets in Resources */,
 				52EA9F3F1BBB3B0D0063E082 /* Main.storyboard in Resources */,
+				52EAD5121BD36968004CCCD3 /* quests.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52EA9F3C1BBB3B0D0063E082 /* ViewController.swift in Sources */,
+				52EAD5101BD3693B004CCCD3 /* PListReader.swift in Sources */,
 				52EA9F3A1BBB3B0D0063E082 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -485,6 +493,7 @@
 				52EA9F601BBB3B0E0063E082 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		52EA9F611BBB3B0E0063E082 /* Build configuration list for PBXNativeTarget "ValleyQuestAppTests" */ = {
 			isa = XCConfigurationList;
@@ -493,6 +502,7 @@
 				52EA9F631BBB3B0E0063E082 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		52EA9F641BBB3B0E0063E082 /* Build configuration list for PBXNativeTarget "ValleyQuestAppUITests" */ = {
 			isa = XCConfigurationList;
@@ -501,6 +511,7 @@
 				52EA9F661BBB3B0E0063E082 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
