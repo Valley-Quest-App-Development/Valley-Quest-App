@@ -9,5 +9,21 @@
 import Foundation
 
 class PListReader {
+    var questsPath: String? = ""
     
+    init() {
+        questsPath = NSBundle.mainBundle().pathForResource("quests", ofType: "plist")
+    }
+    
+    func getQuests() -> Dictionary<String, Dictionary<String, String>>? {
+        if let fileName = questsPath {
+            if (NSFileManager.defaultManager().fileExistsAtPath(fileName)) {
+                let questDictionary = NSMutableDictionary(contentsOfFile: fileName)
+                return questDictionary
+            }
+        }
+        return nil
+    }
+    
+    private func 
 }
