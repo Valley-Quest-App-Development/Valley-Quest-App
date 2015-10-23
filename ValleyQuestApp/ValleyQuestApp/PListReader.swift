@@ -19,11 +19,13 @@ class PListReader {
         if let fileName = questsPath {
             if (NSFileManager.defaultManager().fileExistsAtPath(fileName)) {
                 let questDictionary = NSMutableDictionary(contentsOfFile: fileName)
-                return questDictionary
+                return convertDictionaries(questDictionary)
             }
         }
         return nil
     }
     
-    private func 
+    private func convertDictionaries(dictionary: NSMutableDictionary) -> Dictionary {
+        
+    }
 }
