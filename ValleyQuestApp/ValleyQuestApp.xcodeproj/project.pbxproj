@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52C8E26C1BDBE4BB005996E3 /* QuestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52C8E26B1BDBE4BB005996E3 /* QuestCell.xib */; };
+		52C8E2701BDBE75F005996E3 /* QuestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C8E26F1BDBE75F005996E3 /* QuestCell.swift */; };
 		52EA9F3A1BBB3B0D0063E082 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EA9F391BBB3B0D0063E082 /* AppDelegate.swift */; };
 		52EA9F3C1BBB3B0D0063E082 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EA9F3B1BBB3B0D0063E082 /* ViewController.swift */; };
 		52EA9F3F1BBB3B0D0063E082 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52EA9F3D1BBB3B0D0063E082 /* Main.storyboard */; };
@@ -36,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		52C8E26B1BDBE4BB005996E3 /* QuestCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestCell.xib; sourceTree = "<group>"; };
+		52C8E26F1BDBE75F005996E3 /* QuestCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestCell.swift; sourceTree = "<group>"; };
 		52EA9F361BBB3B0D0063E082 /* ValleyQuestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ValleyQuestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52EA9F391BBB3B0D0063E082 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52EA9F3B1BBB3B0D0063E082 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +108,8 @@
 				52EA9F391BBB3B0D0063E082 /* AppDelegate.swift */,
 				52EA9F3B1BBB3B0D0063E082 /* ViewController.swift */,
 				52EA9F3D1BBB3B0D0063E082 /* Main.storyboard */,
+				52C8E26F1BDBE75F005996E3 /* QuestCell.swift */,
+				52C8E26B1BDBE4BB005996E3 /* QuestCell.xib */,
 				52EA9F401BBB3B0E0063E082 /* Assets.xcassets */,
 				52EA9F421BBB3B0E0063E082 /* LaunchScreen.storyboard */,
 				52EAD50F1BD3693B004CCCD3 /* PListReader.swift */,
@@ -238,6 +244,7 @@
 				52EA9F411BBB3B0E0063E082 /* Assets.xcassets in Resources */,
 				52EA9F3F1BBB3B0D0063E082 /* Main.storyboard in Resources */,
 				52EAD5121BD36968004CCCD3 /* quests.plist in Resources */,
+				52C8E26C1BDBE4BB005996E3 /* QuestCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,6 +269,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52C8E2701BDBE75F005996E3 /* QuestCell.swift in Sources */,
 				52EA9F3C1BBB3B0D0063E082 /* ViewController.swift in Sources */,
 				52EAD5101BD3693B004CCCD3 /* PListReader.swift in Sources */,
 				52EA9F3A1BBB3B0D0063E082 /* AppDelegate.swift in Sources */,

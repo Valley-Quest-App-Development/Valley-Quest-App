@@ -8,11 +8,42 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UITableViewController {
+    let sampleData: Dictionary<String, String> = ["Quest 1": "thing"]
+    var keys: Array<String> = []
+    
+    override func viewWillAppear(animated: Bool) {
+        keys = Array(sampleData.keys)
+        self.title = "Quests"
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return keys.count
+    }
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var cell: UITableViewCell? = tableView.dequeueReusableCellWithIdentifier("QuestCell")
+        
+        if cell == nil {
+            let nib: NSArray = NSBundle.mainBundle().loadNibNamed("QuestCell", owner: self, options: nil)
+            cell = nib.objectAtIndex(0) as? UITableViewCell
+        }
+        
+        if let checkedCell = cell as? QuestCell {
+            checkedCell.setTitle(keys[indexPath.row])
+            checkedCell.setSubTitle(sampleData[keys[indexPath.row]]!)
+            return checkedCell
+        }
+        return cell!
     }
 
     override func didReceiveMemoryWarning() {
