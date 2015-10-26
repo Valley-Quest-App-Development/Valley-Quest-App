@@ -17,6 +17,12 @@ class PListReader {
     
     /*
     Loads the quests into a Dictionary. If it can't find it or if it is in the wrong format, it will return nil. Thus it is an optional return method
+    
+    Dictionary format:
+    Key: A string of the quest ID (e.g. "Quest1")
+    Value: Dictionary for that quest:
+        Key: A string of the name some atribute of the quest
+        Value: A string of that atribute
     */
     func getQuests() -> Dictionary<String, Dictionary<String, String>>? {
         if let fileName = questsPath {
