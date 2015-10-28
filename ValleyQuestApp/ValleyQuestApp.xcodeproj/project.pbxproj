@@ -19,6 +19,7 @@
 		52EA9F5A1BBB3B0E0063E082 /* ValleyQuestAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EA9F591BBB3B0E0063E082 /* ValleyQuestAppUITests.swift */; };
 		52EAD5101BD3693B004CCCD3 /* PListReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EAD50F1BD3693B004CCCD3 /* PListReader.swift */; };
 		52EAD5121BD36968004CCCD3 /* quests.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52EAD5111BD36968004CCCD3 /* quests.plist */; };
+		8B40A95A1BE15BB500DC30AC /* QuestDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B40A9591BE15BB500DC30AC /* QuestDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		52EA9F5B1BBB3B0E0063E082 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52EAD50F1BD3693B004CCCD3 /* PListReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PListReader.swift; sourceTree = "<group>"; };
 		52EAD5111BD36968004CCCD3 /* quests.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = quests.plist; sourceTree = "<group>"; };
+		8B40A9591BE15BB500DC30AC /* QuestDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				52EA9F391BBB3B0D0063E082 /* AppDelegate.swift */,
 				52EA9F3B1BBB3B0D0063E082 /* MainViewController.swift */,
 				52EA9F3D1BBB3B0D0063E082 /* Main.storyboard */,
+				8B40A9591BE15BB500DC30AC /* QuestDetailViewController.swift */,
 				52C8E26F1BDBE75F005996E3 /* QuestCell.swift */,
 				52C8E26B1BDBE4BB005996E3 /* QuestCell.xib */,
 				52EA9F401BBB3B0E0063E082 /* Assets.xcassets */,
@@ -275,6 +278,7 @@
 			files = (
 				52C8E2701BDBE75F005996E3 /* QuestCell.swift in Sources */,
 				522A254D1BE03BCC008FE49E /* Quest.swift in Sources */,
+				8B40A95A1BE15BB500DC30AC /* QuestDetailViewController.swift in Sources */,
 				52EA9F3C1BBB3B0D0063E082 /* MainViewController.swift in Sources */,
 				52EAD5101BD3693B004CCCD3 /* PListReader.swift in Sources */,
 				52EA9F3A1BBB3B0D0063E082 /* AppDelegate.swift in Sources */,
