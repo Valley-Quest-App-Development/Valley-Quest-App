@@ -8,14 +8,39 @@
 
 import Foundation
 
+extension Array {
+    // Does a shallow copy of the array
+    func copy() -> Array {
+        var newArray:Array = []
+        for value in self {
+            newArray.append(value)
+        }
+        return newArray
+    }
+}
+
 class Quest {
     // ---------------------------
     // Data and storage variables
     // ---------------------------
     
     // Some of the data
-    private var id: String
-    private var clues: Array<String>
+    var id: String {
+        // You can get it but you can't set it
+        get {
+            return self.id
+        }
+        set {}
+    }
+    var clues: Array<String> {
+        // You can get it but you can't set it
+        // It also only returns a copy, so you can't manipulate the values
+        // Try not to use this
+        get {
+            return self.clues.copy()
+        }
+        set {}
+    }
     
     // The rest of the data
     // Wendell will fill this in
@@ -76,11 +101,17 @@ class Quest {
     // Static methods
     // ---------------------------
     
+    /*
+        Parses the given dictionary into quest objects, then returns an array of them.
+    */
     static func getQuestsFromDictionary(dict: Dictionary<String, Dictionary<String, String>>) -> Array<Quest> {
+        // Create a holder for the quests
         var quests: Array<Quest> = [];
         for (key, value) in dict {
+            // Iterate through the dictionary and create and add quest objects
             quests.append(Quest(id: key, dict: value))
         }
+        // Return the result
         return quests;
     }
 }
