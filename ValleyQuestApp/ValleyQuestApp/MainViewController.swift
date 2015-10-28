@@ -32,7 +32,6 @@ class MainViewController: UITableViewController {
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // This is the number of sections. We only have one because it is a linear list
         return 1
     }
     
@@ -54,7 +53,6 @@ class MainViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.performSegueWithIdentifier("showQuestDetail", sender: nil)
-        tableView.cellForRowAtIndexPath(indexPath)?.selected = false;
     }
     
     override func didReceiveMemoryWarning() {
