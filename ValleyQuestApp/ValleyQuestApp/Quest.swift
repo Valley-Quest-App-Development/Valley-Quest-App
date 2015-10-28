@@ -35,11 +35,7 @@ class Quest {
     var clues: Array<String> {
         // You can get it but you can't set it
         // It also only returns a copy, so you can't manipulate the values
-<<<<<<< HEAD
-        // Try not to use this
-=======
         // Just don't use this.
->>>>>>> 682cfa74ea4f3c75eb2a1211bf29ac749428cc81
         get {
             return self.clues.copy()
         }
