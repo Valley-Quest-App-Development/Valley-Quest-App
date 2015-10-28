@@ -39,7 +39,7 @@ class Quest {
         self.loadClues(dict)
         
         // Get the rest of the data
-        // Wendell will fill this in
+        // Serena will fill this in
         
     }
     
