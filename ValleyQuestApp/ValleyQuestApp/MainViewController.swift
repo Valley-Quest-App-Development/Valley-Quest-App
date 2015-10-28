@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UITableViewController {
+class MainViewController: UITableViewController {
     let sampleData: Dictionary<String, String> = ["Quest 1": "thing"]
     var keys: Array<String> = []
     
@@ -20,6 +20,11 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        // Tells the cell how tall to be
+        return 70
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
