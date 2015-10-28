@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		522A254D1BE03BCC008FE49E /* Quest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522A254C1BE03BCC008FE49E /* Quest.swift */; };
 		52C8E26C1BDBE4BB005996E3 /* QuestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52C8E26B1BDBE4BB005996E3 /* QuestCell.xib */; };
 		52C8E2701BDBE75F005996E3 /* QuestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C8E26F1BDBE75F005996E3 /* QuestCell.swift */; };
 		52EA9F3A1BBB3B0D0063E082 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EA9F391BBB3B0D0063E082 /* AppDelegate.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		522A254C1BE03BCC008FE49E /* Quest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quest.swift; sourceTree = "<group>"; };
 		52C8E26B1BDBE4BB005996E3 /* QuestCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestCell.xib; sourceTree = "<group>"; };
 		52C8E26F1BDBE75F005996E3 /* QuestCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestCell.swift; sourceTree = "<group>"; };
 		52EA9F361BBB3B0D0063E082 /* ValleyQuestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ValleyQuestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,6 +117,7 @@
 				52EAD50F1BD3693B004CCCD3 /* PListReader.swift */,
 				52EAD5111BD36968004CCCD3 /* quests.plist */,
 				52EA9F451BBB3B0E0063E082 /* Info.plist */,
+				522A254C1BE03BCC008FE49E /* Quest.swift */,
 			);
 			path = ValleyQuestApp;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52C8E2701BDBE75F005996E3 /* QuestCell.swift in Sources */,
+				522A254D1BE03BCC008FE49E /* Quest.swift in Sources */,
 				52EA9F3C1BBB3B0D0063E082 /* ViewController.swift in Sources */,
 				52EAD5101BD3693B004CCCD3 /* PListReader.swift in Sources */,
 				52EA9F3A1BBB3B0D0063E082 /* AppDelegate.swift in Sources */,

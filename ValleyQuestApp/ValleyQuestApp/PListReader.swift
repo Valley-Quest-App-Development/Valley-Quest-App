@@ -3,7 +3,7 @@
 //  ValleyQuestApp
 //
 //  Created by John Kotz on 10/18/15.
-//  Copyright © 2015 John Kotz. All rights reserved.
+//  Copyright © 2015 Valley Quest App Dev. All rights reserved.
 //
 
 import Foundation
@@ -44,6 +44,7 @@ class PListReader {
     private func convertDictionaries(dictionary: NSMutableDictionary) -> Dictionary<String, Dictionary<String, String>>? {
         // Creates a dictionary that we will put the data into
         var newDict: Dictionary<String, Dictionary<String, String>> = Dictionary()
+        
         // Iterate through the dictionary
         for (key, value) in dictionary {
             // This makes sure that the key is a string

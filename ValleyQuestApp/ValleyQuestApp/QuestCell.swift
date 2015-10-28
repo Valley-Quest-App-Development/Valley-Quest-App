@@ -3,7 +3,7 @@
 //  ValleyQuestApp
 //
 //  Created by John Kotz on 10/24/15.
-//  Copyright © 2015 John Kotz. All rights reserved.
+//  Copyright © 2015 Valley Quest App Dev. All rights reserved.
 //
 
 import Foundation
