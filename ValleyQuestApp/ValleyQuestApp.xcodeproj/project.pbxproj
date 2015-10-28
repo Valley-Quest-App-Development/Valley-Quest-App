@@ -278,11 +278,7 @@
 			files = (
 				52C8E2701BDBE75F005996E3 /* QuestCell.swift in Sources */,
 				522A254D1BE03BCC008FE49E /* Quest.swift in Sources */,
-<<<<<<< HEAD
 				8B40A95A1BE15BB500DC30AC /* QuestDetailViewController.swift in Sources */,
-=======
-				52A3B88E1BE15BBD006954DD /* QuestDetailViewController.swift in Sources */,
->>>>>>> e63f4d6afd4d05cd5266e46449fa4dc950d586da
 				52EA9F3C1BBB3B0D0063E082 /* MainViewController.swift in Sources */,
 				52EAD5101BD3693B004CCCD3 /* PListReader.swift in Sources */,
 				52EA9F3A1BBB3B0D0063E082 /* AppDelegate.swift in Sources */,
