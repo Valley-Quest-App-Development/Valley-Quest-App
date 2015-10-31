@@ -26,13 +26,17 @@ class Quest {
     
     // Identification values
     let id: String
-    let title: String
+    let title: String = ""
     
     // Info values
-    let duration: String
-    let difficulty: String
-    let season: String
-    let bring: String
+    let duration: String = ""
+    let description: String = ""
+    let location: String = ""
+    let difficulty: String = ""
+    let walkingConditions: String = ""
+    let specialFeatures: String = ""
+    let season: String = ""
+    let bring: String = ""
     var clues: Array<String>
     
     
@@ -49,11 +53,21 @@ class Quest {
         self.clues = []
         
         // Get the rest of the data
-        title = dict["Title"]!
-        duration = dict["Duration"]!
-        difficulty = dict["Difficulty"]!
-        season = dict["Season"]!
-        bring = dict["Bring"]!
+        if let titleChecked = dict["Title"] {
+            title = titleChecked
+        }
+        if let durationChecked = dict["Duration"] {
+            duration = durationChecked
+        }
+        if let difficultyChecked = dict["Difficulty"] {
+            difficulty = difficultyChecked
+        }
+        if let seasonChecked = dict["Season"] {
+            season = seasonChecked
+        }
+        if let bringChecked = dict["Bring"] {
+            bring = bringChecked
+        }
         
         // Load the clues
         self.loadClues(dict)
