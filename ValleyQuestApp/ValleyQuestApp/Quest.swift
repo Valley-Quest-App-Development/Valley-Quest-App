@@ -32,6 +32,31 @@ class Quest {
         }
         set {}
     }
+    
+    var title: String{
+        // you can get it but you can't set it 
+        get{
+            return self.title
+        }
+        set{}
+    }
+    
+    var duration: String{
+        // you can get it but you can't set it 
+        get{
+            return self.duration
+        }
+        set{}
+    }
+    
+    var difficulty: String{
+        //you can get it but you can't set it
+        get{
+            return self.difficulty
+        }
+        
+        set{}
+    }
     var clues: Array<String> {
         // You can get it but you can't set it
         // It also only returns a copy, so you can't manipulate the values
@@ -46,6 +71,9 @@ class Quest {
     // Wendell will fill this in
     
     
+    
+    
+
     
     
     // ----------------------------
