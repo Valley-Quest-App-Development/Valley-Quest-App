@@ -24,28 +24,16 @@ class Quest {
     // Data and storage variables
     // ---------------------------
     
-    // Some of the data
+    // Identification values
     let id: String
-        
     let title: String
     
+    // Info values
     let duration: String
-    
     let difficulty: String
-    
     let season: String
-    
-    let  bring: String
-    
+    let bring: String
     var clues: Array<String>
-    
-    // The rest of the data
-    // Wendell will fill this in
-    
-    
-    
-    
-
     
     
     // ----------------------------
@@ -61,8 +49,11 @@ class Quest {
         self.clues = []
         
         // Get the rest of the data
-        // Serena will fill this in
-        
+        title = dict["Title"]!
+        duration = dict["Duration"]!
+        difficulty = dict["Difficulty"]!
+        season = dict["Season"]!
+        bring = dict["Bring"]!
         
         // Load the clues
         self.loadClues(dict)
