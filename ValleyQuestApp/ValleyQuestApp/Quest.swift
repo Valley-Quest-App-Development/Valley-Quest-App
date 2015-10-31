@@ -25,47 +25,19 @@ class Quest {
     // ---------------------------
     
     // Some of the data
-    var id: String {
-        // You can get it but you can't set it
-        get {
-            return self.id
-        }
-        set {}
-    }
-    
-    var title: String{
-        // you can get it but you can't set it 
-        get{
-            return self.title
-        }
-        set{}
-    }
-    
-    var duration: String{
-        // you can get it but you can't set it 
-        get{
-            return self.duration
-        }
-        set{}
-    }
-    
-    var difficulty: String{
-        //you can get it but you can't set it
-        get{
-            return self.difficulty
-        }
+    let id: String
         
-        set{}
-    }
-    var clues: Array<String> {
-        // You can get it but you can't set it
-        // It also only returns a copy, so you can't manipulate the values
-        // Just don't use this.
-        get {
-            return self.clues.copy()
-        }
-        set {}
-    }
+    let title: String
+    
+    let duration: String
+    
+    let difficulty: String
+    
+    let season: String
+    
+    let  bring: String
+    
+    var clues: Array<String>
     
     // The rest of the data
     // Wendell will fill this in
@@ -88,12 +60,12 @@ class Quest {
         self.id = id
         self.clues = []
         
-        // Load the clues
-        self.loadClues(dict)
-        
         // Get the rest of the data
         // Serena will fill this in
         
+        
+        // Load the clues
+        self.loadClues(dict)
     }
     
     
