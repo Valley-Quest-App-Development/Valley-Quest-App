@@ -26,17 +26,17 @@ class Quest {
     
     // Identification values
     let id: String
-    let title: String = ""
+    let title: String
     
     // Info values
-    let duration: String = ""
-    let description: String = ""
-    let location: String = ""
-    let difficulty: String = ""
-    let walkingConditions: String = ""
-    let specialFeatures: String = ""
-    let season: String = ""
-    let bring: String = ""
+    let duration: String
+    let description: String
+    let location: String
+    let difficulty: String
+    let walkingConditions: String
+    let specialFeatures: String
+    let season: String
+    let bring: String
     var clues: Array<String>
     
     
@@ -53,21 +53,23 @@ class Quest {
         self.clues = []
         
         // Get the rest of the data
-        if let titleChecked = dict["Title"] {
-            title = titleChecked
-        }
-        if let durationChecked = dict["Duration"] {
-            duration = durationChecked
-        }
-        if let difficultyChecked = dict["Difficulty"] {
-            difficulty = difficultyChecked
-        }
-        if let seasonChecked = dict["Season"] {
-            season = seasonChecked
-        }
-        if let bringChecked = dict["Bring"] {
-            bring = bringChecked
-        }
+        if let titleChecked = dict["Title"] {title = titleChecked} else {title = ""}
+        
+        if let durationChecked = dict["Duration"] {duration = durationChecked} else {duration = ""}
+        
+        if let descriptionChecked = dict["Description"] {description = descriptionChecked} else {description = ""}
+        
+        if let locationChecked = dict["Location"] {location = locationChecked} else {location = ""}
+        
+        if let difficultyChecked = dict["Difficulty"] {difficulty = difficultyChecked} else {difficulty = ""}
+        
+        if let walkingConditionsChecked = dict["Walking Conditions"] {walkingConditions = walkingConditionsChecked} else {walkingConditions = ""}
+        
+        if let specialFeaturesChecked = dict["Special Features"] {specialFeatures = specialFeaturesChecked} else {specialFeatures = ""}
+        
+        if let seasonChecked = dict["Season"] {season = seasonChecked} else {season = ""}
+        
+        if let bringChecked = dict["Bring"] {bring = bringChecked} else {bring = ""}
         
         // Load the clues
         self.loadClues(dict)

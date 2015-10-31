@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6Dg-ks-hev">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6Dg-ks-hev">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -52,21 +52,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance: 2 mi. Difficulty: 4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VkG-oj-fnz">
-                                <rect key="frame" x="197" y="64" width="206" height="35"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration: 2 mi. Difficulty: 4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VkG-oj-fnz">
+                                <rect key="frame" x="20" y="72" width="560" height="21"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="206" id="1aO-Qg-6LR"/>
-                                    <constraint firstAttribute="height" constant="35" id="chY-pM-g3D"/>
+                                    <constraint firstAttribute="width" constant="333" id="h1m-BX-0Vo"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="h1m-BX-0Vo"/>
+                                    </mask>
+                                </variation>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="GRd-1D-m6x">
-                                <rect key="frame" x="20" y="107" width="560" height="190"/>
+                                <rect key="frame" x="20" y="92" width="560" height="190"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="190" id="ZTU-bg-grb"/>
+                                </constraints>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -75,26 +82,28 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="GRd-1D-m6x" secondAttribute="trailing" constant="5" id="1mf-Hb-a7H"/>
-                            <constraint firstItem="70G-Gb-GJP" firstAttribute="top" secondItem="GRd-1D-m6x" secondAttribute="bottom" constant="303" id="3A5-bK-tW3"/>
-                            <constraint firstItem="GRd-1D-m6x" firstAttribute="top" secondItem="VkG-oj-fnz" secondAttribute="bottom" constant="8" symbolic="YES" id="NMh-be-4LV"/>
-                            <constraint firstItem="GRd-1D-m6x" firstAttribute="top" secondItem="VkG-oj-fnz" secondAttribute="bottom" constant="3" id="U6f-6f-OkI"/>
-                            <constraint firstItem="GRd-1D-m6x" firstAttribute="trailing" secondItem="gSI-qO-lj5" secondAttribute="trailingMargin" id="VkD-eU-kco"/>
-                            <constraint firstItem="GRd-1D-m6x" firstAttribute="leading" secondItem="gSI-qO-lj5" secondAttribute="leadingMargin" id="XIO-3m-AKF"/>
-                            <constraint firstItem="VkG-oj-fnz" firstAttribute="top" secondItem="04H-i9-apI" secondAttribute="bottom" id="f4b-nj-fej"/>
-                            <constraint firstItem="GRd-1D-m6x" firstAttribute="centerX" secondItem="VkG-oj-fnz" secondAttribute="centerX" id="wY1-db-C9R"/>
+                            <constraint firstItem="70G-Gb-GJP" firstAttribute="top" secondItem="VkG-oj-fnz" secondAttribute="bottom" constant="501" id="3zR-pN-emo"/>
+                            <constraint firstItem="VkG-oj-fnz" firstAttribute="centerX" secondItem="GRd-1D-m6x" secondAttribute="centerX" id="Ljy-RZ-EeL"/>
+                            <constraint firstItem="VkG-oj-fnz" firstAttribute="leading" secondItem="gSI-qO-lj5" secondAttribute="leadingMargin" id="M3k-7o-ojW"/>
+                            <constraint firstItem="VkG-oj-fnz" firstAttribute="top" secondItem="04H-i9-apI" secondAttribute="bottom" constant="8" id="kG6-pE-0uR"/>
+                            <constraint firstItem="VkG-oj-fnz" firstAttribute="trailing" secondItem="gSI-qO-lj5" secondAttribute="trailingMargin" id="khm-ku-hQD"/>
+                            <constraint firstItem="GRd-1D-m6x" firstAttribute="top" secondItem="04H-i9-apI" secondAttribute="bottom" constant="28" id="mcs-C9-cEH"/>
+                            <constraint firstItem="70G-Gb-GJP" firstAttribute="top" secondItem="VkG-oj-fnz" secondAttribute="bottom" constant="501" id="qBL-KQ-meg"/>
+                            <constraint firstItem="GRd-1D-m6x" firstAttribute="trailing" secondItem="gSI-qO-lj5" secondAttribute="trailingMargin" id="scV-N6-cNp"/>
+                            <constraint firstItem="GRd-1D-m6x" firstAttribute="leading" secondItem="gSI-qO-lj5" secondAttribute="leadingMargin" id="vNB-Af-1F6"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="1mf-Hb-a7H"/>
-                                <exclude reference="U6f-6f-OkI"/>
+                                <exclude reference="Ljy-RZ-EeL"/>
+                                <exclude reference="3zR-pN-emo"/>
+                                <exclude reference="qBL-KQ-meg"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="6T7-mu-Cbk"/>
                     <connections>
-                        <outlet property="distanceAndDifficulty" destination="VkG-oj-fnz" id="EMW-GC-Twg"/>
-                        <outlet property="questDecription" destination="GRd-1D-m6x" id="JZt-B2-smX"/>
+                        <outlet property="descriptionLabel" destination="GRd-1D-m6x" id="wPh-U6-5Q3"/>
+                        <outlet property="durationAndDifficulty" destination="VkG-oj-fnz" id="Y5o-g3-dYN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ppP-Ig-1GN" userLabel="First Responder" sceneMemberID="firstResponder"/>

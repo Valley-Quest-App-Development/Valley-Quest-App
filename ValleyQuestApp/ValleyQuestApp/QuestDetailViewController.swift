@@ -10,10 +10,20 @@ import Foundation
 import UIKit
 
 class QuestDetailViewController: UIViewController{
-    @IBOutlet weak var distanceAndDifficulty: UILabel!
-    @IBOutlet weak var questDecription: UITextView!
+    @IBOutlet weak var descriptionLabel: UITextView!
+    @IBOutlet weak var durationAndDifficulty: UILabel!
+    var object: Quest? = nil
+    
     
     override func viewDidLoad() {
-        self.title = "Quest 1"
+        if let quest = object {
+            durationAndDifficulty.text = "Duration: " + quest.duration + " Difficulty: " + quest.difficulty
+            descriptionLabel.text = quest.description
+            self.title = quest.title
+        }
+    }
+    
+    func setQuestObject(object: Quest) {
+        self.object = object
     }
 }
