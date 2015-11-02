@@ -9,16 +9,16 @@
 import Foundation
 import UIKit
 
-class QuestDetailViewController: UIViewController{
+class QuestDetailViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UITextView!
     @IBOutlet weak var durationAndDifficulty: UILabel!
     var object: Quest? = nil
-    
     
     override func viewDidLoad() {
         if let quest = object {
             durationAndDifficulty.text = "Duration: " + quest.duration + " Difficulty: " + quest.difficulty
             descriptionLabel.text = quest.description
+            descriptionLabel.sizeToFit()
             self.title = quest.title
         }
     }

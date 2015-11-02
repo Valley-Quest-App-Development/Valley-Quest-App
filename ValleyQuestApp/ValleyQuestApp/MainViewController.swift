@@ -63,16 +63,16 @@ class MainViewController: UITableViewController {
         if let detailController = segue.destinationViewController as? QuestDetailViewController {
             // Check to see if the destination is detail view for a quest
             if let quest = sender as? Quest {
-                detailController.setQuestObject(quest);
+                detailController.setQuestObject(quest)
             }
         }
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        // This way we deselect the cell
+        tableView.cellForRowAtIndexPath(indexPath)?.setSelected(false, animated: true)
         // A cell was clicked, so we will go to it's detail page
         self.performSegueWithIdentifier("showQuestDetail", sender: quests[indexPath.row])
-        // This way we deselect the cell
-        tableView.cellForRowAtIndexPath(indexPath)?.selected = false;
     }
     
     override func didReceiveMemoryWarning() {
