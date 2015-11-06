@@ -43,6 +43,7 @@
 		522A254C1BE03BCC008FE49E /* Quest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quest.swift; sourceTree = "<group>"; };
 		52C8E26B1BDBE4BB005996E3 /* QuestCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestCell.xib; sourceTree = "<group>"; };
 		52C8E26F1BDBE75F005996E3 /* QuestCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestCell.swift; sourceTree = "<group>"; };
+		52DF2EDD1BEC56880044E536 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		52EA9F361BBB3B0D0063E082 /* ValleyQuestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ValleyQuestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52EA9F391BBB3B0D0063E082 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52EA9F3B1BBB3B0D0063E082 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +122,7 @@
 				52EAD5111BD36968004CCCD3 /* quests.plist */,
 				52EA9F451BBB3B0E0063E082 /* Info.plist */,
 				522A254C1BE03BCC008FE49E /* Quest.swift */,
+				52DF2EDD1BEC56880044E536 /* MyPlayground.playground */,
 			);
 			path = ValleyQuestApp;
 			sourceTree = "<group>";

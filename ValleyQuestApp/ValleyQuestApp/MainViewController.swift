@@ -14,6 +14,7 @@ class MainViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         if let dictionary = PListReader().getQuests() {
             quests = Quest.getQuestsFromDictionary(dictionary)
+            Quest.sortQuests(&quests)
         }
         self.title = "Quests"
     }

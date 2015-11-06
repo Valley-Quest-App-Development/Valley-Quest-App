@@ -103,7 +103,6 @@ class Quest {
     }
     
     
-    
     // ---------------------------
     // Static methods
     // ---------------------------
@@ -120,5 +119,43 @@ class Quest {
         }
         // Return the result
         return quests;
+    }
+    
+    static func sortQuests(inout quests: Array<Quest>) {
+        quickSort(&quests, start: 0, end: quests.count - 1)
+    }
+    
+    private static func quickSort(inout array: Array<Quest>, start: Int, end: Int) {
+        if (start >= end) {
+            return;
+        }
+        
+        let part = partition(&array, start: start, end: end)
+        
+        quickSort(&array, start: start, end: part - 1)
+        quickSort(&array, start: part + 1, end: end)
+    }
+    
+    private static func partition(inout array: Array<Quest>, start: Int, end: Int) -> Int {
+        let compareValue = array[end]
+        var under = start
+        var positon = start
+        
+        while (positon < end) {
+            if (compareValue.title > array[positon].title) {
+                swap(&array, a: positon, b: under)
+                under++
+            }
+            positon++
+        }
+        
+        swap(&array, a: end, b: under)
+        return under;
+    }
+    
+    private static func swap(inout array: Array<Quest>, a: Int, b: Int) {
+        let holder = array[a]
+        array[a] = array[b]
+        array[b] = holder
     }
 }
