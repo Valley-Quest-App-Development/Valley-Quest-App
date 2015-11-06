@@ -8,6 +8,8 @@
 
 import UIKit
 import Foundation
+import CoreSpotlight
+import MobileCoreServices
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -47,6 +49,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
+        if userActivity.activityType == CSSearchableItemActionType {
+            if let id = userActivity.userInfo?[CSSearchableItemActivityIdentifier] as? String {
+                let navController = self.window!.rootViewController as! UINavigationController
+                navController.popToRootViewControllerAnimated(true)
+                
+                if let mainVC = navController.topViewController as? MainViewController {
+                    mainVC.loadQuestView(id)
+                }
+            }
+        }
+        return true
     }
 
 }

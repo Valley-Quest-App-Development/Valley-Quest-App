@@ -60,6 +60,12 @@ class MainViewController: UITableViewController {
         return cell!
     }
     
+    func loadQuestView(id: String) {
+        if let quest = Quest.getQuestForId(quests, id: id) {
+            self.performSegueWithIdentifier("showQuestDetail", sender: quest)
+        }
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let detailController = segue.destinationViewController as? QuestDetailViewController {
             // Check to see if the destination is detail view for a quest

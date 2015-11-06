@@ -175,4 +175,11 @@ class Quest {
         array[a] = array[b]
         array[b] = holder
     }
+    
+    static func getQuestForId(quests: Array<Quest>, id: String) -> Quest? {
+        for quest: Quest in quests {
+            if quest.id == id {return quest}
+        }
+        return nil
+    }
 }
