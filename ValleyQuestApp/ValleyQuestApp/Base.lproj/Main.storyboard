@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ltN-R7-RGM" id="nKN-dX-eVm">
-                                    <rect key="frame" x="0.0" y="0.0" width="567" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <animations/>
                                 </tableViewCellContentView>
@@ -56,7 +56,9 @@
                                 <rect key="frame" x="20" y="72" width="560" height="21"/>
                                 <animations/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="cQz-m6-Gr3"/>
                                     <constraint firstAttribute="width" constant="333" id="h1m-BX-0Vo"/>
+                                    <constraint firstAttribute="height" constant="21" id="s1I-cV-6vi"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -64,38 +66,109 @@
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="h1m-BX-0Vo"/>
+                                        <exclude reference="s1I-cV-6vi"/>
                                     </mask>
                                 </variation>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="GRd-1D-m6x">
-                                <rect key="frame" x="20" y="93" width="560" height="89"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GRd-1D-m6x">
+                                <rect key="frame" x="20" y="93" width="560" height="137"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="137" id="7Ty-Lq-5Eh"/>
+                                    <constraint firstAttribute="height" constant="79" id="E9b-jj-XoX"/>
+                                </constraints>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="E9b-jj-XoX"/>
+                                    </mask>
+                                </variation>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3mV-gF-dBo">
+                                <rect key="frame" x="268" y="238" width="65" height="38"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="2t1-iC-qg7"/>
+                                </constraints>
+                                <state key="normal" title="More Info"/>
+                            </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="xEr-E5-96P">
+                                <rect key="frame" x="20" y="284" width="560" height="128"/>
+                                <animations/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6TH-8U-UDv">
+                                <rect key="frame" x="260" y="420" width="81" height="48"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="PvV-1b-FJd"/>
+                                    <constraint firstAttribute="width" constant="81" id="WVh-5B-kXb"/>
+                                    <constraint firstAttribute="height" constant="48" id="r3E-qB-UMg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Clues"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="PvV-1b-FJd"/>
+                                    </mask>
+                                </variation>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="70G-Gb-GJP" firstAttribute="top" secondItem="VkG-oj-fnz" secondAttribute="bottom" constant="501" id="3zR-pN-emo"/>
-                            <constraint firstItem="VkG-oj-fnz" firstAttribute="leading" secondItem="gSI-qO-lj5" secondAttribute="leadingMargin" id="M3k-7o-ojW"/>
-                            <constraint firstItem="VkG-oj-fnz" firstAttribute="top" secondItem="04H-i9-apI" secondAttribute="bottom" constant="8" id="kG6-pE-0uR"/>
-                            <constraint firstItem="VkG-oj-fnz" firstAttribute="trailing" secondItem="gSI-qO-lj5" secondAttribute="trailingMargin" id="khm-ku-hQD"/>
+                            <constraint firstItem="3mV-gF-dBo" firstAttribute="centerX" secondItem="GRd-1D-m6x" secondAttribute="centerX" id="56k-wi-G0p"/>
+                            <constraint firstItem="xEr-E5-96P" firstAttribute="trailing" secondItem="gSI-qO-lj5" secondAttribute="trailingMargin" id="ArK-8Z-0lG"/>
+                            <constraint firstItem="GRd-1D-m6x" firstAttribute="leading" secondItem="gSI-qO-lj5" secondAttribute="leadingMargin" id="DRm-QS-nfN"/>
+                            <constraint firstItem="6TH-8U-UDv" firstAttribute="top" secondItem="xEr-E5-96P" secondAttribute="bottom" constant="8" id="EFH-Bf-maf"/>
+                            <constraint firstItem="VkG-oj-fnz" firstAttribute="top" secondItem="04H-i9-apI" secondAttribute="bottom" constant="8" symbolic="YES" id="FMH-rd-mBh"/>
+                            <constraint firstItem="VkG-oj-fnz" firstAttribute="trailing" secondItem="gSI-qO-lj5" secondAttribute="trailingMargin" id="Fzm-pH-T4c"/>
+                            <constraint firstItem="xEr-E5-96P" firstAttribute="top" secondItem="3mV-gF-dBo" secondAttribute="bottom" constant="8" id="IZN-oY-tlO"/>
+                            <constraint firstItem="6TH-8U-UDv" firstAttribute="top" secondItem="xEr-E5-96P" secondAttribute="bottom" constant="8" id="KkE-QD-t8i"/>
+                            <constraint firstItem="70G-Gb-GJP" firstAttribute="top" secondItem="6TH-8U-UDv" secondAttribute="bottom" constant="132" id="XZQ-Db-MpL"/>
+                            <constraint firstItem="GRd-1D-m6x" firstAttribute="top" secondItem="VkG-oj-fnz" secondAttribute="bottom" id="aBD-CQ-93s"/>
+                            <constraint firstItem="70G-Gb-GJP" firstAttribute="top" secondItem="6TH-8U-UDv" secondAttribute="bottom" constant="140" id="g1V-lU-AbY"/>
+                            <constraint firstItem="6TH-8U-UDv" firstAttribute="top" secondItem="xEr-E5-96P" secondAttribute="bottom" constant="8" symbolic="YES" id="hdd-gQ-Xw5"/>
+                            <constraint firstItem="3mV-gF-dBo" firstAttribute="top" secondItem="GRd-1D-m6x" secondAttribute="bottom" constant="8" symbolic="YES" id="kIP-3h-VYs"/>
+                            <constraint firstItem="6TH-8U-UDv" firstAttribute="centerX" secondItem="xEr-E5-96P" secondAttribute="centerX" id="l6i-tO-imb"/>
+                            <constraint firstItem="VkG-oj-fnz" firstAttribute="top" secondItem="04H-i9-apI" secondAttribute="bottom" constant="8" id="nQZ-Ym-yI1"/>
+                            <constraint firstItem="3mV-gF-dBo" firstAttribute="top" secondItem="GRd-1D-m6x" secondAttribute="bottom" constant="8" symbolic="YES" id="plc-RH-fpG"/>
                             <constraint firstItem="70G-Gb-GJP" firstAttribute="top" secondItem="VkG-oj-fnz" secondAttribute="bottom" constant="501" id="qBL-KQ-meg"/>
+                            <constraint firstItem="70G-Gb-GJP" firstAttribute="top" secondItem="xEr-E5-96P" secondAttribute="bottom" constant="140" id="tg4-7j-oTY"/>
+                            <constraint firstItem="xEr-E5-96P" firstAttribute="leading" secondItem="gSI-qO-lj5" secondAttribute="leadingMargin" id="vur-lN-SmU"/>
+                            <constraint firstItem="GRd-1D-m6x" firstAttribute="trailing" secondItem="gSI-qO-lj5" secondAttribute="trailingMargin" id="wPg-Fy-u6b"/>
+                            <constraint firstItem="6TH-8U-UDv" firstAttribute="top" secondItem="xEr-E5-96P" secondAttribute="bottom" id="xAC-pp-P1q"/>
+                            <constraint firstItem="VkG-oj-fnz" firstAttribute="leading" secondItem="gSI-qO-lj5" secondAttribute="leadingMargin" id="yJt-J6-EST"/>
+                            <constraint firstItem="GRd-1D-m6x" firstAttribute="top" secondItem="VkG-oj-fnz" secondAttribute="bottom" id="zS5-EO-klh"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="FMH-rd-mBh"/>
+                                <exclude reference="zS5-EO-klh"/>
+                                <exclude reference="plc-RH-fpG"/>
+                                <exclude reference="EFH-Bf-maf"/>
+                                <exclude reference="KkE-QD-t8i"/>
+                                <exclude reference="xAC-pp-P1q"/>
                                 <exclude reference="3zR-pN-emo"/>
+                                <exclude reference="g1V-lU-AbY"/>
                                 <exclude reference="qBL-KQ-meg"/>
+                                <exclude reference="tg4-7j-oTY"/>
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="6T7-mu-Cbk"/>
+                    <navigationItem key="navigationItem" id="6T7-mu-Cbk">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="406-pZ-Joc"/>
+                    </navigationItem>
                     <connections>
+                        <outlet property="cluesButton" destination="6TH-8U-UDv" id="g7l-oZ-Aib"/>
                         <outlet property="descriptionLabel" destination="GRd-1D-m6x" id="wPh-U6-5Q3"/>
                         <outlet property="durationAndDifficulty" destination="VkG-oj-fnz" id="Y5o-g3-dYN"/>
+                        <outlet property="mapView" destination="xEr-E5-96P" id="VBk-mV-1yS"/>
+                        <outlet property="moreButton" destination="3mV-gF-dBo" id="V6i-Kl-MiR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ppP-Ig-1GN" userLabel="First Responder" sceneMemberID="firstResponder"/>

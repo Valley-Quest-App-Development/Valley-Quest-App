@@ -7,6 +7,9 @@
 //
 
 import Foundation
+import CoreSpotlight
+import MobileCoreServices
+
 
 extension Array {
     // Does a shallow copy of the array
@@ -73,6 +76,7 @@ class Quest {
         
         // Load the clues
         self.loadClues(dict)
+        self.addToSpotlight()
     }
     
     
@@ -100,6 +104,19 @@ class Quest {
             // Increment
             i++
         }
+    }
+    
+    func addToSpotlight() {
+        let atributeSet = CSSearchableItemAttributeSet(itemContentType: kUTTypeText as String)
+        atributeSet.title = self.title
+        atributeSet.contentDescription = self.description
+        
+        let searchItem = CSSearchableItem(uniqueIdentifier: "\(self.id)", domainIdentifier: "com.ValleyQuest.ValleyQuestApp", attributeSet: atributeSet)
+        CSSearchableIndex.defaultSearchableIndex().indexSearchableItems([searchItem], completionHandler: { (error: NSError?) -> Void in
+            if error != nil {
+                print(error?.localizedDescription)
+            }
+        })
     }
     
     

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        let currentQuestShortcutItem = UIApplicationShortcutItem(type: "currentQuest", localizedTitle: "Go to Current Quest")
+        let savedQuestShortcutItem = UIApplicationShortcutItem(type: "savedQuest", localizedTitle: "Saved Quests")
+        let shortcuts = [currentQuestShortcutItem, savedQuestShortcutItem]
+        
+        UIApplication.sharedApplication().shortcutItems = shortcuts
+        
+        
         return true
     }
 
@@ -40,7 +48,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
 
 }
 
