@@ -21,13 +21,24 @@ class QuestDetailViewController: UIViewController {
     let regionRadius: CLLocationDistance = 1000
     
     override func viewDidLoad() {
-        let initialLocation = CLLocation(latitude: 43.702222, longitude: -72.289444)
-        centerOnLocation(initialLocation)
-//        mapView.hidden = true;
         
         if let quest = object {
+            mapView.hidden = !quest.hasGPS()
+            if (quest.hasGPS()) {
+                // Drop a pin
+                let dropPin = MKPointAnnotation()
+                dropPin.coordinate = quest.getGPS()!.coordinate
+                dropPin.title = "Start of " + quest.title
+                mapView.addAnnotation(dropPin)
+                
+                centerOnLocation(quest.getGPS()!)
+            }
             durationAndDifficulty.text = "Duration: " + quest.duration + " Difficulty: " + quest.difficulty
-            descriptionLabel.text = quest.description
+            if quest.description == "" {
+                descriptionLabel.text = "There is no description listed for this quest"
+            }else{
+                descriptionLabel.text = quest.description
+            }
             self.title = quest.title
         }
         descriptionLabel.setContentOffset(CGPoint.zero, animated: false)
@@ -45,8 +56,14 @@ class QuestDetailViewController: UIViewController {
         
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let viewController = segue.destinationViewController as? CluesViewController {
+            viewController.setObject(object!)
+        }
+    }
+    
     @IBAction func showClues(sender: AnyObject) {
-        
+        self.performSegueWithIdentifier("showClues", sender: nil)
     }
     
     func centerOnLocation(location: CLLocation) {

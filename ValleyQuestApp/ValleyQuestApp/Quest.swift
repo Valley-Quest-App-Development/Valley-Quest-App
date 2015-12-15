@@ -9,6 +9,7 @@
 import Foundation
 import CoreSpotlight
 import MobileCoreServices
+import MapKit
 
 
 extension Array {
@@ -40,6 +41,7 @@ class Quest {
     let specialFeatures: String
     let season: String
     let bring: String
+    private var gpsLocation: CLLocation?
     var clues: Array<String>
     
     
@@ -74,9 +76,30 @@ class Quest {
         
         if let bringChecked = dict["Bring"] {bring = bringChecked} else {bring = ""}
         
+        if let gpsLocationStringChecked = dict["GPS"] {
+            let latNlong: Array<String> = gpsLocationStringChecked.componentsSeparatedByString(",")
+            let lat: Double? = (latNlong[0] as NSString).doubleValue
+            let long: Double? = (latNlong[1] as NSString).doubleValue
+            if lat != nil && long != nil {
+                gpsLocation = CLLocation(latitude: lat!, longitude: long!)
+            }
+        }
+        
         // Load the clues
         self.loadClues(dict)
         self.addToSpotlight()
+    }
+    
+    func hasGPS() -> Bool {
+        if let _ = gpsLocation {
+            return true
+        }
+        return false
+    }
+    
+
+    func getGPS() -> CLLocation? {
+        return gpsLocation
     }
     
     

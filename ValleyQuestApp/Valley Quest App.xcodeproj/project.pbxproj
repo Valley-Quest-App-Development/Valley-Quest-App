@@ -1,0 +1,567 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		522A254D1BE03BCC008FE49E /* Quest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522A254C1BE03BCC008FE49E /* Quest.swift */; };
+		522EC6941BEFF76000262690 /* CluesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522EC6931BEFF76000262690 /* CluesViewController.swift */; };
+		522EC6961BEFF85400262690 /* VariableHightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522EC6951BEFF85400262690 /* VariableHightCell.swift */; };
+		522EC6981BEFF91500262690 /* VariableHeightCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 522EC6971BEFF91500262690 /* VariableHeightCell.xib */; };
+		522F90931BED334D00F60652 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 522F90921BED334D00F60652 /* MobileCoreServices.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		522F90951BED335D00F60652 /* CoreSpotlight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 522F90941BED335D00F60652 /* CoreSpotlight.framework */; };
+		522F90991BED47DA00F60652 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 522F90981BED47DA00F60652 /* MapKit.framework */; };
+		52C8E26C1BDBE4BB005996E3 /* QuestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52C8E26B1BDBE4BB005996E3 /* QuestCell.xib */; };
+		52C8E2701BDBE75F005996E3 /* QuestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C8E26F1BDBE75F005996E3 /* QuestCell.swift */; };
+		52EA9F3A1BBB3B0D0063E082 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EA9F391BBB3B0D0063E082 /* AppDelegate.swift */; };
+		52EA9F3C1BBB3B0D0063E082 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EA9F3B1BBB3B0D0063E082 /* MainViewController.swift */; };
+		52EA9F3F1BBB3B0D0063E082 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52EA9F3D1BBB3B0D0063E082 /* Main.storyboard */; };
+		52EA9F411BBB3B0E0063E082 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52EA9F401BBB3B0E0063E082 /* Assets.xcassets */; };
+		52EA9F441BBB3B0E0063E082 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52EA9F421BBB3B0E0063E082 /* LaunchScreen.storyboard */; };
+		52EA9F4F1BBB3B0E0063E082 /* ValleyQuestAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EA9F4E1BBB3B0E0063E082 /* ValleyQuestAppTests.swift */; };
+		52EA9F5A1BBB3B0E0063E082 /* ValleyQuestAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EA9F591BBB3B0E0063E082 /* ValleyQuestAppUITests.swift */; };
+		52EAD5101BD3693B004CCCD3 /* PListReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EAD50F1BD3693B004CCCD3 /* PListReader.swift */; };
+		52EAD5121BD36968004CCCD3 /* quests.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52EAD5111BD36968004CCCD3 /* quests.plist */; };
+		8B40A95A1BE15BB500DC30AC /* QuestDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B40A9591BE15BB500DC30AC /* QuestDetailViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		52EA9F4B1BBB3B0E0063E082 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 52EA9F2E1BBB3B0D0063E082 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 52EA9F351BBB3B0D0063E082;
+			remoteInfo = ValleyQuestApp;
+		};
+		52EA9F561BBB3B0E0063E082 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 52EA9F2E1BBB3B0D0063E082 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 52EA9F351BBB3B0D0063E082;
+			remoteInfo = ValleyQuestApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		522A254C1BE03BCC008FE49E /* Quest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quest.swift; sourceTree = "<group>"; };
+		522EC6931BEFF76000262690 /* CluesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CluesViewController.swift; sourceTree = "<group>"; };
+		522EC6951BEFF85400262690 /* VariableHightCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VariableHightCell.swift; sourceTree = "<group>"; };
+		522EC6971BEFF91500262690 /* VariableHeightCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VariableHeightCell.xib; sourceTree = "<group>"; };
+		522F90921BED334D00F60652 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		522F90941BED335D00F60652 /* CoreSpotlight.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreSpotlight.framework; path = System/Library/Frameworks/CoreSpotlight.framework; sourceTree = SDKROOT; };
+		522F90981BED47DA00F60652 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		52C8E26B1BDBE4BB005996E3 /* QuestCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestCell.xib; sourceTree = "<group>"; };
+		52C8E26F1BDBE75F005996E3 /* QuestCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestCell.swift; sourceTree = "<group>"; };
+		52DF2EDD1BEC56880044E536 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
+		52EA9F361BBB3B0D0063E082 /* Valley Quest App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Valley Quest App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		52EA9F391BBB3B0D0063E082 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		52EA9F3B1BBB3B0D0063E082 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		52EA9F3E1BBB3B0D0063E082 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		52EA9F401BBB3B0E0063E082 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		52EA9F431BBB3B0E0063E082 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		52EA9F451BBB3B0E0063E082 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52EA9F4A1BBB3B0E0063E082 /* Valley Quest App.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Valley Quest App.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		52EA9F4E1BBB3B0E0063E082 /* ValleyQuestAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValleyQuestAppTests.swift; sourceTree = "<group>"; };
+		52EA9F501BBB3B0E0063E082 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52EA9F551BBB3B0E0063E082 /* Valley Quest App.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Valley Quest App.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		52EA9F591BBB3B0E0063E082 /* ValleyQuestAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValleyQuestAppUITests.swift; sourceTree = "<group>"; };
+		52EA9F5B1BBB3B0E0063E082 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52EAD50F1BD3693B004CCCD3 /* PListReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PListReader.swift; sourceTree = "<group>"; };
+		52EAD5111BD36968004CCCD3 /* quests.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = quests.plist; sourceTree = "<group>"; };
+		8B40A9591BE15BB500DC30AC /* QuestDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestDetailViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		52EA9F331BBB3B0D0063E082 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				522F90951BED335D00F60652 /* CoreSpotlight.framework in Frameworks */,
+				522F90991BED47DA00F60652 /* MapKit.framework in Frameworks */,
+				522F90931BED334D00F60652 /* MobileCoreServices.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52EA9F471BBB3B0E0063E082 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52EA9F521BBB3B0E0063E082 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		52EA9F2D1BBB3B0D0063E082 = {
+			isa = PBXGroup;
+			children = (
+				522F90981BED47DA00F60652 /* MapKit.framework */,
+				522F90941BED335D00F60652 /* CoreSpotlight.framework */,
+				522F90921BED334D00F60652 /* MobileCoreServices.framework */,
+				52EA9F381BBB3B0D0063E082 /* ValleyQuestApp */,
+				52EA9F4D1BBB3B0E0063E082 /* ValleyQuestAppTests */,
+				52EA9F581BBB3B0E0063E082 /* ValleyQuestAppUITests */,
+				52EA9F371BBB3B0D0063E082 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		52EA9F371BBB3B0D0063E082 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				52EA9F361BBB3B0D0063E082 /* Valley Quest App.app */,
+				52EA9F4A1BBB3B0E0063E082 /* Valley Quest App.xctest */,
+				52EA9F551BBB3B0E0063E082 /* Valley Quest App.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		52EA9F381BBB3B0D0063E082 /* ValleyQuestApp */ = {
+			isa = PBXGroup;
+			children = (
+				52EA9F391BBB3B0D0063E082 /* AppDelegate.swift */,
+				52EA9F3B1BBB3B0D0063E082 /* MainViewController.swift */,
+				52EA9F3D1BBB3B0D0063E082 /* Main.storyboard */,
+				8B40A9591BE15BB500DC30AC /* QuestDetailViewController.swift */,
+				522EC6931BEFF76000262690 /* CluesViewController.swift */,
+				522EC6951BEFF85400262690 /* VariableHightCell.swift */,
+				522EC6971BEFF91500262690 /* VariableHeightCell.xib */,
+				52C8E26F1BDBE75F005996E3 /* QuestCell.swift */,
+				52C8E26B1BDBE4BB005996E3 /* QuestCell.xib */,
+				52EA9F401BBB3B0E0063E082 /* Assets.xcassets */,
+				52EA9F421BBB3B0E0063E082 /* LaunchScreen.storyboard */,
+				52EAD50F1BD3693B004CCCD3 /* PListReader.swift */,
+				52EAD5111BD36968004CCCD3 /* quests.plist */,
+				52EA9F451BBB3B0E0063E082 /* Info.plist */,
+				522A254C1BE03BCC008FE49E /* Quest.swift */,
+				52DF2EDD1BEC56880044E536 /* MyPlayground.playground */,
+			);
+			path = ValleyQuestApp;
+			sourceTree = "<group>";
+		};
+		52EA9F4D1BBB3B0E0063E082 /* ValleyQuestAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				52EA9F4E1BBB3B0E0063E082 /* ValleyQuestAppTests.swift */,
+				52EA9F501BBB3B0E0063E082 /* Info.plist */,
+			);
+			path = ValleyQuestAppTests;
+			sourceTree = "<group>";
+		};
+		52EA9F581BBB3B0E0063E082 /* ValleyQuestAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				52EA9F591BBB3B0E0063E082 /* ValleyQuestAppUITests.swift */,
+				52EA9F5B1BBB3B0E0063E082 /* Info.plist */,
+			);
+			path = ValleyQuestAppUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		52EA9F351BBB3B0D0063E082 /* Valley Quest App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52EA9F5E1BBB3B0E0063E082 /* Build configuration list for PBXNativeTarget "Valley Quest App" */;
+			buildPhases = (
+				52EA9F321BBB3B0D0063E082 /* Sources */,
+				52EA9F331BBB3B0D0063E082 /* Frameworks */,
+				52EA9F341BBB3B0D0063E082 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Valley Quest App";
+			productName = ValleyQuestApp;
+			productReference = 52EA9F361BBB3B0D0063E082 /* Valley Quest App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		52EA9F491BBB3B0E0063E082 /* Valley Quest AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52EA9F611BBB3B0E0063E082 /* Build configuration list for PBXNativeTarget "Valley Quest AppTests" */;
+			buildPhases = (
+				52EA9F461BBB3B0E0063E082 /* Sources */,
+				52EA9F471BBB3B0E0063E082 /* Frameworks */,
+				52EA9F481BBB3B0E0063E082 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				52EA9F4C1BBB3B0E0063E082 /* PBXTargetDependency */,
+			);
+			name = "Valley Quest AppTests";
+			productName = ValleyQuestAppTests;
+			productReference = 52EA9F4A1BBB3B0E0063E082 /* Valley Quest App.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		52EA9F541BBB3B0E0063E082 /* Valley Quest AppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52EA9F641BBB3B0E0063E082 /* Build configuration list for PBXNativeTarget "Valley Quest AppUITests" */;
+			buildPhases = (
+				52EA9F511BBB3B0E0063E082 /* Sources */,
+				52EA9F521BBB3B0E0063E082 /* Frameworks */,
+				52EA9F531BBB3B0E0063E082 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				52EA9F571BBB3B0E0063E082 /* PBXTargetDependency */,
+			);
+			name = "Valley Quest AppUITests";
+			productName = ValleyQuestAppUITests;
+			productReference = 52EA9F551BBB3B0E0063E082 /* Valley Quest App.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		52EA9F2E1BBB3B0D0063E082 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "John Kotz";
+				TargetAttributes = {
+					52EA9F351BBB3B0D0063E082 = {
+						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = D8T2A3KF46;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					52EA9F491BBB3B0E0063E082 = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = 52EA9F351BBB3B0D0063E082;
+					};
+					52EA9F541BBB3B0E0063E082 = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = 52EA9F351BBB3B0D0063E082;
+					};
+				};
+			};
+			buildConfigurationList = 52EA9F311BBB3B0D0063E082 /* Build configuration list for PBXProject "Valley Quest App" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 52EA9F2D1BBB3B0D0063E082;
+			productRefGroup = 52EA9F371BBB3B0D0063E082 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				52EA9F351BBB3B0D0063E082 /* Valley Quest App */,
+				52EA9F491BBB3B0E0063E082 /* Valley Quest AppTests */,
+				52EA9F541BBB3B0E0063E082 /* Valley Quest AppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		52EA9F341BBB3B0D0063E082 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52EA9F441BBB3B0E0063E082 /* LaunchScreen.storyboard in Resources */,
+				52EA9F411BBB3B0E0063E082 /* Assets.xcassets in Resources */,
+				52EA9F3F1BBB3B0D0063E082 /* Main.storyboard in Resources */,
+				52EAD5121BD36968004CCCD3 /* quests.plist in Resources */,
+				522EC6981BEFF91500262690 /* VariableHeightCell.xib in Resources */,
+				52C8E26C1BDBE4BB005996E3 /* QuestCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52EA9F481BBB3B0E0063E082 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52EA9F531BBB3B0E0063E082 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		52EA9F321BBB3B0D0063E082 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52C8E2701BDBE75F005996E3 /* QuestCell.swift in Sources */,
+				522A254D1BE03BCC008FE49E /* Quest.swift in Sources */,
+				8B40A95A1BE15BB500DC30AC /* QuestDetailViewController.swift in Sources */,
+				52EA9F3C1BBB3B0D0063E082 /* MainViewController.swift in Sources */,
+				522EC6961BEFF85400262690 /* VariableHightCell.swift in Sources */,
+				522EC6941BEFF76000262690 /* CluesViewController.swift in Sources */,
+				52EAD5101BD3693B004CCCD3 /* PListReader.swift in Sources */,
+				52EA9F3A1BBB3B0D0063E082 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52EA9F461BBB3B0E0063E082 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52EA9F4F1BBB3B0E0063E082 /* ValleyQuestAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52EA9F511BBB3B0E0063E082 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52EA9F5A1BBB3B0E0063E082 /* ValleyQuestAppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		52EA9F4C1BBB3B0E0063E082 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 52EA9F351BBB3B0D0063E082 /* Valley Quest App */;
+			targetProxy = 52EA9F4B1BBB3B0E0063E082 /* PBXContainerItemProxy */;
+		};
+		52EA9F571BBB3B0E0063E082 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 52EA9F351BBB3B0D0063E082 /* Valley Quest App */;
+			targetProxy = 52EA9F561BBB3B0E0063E082 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		52EA9F3D1BBB3B0D0063E082 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52EA9F3E1BBB3B0D0063E082 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		52EA9F421BBB3B0E0063E082 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52EA9F431BBB3B0E0063E082 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		52EA9F5C1BBB3B0E0063E082 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		52EA9F5D1BBB3B0E0063E082 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		52EA9F5F1BBB3B0E0063E082 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = ValleyQuestApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ValleyQuest.ValleyQuestApp;
+				PRODUCT_NAME = "Valley Quest App";
+			};
+			name = Debug;
+		};
+		52EA9F601BBB3B0E0063E082 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = ValleyQuestApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ValleyQuest.ValleyQuestApp;
+				PRODUCT_NAME = "Valley Quest App";
+			};
+			name = Release;
+		};
+		52EA9F621BBB3B0E0063E082 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = ValleyQuestAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ValleyQuest.ValleyQuestAppTests;
+				PRODUCT_NAME = "Valley Quest App";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Valley Quest App.app/Valley Quest App";
+			};
+			name = Debug;
+		};
+		52EA9F631BBB3B0E0063E082 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = ValleyQuestAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ValleyQuest.ValleyQuestAppTests;
+				PRODUCT_NAME = "Valley Quest App";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Valley Quest App.app/Valley Quest App";
+			};
+			name = Release;
+		};
+		52EA9F651BBB3B0E0063E082 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = ValleyQuestAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ValleyQuest.ValleyQuestAppUITests;
+				PRODUCT_NAME = "Valley Quest App";
+				TEST_TARGET_NAME = ValleyQuestApp;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		52EA9F661BBB3B0E0063E082 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = ValleyQuestAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ValleyQuest.ValleyQuestAppUITests;
+				PRODUCT_NAME = "Valley Quest App";
+				TEST_TARGET_NAME = ValleyQuestApp;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		52EA9F311BBB3B0D0063E082 /* Build configuration list for PBXProject "Valley Quest App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52EA9F5C1BBB3B0E0063E082 /* Debug */,
+				52EA9F5D1BBB3B0E0063E082 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		52EA9F5E1BBB3B0E0063E082 /* Build configuration list for PBXNativeTarget "Valley Quest App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52EA9F5F1BBB3B0E0063E082 /* Debug */,
+				52EA9F601BBB3B0E0063E082 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		52EA9F611BBB3B0E0063E082 /* Build configuration list for PBXNativeTarget "Valley Quest AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52EA9F621BBB3B0E0063E082 /* Debug */,
+				52EA9F631BBB3B0E0063E082 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		52EA9F641BBB3B0E0063E082 /* Build configuration list for PBXNativeTarget "Valley Quest AppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52EA9F651BBB3B0E0063E082 /* Debug */,
+				52EA9F661BBB3B0E0063E082 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 52EA9F2E1BBB3B0D0063E082 /* Project object */;
+}

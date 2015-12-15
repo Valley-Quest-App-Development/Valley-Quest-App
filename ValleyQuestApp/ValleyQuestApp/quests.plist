@@ -2,104 +2,143 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Quest20</key>
+	<key>Quest104</key>
 	<dict>
+		<key>Clue21</key>
+		<string>See?  Now you&apos;ve come back to the flat place,
+Where canoes and potties you should face.
+Back in your vessel, or explore some more . . .
+We hope this island Quest wasn&apos;t a bore!</string>
+		<key>Clue5</key>
+		<string>You will also know that you are getting quite near
+If a free-standing potty of blue does appear.
+Around the bend now, keep to the right,
+&apos;Til a tiny island of birch is in sight.</string>
+		<key>Clue17</key>
+		<string>&apos;Round a bend, up a hill, keep walking to find
+A green-painted table of the picnicky kind.
+It should be sitting quite close to a circle of stone,
+You have now arrived in the Quest box zone!</string>
+		<key>Title</key>
+		<string>Gilman Island Quest</string>
+		<key>Clue12</key>
+		<string>Now Ledyard had cabins on these islands three,
+But when the water got high they could no longer be.
+So the club rented land from New England Power
+On this island, called &quot;Gilman,&quot; that used to be &quot;Nicker.&quot;</string>
+		<key>Clue4</key>
+		<string>At the tip of this isle, take a left toward the tree
+That hangs out o&apos;er the water for all to come see.
+Up ahead, to your right, a spot you should spy,
+Where the land is as flat as a big pizza pie.</string>
+		<key>Clue9</key>
+		<string>If you follow the orange, you&apos;ll come to a cabin,
+Built in honor of a past Marine Corps captain.
+T&apos;was John Abbot Titcomb, class of 1932,
+Killed fighting bravely during World War II.</string>
+		<key>Clue19</key>
+		<string>The logs are all rotting, just lying around, 
+But look to the stump that still stands in the ground.
+At the stump&apos;s base, please carefully seek-
+Out from a birch &quot;sleeve&quot; the box should peek.</string>
+		<key>Clue14</key>
+		<string>Behind the cabin, there&apos;s a rock with a blaze,
+So carefully climb to the top to continue this maze.
+You&apos;ll observe that the trail has changed just a bit.
+The land is more rugged; make sure you don&apos;t trip!</string>
 		<key>Special Features</key>
-		<string>Architectural, Historical</string>
+		<string>Natural</string>
 		<key>Clue3</key>
-		<string>Before Reed Hall was built
-Eleazar Wheelock was the one
-Who had the first library
-In his home it was run.
-A mystery in 1838! This very same home
-disappeared!  Oh WHERE did it roam?
-</string>
-		<key>Walking Conditions</key>
-		<string>Pavement</string>
-		<key>Description</key>
-		<string>Explores the history of Hanover’s libraries – and mysterious moving buildings!</string>
-		<key>Clue1</key>
-		<string>To get there: This Quest starts in the middle of the Dartmouth College green.  Take 91 to exit 13, travel east across the Connecticut River, and up the hill on West Wheelock.  The green is at the top of the hill on your left.</string>
+		<string>Past the bridge, you should keep going straight,
+To the right is an arch; many divers can relate.
+Further on to your left you should see a sewage place,
+So just row a bit more and this island you&apos;ll face.</string>
 		<key>Clue8</key>
-		<string>Turn left and go east straight on your way
-Past a new place to park don&apos;t be tempted to stay!
-Crossing beyond to Maloney&apos;s right there
-Then cross once again and stop!  We are WHERE?
-Yes, in 1975 it happened once again
-all of  those books were moved to a different spot!</string>
+		<string>Meander along-keep the shore on your right
+(A wander off-trail might cause a fright).
+The blazes are there, just keep following them &apos;round,
+But do be careful of rocks and stumps on the ground.</string>
 		<key>Season</key>
-		<string>Year Round</string>
-		<key>Clue6</key>
-		<string>Cross West Wheelock.  Go right We&apos;re almost there
-And the mystery solved about the house that went WHERE?
-Keep going, keep looking, and follow your noses.
-Open your eyes wide-can you smell the roses?
-Go in (if it is open) four columns you&apos;ve seen before
-Two located on either side of the door.
-</string>
+		<string>May-Oct </string>
 		<key>Location</key>
 		<string>Hanover, NH</string>
-		<key>Bring</key>
-		<string>Compass</string>
-		<key>Clue4</key>
-		<string>Our mystery will be solved later in the day,
-But first we go off in another way.
-Walk north to an architectural treasure
-Whose stones are too huge to measure.
-Be sure to count the arches all
-Before you turn to the four-columned hall.
-Two Dartmouth libraries side by side.
-</string>
+		<key>Clue16</key>
+		<string>When you reach a fire pit, the trails splits here,
+So keep to the LEFT for your treasure so dear.
+Continue along, seeking orange tree paint,
+If the water is still to your right, then you are a saint.</string>
+		<key>Clue20</key>
+		<string>Sign in, collect the stamp, and place it carefully back
+For other clever Questers who are on the right track.
+To get back to your boat, get back on the trail,
+And keep following the blazes &apos;round-you won&apos;t fail.</string>
+		<key>Clue11</key>
+		<string>The water upstream was raised 15 feet,
+Submerging three islands whole-what a feat!
+Chase, Occum, and Johnny Johnson were their names,
+Now these islands exist only in fame.</string>
 		<key>Duration</key>
-		<string>45</string>
-		<key>Clue2</key>
-		<string>From where you park go to the green.
-Meet in the middle where a clock is seen.
-Then turn to the east.  Walk to a building tall
-It is on a corner and its name is Reed Hall.
-</string>
-		<key>Clue9</key>
-		<string>To this place, the Howe Library, 
-that we enjoy a whole lot!
-Go down the stairs and around the back, 
-looking for the bicycle rack.
-Then find the back door.  A large push button you&apos;ll see.  
-Open the hinge and you will squeal with glee! 
-</string>
-		<key>Title</key>
-		<string>Libraries of Hanover</string>
-		<key>Clue7</key>
-		<string>The inside wall has a plaque, giving some insight you might lack.
-While a flower shop now, it used to be a library HOWE!
-Now back to the corner, and stroll south to where awnings abound
-Dartmouth, Ledyard, Wheelock are names to be found.
-Stop at the ivy-covered building in the middle
-Then go to the second light to soon solve this riddle.
-</string>
+		<string>30</string>
+		<key>Walking Conditions</key>
+		<string>Trail</string>
 		<key>Difficulty</key>
-		<string>Moderate</string>
-		<key>Clue5</key>
-		<string>One of columns to view with pride 
-The other one with a weather-vane tower
-That chimes for you at every hour.
-Proceed west.  Four brick buildings you will see.
-Then walk south: at the corner an eatery.
-</string>
+		<string>Easy</string>
+		<key>Clue7</key>
+		<string>Now climb from your vessel and head into the woods,
+You&apos;ll want to head RIGHT for your treasure box goods.
+Now look to the trees where you&apos;ll see orange marks,
+On or replacing what once was their bark.</string>
+		<key>Description</key>
+		<string>Walking through space to mars, you will see stars and martians. There is no comparing the greenness of the aliens, and their work on mars creates an awesome place to explore. Have fun going back in time and changing the past, or seeing the ultimite end of human life from a distance. It&apos;s all fun and games when it comes to the this marian trip. This is a fake description</string>
+		<key>Clue2</key>
+		<string>Head from the docks and the house for canoes,
+Paddle toward the bridge upon this water so blue.
+This river and valley are older than you know,
+Formed by a glacial lake oh so many years ago.</string>
+		<key>Clue18</key>
+		<string>Sit at the table with your back to the fire,
+Look straight ahead-a dead birch you desire.
+The water should be to your right and behind, 
+Now 25 paces &apos;til the dead birch you find.</string>
+		<key>Clue13</key>
+		<string>Since Ledyard Canoe Club had cabins no longer,
+This one you see here was built to be stronger
+(and higher above that dam&apos;s water line
+that swallowed up those others so fine).</string>
+		<key>Bring</key>
+		<string>Binoculars</string>
+		<key>Clue1</key>
+		<string>To Get There:  This Quest begins at the Ledyard Canoe Club (LCC).  LCC is located at the north end of the parking lot on the east (Hanover) side of the Ledyard Bridge.  Please note: You will need a canoe or kayak to complete this Quest!  They can be rented at the LCC.</string>
+		<key>Clue6</key>
+		<string>At this point in your paddle, you have come to a beach
+Where a &quot;Canoe Rest AreaóNew England Power&quot; sign is in reach.
+&quot;Park&quot; your canoe on the sand, and tie it up tight,
+Or you will be swimming back home tonight.</string>
+		<key>Clue15</key>
+		<string>Along the isle&apos;s ridge, like an explorer you walk,
+Keep marching along, keep an eye on the clock.
+This may take a while, be patient my friend,
+And remember to enjoy this Quest &apos;til the end.</string>
+		<key>Clue10</key>
+		<string>This lovely log cabin was built in &apos;52,
+But WHY? Give a listen and I&apos;ll tell you...
+The Wilder Dam is found just downstream,
+When it was built it caused quite a scene.</string>
 	</dict>
 	<key>Quest112</key>
 	<dict>
 		<key>Special Features</key>
 		<string>Historical</string>
+		<key>Description</key>
+		<string></string>
+		<key>Walking Conditions</key>
+		<string>Pavement</string>
 		<key>Clue3</key>
 		<string>From Garipay House follow Route 14 south.
 Don&apos;t you feel &quot;welcomed?&quot;
 Two red brick buildings sit side by side.
 A little law office, and in &quot;1828&quot;
 Governor Pingree resided.</string>
-		<key>Walking Conditions</key>
-		<string>Pavement</string>
-		<key>Description</key>
-		<string></string>
 		<key>Clue1</key>
 		<string>To get there: Take Exit 12 off of I-91 and then travel east to Route 5.  Turn right and take Route 5 south to the bottom of the hill.  Then turn right (west) onto Route 14.  Travel approx. 1 mile to get to Hartford Village.  The Quest begins at the Hartford Historical Society, 1461 Maple Street.</string>
 		<key>Clue8</key>
@@ -871,11 +910,8 @@ Until it was set and their backs were in knots.</string>
 	</dict>
 	<key>Quest97</key>
 	<dict>
-		<key>Clue12</key>
-		<string>The sign at the top of the hill has a digit that stands
-Fir the same number of fingers you have on one hand.
-The downed white birch marks the last hilltop tale.
-Look closer! It&apos;s covered with lots of turkey tails.</string>
+		<key>Difficulty</key>
+		<string>Easy</string>
 		<key>Clue25</key>
 		<string>Backtrack to the large flat rock; a perfect place to rest and roost
 Scan the woods to your left, until you see a web of roots.
@@ -1031,8 +1067,11 @@ Right next to two trees that might be home to some bees.</string>
 You&apos;ve almost found the Quest box!
 When you reach the root-statue explore all the nooks
 Then follow the trunk-it points to where you should look.</string>
-		<key>Difficulty</key>
-		<string>Easy</string>
+		<key>Clue12</key>
+		<string>The sign at the top of the hill has a digit that stands
+Fir the same number of fingers you have on one hand.
+The downed white birch marks the last hilltop tale.
+Look closer! It&apos;s covered with lots of turkey tails.</string>
 	</dict>
 	<key>Quest14</key>
 	<dict>
@@ -1117,15 +1156,15 @@ Sorry no diner, this place is finer.
 	<dict>
 		<key>Special Features</key>
 		<string>Natural</string>
-		<key>Description</key>
-		<string>Walking through space to mars, you will see stars and martians. There is no comparing the greenness of the aliens, and their work on mars creates an awesome place to explore. Have fun going back in time and changing the past, or seeing the ultimite end of human life from a distance. It&apos;s all fun and games when it comes to the this marian trip. This is a fake description</string>
-		<key>Walking Conditions</key>
-		<string>Trail</string>
 		<key>Clue3</key>
 		<string>A lot of our streets
 were named after the people.
 Near it was a church
 built with a white steeple.</string>
+		<key>Walking Conditions</key>
+		<string>Trail</string>
+		<key>Description</key>
+		<string>Walking through space to mars, you will see stars and martians. There is no comparing the greenness of the aliens, and their work on mars creates an awesome place to explore. Have fun going back in time and changing the past, or seeing the ultimite end of human life from a distance. It&apos;s all fun and games when it comes to the this marian trip. This is a fake description</string>
 		<key>Clue1</key>
 		<string>To get there: Take Exit 13 off I-89 and follow Route 10 south through Grantham until you reach Croydon village.  Continue south on 10 to the fire station. Turn right onto Loverin Hill Rd.  Go to the end of Loverin Hill Rd. The cemetery is past the pond on the right.</string>
 		<key>Clue8</key>
@@ -1307,15 +1346,15 @@ All of those wild things come to drink here. </string>
 	<dict>
 		<key>Special Features</key>
 		<string>Historical</string>
+		<key>Description</key>
+		<string></string>
+		<key>Walking Conditions</key>
+		<string>Pavement</string>
 		<key>Clue3</key>
 		<string>Follow this path to the trail on the right.
 Just be careful, and please don&apos;t fight.
 Up the hill, follow blazes of white and blue
 But be sure not to miss the arrows too.</string>
-		<key>Walking Conditions</key>
-		<string>Pavement</string>
-		<key>Description</key>
-		<string></string>
 		<key>Clue1</key>
 		<string>To get there: From Hanover, take Rte. 10 north. Turn right on Reservoir Rd.  Go about 1/2 mile and park in the parking lot for the Ray School on the left.</string>
 		<key>Season</key>
@@ -1426,15 +1465,15 @@ Moving those big stones was not a ball!</string>
 	<dict>
 		<key>Special Features</key>
 		<string>Natural</string>
-		<key>Description</key>
-		<string>Walking through space to mars, you will see stars and martians. There is no comparing the greenness of the aliens, and their work on mars creates an awesome place to explore. Have fun going back in time and changing the past, or seeing the ultimite end of human life from a distance. It&apos;s all fun and games when it comes to the this marian trip. This is a fake description</string>
-		<key>Walking Conditions</key>
-		<string>Trail</string>
 		<key>Clue3</key>
 		<string>Behind the gas station, you may park.
 Head east by foot, and look for the mark.
 On the far side of the field, look to the right.
 Where the forest starts are blazes of white.</string>
+		<key>Walking Conditions</key>
+		<string>Trail</string>
+		<key>Description</key>
+		<string>Walking through space to mars, you will see stars and martians. There is no comparing the greenness of the aliens, and their work on mars creates an awesome place to explore. Have fun going back in time and changing the past, or seeing the ultimite end of human life from a distance. It&apos;s all fun and games when it comes to the this marian trip. This is a fake description</string>
 		<key>Clue1</key>
 		<string>From Exit 13 off I-91 travel east across the Connecticut River into Hanover.  Continue straight through the traffic lights to the second set of lights. Turn right onto South Park Street/Rte. 120 and continue to the first major intersection. At the intersection, turn left into the parking lot for the Co-op Service Center. </string>
 		<key>Clue8</key>
@@ -1720,16 +1759,15 @@ Soon you see smokestacks of Colony Mill.</string>
 	<dict>
 		<key>Special Features</key>
 		<string>Natural</string>
+		<key>Description</key>
+		<string>Walking through space to mars, you will see stars and martians. There is no comparing the greenness of the aliens, and their work on mars creates an awesome place to explore. Have fun going back in time and changing the past, or seeing the ultimite end of human life from a distance. It&apos;s all fun and games when it comes to the this marian trip. This is a fake description</string>
+		<key>Walking Conditions</key>
+		<string>Trail</string>
 		<key>Clue3</key>
 		<string>Park by the green dumpster
 And walk 15 paces.
 Now turn to the right,
-Our playground your body faces.
-</string>
-		<key>Walking Conditions</key>
-		<string>Trail</string>
-		<key>Description</key>
-		<string>Walking through space to mars, you will see stars and martians. There is no comparing the greenness of the aliens, and their work on mars creates an awesome place to explore. Have fun going back in time and changing the past, or seeing the ultimite end of human life from a distance. It&apos;s all fun and games when it comes to the this marian trip. This is a fake description</string>
+Our playground your body faces.</string>
 		<key>Clue1</key>
 		<string>To get there: Take Exit 13 off I-89 and follow Route 10 south through Grantham until you reach Croydon village.  The schoolhouse is surrounded by a white picket fence, and on your right.</string>
 		<key>Clue8</key>
@@ -1880,14 +1918,14 @@ Make hockey sticks or a baseball bat.</string>
 	<dict>
 		<key>Special Features</key>
 		<string>Natural</string>
-		<key>Description</key>
-		<string>Walking through space to mars, you will see stars and martians. There is no comparing the greenness of the aliens, and their work on mars creates an awesome place to explore. Have fun going back in time and changing the past, or seeing the ultimite end of human life from a distance. It&apos;s all fun and games when it comes to the this marian trip. This is a fake description</string>
-		<key>Walking Conditions</key>
-		<string>Trail</string>
 		<key>Clue3</key>
 		<string>Between the Grange Hall and the Congregational Church
 Sits a small house with a six post porch.
 From 1812-1817 this was the Noyes &amp; Hayes store.Do you know what Mr. Hayes&apos; son was famous for?</string>
+		<key>Walking Conditions</key>
+		<string>Trail</string>
+		<key>Description</key>
+		<string>Walking through space to mars, you will see stars and martians. There is no comparing the greenness of the aliens, and their work on mars creates an awesome place to explore. Have fun going back in time and changing the past, or seeing the ultimite end of human life from a distance. It&apos;s all fun and games when it comes to the this marian trip. This is a fake description</string>
 		<key>Clue1</key>
 		<string>To get there: Take I-91 to Exit 4.  Drive south on Route 5 to Schoolhouse Road. Turn west (right) onto Schoolhouse and travel 2 miles to Dummerston Center (a 4-way stop).  Turn left and park in the Dummerston Town Office parking lot.</string>
 		<key>Clue8</key>
@@ -1956,8 +1994,7 @@ Where did they go?</string>
 	<dict>
 		<key>Clue5</key>
 		<string>To get there pass the columns four
-And you&apos;ll find yourself at the chapel next door.
-</string>
+And you&apos;ll find yourself at the chapel next door.</string>
 		<key>Title</key>
 		<string>Amphitheater Quest</string>
 		<key>Clue12</key>
@@ -1968,7 +2005,7 @@ And within the deep darkness your treasure can be found.</string>
 You&apos;ll be heading in the direction of the place with a &quot;B.&quot;</string>
 		<key>Clue9</key>
 		<string>Foot travelers know they are headed the right way
-As they pass a crooked ìarmî reaching up and away.</string>
+As they pass a crooked arm reaching up and away.</string>
 		<key>Special Features</key>
 		<string>Natural</string>
 		<key>Clue3</key>
@@ -1998,6 +2035,8 @@ Where a lot of students can be seen.</string>
 		<key>Clue7</key>
 		<string>The stone walk you&apos;re on will lead you right by
 Four tall white houses sitting on your right side.</string>
+		<key>GPS</key>
+		<string>43.7022451,-72.28955259999998</string>
 		<key>Clue1</key>
 		<string>To get there: This Quest starts in the middle of the Dartmouth College green.  Take 91 to exit 13, travel east across the Connecticut River, and up the hill on West Wheelock.  The green is at the top of the hill on your left.</string>
 		<key>Clue6</key>
@@ -2055,19 +2094,17 @@ A birdsong, leaves crackle, a glimpse of a deer.
 A nice place to picnic would be right here.</string>
 		<key>Duration</key>
 		<string>30</string>
-		<key>Walking Conditions</key>
-		<string>Trail</string>
 		<key>Clue2</key>
 		<string>Proceed up School Street to the G. H. Stowell Free Library, a large, red brick building on your right.  After .2 miles bear left onto Leavitt Hill Road.  Continue up the road, bearing right, for another .4 mile until you come to a fork and see the sign for West Pass Road on your right.</string>
 		<key>Difficulty</key>
 		<string>Easy</string>
-		<key>Description</key>
-		<string>Walking through space to mars, you will see stars and martians. There is no comparing the greenness of the aliens, and their work on mars creates an awesome place to explore. Have fun going back in time and changing the past, or seeing the ultimite end of human life from a distance. It&apos;s all fun and games when it comes to the this marian trip. This is a fake description</string>
 		<key>Clue7</key>
 		<string>Walk past logs, long been felled
 Their neighbors know the secrets held.
 Head down the hill to the mill,
 All that is left, stones standing still.</string>
+		<key>Description</key>
+		<string>Walking through space to mars, you will see stars and martians. There is no comparing the greenness of the aliens, and their work on mars creates an awesome place to explore. Have fun going back in time and changing the past, or seeing the ultimite end of human life from a distance. It&apos;s all fun and games when it comes to the this marian trip. This is a fake description</string>
 		<key>Clue13</key>
 		<string>Climb up the step in the mill, from there, five steps more.
 Watch out! Don&apos;t fall! Find the hole in the wall.
@@ -2093,15 +2130,15 @@ A semi circle of stones awaits by the shore.</string>
 	<dict>
 		<key>Special Features</key>
 		<string>Natural</string>
+		<key>Description</key>
+		<string>Walking through space to mars, you will see stars and martians. There is no comparing the greenness of the aliens, and their work on mars creates an awesome place to explore. Have fun going back in time and changing the past, or seeing the ultimite end of human life from a distance. It&apos;s all fun and games when it comes to the this marian trip. This is a fake description</string>
+		<key>Walking Conditions</key>
+		<string>Trail</string>
 		<key>Clue3</key>
 		<string>Cross the road &amp; look for the sign.
 There are the colored blazes you must find.
 Start here for adventure &amp; soon you will see
 A great, big, old &quot;W&quot; tree.</string>
-		<key>Walking Conditions</key>
-		<string>Trail</string>
-		<key>Description</key>
-		<string>Walking through space to mars, you will see stars and martians. There is no comparing the greenness of the aliens, and their work on mars creates an awesome place to explore. Have fun going back in time and changing the past, or seeing the ultimite end of human life from a distance. It&apos;s all fun and games when it comes to the this marian trip. This is a fake description</string>
 		<key>Clue1</key>
 		<string>To get there: From Hanover, take East Wheelock Street over the hill and down to Etna, about four and a half miles.  Where the road ends, turn left, onto Etna Road.  Continue half a mile, past the Etna General Store, to Ruddsboro Road, and turn right.</string>
 		<key>Clue8</key>
@@ -2149,6 +2186,10 @@ From his sleep!</string>
 	<dict>
 		<key>Special Features</key>
 		<string>Natural</string>
+		<key>Description</key>
+		<string>Walking through space to mars, you will see stars and martians. There is no comparing the greenness of the aliens, and their work on mars creates an awesome place to explore. Have fun going back in time and changing the past, or seeing the ultimite end of human life from a distance. It&apos;s all fun and games when it comes to the this marian trip. This is a fake description</string>
+		<key>Walking Conditions</key>
+		<string>Trail</string>
 		<key>Clue3</key>
 		<string>Look to your right,
 A flat stone&apos;s in sight.
@@ -2158,10 +2199,6 @@ You should be in the place
 Where Jonathan Chase
 lies underground
 Six feet down.</string>
-		<key>Walking Conditions</key>
-		<string>Trail</string>
-		<key>Description</key>
-		<string>Walking through space to mars, you will see stars and martians. There is no comparing the greenness of the aliens, and their work on mars creates an awesome place to explore. Have fun going back in time and changing the past, or seeing the ultimite end of human life from a distance. It&apos;s all fun and games when it comes to the this marian trip. This is a fake description</string>
 		<key>Clue1</key>
 		<string>To get there: From the New Hampshire side of the Cornish Windsor Covered Bridge, travel south on 12A past Town House Road.  Stay south on 12A.  The church is on the left as you climb up the hill, approximately 1/4 mile south of the bridge.</string>
 		<key>Season</key>
@@ -2352,10 +2389,10 @@ Was called &quot;Tracy&apos;s&quot; &amp; sold things people used in their lives
 Now, Chelsea folks go here to wash clothes of many different hues.
 
 To wash clothes they walk up the</string>
-		<key>Location</key>
-		<string>Chelsea, VT</string>
 		<key>Season</key>
 		<string>May-Oct </string>
+		<key>Location</key>
+		<string>Chelsea, VT</string>
 		<key>Clue16</key>
 		<string>I need some… And your Quest is done for the day!</string>
 		<key>Clue11</key>
@@ -2458,10 +2495,10 @@ Cross the road to the right
 Take in a beautiful sight.
 Turn to your left and 
 Go eight more posts.</string>
-		<key>Location</key>
-		<string>Fairlee, VT</string>
 		<key>Season</key>
 		<string>May-Oct </string>
+		<key>Location</key>
+		<string>Fairlee, VT</string>
 		<key>Clue11</key>
 		<string>If you look carefully, you might find a snail.
 In an old sap bucket your prize will be hidden
@@ -2621,6 +2658,10 @@ And ornaments the lawn does fill.
 	<dict>
 		<key>Special Features</key>
 		<string>Natural</string>
+		<key>Description</key>
+		<string>Walking through space to mars, you will see stars and martians. There is no comparing the greenness of the aliens, and their work on mars creates an awesome place to explore. Have fun going back in time and changing the past, or seeing the ultimite end of human life from a distance. It&apos;s all fun and games when it comes to the this marian trip. This is a fake description</string>
+		<key>Walking Conditions</key>
+		<string>Trail</string>
 		<key>Clue3</key>
 		<string>Look out at our pond
 Of which we are fond.
@@ -2628,10 +2669,6 @@ Cattails and lilies swing and sway.
 Blackbirds and fishies like to play.
 
 Now walk south 180 steps to the blue railing.</string>
-		<key>Walking Conditions</key>
-		<string>Trail</string>
-		<key>Description</key>
-		<string>Walking through space to mars, you will see stars and martians. There is no comparing the greenness of the aliens, and their work on mars creates an awesome place to explore. Have fun going back in time and changing the past, or seeing the ultimite end of human life from a distance. It&apos;s all fun and games when it comes to the this marian trip. This is a fake description</string>
 		<key>Clue1</key>
 		<string>To get there: Drive about 10 miles south of Lebanon on Rte. 12A and park at the pull off on the east (left) side of the road at the Mill, approximately 1/4 mile north of St. Gaudens Rd.</string>
 		<key>Clue8</key>
@@ -2649,6 +2686,8 @@ The water rushed on in.
 The mill wheel it did spin.</string>
 		<key>Location</key>
 		<string>Cornish, NH</string>
+		<key>Bring</key>
+		<string>Binoculars</string>
 		<key>Clue4</key>
 		<string>You&apos;re at something blue,
 That doesn&apos;t stick like glue.
@@ -2656,8 +2695,6 @@ So don&apos;t lean over the bar
 Or you&apos;ll be too far
 Over the dam,
 On the rocks you will slam.</string>
-		<key>Bring</key>
-		<string>Binoculars</string>
 		<key>Duration</key>
 		<string>30</string>
 		<key>Clue2</key>
@@ -2829,10 +2866,10 @@ Look for a Ranger&apos;s house and get ready to arrange yourselves.</string>
 		<string>Take a left, walk down the stairs and under the bridge,
 150 feet past the red diamond, go over the MOSSY ROOT RIDGE.
 Take 11 steps and turn left to go over a log bridge.</string>
-		<key>Location</key>
-		<string>Quechee, VT</string>
 		<key>Season</key>
 		<string>May-Oct </string>
+		<key>Location</key>
+		<string>Quechee, VT</string>
 		<key>Clue11</key>
 		<string>With the tree on your right, walk across the clear land,
 Marching straight ahead, in 20 steps you will land.
@@ -3030,20 +3067,20 @@ To warm the forest&apos;s bed.</string>
 Over a chain, past a fence, and on the road.
 You&apos;ll find White Pines tower over this land,
 Over some grass which has never been mowed.</string>
+		<key>Season</key>
+		<string>May-Oct </string>
 		<key>Location</key>
 		<string>Quechee, VT</string>
-		<key>Clue20</key>
-		<string>Soon the path up the hill fades,
-At the half-cut-down tree another path will become clear.
-Over the valley to the left it wades,
-You can almost smell the treasure it&apos;s so near!</string>
 		<key>Clue16</key>
 		<string>If you look further on,
 Up ahead you will see,
 A stream bed where the water sometimes is gone...
 Though in the spring this stream flows freely.</string>
-		<key>Season</key>
-		<string>May-Oct </string>
+		<key>Clue20</key>
+		<string>Soon the path up the hill fades,
+At the half-cut-down tree another path will become clear.
+Over the valley to the left it wades,
+You can almost smell the treasure it&apos;s so near!</string>
 		<key>Clue11</key>
 		<string>On the left a little further up the way,
 A wood chip path you will cross.
@@ -3220,10 +3257,6 @@ The Depot was Fairlee&apos;s town center then.</string>
 	<dict>
 		<key>Special Features</key>
 		<string>Natural</string>
-		<key>Description</key>
-		<string>Walking through space to mars, you will see stars and martians. There is no comparing the greenness of the aliens, and their work on mars creates an awesome place to explore. Have fun going back in time and changing the past, or seeing the ultimite end of human life from a distance. It&apos;s all fun and games when it comes to the this marian trip. This is a fake description</string>
-		<key>Walking Conditions</key>
-		<string>Trail</string>
 		<key>Clue3</key>
 		<string>Go to the bank
 and don&apos;t get spanked.
@@ -3231,12 +3264,18 @@ and don&apos;t get spanked.
 Go to the upper edge 
 of Flat Rock.
 Don&apos;t slip and take a dip.</string>
+		<key>Walking Conditions</key>
+		<string>Trail</string>
+		<key>Description</key>
+		<string>Walking through space to mars, you will see stars and martians. There is no comparing the greenness of the aliens, and their work on mars creates an awesome place to explore. Have fun going back in time and changing the past, or seeing the ultimite end of human life from a distance. It&apos;s all fun and games when it comes to the this marian trip. This is a fake description</string>
 		<key>Clue1</key>
 		<string>To get there: From Rte. 10, take 25A for about 4 miles to Quintown Road. Take a right onto Quintown Road and go almost exactly one mile.  Parking is on the left.  The road widens out just a bit to allow for parking.</string>
 		<key>Season</key>
 		<string>May-Oct </string>
 		<key>Location</key>
 		<string>Orford, NH</string>
+		<key>Bring</key>
+		<string>Binoculars</string>
 		<key>Clue4</key>
 		<string>Go to the culvert and
 try not to take a slide ride.
@@ -3246,8 +3285,6 @@ of Flat Rock, Doc.
 
 Go to the steps
 but don&apos;t get wet.</string>
-		<key>Bring</key>
-		<string>Binoculars</string>
 		<key>Duration</key>
 		<string>30</string>
 		<key>Clue2</key>
@@ -3319,10 +3356,10 @@ There you can find the water that will please.</string>
 With sumac adjacent and vines to the right.
 Through the tree line the field fades away,
 With an image of trees hugging lays at bay.</string>
-		<key>Location</key>
-		<string>Charlestown, NH</string>
 		<key>Season</key>
 		<string>May-Oct </string>
+		<key>Location</key>
+		<string>Charlestown, NH</string>
 		<key>Clue11</key>
 		<string>You&apos;re almost there, patient you must be.
 For the treasure is close, almost close enough to see.
@@ -3418,20 +3455,20 @@ With phone numbers on it. </string>
 When you get to the split rail fence on your right, 
 Take a right onto the path.
 (Make sure you follow rail fence near the rock wall)</string>
+		<key>Season</key>
+		<string>May-Oct </string>
 		<key>Location</key>
 		<string>Grafton, VT</string>
+		<key>Clue16</key>
+		<string>Passing by 1999 go to the place where you can read
+Have a seat and try to succeed
+Then on and not up to another room.</string>
 		<key>Clue20</key>
 		<string>At last you have made it to the end 
 Of the quest. Hope you had fun and
 Reaped a lot of good.
 Check out the entrance to this natural shelter in front of you.
 What shape and letter do you see?</string>
-		<key>Clue16</key>
-		<string>Passing by 1999 go to the place where you can read
-Have a seat and try to succeed
-Then on and not up to another room.</string>
-		<key>Season</key>
-		<string>May-Oct </string>
 		<key>Clue11</key>
 		<string>There are only two church buildings in town.
 Both churches united in 1920 and 
@@ -3532,10 +3569,10 @@ The skylight above will light your way
 Even if it&apos;s a cloudy day.
 At the end of our section notice the mushroom shelves
 Maybe if you&apos;re quick you&apos;ll see some elves.</string>
-		<key>Location</key>
-		<string>Danville, VT</string>
 		<key>Season</key>
 		<string>May-Oct </string>
+		<key>Location</key>
+		<string>Danville, VT</string>
 		<key>Clue11</key>
 		<string>Nearing a fork
 Stay to the left
@@ -3598,128 +3635,89 @@ At the stump,
 Left,
 You&apos;ll be steering.</string>
 	</dict>
-	<key>Quest104</key>
+	<key>Quest20</key>
 	<dict>
-		<key>Clue21</key>
-		<string>See?  Now you&apos;ve come back to the flat place,
-Where canoes and potties you should face.
-Back in your vessel, or explore some more . . .
-We hope this island Quest wasn&apos;t a bore!</string>
-		<key>Clue5</key>
-		<string>You will also know that you are getting quite near
-If a free-standing potty of blue does appear.
-Around the bend now, keep to the right,
-&apos;Til a tiny island of birch is in sight.</string>
-		<key>Clue17</key>
-		<string>&apos;Round a bend, up a hill, keep walking to find
-A green-painted table of the picnicky kind.
-It should be sitting quite close to a circle of stone,
-You have now arrived in the Quest box zone!</string>
-		<key>Title</key>
-		<string>Gilman Island Quest</string>
-		<key>Clue12</key>
-		<string>Now Ledyard had cabins on these islands three,
-But when the water got high they could no longer be.
-So the club rented land from New England Power
-On this island, called &quot;Gilman,&quot; that used to be &quot;Nicker.&quot;</string>
-		<key>Clue4</key>
-		<string>At the tip of this isle, take a left toward the tree
-That hangs out o&apos;er the water for all to come see.
-Up ahead, to your right, a spot you should spy,
-Where the land is as flat as a big pizza pie.</string>
-		<key>Clue9</key>
-		<string>If you follow the orange, you&apos;ll come to a cabin,
-Built in honor of a past Marine Corps captain.
-T&apos;was John Abbot Titcomb, class of 1932,
-Killed fighting bravely during World War II.</string>
-		<key>Clue19</key>
-		<string>The logs are all rotting, just lying around, 
-But look to the stump that still stands in the ground.
-At the stump&apos;s base, please carefully seek-
-Out from a birch &quot;sleeve&quot; the box should peek.</string>
-		<key>Clue14</key>
-		<string>Behind the cabin, there&apos;s a rock with a blaze,
-So carefully climb to the top to continue this maze.
-You&apos;ll observe that the trail has changed just a bit.
-The land is more rugged; make sure you don&apos;t trip!</string>
 		<key>Special Features</key>
-		<string>Natural</string>
+		<string>Architectural, Historical</string>
+		<key>Description</key>
+		<string>Explores the history of Hanover’s libraries – and mysterious moving buildings!</string>
+		<key>Walking Conditions</key>
+		<string>Pavement</string>
 		<key>Clue3</key>
-		<string>Past the bridge, you should keep going straight,
-To the right is an arch; many divers can relate.
-Further on to your left you should see a sewage place,
-So just row a bit more and this island you&apos;ll face.</string>
+		<string>Before Reed Hall was built
+Eleazar Wheelock was the one
+Who had the first library
+In his home it was run.
+A mystery in 1838! This very same home
+disappeared!  Oh WHERE did it roam?
+</string>
+		<key>Clue1</key>
+		<string>To get there: This Quest starts in the middle of the Dartmouth College green.  Take 91 to exit 13, travel east across the Connecticut River, and up the hill on West Wheelock.  The green is at the top of the hill on your left.</string>
 		<key>Clue8</key>
-		<string>Meander along-keep the shore on your right
-(A wander off-trail might cause a fright).
-The blazes are there, just keep following them &apos;round,
-But do be careful of rocks and stumps on the ground.</string>
+		<string>Turn left and go east straight on your way
+Past a new place to park don&apos;t be tempted to stay!
+Crossing beyond to Maloney&apos;s right there
+Then cross once again and stop!  We are WHERE?
+Yes, in 1975 it happened once again
+all of  those books were moved to a different spot!</string>
+		<key>Season</key>
+		<string>Year Round</string>
+		<key>Clue6</key>
+		<string>Cross West Wheelock.  Go right We&apos;re almost there
+And the mystery solved about the house that went WHERE?
+Keep going, keep looking, and follow your noses.
+Open your eyes wide-can you smell the roses?
+Go in (if it is open) four columns you&apos;ve seen before
+Two located on either side of the door.
+</string>
 		<key>Location</key>
 		<string>Hanover, NH</string>
-		<key>Clue20</key>
-		<string>Sign in, collect the stamp, and place it carefully back
-For other clever Questers who are on the right track.
-To get back to your boat, get back on the trail,
-And keep following the blazes &apos;round-you won&apos;t fail.</string>
-		<key>Clue16</key>
-		<string>When you reach a fire pit, the trails splits here,
-So keep to the LEFT for your treasure so dear.
-Continue along, seeking orange tree paint,
-If the water is still to your right, then you are a saint.</string>
-		<key>Season</key>
-		<string>May-Oct </string>
-		<key>Clue11</key>
-		<string>The water upstream was raised 15 feet,
-Submerging three islands whole-what a feat!
-Chase, Occum, and Johnny Johnson were their names,
-Now these islands exist only in fame.</string>
-		<key>Duration</key>
-		<string>30</string>
-		<key>Walking Conditions</key>
-		<string>Trail</string>
-		<key>Difficulty</key>
-		<string>Easy</string>
-		<key>Clue7</key>
-		<string>Now climb from your vessel and head into the woods,
-You&apos;ll want to head RIGHT for your treasure box goods.
-Now look to the trees where you&apos;ll see orange marks,
-On or replacing what once was their bark.</string>
-		<key>Description</key>
-		<string>Walking through space to mars, you will see stars and martians. There is no comparing the greenness of the aliens, and their work on mars creates an awesome place to explore. Have fun going back in time and changing the past, or seeing the ultimite end of human life from a distance. It&apos;s all fun and games when it comes to the this marian trip. This is a fake description</string>
-		<key>Clue2</key>
-		<string>Head from the docks and the house for canoes,
-Paddle toward the bridge upon this water so blue.
-This river and valley are older than you know,
-Formed by a glacial lake oh so many years ago.</string>
-		<key>Clue18</key>
-		<string>Sit at the table with your back to the fire,
-Look straight ahead-a dead birch you desire.
-The water should be to your right and behind, 
-Now 25 paces &apos;til the dead birch you find.</string>
-		<key>Clue13</key>
-		<string>Since Ledyard Canoe Club had cabins no longer,
-This one you see here was built to be stronger
-(and higher above that dam&apos;s water line
-that swallowed up those others so fine).</string>
 		<key>Bring</key>
-		<string>Binoculars</string>
-		<key>Clue1</key>
-		<string>To Get There:  This Quest begins at the Ledyard Canoe Club (LCC).  LCC is located at the north end of the parking lot on the east (Hanover) side of the Ledyard Bridge.  Please note: You will need a canoe or kayak to complete this Quest!  They can be rented at the LCC.</string>
-		<key>Clue6</key>
-		<string>At this point in your paddle, you have come to a beach
-Where a &quot;Canoe Rest AreaóNew England Power&quot; sign is in reach.
-&quot;Park&quot; your canoe on the sand, and tie it up tight,
-Or you will be swimming back home tonight.</string>
-		<key>Clue15</key>
-		<string>Along the isle&apos;s ridge, like an explorer you walk,
-Keep marching along, keep an eye on the clock.
-This may take a while, be patient my friend,
-And remember to enjoy this Quest &apos;til the end.</string>
-		<key>Clue10</key>
-		<string>This lovely log cabin was built in &apos;52,
-But WHY? Give a listen and I&apos;ll tell you...
-The Wilder Dam is found just downstream,
-When it was built it caused quite a scene.</string>
+		<string>Compass</string>
+		<key>Clue4</key>
+		<string>Our mystery will be solved later in the day,
+But first we go off in another way.
+Walk north to an architectural treasure
+Whose stones are too huge to measure.
+Be sure to count the arches all
+Before you turn to the four-columned hall.
+Two Dartmouth libraries side by side.
+</string>
+		<key>Duration</key>
+		<string>45</string>
+		<key>Clue2</key>
+		<string>From where you park go to the green.
+Meet in the middle where a clock is seen.
+Then turn to the east.  Walk to a building tall
+It is on a corner and its name is Reed Hall.
+</string>
+		<key>Clue9</key>
+		<string>To this place, the Howe Library, 
+that we enjoy a whole lot!
+Go down the stairs and around the back, 
+looking for the bicycle rack.
+Then find the back door.  A large push button you&apos;ll see.  
+Open the hinge and you will squeal with glee! 
+</string>
+		<key>Title</key>
+		<string>Libraries of Hanover</string>
+		<key>Clue7</key>
+		<string>The inside wall has a plaque, giving some insight you might lack.
+While a flower shop now, it used to be a library HOWE!
+Now back to the corner, and stroll south to where awnings abound
+Dartmouth, Ledyard, Wheelock are names to be found.
+Stop at the ivy-covered building in the middle
+Then go to the second light to soon solve this riddle.
+</string>
+		<key>Difficulty</key>
+		<string>Moderate</string>
+		<key>Clue5</key>
+		<string>One of columns to view with pride 
+The other one with a weather-vane tower
+That chimes for you at every hour.
+Proceed west.  Four brick buildings you will see.
+Then walk south: at the corner an eatery.
+</string>
 	</dict>
 </dict>
 </plist>
