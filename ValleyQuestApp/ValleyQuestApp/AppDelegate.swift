@@ -10,6 +10,7 @@ import UIKit
 import Foundation
 import CoreSpotlight
 import MobileCoreServices
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
