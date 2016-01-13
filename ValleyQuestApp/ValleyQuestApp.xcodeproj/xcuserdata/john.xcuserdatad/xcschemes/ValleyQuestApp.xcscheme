@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "52EA9F351BBB3B0D0063E082"
-               BuildableName = "Valley Quest App.app"
+               BuildableName = "ValleyQuestApp.app"
                BlueprintName = "ValleyQuestApp"
                ReferencedContainer = "container:ValleyQuestApp.xcodeproj">
             </BuildableReference>
@@ -53,7 +53,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "52EA9F351BBB3B0D0063E082"
-            BuildableName = "Valley Quest App.app"
+            BuildableName = "ValleyQuestApp.app"
             BlueprintName = "ValleyQuestApp"
             ReferencedContainer = "container:ValleyQuestApp.xcodeproj">
          </BuildableReference>
@@ -76,7 +76,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "52EA9F351BBB3B0D0063E082"
-            BuildableName = "Valley Quest App.app"
+            BuildableName = "ValleyQuestApp.app"
             BlueprintName = "ValleyQuestApp"
             ReferencedContainer = "container:ValleyQuestApp.xcodeproj">
          </BuildableReference>
@@ -95,7 +95,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "52EA9F351BBB3B0D0063E082"
-            BuildableName = "Valley Quest App.app"
+            BuildableName = "ValleyQuestApp.app"
             BlueprintName = "ValleyQuestApp"
             ReferencedContainer = "container:ValleyQuestApp.xcodeproj">
          </BuildableReference>
