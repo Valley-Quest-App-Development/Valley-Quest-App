@@ -23,6 +23,22 @@ class MainViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        let object: PFObject = PFObject(className: "Messages")
+        object.setValue("John", forKey: "user_1")
+        object.setValue("Shuoqi", forKey: "user_2")
+        object.setValue("All, ready!", forKey: "Message")
+        object.saveInBackground()
+        
+        let query: PFQuery = PFQuery(className: "Quests")
+        query.findObjectsInBackgroundWithBlock { (results: [PFObject]?, error: NSError?) -> Void in
+            
+            if let checkedResults = results {
+                for result: PFObject in checkedResults {
+                    print(result["Name"])
+                }
+            }
+        }
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {

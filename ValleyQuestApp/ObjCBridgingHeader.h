@@ -8,6 +8,6 @@
 
 #ifndef ObjCBridgingHeader_h
 #define ObjCBridgingHeader_h
-//#import "Parse.h"
+#import "Parse/Parse.h"
 
 #endif /* ObjCBridgingHeader_h */
