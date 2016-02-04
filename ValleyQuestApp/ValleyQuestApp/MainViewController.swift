@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class MainViewController: UITableViewController {
+class MainViewController: UITableViewController, UIViewControllerPreviewingDelegate {
     var quests: Array<Quest> = [];
     
     override func viewWillAppear(animated: Bool) {
@@ -23,6 +23,12 @@ class MainViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        if( traitCollection.forceTouchCapability == .Available){
+            
+            registerForPreviewingWithDelegate(self, sourceView: view)
+            
+        }
         
         let query: PFQuery = PFQuery(className: "Quests")
         query.findObjectsInBackgroundWithBlock { (results: [PFObject]?, error: NSError?) -> Void in
@@ -38,6 +44,25 @@ class MainViewController: UITableViewController {
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         // Tells the cell how tall to be
         return 70
+    }
+    
+    func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
+        showViewController(viewControllerToCommit, sender: nil)
+    }
+    
+    func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        guard let indexPath = self.tableView.indexPathForRowAtPoint(location) else {return nil}
+        
+        guard let cell = self.tableView.cellForRowAtIndexPath(indexPath) else {return nil}
+        
+        guard let detailView = storyboard?.instantiateViewControllerWithIdentifier("QuestDetailViewController") as? QuestDetailViewController else {return nil}
+        
+        let quest = quests[indexPath.row]
+        detailView.setQuestObject(quest)
+        
+        detailView.preferredContentSize = CGSize(width: 0.0, height: 500)
+        previewingContext.sourceRect = cell.frame
+        return detailView
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -53,6 +53,18 @@ class QuestDetailViewController: UIViewController {
         descriptionLabel.setContentOffset(CGPoint.zero, animated: false)
     }
     
+    override func previewActionItems() -> [UIPreviewActionItem] {
+        let saveQuest = UIPreviewAction(title: "Save", style: UIPreviewActionStyle.Default) { (action, viewController) -> Void in
+            print("Need to save a quest!")
+        }
+        
+        let share = UIPreviewAction(title: "Share", style: UIPreviewActionStyle.Default) { (action, viewController) -> Void in
+            print("Need to share a quest!")
+        }
+        
+        return [saveQuest, share]
+    }
+    
     @IBAction func share(sender: AnyObject) {
         
     }
