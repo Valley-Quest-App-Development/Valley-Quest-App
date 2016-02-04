@@ -33,10 +33,19 @@ class QuestDetailViewController: UIViewController {
                 
                 centerOnLocation(quest.getGPS()!)
             }
+            
+            // If the clues are empty, don't show the clues button
+            if quest.clues.count == 0 {
+                cluesButton.hidden = true
+            }
+            
+            // Set the text for the duration and such
             durationAndDifficulty.text = "Duration: " + quest.duration + " Difficulty: " + quest.difficulty
             if quest.description == "" {
+                // Missing description!!
                 descriptionLabel.text = "There is no description listed for this quest"
             }else{
+                // Set description
                 descriptionLabel.text = quest.description
             }
             self.title = quest.title
