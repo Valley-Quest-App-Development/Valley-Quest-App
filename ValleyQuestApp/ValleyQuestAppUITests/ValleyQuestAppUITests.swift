@@ -9,7 +9,9 @@
 import XCTest
 
 class ValleyQuestAppUITests: XCTestCase {
-        
+    
+    let app = XCUIApplication()
+    
     override func setUp() {
         super.setUp()
         
@@ -28,9 +30,21 @@ class ValleyQuestAppUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testBasicUI() {
+        XCTAssert(app.staticTexts["Quests"].exists)
+    }
+    
+    func testQuests() {
+        let qname = "Amphitheater Quest"
+        XCTAssert(app.staticTexts[qname].exists)
+        app.staticTexts[qname].tap()
+        XCTAssert(app.staticTexts[qname].exists)
+        XCTAssert(app.buttons["More Info"].exists)
+        XCTAssert(app.buttons["Clues"].exists)
+        XCTAssert(app.buttons["Start Quest"].exists)
+        
+        app.buttons["Clues"].tap()
+        XCTAssert(app.staticTexts["Clues - \(qname)"].exists)
     }
     
 }
