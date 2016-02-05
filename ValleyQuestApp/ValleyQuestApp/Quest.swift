@@ -125,7 +125,7 @@ class Quest {
                 run = false
             }
             // Increment
-            i++
+            i += 1
         }
     }
     
@@ -184,9 +184,9 @@ class Quest {
         while (positon < end) {
             if (compareValue.title > array[positon].title) {
                 swap(&array, a: positon, b: under)
-                under++
+                under += 1
             }
-            positon++
+            positon += 1
         }
         
         swap(&array, a: end, b: under)
