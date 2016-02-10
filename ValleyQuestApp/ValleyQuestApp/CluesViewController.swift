@@ -13,10 +13,10 @@ class CluesViewController: UITableViewController {
     var object: Quest? = nil
     
     override func viewWillAppear(animated: Bool) {
-        self.title = "Clues - " + object!.title
+        self.title = "Clues - " + object!.Name
     }
     
-    func setObject(object: Quest) {
+    func set(object: Quest) {
         self.object = object
     }
     
@@ -25,7 +25,7 @@ class CluesViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let clues = object?.clues {
+        if let clues = object?.Clues {
             return clues.count
         }
         return 0;
@@ -40,7 +40,7 @@ class CluesViewController: UITableViewController {
         }
         
         if let clueCell = cell {
-            clueCell.setInfo(object?.clues[indexPath.row])
+            clueCell.setInfo(object?.Clues[indexPath.row])
             return clueCell
         }
         return cell!

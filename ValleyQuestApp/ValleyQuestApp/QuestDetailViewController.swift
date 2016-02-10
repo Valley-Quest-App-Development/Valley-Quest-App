@@ -27,20 +27,20 @@ class QuestDetailViewController: UIViewController {
             if (quest.hasGPS()) {
                 // Drop a pin
                 let dropPin = MKPointAnnotation()
-                dropPin.coordinate = quest.getGPS()!.coordinate
-                dropPin.title = "Start of " + quest.title
+                dropPin.coordinate = CLLocationCoordinate2D(latitude: quest.GPS!.latitude, longitude: quest.GPS!.longitude)
+                dropPin.title = "Start of " + quest.Name
                 mapView.addAnnotation(dropPin)
                 
-                centerOnLocation(quest.getGPS()!)
+                centerOnLocation(CLLocation(latitude: quest.GPS!.latitude, longitude: quest.GPS!.longitude))
             }
             
             // If the clues are empty, don't show the clues button
-            if quest.clues.count == 0 {
+            if quest.Clues != nil || quest.Clues!.count == 0 {
                 cluesButton.hidden = true
             }
             
             // Set the text for the duration and such
-            durationAndDifficulty.text = "Duration: " + quest.duration + " Difficulty: " + quest.difficulty
+            durationAndDifficulty.text = "Difficulty: " + quest.Difficulty
             if quest.description == "" {
                 // Missing description!!
                 descriptionLabel.text = "There is no description listed for this quest"
@@ -48,7 +48,7 @@ class QuestDetailViewController: UIViewController {
                 // Set description
                 descriptionLabel.text = quest.description
             }
-            self.title = quest.title
+            self.title = quest.Name
         }
         descriptionLabel.setContentOffset(CGPoint.zero, animated: false)
     }
@@ -79,7 +79,7 @@ class QuestDetailViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let viewController = segue.destinationViewController as? CluesViewController {
-            viewController.setObject(object!)
+            viewController.set(object!)
         }
     }
     

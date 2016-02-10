@@ -10,19 +10,14 @@ import UIKit
 import Parse
 
 class MainViewController: UITableViewController, UIViewControllerPreviewingDelegate {
-    var quests: Array<Quest> = [];
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    override func viewWillAppear(animated: Bool) {
-        if let dictionary = PListReader().getQuests() {
-            quests = Quest.getQuestsFromDictionary(dictionary)
-            Quest.sortQuests(&quests)
-        }
-        self.title = "Quests"
-    }
+    var quests: Array<Quest> = [];
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.title = "Quests"
         
         if( traitCollection.forceTouchCapability == .Available){
             
@@ -30,14 +25,15 @@ class MainViewController: UITableViewController, UIViewControllerPreviewingDeleg
             
         }
         
+        activityIndicator.startAnimating()
+        
         let query: PFQuery = PFQuery(className: "Quests")
         query.findObjectsInBackgroundWithBlock { (results: [PFObject]?, error: NSError?) -> Void in
             
             if let checkedResults = results {
-                for result: PFObject in checkedResults {
-                    print(result["Name"])
-                }
+                self.quests = Quest.getQuestsFromPFOBjects(checkedResults)
             }
+            self.activityIndicator.stopAnimating()
         }
     }
     
@@ -88,8 +84,8 @@ class MainViewController: UITableViewController, UIViewControllerPreviewingDeleg
         // We need to prove that it is a Quest cell if we want to do all this
         if let checkedCell = cell as? QuestCell {
             // Setting the title and description
-            checkedCell.setTitle(quests[indexPath.row].title)
-            checkedCell.setSubTitle("Location: " + quests[indexPath.row].location + " - Difficulty: " + quests[indexPath.row].difficulty)
+            checkedCell.setTitle(quests[indexPath.row].Name)
+            checkedCell.setSubTitle("Location: " + quests[indexPath.row].Location + " - Difficulty: " + quests[indexPath.row].Difficulty)
             // Done. Lets give them the cell
             return checkedCell
         }
@@ -97,7 +93,7 @@ class MainViewController: UITableViewController, UIViewControllerPreviewingDeleg
     }
     
     func loadQuestView(id: String) {
-        if let quest = Quest.getQuestForId(quests, id: id) {
+        if let quest = PFObject(withoutDataWithObjectId: id) as? Quest {
             self.performSegueWithIdentifier("showQuestDetail", sender: quest)
         }
     }
