@@ -24,10 +24,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let savedQuestShortcutItem = UIApplicationShortcutItem(type: "savedQuest", localizedTitle: "Saved Quests")
         let shortcuts = [currentQuestShortcutItem, savedQuestShortcutItem]
         
+        Quest.registerSubclass()
         UIApplication.sharedApplication().shortcutItems = shortcuts
         
         Parse.setApplicationId("ZoalMIIVftZEKQoUcIWFkQqJWDsn2zYF8jJZiBlz", clientKey: "Sd3CVO3sXH8muH70ut5fOINuvee4zk8OaAxyoxTH")
         
+        return true
+    }
+    
+    func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
+        print("url: \(url.absoluteString) options: \(options)")
         return true
     }
 

@@ -56,7 +56,7 @@ class VariableHeightCell: UITableViewCell {
     }
     
     static func getHeightOfQuest(quest: Quest, clueID: Int) -> CGFloat {
-        let infoHeight = VariableHeightCell.getHeightForText(quest.clues[clueID], font: font, size: CGSize(width: UIScreen.mainScreen().bounds.size.width, height: 0))
+        let infoHeight = VariableHeightCell.getHeightForText(quest.Clues![clueID], font: font, size: CGSize(width: UIScreen.mainScreen().bounds.size.width, height: 0))
         return infoHeight
     }
 }

@@ -18,12 +18,19 @@ class PDFViewController: UIViewController {
     override func viewDidLoad() {
         if file != nil {
             updateView()
+            self.pdfView.scalesPageToFit = true
         }
     }
     
     func updateView() {
         file?.getFilePathInBackgroundWithBlock({ (path, error) -> Void in
-            self.pdfView.loadRequest(NSURLRequest(URL: NSURL.fileURLWithPath(path!)))
+            if let checkedPath = path {
+                if self.pdfView != nil {
+                    self.pdfView.loadRequest(NSURLRequest(URL: NSURL.fileURLWithPath(checkedPath)))
+                }
+            }else{
+                print("Error!! \(error)")
+            }
         })
     }
     

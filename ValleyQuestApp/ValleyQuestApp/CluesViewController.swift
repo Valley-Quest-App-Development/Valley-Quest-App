@@ -40,7 +40,7 @@ class CluesViewController: UITableViewController {
         }
         
         if let clueCell = cell {
-            clueCell.setInfo(object?.Clues[indexPath.row])
+            clueCell.setInfo(object?.Clues![indexPath.row])
             return clueCell
         }
         return cell!

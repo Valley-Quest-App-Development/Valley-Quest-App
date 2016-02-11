@@ -39,7 +39,7 @@ class Quest: PFObject, PFSubclassing {
     @NSManaged var Description: String
     @NSManaged var Difficulty: String
     @NSManaged var WalkingConditions: String
-    @NSManaged var pdf: PFFile
+    @NSManaged var pdf: PFFile?
     
     // ----------------------------
     // Initialization methods
@@ -80,6 +80,7 @@ class Quest: PFObject, PFSubclassing {
         
         for object: PFObject in objects {
             if let quest = object as? Quest {
+                quest.addToSpotlight()
                 array.append(quest)
             }
         }

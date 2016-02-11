@@ -25,16 +25,31 @@ class MainViewController: UITableViewController, UIViewControllerPreviewingDeleg
             
         }
         
-        activityIndicator.startAnimating()
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl?.backgroundColor = UIColor(red: 0.6078, green: 0.6078, blue: 0.6078, alpha: 1.0)
+        self.refreshControl?.tintColor = UIColor.whiteColor()
+        self.refreshControl?.addTarget(self, action: "refreshData", forControlEvents: UIControlEvents.ValueChanged)
         
+//        self.refreshControl?.beginRefreshing()
+        refreshData()
+    }
+    
+    func refreshData() {
         let query: PFQuery = PFQuery(className: "Quests")
         query.findObjectsInBackgroundWithBlock { (results: [PFObject]?, error: NSError?) -> Void in
             
             if let checkedResults = results {
                 self.quests = Quest.getQuestsFromPFOBjects(checkedResults)
             }
-            self.activityIndicator.stopAnimating()
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.refreshControl?.endRefreshing()
+                self.tableView.reloadData()
+            })
         }
+    }
+    
+    func hideRefreshControl() {
+        self.refreshControl?.endRefreshing()
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {

@@ -14,16 +14,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <activityIndicatorView key="tableFooterView" hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" id="aEq-va-qkv">
-                            <rect key="frame" x="0.0" y="136" width="600" height="20"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </activityIndicatorView>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" id="ltN-R7-RGM">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ltN-R7-RGM" id="nKN-dX-eVm">
-                                    <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
@@ -37,9 +33,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="cxY-Ey-p2y"/>
-                    <connections>
-                        <outlet property="activityIndicator" destination="aEq-va-qkv" id="kV0-jm-zGC"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ycs-pZ-hia" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -118,15 +111,12 @@
                                                 <exclude reference="ML6-wC-qLb"/>
                                             </mask>
                                         </variation>
-                                        <connections>
-                                            <action selector="showMoreInfo:" destination="1d2-Sk-5Gs" eventType="touchUpInside" id="NTA-Nr-nJI"/>
-                                        </connections>
                                     </button>
-                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="xEr-E5-96P">
-                                        <rect key="frame" x="0.0" y="204" width="560" height="200"/>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="hybrid" translatesAutoresizingMaskIntoConstraints="NO" id="xEr-E5-96P">
+                                        <rect key="frame" x="0.0" y="204" width="560" height="260"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="276" id="H6O-Y9-L9e"/>
-                                            <constraint firstAttribute="height" constant="200" id="NrN-jo-J9l"/>
+                                            <constraint firstAttribute="height" constant="260" id="NrN-jo-J9l"/>
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">
@@ -135,7 +125,7 @@
                                         </variation>
                                     </mapView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6TH-8U-UDv">
-                                        <rect key="frame" x="248" y="408" width="64" height="42"/>
+                                        <rect key="frame" x="248" y="468" width="64" height="42"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="PvV-1b-FJd"/>
                                             <constraint firstAttribute="width" constant="64" id="f2R-Gn-QDf"/>
@@ -153,7 +143,7 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fwb-lj-3aR">
-                                        <rect key="frame" x="160" y="454" width="240" height="74"/>
+                                        <rect key="frame" x="160" y="514" width="240" height="14"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
@@ -199,7 +189,7 @@
                     <navigationItem key="navigationItem" id="6T7-mu-Cbk">
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="406-pZ-Joc">
                             <connections>
-                                <action selector="share:" destination="1d2-Sk-5Gs" id="NhZ-6e-jmE"/>
+                                <action selector="share:" destination="1d2-Sk-5Gs" id="qFd-Lv-BYI"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -230,7 +220,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Awf-9V-rEk" id="ZNN-T5-wjt">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>

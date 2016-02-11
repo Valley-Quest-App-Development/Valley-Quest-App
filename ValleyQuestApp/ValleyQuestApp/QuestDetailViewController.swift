@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import MapKit
+import Parse
 
 class QuestDetailViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UITextView!
@@ -35,9 +36,11 @@ class QuestDetailViewController: UIViewController {
             }
             
             // If the clues are empty, don't show the clues button
-            if quest.Clues != nil || quest.Clues!.count == 0 {
+            if quest.Clues == nil || quest.Clues!.count == 0 {
                 cluesButton.hidden = true
             }
+            
+            self.moreButton.hidden = true
             
             // Set the text for the duration and such
             durationAndDifficulty.text = "Difficulty: " + quest.Difficulty
@@ -46,7 +49,7 @@ class QuestDetailViewController: UIViewController {
                 descriptionLabel.text = "There is no description listed for this quest"
             }else{
                 // Set description
-                descriptionLabel.text = quest.description
+                descriptionLabel.text = quest.Description
             }
             self.title = quest.Name
         }
@@ -65,21 +68,43 @@ class QuestDetailViewController: UIViewController {
         return [saveQuest, share]
     }
     
-    @IBAction func share(sender: AnyObject) {
+    @IBAction func share(sender: UIBarButtonItem) {
+        if let quest = object {
+            let textToShare = "Check out the quest " + quest.Name + " in the Valley Quest app\n"
+            if let url = NSURL(string: "http://appstore.com/valleyquest") {
+                
+                let activity: UIActivityViewController = UIActivityViewController(activityItems: [textToShare, url, quest], applicationActivities: nil)
+                activity.excludedActivityTypes = [UIActivityTypeAddToReadingList]
+                
+                if (activity.respondsToSelector("popoverPresentationController")){
+                    activity.modalPresentationStyle = UIModalPresentationStyle.Popover
+                    activity.popoverPresentationController!.barButtonItem = sender
+                }
+                
+                
+                self.presentViewController(activity, animated: true, completion: nil)
+            }
+            
+        }
+        
         
     }
     
     @IBAction func startQuest(sender: UIButton) {
-        
-    }
-    
-    @IBAction func showMoreInfo(sender: AnyObject) {
-        
+        if let quest = object, let clues = quest.Clues {
+            self.performSegueWithIdentifier("showClues", sender: clues)
+        }else if let quest = object, let pdf = quest.pdf {
+            self.performSegueWithIdentifier("showPDF", sender: pdf)
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let viewController = segue.destinationViewController as? CluesViewController {
             viewController.set(object!)
+        }
+        
+        if let destination = segue.destinationViewController as? PDFViewController {
+            destination.setObject(sender as! PFFile)
         }
     }
     
