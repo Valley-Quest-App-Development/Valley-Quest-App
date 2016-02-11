@@ -1,1482 +1,660 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>archiveVersion</key>
-	<string>1</string>
-	<key>classes</key>
-	<dict/>
-	<key>objectVersion</key>
-	<string>46</string>
-	<key>objects</key>
-	<dict>
-		<key>18B17195EC919034BFF7E5D8</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>831939FF962680D8031EEFD8</string>
-				<string>702DCD31CD75ED348A9AC3BA</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>32E50BB8EDEC9C9B80085E9D</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-ValleyQuestApp.debug.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods-ValleyQuestApp/Pods-ValleyQuestApp.debug.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5206324E1C44439100F94463</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>ObjCBridgingHeader.h</string>
-			<key>path</key>
-			<string>../ObjCBridgingHeader.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>522A254C1BE03BCC008FE49E</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>Quest.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>522A254D1BE03BCC008FE49E</key>
-		<dict>
-			<key>fileRef</key>
-			<string>522A254C1BE03BCC008FE49E</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>522EC6931BEFF76000262690</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>CluesViewController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>522EC6941BEFF76000262690</key>
-		<dict>
-			<key>fileRef</key>
-			<string>522EC6931BEFF76000262690</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>522EC6951BEFF85400262690</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>VariableHightCell.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>522EC6961BEFF85400262690</key>
-		<dict>
-			<key>fileRef</key>
-			<string>522EC6951BEFF85400262690</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>522EC6971BEFF91500262690</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.xib</string>
-			<key>path</key>
-			<string>VariableHeightCell.xib</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>522EC6981BEFF91500262690</key>
-		<dict>
-			<key>fileRef</key>
-			<string>522EC6971BEFF91500262690</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>522F90921BED334D00F60652</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>MobileCoreServices.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/MobileCoreServices.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>522F90931BED334D00F60652</key>
-		<dict>
-			<key>fileRef</key>
-			<string>522F90921BED334D00F60652</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Required</string>
-				</array>
-			</dict>
-		</dict>
-		<key>522F90941BED335D00F60652</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>CoreSpotlight.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/CoreSpotlight.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>522F90951BED335D00F60652</key>
-		<dict>
-			<key>fileRef</key>
-			<string>522F90941BED335D00F60652</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>522F90981BED47DA00F60652</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>MapKit.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/MapKit.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>522F90991BED47DA00F60652</key>
-		<dict>
-			<key>fileRef</key>
-			<string>522F90981BED47DA00F60652</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>523AC4231C61568200461BBA</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>PDFViewController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>523AC4241C61568200461BBA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>523AC4231C61568200461BBA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>52C8E26B1BDBE4BB005996E3</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.xib</string>
-			<key>path</key>
-			<string>QuestCell.xib</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>52C8E26C1BDBE4BB005996E3</key>
-		<dict>
-			<key>fileRef</key>
-			<string>52C8E26B1BDBE4BB005996E3</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>52C8E26F1BDBE75F005996E3</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>QuestCell.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>52C8E2701BDBE75F005996E3</key>
-		<dict>
-			<key>fileRef</key>
-			<string>52C8E26F1BDBE75F005996E3</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>52DF2EDD1BEC56880044E536</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.playground</string>
-			<key>path</key>
-			<string>MyPlayground.playground</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>52EA9F2D1BBB3B0D0063E082</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>522F90981BED47DA00F60652</string>
-				<string>522F90941BED335D00F60652</string>
-				<string>522F90921BED334D00F60652</string>
-				<string>52EA9F381BBB3B0D0063E082</string>
-				<string>52EA9F4D1BBB3B0E0063E082</string>
-				<string>52EA9F581BBB3B0E0063E082</string>
-				<string>52EA9F371BBB3B0D0063E082</string>
-				<string>18B17195EC919034BFF7E5D8</string>
-				<string>72C3CC2B1946438F123EB6B5</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>52EA9F2E1BBB3B0D0063E082</key>
-		<dict>
-			<key>attributes</key>
-			<dict>
-				<key>LastUpgradeCheck</key>
-				<string>0700</string>
-				<key>ORGANIZATIONNAME</key>
-				<string>John Kotz</string>
-				<key>TargetAttributes</key>
-				<dict>
-					<key>52EA9F351BBB3B0D0063E082</key>
-					<dict>
-						<key>CreatedOnToolsVersion</key>
-						<string>7.0</string>
-						<key>DevelopmentTeam</key>
-						<string>D8T2A3KF46</string>
-						<key>SystemCapabilities</key>
-						<dict>
-							<key>com.apple.Maps.iOS</key>
-							<dict>
-								<key>enabled</key>
-								<string>1</string>
-							</dict>
-						</dict>
-					</dict>
-					<key>52EA9F491BBB3B0E0063E082</key>
-					<dict>
-						<key>CreatedOnToolsVersion</key>
-						<string>7.0</string>
-						<key>TestTargetID</key>
-						<string>52EA9F351BBB3B0D0063E082</string>
-					</dict>
-					<key>52EA9F541BBB3B0E0063E082</key>
-					<dict>
-						<key>CreatedOnToolsVersion</key>
-						<string>7.0</string>
-						<key>TestTargetID</key>
-						<string>52EA9F351BBB3B0D0063E082</string>
-					</dict>
-				</dict>
-			</dict>
-			<key>buildConfigurationList</key>
-			<string>52EA9F311BBB3B0D0063E082</string>
-			<key>compatibilityVersion</key>
-			<string>Xcode 3.2</string>
-			<key>developmentRegion</key>
-			<string>English</string>
-			<key>hasScannedForEncodings</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXProject</string>
-			<key>knownRegions</key>
-			<array>
-				<string>en</string>
-				<string>Base</string>
-			</array>
-			<key>mainGroup</key>
-			<string>52EA9F2D1BBB3B0D0063E082</string>
-			<key>productRefGroup</key>
-			<string>52EA9F371BBB3B0D0063E082</string>
-			<key>projectDirPath</key>
-			<string></string>
-			<key>projectReferences</key>
-			<array/>
-			<key>projectRoot</key>
-			<string></string>
-			<key>targets</key>
-			<array>
-				<string>52EA9F351BBB3B0D0063E082</string>
-				<string>52EA9F491BBB3B0E0063E082</string>
-				<string>52EA9F541BBB3B0E0063E082</string>
-			</array>
-		</dict>
-		<key>52EA9F311BBB3B0D0063E082</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>52EA9F5C1BBB3B0E0063E082</string>
-				<string>52EA9F5D1BBB3B0E0063E082</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>52EA9F321BBB3B0D0063E082</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>52C8E2701BDBE75F005996E3</string>
-				<string>522A254D1BE03BCC008FE49E</string>
-				<string>8B40A95A1BE15BB500DC30AC</string>
-				<string>52EA9F3C1BBB3B0D0063E082</string>
-				<string>522EC6961BEFF85400262690</string>
-				<string>522EC6941BEFF76000262690</string>
-				<string>52EAD5101BD3693B004CCCD3</string>
-				<string>52EA9F3A1BBB3B0D0063E082</string>
-				<string>523AC4241C61568200461BBA</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>52EA9F331BBB3B0D0063E082</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>522F90951BED335D00F60652</string>
-				<string>522F90991BED47DA00F60652</string>
-				<string>522F90931BED334D00F60652</string>
-				<string>C39D6A65BE5D3A3903BE5B88</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>52EA9F341BBB3B0D0063E082</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>52EA9F441BBB3B0E0063E082</string>
-				<string>52EA9F411BBB3B0E0063E082</string>
-				<string>52EA9F3F1BBB3B0D0063E082</string>
-				<string>52EAD5121BD36968004CCCD3</string>
-				<string>522EC6981BEFF91500262690</string>
-				<string>52C8E26C1BDBE4BB005996E3</string>
-			</array>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>52EA9F351BBB3B0D0063E082</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>52EA9F5E1BBB3B0E0063E082</string>
-			<key>buildPhases</key>
-			<array>
-				<string>FF37C047BD8D25169B0E96E4</string>
-				<string>52EA9F321BBB3B0D0063E082</string>
-				<string>52EA9F331BBB3B0D0063E082</string>
-				<string>52EA9F341BBB3B0D0063E082</string>
-				<string>63D8F541A9F85E19E05B3BE0</string>
-				<string>E489968E65412F2B648B09F6</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>ValleyQuestApp</string>
-			<key>productName</key>
-			<string>ValleyQuestApp</string>
-			<key>productReference</key>
-			<string>52EA9F361BBB3B0D0063E082</string>
-			<key>productType</key>
-			<string>com.apple.product-type.application</string>
-		</dict>
-		<key>52EA9F361BBB3B0D0063E082</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.application</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>ValleyQuestApp.app</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>52EA9F371BBB3B0D0063E082</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>52EA9F361BBB3B0D0063E082</string>
-				<string>52EA9F4A1BBB3B0E0063E082</string>
-				<string>52EA9F551BBB3B0E0063E082</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>52EA9F381BBB3B0D0063E082</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>5206324E1C44439100F94463</string>
-				<string>52EA9F391BBB3B0D0063E082</string>
-				<string>52EA9F3B1BBB3B0D0063E082</string>
-				<string>52EA9F3D1BBB3B0D0063E082</string>
-				<string>523AC4231C61568200461BBA</string>
-				<string>8B40A9591BE15BB500DC30AC</string>
-				<string>522EC6931BEFF76000262690</string>
-				<string>522EC6951BEFF85400262690</string>
-				<string>522EC6971BEFF91500262690</string>
-				<string>52C8E26F1BDBE75F005996E3</string>
-				<string>52C8E26B1BDBE4BB005996E3</string>
-				<string>52EA9F401BBB3B0E0063E082</string>
-				<string>52EA9F421BBB3B0E0063E082</string>
-				<string>52EAD50F1BD3693B004CCCD3</string>
-				<string>52EAD5111BD36968004CCCD3</string>
-				<string>52EA9F451BBB3B0E0063E082</string>
-				<string>522A254C1BE03BCC008FE49E</string>
-				<string>52DF2EDD1BEC56880044E536</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>ValleyQuestApp</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>52EA9F391BBB3B0D0063E082</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>AppDelegate.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>52EA9F3A1BBB3B0D0063E082</key>
-		<dict>
-			<key>fileRef</key>
-			<string>52EA9F391BBB3B0D0063E082</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>52EA9F3B1BBB3B0D0063E082</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>MainViewController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>52EA9F3C1BBB3B0D0063E082</key>
-		<dict>
-			<key>fileRef</key>
-			<string>52EA9F3B1BBB3B0D0063E082</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>52EA9F3D1BBB3B0D0063E082</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>52EA9F3E1BBB3B0D0063E082</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>Main.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>52EA9F3E1BBB3B0D0063E082</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.storyboard</string>
-			<key>name</key>
-			<string>Base</string>
-			<key>path</key>
-			<string>Base.lproj/Main.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>52EA9F3F1BBB3B0D0063E082</key>
-		<dict>
-			<key>fileRef</key>
-			<string>52EA9F3D1BBB3B0D0063E082</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>52EA9F401BBB3B0E0063E082</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>folder.assetcatalog</string>
-			<key>path</key>
-			<string>Assets.xcassets</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>52EA9F411BBB3B0E0063E082</key>
-		<dict>
-			<key>fileRef</key>
-			<string>52EA9F401BBB3B0E0063E082</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>52EA9F421BBB3B0E0063E082</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>52EA9F431BBB3B0E0063E082</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>LaunchScreen.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>52EA9F431BBB3B0E0063E082</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.storyboard</string>
-			<key>name</key>
-			<string>Base</string>
-			<key>path</key>
-			<string>Base.lproj/LaunchScreen.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>52EA9F441BBB3B0E0063E082</key>
-		<dict>
-			<key>fileRef</key>
-			<string>52EA9F421BBB3B0E0063E082</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>52EA9F451BBB3B0E0063E082</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>52EA9F461BBB3B0E0063E082</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>52EA9F4F1BBB3B0E0063E082</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>52EA9F471BBB3B0E0063E082</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>52EA9F481BBB3B0E0063E082</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>52EA9F491BBB3B0E0063E082</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>52EA9F611BBB3B0E0063E082</string>
-			<key>buildPhases</key>
-			<array>
-				<string>52EA9F461BBB3B0E0063E082</string>
-				<string>52EA9F471BBB3B0E0063E082</string>
-				<string>52EA9F481BBB3B0E0063E082</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>52EA9F4C1BBB3B0E0063E082</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>ValleyQuestAppTests</string>
-			<key>productName</key>
-			<string>ValleyQuestAppTests</string>
-			<key>productReference</key>
-			<string>52EA9F4A1BBB3B0E0063E082</string>
-			<key>productType</key>
-			<string>com.apple.product-type.bundle.unit-test</string>
-		</dict>
-		<key>52EA9F4A1BBB3B0E0063E082</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.cfbundle</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>ValleyQuestApp.xctest</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>52EA9F4B1BBB3B0E0063E082</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>52EA9F2E1BBB3B0D0063E082</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>52EA9F351BBB3B0D0063E082</string>
-			<key>remoteInfo</key>
-			<string>ValleyQuestApp</string>
-		</dict>
-		<key>52EA9F4C1BBB3B0E0063E082</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>target</key>
-			<string>52EA9F351BBB3B0D0063E082</string>
-			<key>targetProxy</key>
-			<string>52EA9F4B1BBB3B0E0063E082</string>
-		</dict>
-		<key>52EA9F4D1BBB3B0E0063E082</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>52EA9F4E1BBB3B0E0063E082</string>
-				<string>52EA9F501BBB3B0E0063E082</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>ValleyQuestAppTests</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>52EA9F4E1BBB3B0E0063E082</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>ValleyQuestAppTests.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>52EA9F4F1BBB3B0E0063E082</key>
-		<dict>
-			<key>fileRef</key>
-			<string>52EA9F4E1BBB3B0E0063E082</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>52EA9F501BBB3B0E0063E082</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>52EA9F511BBB3B0E0063E082</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>52EA9F5A1BBB3B0E0063E082</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>52EA9F521BBB3B0E0063E082</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>52EA9F531BBB3B0E0063E082</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>52EA9F541BBB3B0E0063E082</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>52EA9F641BBB3B0E0063E082</string>
-			<key>buildPhases</key>
-			<array>
-				<string>52EA9F511BBB3B0E0063E082</string>
-				<string>52EA9F521BBB3B0E0063E082</string>
-				<string>52EA9F531BBB3B0E0063E082</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>52EA9F571BBB3B0E0063E082</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>ValleyQuestAppUITests</string>
-			<key>productName</key>
-			<string>ValleyQuestAppUITests</string>
-			<key>productReference</key>
-			<string>52EA9F551BBB3B0E0063E082</string>
-			<key>productType</key>
-			<string>com.apple.product-type.bundle.ui-testing</string>
-		</dict>
-		<key>52EA9F551BBB3B0E0063E082</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.cfbundle</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>ValleyQuestApp.xctest</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>52EA9F561BBB3B0E0063E082</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>52EA9F2E1BBB3B0D0063E082</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>52EA9F351BBB3B0D0063E082</string>
-			<key>remoteInfo</key>
-			<string>ValleyQuestApp</string>
-		</dict>
-		<key>52EA9F571BBB3B0E0063E082</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>target</key>
-			<string>52EA9F351BBB3B0D0063E082</string>
-			<key>targetProxy</key>
-			<string>52EA9F561BBB3B0E0063E082</string>
-		</dict>
-		<key>52EA9F581BBB3B0E0063E082</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>52EA9F591BBB3B0E0063E082</string>
-				<string>52EA9F5B1BBB3B0E0063E082</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>ValleyQuestAppUITests</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>52EA9F591BBB3B0E0063E082</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>ValleyQuestAppUITests.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>52EA9F5A1BBB3B0E0063E082</key>
-		<dict>
-			<key>fileRef</key>
-			<string>52EA9F591BBB3B0E0063E082</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>52EA9F5B1BBB3B0E0063E082</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>52EA9F5C1BBB3B0E0063E082</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>DEBUG_INFORMATION_FORMAT</key>
-				<string>dwarf</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>ENABLE_TESTABILITY</key>
-				<string>YES</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_NO_COMMON_BLOCKS</key>
-				<string>YES</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>9.0</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>YES</string>
-				<key>ONLY_ACTIVE_ARCH</key>
-				<string>YES</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SWIFT_OPTIMIZATION_LEVEL</key>
-				<string>-Onone</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>52EA9F5D1BBB3B0E0063E082</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>DEBUG_INFORMATION_FORMAT</key>
-				<string>dwarf-with-dsym</string>
-				<key>ENABLE_NS_ASSERTIONS</key>
-				<string>NO</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_NO_COMMON_BLOCKS</key>
-				<string>YES</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>9.0</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>NO</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>52EA9F5E1BBB3B0E0063E082</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>52EA9F5F1BBB3B0E0063E082</string>
-				<string>52EA9F601BBB3B0E0063E082</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>52EA9F5F1BBB3B0E0063E082</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>32E50BB8EDEC9C9B80085E9D</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>CODE_SIGN_IDENTITY</key>
-				<string>iPhone Developer</string>
-				<key>INFOPLIST_FILE</key>
-				<string>ValleyQuestApp/Info.plist</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>9.2</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>ValleyQuest.ValleyQuestApp</string>
-				<key>PRODUCT_NAME</key>
-				<string>ValleyQuestApp</string>
-				<key>SWIFT_OBJC_BRIDGING_HEADER</key>
-				<string>ObjCBridgingHeader.h</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>52EA9F601BBB3B0E0063E082</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>D5FF9E3982CC68D2D4310CF7</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>CODE_SIGN_IDENTITY</key>
-				<string>iPhone Developer</string>
-				<key>INFOPLIST_FILE</key>
-				<string>ValleyQuestApp/Info.plist</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>9.2</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>ValleyQuest.ValleyQuestApp</string>
-				<key>PRODUCT_NAME</key>
-				<string>ValleyQuestApp</string>
-				<key>SWIFT_OBJC_BRIDGING_HEADER</key>
-				<string>ObjCBridgingHeader.h</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>52EA9F611BBB3B0E0063E082</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>52EA9F621BBB3B0E0063E082</string>
-				<string>52EA9F631BBB3B0E0063E082</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>52EA9F621BBB3B0E0063E082</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>BUNDLE_LOADER</key>
-				<string>$(TEST_HOST)</string>
-				<key>INFOPLIST_FILE</key>
-				<string>ValleyQuestAppTests/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>ValleyQuest.ValleyQuestAppTests</string>
-				<key>PRODUCT_NAME</key>
-				<string>ValleyQuestApp</string>
-				<key>TEST_HOST</key>
-				<string>$(BUILT_PRODUCTS_DIR)/ValleyQuestApp.app/ValleyQuestApp</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>52EA9F631BBB3B0E0063E082</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>BUNDLE_LOADER</key>
-				<string>$(TEST_HOST)</string>
-				<key>INFOPLIST_FILE</key>
-				<string>ValleyQuestAppTests/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>ValleyQuest.ValleyQuestAppTests</string>
-				<key>PRODUCT_NAME</key>
-				<string>ValleyQuestApp</string>
-				<key>TEST_HOST</key>
-				<string>$(BUILT_PRODUCTS_DIR)/ValleyQuestApp.app/ValleyQuestApp</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>52EA9F641BBB3B0E0063E082</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>52EA9F651BBB3B0E0063E082</string>
-				<string>52EA9F661BBB3B0E0063E082</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>52EA9F651BBB3B0E0063E082</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>INFOPLIST_FILE</key>
-				<string>ValleyQuestAppUITests/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>ValleyQuest.ValleyQuestAppUITests</string>
-				<key>PRODUCT_NAME</key>
-				<string>ValleyQuestApp</string>
-				<key>TEST_TARGET_NAME</key>
-				<string>ValleyQuestApp</string>
-				<key>USES_XCTRUNNER</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>52EA9F661BBB3B0E0063E082</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>INFOPLIST_FILE</key>
-				<string>ValleyQuestAppUITests/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>ValleyQuest.ValleyQuestAppUITests</string>
-				<key>PRODUCT_NAME</key>
-				<string>ValleyQuestApp</string>
-				<key>TEST_TARGET_NAME</key>
-				<string>ValleyQuestApp</string>
-				<key>USES_XCTRUNNER</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>52EAD50F1BD3693B004CCCD3</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>PListReader.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>52EAD5101BD3693B004CCCD3</key>
-		<dict>
-			<key>fileRef</key>
-			<string>52EAD50F1BD3693B004CCCD3</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>52EAD5111BD36968004CCCD3</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>quests.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>52EAD5121BD36968004CCCD3</key>
-		<dict>
-			<key>fileRef</key>
-			<string>52EAD5111BD36968004CCCD3</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>63D8F541A9F85E19E05B3BE0</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Embed Pods Frameworks</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Target Support Files/Pods-ValleyQuestApp/Pods-ValleyQuestApp-frameworks.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>702DCD31CD75ED348A9AC3BA</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.framework</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>Pods_ValleyQuestApp.framework</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>72C3CC2B1946438F123EB6B5</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>32E50BB8EDEC9C9B80085E9D</string>
-				<string>D5FF9E3982CC68D2D4310CF7</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>831939FF962680D8031EEFD8</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.framework</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>Pods.framework</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>8B40A9591BE15BB500DC30AC</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>QuestDetailViewController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>8B40A95A1BE15BB500DC30AC</key>
-		<dict>
-			<key>fileRef</key>
-			<string>8B40A9591BE15BB500DC30AC</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>C39D6A65BE5D3A3903BE5B88</key>
-		<dict>
-			<key>fileRef</key>
-			<string>702DCD31CD75ED348A9AC3BA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D5FF9E3982CC68D2D4310CF7</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-ValleyQuestApp.release.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods-ValleyQuestApp/Pods-ValleyQuestApp.release.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E489968E65412F2B648B09F6</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Copy Pods Resources</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Target Support Files/Pods-ValleyQuestApp/Pods-ValleyQuestApp-resources.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>FF37C047BD8D25169B0E96E4</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Check Pods Manifest.lock</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
-if [[ $? != 0 ]] ; then
-    cat &lt;&lt; EOM
-error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
-EOM
-    exit 1
-fi
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-	</dict>
-	<key>rootObject</key>
-	<string>52EA9F2E1BBB3B0D0063E082</string>
-</dict>
-</plist>
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		522A254D1BE03BCC008FE49E /* Quest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522A254C1BE03BCC008FE49E /* Quest.swift */; };
+		522EC6941BEFF76000262690 /* CluesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522EC6931BEFF76000262690 /* CluesViewController.swift */; };
+		522EC6961BEFF85400262690 /* VariableHightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522EC6951BEFF85400262690 /* VariableHightCell.swift */; };
+		522EC6981BEFF91500262690 /* VariableHeightCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 522EC6971BEFF91500262690 /* VariableHeightCell.xib */; };
+		522F90931BED334D00F60652 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 522F90921BED334D00F60652 /* MobileCoreServices.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		522F90951BED335D00F60652 /* CoreSpotlight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 522F90941BED335D00F60652 /* CoreSpotlight.framework */; };
+		522F90991BED47DA00F60652 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 522F90981BED47DA00F60652 /* MapKit.framework */; };
+		523AC4241C61568200461BBA /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523AC4231C61568200461BBA /* PDFViewController.swift */; };
+		52C8E26C1BDBE4BB005996E3 /* QuestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52C8E26B1BDBE4BB005996E3 /* QuestCell.xib */; };
+		52C8E2701BDBE75F005996E3 /* QuestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C8E26F1BDBE75F005996E3 /* QuestCell.swift */; };
+		52EA9F3A1BBB3B0D0063E082 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EA9F391BBB3B0D0063E082 /* AppDelegate.swift */; };
+		52EA9F3C1BBB3B0D0063E082 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EA9F3B1BBB3B0D0063E082 /* MainViewController.swift */; };
+		52EA9F3F1BBB3B0D0063E082 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52EA9F3D1BBB3B0D0063E082 /* Main.storyboard */; };
+		52EA9F411BBB3B0E0063E082 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52EA9F401BBB3B0E0063E082 /* Assets.xcassets */; };
+		52EA9F441BBB3B0E0063E082 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52EA9F421BBB3B0E0063E082 /* LaunchScreen.storyboard */; };
+		52EA9F4F1BBB3B0E0063E082 /* ValleyQuestAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EA9F4E1BBB3B0E0063E082 /* ValleyQuestAppTests.swift */; };
+		52EA9F5A1BBB3B0E0063E082 /* ValleyQuestAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EA9F591BBB3B0E0063E082 /* ValleyQuestAppUITests.swift */; };
+		52EAD5101BD3693B004CCCD3 /* PListReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EAD50F1BD3693B004CCCD3 /* PListReader.swift */; };
+		52EAD5121BD36968004CCCD3 /* quests.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52EAD5111BD36968004CCCD3 /* quests.plist */; };
+		8B40A95A1BE15BB500DC30AC /* QuestDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B40A9591BE15BB500DC30AC /* QuestDetailViewController.swift */; };
+		C39D6A65BE5D3A3903BE5B88 /* Pods_ValleyQuestApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 702DCD31CD75ED348A9AC3BA /* Pods_ValleyQuestApp.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		52EA9F4B1BBB3B0E0063E082 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 52EA9F2E1BBB3B0D0063E082 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 52EA9F351BBB3B0D0063E082;
+			remoteInfo = ValleyQuestApp;
+		};
+		52EA9F561BBB3B0E0063E082 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 52EA9F2E1BBB3B0D0063E082 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 52EA9F351BBB3B0D0063E082;
+			remoteInfo = ValleyQuestApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		32E50BB8EDEC9C9B80085E9D /* Pods-ValleyQuestApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ValleyQuestApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ValleyQuestApp/Pods-ValleyQuestApp.debug.xcconfig"; sourceTree = "<group>"; };
+		5206324E1C44439100F94463 /* ObjCBridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ObjCBridgingHeader.h; path = ../ObjCBridgingHeader.h; sourceTree = "<group>"; };
+		522A254C1BE03BCC008FE49E /* Quest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quest.swift; sourceTree = "<group>"; };
+		522EC6931BEFF76000262690 /* CluesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CluesViewController.swift; sourceTree = "<group>"; };
+		522EC6951BEFF85400262690 /* VariableHightCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VariableHightCell.swift; sourceTree = "<group>"; };
+		522EC6971BEFF91500262690 /* VariableHeightCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VariableHeightCell.xib; sourceTree = "<group>"; };
+		522F90921BED334D00F60652 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		522F90941BED335D00F60652 /* CoreSpotlight.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreSpotlight.framework; path = System/Library/Frameworks/CoreSpotlight.framework; sourceTree = SDKROOT; };
+		522F90981BED47DA00F60652 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		523AC4231C61568200461BBA /* PDFViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFViewController.swift; sourceTree = "<group>"; };
+		52C8E26B1BDBE4BB005996E3 /* QuestCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestCell.xib; sourceTree = "<group>"; };
+		52C8E26F1BDBE75F005996E3 /* QuestCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestCell.swift; sourceTree = "<group>"; };
+		52DF2EDD1BEC56880044E536 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
+		52EA9F361BBB3B0D0063E082 /* ValleyQuestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ValleyQuestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		52EA9F391BBB3B0D0063E082 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		52EA9F3B1BBB3B0D0063E082 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		52EA9F3E1BBB3B0D0063E082 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		52EA9F401BBB3B0E0063E082 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		52EA9F431BBB3B0E0063E082 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		52EA9F451BBB3B0E0063E082 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52EA9F4A1BBB3B0E0063E082 /* ValleyQuestApp.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ValleyQuestApp.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		52EA9F4E1BBB3B0E0063E082 /* ValleyQuestAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValleyQuestAppTests.swift; sourceTree = "<group>"; };
+		52EA9F501BBB3B0E0063E082 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52EA9F551BBB3B0E0063E082 /* ValleyQuestApp.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ValleyQuestApp.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		52EA9F591BBB3B0E0063E082 /* ValleyQuestAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValleyQuestAppUITests.swift; sourceTree = "<group>"; };
+		52EA9F5B1BBB3B0E0063E082 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52EAD50F1BD3693B004CCCD3 /* PListReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PListReader.swift; sourceTree = "<group>"; };
+		52EAD5111BD36968004CCCD3 /* quests.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = quests.plist; sourceTree = "<group>"; };
+		702DCD31CD75ED348A9AC3BA /* Pods_ValleyQuestApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ValleyQuestApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		831939FF962680D8031EEFD8 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B40A9591BE15BB500DC30AC /* QuestDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestDetailViewController.swift; sourceTree = "<group>"; };
+		D5FF9E3982CC68D2D4310CF7 /* Pods-ValleyQuestApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ValleyQuestApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-ValleyQuestApp/Pods-ValleyQuestApp.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		52EA9F331BBB3B0D0063E082 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				522F90951BED335D00F60652 /* CoreSpotlight.framework in Frameworks */,
+				522F90991BED47DA00F60652 /* MapKit.framework in Frameworks */,
+				522F90931BED334D00F60652 /* MobileCoreServices.framework in Frameworks */,
+				C39D6A65BE5D3A3903BE5B88 /* Pods_ValleyQuestApp.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52EA9F471BBB3B0E0063E082 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52EA9F521BBB3B0E0063E082 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		18B17195EC919034BFF7E5D8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				831939FF962680D8031EEFD8 /* Pods.framework */,
+				702DCD31CD75ED348A9AC3BA /* Pods_ValleyQuestApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		52EA9F2D1BBB3B0D0063E082 = {
+			isa = PBXGroup;
+			children = (
+				522F90981BED47DA00F60652 /* MapKit.framework */,
+				522F90941BED335D00F60652 /* CoreSpotlight.framework */,
+				522F90921BED334D00F60652 /* MobileCoreServices.framework */,
+				52EA9F381BBB3B0D0063E082 /* ValleyQuestApp */,
+				52EA9F4D1BBB3B0E0063E082 /* ValleyQuestAppTests */,
+				52EA9F581BBB3B0E0063E082 /* ValleyQuestAppUITests */,
+				52EA9F371BBB3B0D0063E082 /* Products */,
+				18B17195EC919034BFF7E5D8 /* Frameworks */,
+				72C3CC2B1946438F123EB6B5 /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		52EA9F371BBB3B0D0063E082 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				52EA9F361BBB3B0D0063E082 /* ValleyQuestApp.app */,
+				52EA9F4A1BBB3B0E0063E082 /* ValleyQuestApp.xctest */,
+				52EA9F551BBB3B0E0063E082 /* ValleyQuestApp.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		52EA9F381BBB3B0D0063E082 /* ValleyQuestApp */ = {
+			isa = PBXGroup;
+			children = (
+				5206324E1C44439100F94463 /* ObjCBridgingHeader.h */,
+				52EA9F391BBB3B0D0063E082 /* AppDelegate.swift */,
+				52EA9F3B1BBB3B0D0063E082 /* MainViewController.swift */,
+				52EA9F3D1BBB3B0D0063E082 /* Main.storyboard */,
+				523AC4231C61568200461BBA /* PDFViewController.swift */,
+				8B40A9591BE15BB500DC30AC /* QuestDetailViewController.swift */,
+				522EC6931BEFF76000262690 /* CluesViewController.swift */,
+				522EC6951BEFF85400262690 /* VariableHightCell.swift */,
+				522EC6971BEFF91500262690 /* VariableHeightCell.xib */,
+				52C8E26F1BDBE75F005996E3 /* QuestCell.swift */,
+				52C8E26B1BDBE4BB005996E3 /* QuestCell.xib */,
+				52EA9F401BBB3B0E0063E082 /* Assets.xcassets */,
+				52EA9F421BBB3B0E0063E082 /* LaunchScreen.storyboard */,
+				52EAD50F1BD3693B004CCCD3 /* PListReader.swift */,
+				52EAD5111BD36968004CCCD3 /* quests.plist */,
+				52EA9F451BBB3B0E0063E082 /* Info.plist */,
+				522A254C1BE03BCC008FE49E /* Quest.swift */,
+				52DF2EDD1BEC56880044E536 /* MyPlayground.playground */,
+			);
+			path = ValleyQuestApp;
+			sourceTree = "<group>";
+		};
+		52EA9F4D1BBB3B0E0063E082 /* ValleyQuestAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				52EA9F4E1BBB3B0E0063E082 /* ValleyQuestAppTests.swift */,
+				52EA9F501BBB3B0E0063E082 /* Info.plist */,
+			);
+			path = ValleyQuestAppTests;
+			sourceTree = "<group>";
+		};
+		52EA9F581BBB3B0E0063E082 /* ValleyQuestAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				52EA9F591BBB3B0E0063E082 /* ValleyQuestAppUITests.swift */,
+				52EA9F5B1BBB3B0E0063E082 /* Info.plist */,
+			);
+			path = ValleyQuestAppUITests;
+			sourceTree = "<group>";
+		};
+		72C3CC2B1946438F123EB6B5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				32E50BB8EDEC9C9B80085E9D /* Pods-ValleyQuestApp.debug.xcconfig */,
+				D5FF9E3982CC68D2D4310CF7 /* Pods-ValleyQuestApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		52EA9F351BBB3B0D0063E082 /* ValleyQuestApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52EA9F5E1BBB3B0E0063E082 /* Build configuration list for PBXNativeTarget "ValleyQuestApp" */;
+			buildPhases = (
+				FF37C047BD8D25169B0E96E4 /* Check Pods Manifest.lock */,
+				52EA9F321BBB3B0D0063E082 /* Sources */,
+				52EA9F331BBB3B0D0063E082 /* Frameworks */,
+				52EA9F341BBB3B0D0063E082 /* Resources */,
+				63D8F541A9F85E19E05B3BE0 /* Embed Pods Frameworks */,
+				E489968E65412F2B648B09F6 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ValleyQuestApp;
+			productName = ValleyQuestApp;
+			productReference = 52EA9F361BBB3B0D0063E082 /* ValleyQuestApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		52EA9F491BBB3B0E0063E082 /* ValleyQuestAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52EA9F611BBB3B0E0063E082 /* Build configuration list for PBXNativeTarget "ValleyQuestAppTests" */;
+			buildPhases = (
+				52EA9F461BBB3B0E0063E082 /* Sources */,
+				52EA9F471BBB3B0E0063E082 /* Frameworks */,
+				52EA9F481BBB3B0E0063E082 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				52EA9F4C1BBB3B0E0063E082 /* PBXTargetDependency */,
+			);
+			name = ValleyQuestAppTests;
+			productName = ValleyQuestAppTests;
+			productReference = 52EA9F4A1BBB3B0E0063E082 /* ValleyQuestApp.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		52EA9F541BBB3B0E0063E082 /* ValleyQuestAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52EA9F641BBB3B0E0063E082 /* Build configuration list for PBXNativeTarget "ValleyQuestAppUITests" */;
+			buildPhases = (
+				52EA9F511BBB3B0E0063E082 /* Sources */,
+				52EA9F521BBB3B0E0063E082 /* Frameworks */,
+				52EA9F531BBB3B0E0063E082 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				52EA9F571BBB3B0E0063E082 /* PBXTargetDependency */,
+			);
+			name = ValleyQuestAppUITests;
+			productName = ValleyQuestAppUITests;
+			productReference = 52EA9F551BBB3B0E0063E082 /* ValleyQuestApp.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		52EA9F2E1BBB3B0D0063E082 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "John Kotz";
+				TargetAttributes = {
+					52EA9F351BBB3B0D0063E082 = {
+						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = 39QG79F7FD;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					52EA9F491BBB3B0E0063E082 = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = 52EA9F351BBB3B0D0063E082;
+					};
+					52EA9F541BBB3B0E0063E082 = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = 52EA9F351BBB3B0D0063E082;
+					};
+				};
+			};
+			buildConfigurationList = 52EA9F311BBB3B0D0063E082 /* Build configuration list for PBXProject "ValleyQuestApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 52EA9F2D1BBB3B0D0063E082;
+			productRefGroup = 52EA9F371BBB3B0D0063E082 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				52EA9F351BBB3B0D0063E082 /* ValleyQuestApp */,
+				52EA9F491BBB3B0E0063E082 /* ValleyQuestAppTests */,
+				52EA9F541BBB3B0E0063E082 /* ValleyQuestAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		52EA9F341BBB3B0D0063E082 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52EA9F441BBB3B0E0063E082 /* LaunchScreen.storyboard in Resources */,
+				52EA9F411BBB3B0E0063E082 /* Assets.xcassets in Resources */,
+				52EA9F3F1BBB3B0D0063E082 /* Main.storyboard in Resources */,
+				52EAD5121BD36968004CCCD3 /* quests.plist in Resources */,
+				522EC6981BEFF91500262690 /* VariableHeightCell.xib in Resources */,
+				52C8E26C1BDBE4BB005996E3 /* QuestCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52EA9F481BBB3B0E0063E082 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52EA9F531BBB3B0E0063E082 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		63D8F541A9F85E19E05B3BE0 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ValleyQuestApp/Pods-ValleyQuestApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E489968E65412F2B648B09F6 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ValleyQuestApp/Pods-ValleyQuestApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FF37C047BD8D25169B0E96E4 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		52EA9F321BBB3B0D0063E082 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52C8E2701BDBE75F005996E3 /* QuestCell.swift in Sources */,
+				522A254D1BE03BCC008FE49E /* Quest.swift in Sources */,
+				8B40A95A1BE15BB500DC30AC /* QuestDetailViewController.swift in Sources */,
+				52EA9F3C1BBB3B0D0063E082 /* MainViewController.swift in Sources */,
+				522EC6961BEFF85400262690 /* VariableHightCell.swift in Sources */,
+				522EC6941BEFF76000262690 /* CluesViewController.swift in Sources */,
+				52EAD5101BD3693B004CCCD3 /* PListReader.swift in Sources */,
+				52EA9F3A1BBB3B0D0063E082 /* AppDelegate.swift in Sources */,
+				523AC4241C61568200461BBA /* PDFViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52EA9F461BBB3B0E0063E082 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52EA9F4F1BBB3B0E0063E082 /* ValleyQuestAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52EA9F511BBB3B0E0063E082 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52EA9F5A1BBB3B0E0063E082 /* ValleyQuestAppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		52EA9F4C1BBB3B0E0063E082 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 52EA9F351BBB3B0D0063E082 /* ValleyQuestApp */;
+			targetProxy = 52EA9F4B1BBB3B0E0063E082 /* PBXContainerItemProxy */;
+		};
+		52EA9F571BBB3B0E0063E082 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 52EA9F351BBB3B0D0063E082 /* ValleyQuestApp */;
+			targetProxy = 52EA9F561BBB3B0E0063E082 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		52EA9F3D1BBB3B0D0063E082 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52EA9F3E1BBB3B0D0063E082 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		52EA9F421BBB3B0E0063E082 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52EA9F431BBB3B0E0063E082 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		52EA9F5C1BBB3B0E0063E082 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		52EA9F5D1BBB3B0E0063E082 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		52EA9F5F1BBB3B0E0063E082 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 32E50BB8EDEC9C9B80085E9D /* Pods-ValleyQuestApp.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = ValleyQuestApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ValleyQuest.ValleyQuestApp;
+				PRODUCT_NAME = ValleyQuestApp;
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = ObjCBridgingHeader.h;
+			};
+			name = Debug;
+		};
+		52EA9F601BBB3B0E0063E082 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D5FF9E3982CC68D2D4310CF7 /* Pods-ValleyQuestApp.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = ValleyQuestApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ValleyQuest.ValleyQuestApp;
+				PRODUCT_NAME = ValleyQuestApp;
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = ObjCBridgingHeader.h;
+			};
+			name = Release;
+		};
+		52EA9F621BBB3B0E0063E082 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = ValleyQuestAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ValleyQuest.ValleyQuestAppTests;
+				PRODUCT_NAME = ValleyQuestApp;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ValleyQuestApp.app/ValleyQuestApp";
+			};
+			name = Debug;
+		};
+		52EA9F631BBB3B0E0063E082 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = ValleyQuestAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ValleyQuest.ValleyQuestAppTests;
+				PRODUCT_NAME = ValleyQuestApp;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ValleyQuestApp.app/ValleyQuestApp";
+			};
+			name = Release;
+		};
+		52EA9F651BBB3B0E0063E082 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = ValleyQuestAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ValleyQuest.ValleyQuestAppUITests;
+				PRODUCT_NAME = ValleyQuestApp;
+				TEST_TARGET_NAME = ValleyQuestApp;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		52EA9F661BBB3B0E0063E082 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = ValleyQuestAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ValleyQuest.ValleyQuestAppUITests;
+				PRODUCT_NAME = ValleyQuestApp;
+				TEST_TARGET_NAME = ValleyQuestApp;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		52EA9F311BBB3B0D0063E082 /* Build configuration list for PBXProject "ValleyQuestApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52EA9F5C1BBB3B0E0063E082 /* Debug */,
+				52EA9F5D1BBB3B0E0063E082 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		52EA9F5E1BBB3B0E0063E082 /* Build configuration list for PBXNativeTarget "ValleyQuestApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52EA9F5F1BBB3B0E0063E082 /* Debug */,
+				52EA9F601BBB3B0E0063E082 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		52EA9F611BBB3B0E0063E082 /* Build configuration list for PBXNativeTarget "ValleyQuestAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52EA9F621BBB3B0E0063E082 /* Debug */,
+				52EA9F631BBB3B0E0063E082 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		52EA9F641BBB3B0E0063E082 /* Build configuration list for PBXNativeTarget "ValleyQuestAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52EA9F651BBB3B0E0063E082 /* Debug */,
+				52EA9F661BBB3B0E0063E082 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 52EA9F2E1BBB3B0D0063E082 /* Project object */;
+}
