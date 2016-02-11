@@ -108,7 +108,7 @@ class MainViewController: UITableViewController, UIViewControllerPreviewingDeleg
     }
     
     func loadQuestView(id: String) {
-        if let quest = PFObject(withoutDataWithObjectId: id) as? Quest {
+        if let quest = PFObject(className: id) as? Quest {
             self.performSegueWithIdentifier("showQuestDetail", sender: quest)
         }
     }
