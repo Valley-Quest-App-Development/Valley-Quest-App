@@ -39,5 +39,4 @@ class PDFViewController: UIViewController {
         updateView()
     }
     
-    
 }

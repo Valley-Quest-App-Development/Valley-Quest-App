@@ -49,9 +49,9 @@ class Quest: PFObject, PFSubclassing {
     func addToSpotlight() {
         let atributeSet = CSSearchableItemAttributeSet(itemContentType: kUTTypeText as String)
         atributeSet.title = self.Name
-        atributeSet.contentDescription = self.description
+        atributeSet.contentDescription = self.Description
         
-        let searchItem = CSSearchableItem(uniqueIdentifier: "\(self.objectId!)", domainIdentifier: "com.ValleyQuest.ValleyQuestApp", attributeSet: atributeSet)
+        let searchItem = CSSearchableItem(uniqueIdentifier: "\(self.objectId!)", domainIdentifier: "com.vitalcommunities.ValleyQuest", attributeSet: atributeSet)
         CSSearchableIndex.defaultSearchableIndex().indexSearchableItems([searchItem], completionHandler: { (error: NSError?) -> Void in
             if error != nil {
                 print(error?.localizedDescription)

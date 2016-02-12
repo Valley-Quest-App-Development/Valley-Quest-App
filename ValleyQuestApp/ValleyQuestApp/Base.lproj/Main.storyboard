@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10102" systemVersion="15E39c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6Dg-ks-hev">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6Dg-ks-hev">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10080"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Root View Controller-->
         <scene sceneID="MDf-Br-4MA">
             <objects>
-                <tableViewController id="qou-Bg-yHz" customClass="MainViewController" customModule="ValleyQuestApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="qou-Bg-yHz" customClass="MainViewController" customModule="Valley_Quest_App" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="UCV-rL-N4u">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ltN-R7-RGM" id="nKN-dX-eVm">
-                                    <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
@@ -41,7 +41,7 @@
         <!--Quest Detail View Controller-->
         <scene sceneID="Ddu-DN-n1A">
             <objects>
-                <viewController storyboardIdentifier="QuestDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1d2-Sk-5Gs" customClass="QuestDetailViewController" customModule="ValleyQuestApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QuestDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1d2-Sk-5Gs" customClass="QuestDetailViewController" customModule="Valley_Quest_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="04H-i9-apI"/>
                         <viewControllerLayoutGuide type="bottom" id="70G-Gb-GJP"/>
@@ -90,7 +90,7 @@
                                             <constraint firstAttribute="height" constant="79" id="E9b-jj-XoX"/>
                                         </constraints>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         <dataDetectorType key="dataDetectorTypes" link="YES"/>
                                         <variation key="default">
@@ -103,7 +103,7 @@
                                         <rect key="frame" x="248" y="170" width="65" height="30"/>
                                         <state key="normal" title="More Info"/>
                                     </button>
-                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="hybrid" translatesAutoresizingMaskIntoConstraints="NO" id="xEr-E5-96P">
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="hybrid" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xEr-E5-96P">
                                         <rect key="frame" x="0.0" y="204" width="560" height="260"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="276" id="H6O-Y9-L9e"/>
@@ -201,7 +201,7 @@
         <!--Clues View Controller-->
         <scene sceneID="TMk-6W-wqK">
             <objects>
-                <tableViewController id="Qsv-d5-Q6s" customClass="CluesViewController" customModule="ValleyQuestApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Qsv-d5-Q6s" customClass="CluesViewController" customModule="Valley_Quest_App" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="2g3-Dh-STN">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -211,7 +211,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Awf-9V-rEk" id="ZNN-T5-wjt">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -229,7 +229,7 @@
         <!--View Controller-->
         <scene sceneID="dca-4d-K9Q">
             <objects>
-                <viewController id="IX3-n4-gLX" customClass="PDFViewController" customModule="ValleyQuestApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="IX3-n4-gLX" customClass="PDFViewController" customModule="Valley_Quest_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7E5-QB-HW5"/>
                         <viewControllerLayoutGuide type="bottom" id="hK9-pt-suR"/>

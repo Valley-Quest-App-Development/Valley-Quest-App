@@ -26,7 +26,7 @@ class MainViewController: UITableViewController, UIViewControllerPreviewingDeleg
         }
         
         self.refreshControl = UIRefreshControl()
-        self.refreshControl?.backgroundColor = UIColor(red: 0.6078, green: 0.6078, blue: 0.6078, alpha: 1.0)
+        self.refreshControl?.backgroundColor = UIColor(red: 0.85, green: 0.85, blue: 0.85, alpha: 1.0)
         self.refreshControl?.tintColor = UIColor.whiteColor()
         self.refreshControl?.addTarget(self, action: "refreshData", forControlEvents: UIControlEvents.ValueChanged)
         
@@ -108,8 +108,10 @@ class MainViewController: UITableViewController, UIViewControllerPreviewingDeleg
     }
     
     func loadQuestView(id: String) {
-        if let quest = PFObject(className: id) as? Quest {
-            self.performSegueWithIdentifier("showQuestDetail", sender: quest)
+        if let quest = PFObject(withoutDataWithClassName: "Quests", objectId: id) as? Quest {
+            quest.fetchIfNeededInBackgroundWithBlock({ (quest, error) -> Void in
+                self.performSegueWithIdentifier("showQuestDetail", sender: quest)
+            })
         }
     }
     

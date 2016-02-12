@@ -32,7 +32,10 @@ class QuestDetailViewController: UIViewController {
                 dropPin.title = "Start of " + quest.Name
                 mapView.addAnnotation(dropPin)
                 
+                
                 centerOnLocation(CLLocation(latitude: quest.GPS!.latitude, longitude: quest.GPS!.longitude))
+                let location = CLLocationManager()
+                location.requestWhenInUseAuthorization()
             }
             
             // If the clues are empty, don't show the clues button
@@ -76,7 +79,7 @@ class QuestDetailViewController: UIViewController {
                 let activity: UIActivityViewController = UIActivityViewController(activityItems: [textToShare, url, quest], applicationActivities: nil)
                 activity.excludedActivityTypes = [UIActivityTypeAddToReadingList]
                 
-                if (activity.respondsToSelector("popoverPresentationController")){
+                if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.Pad) {
                     activity.modalPresentationStyle = UIModalPresentationStyle.Popover
                     activity.popoverPresentationController!.barButtonItem = sender
                 }
@@ -105,6 +108,28 @@ class QuestDetailViewController: UIViewController {
         
         if let destination = segue.destinationViewController as? PDFViewController {
             destination.setObject(sender as! PFFile)
+            if let quest = object {
+                if quest.hasGPS() {
+                    destination.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Go there", style: UIBarButtonItemStyle.Plain, target: self, action: "openLocation")
+                }
+            }
+        }
+    }
+    
+    func openLocation() {
+        if let quest = object, let gps = quest.GPS {
+            let regionDistance:CLLocationDistance = regionRadius * 50.0
+            let coordinates = CLLocationCoordinate2DMake(gps.latitude, gps.longitude)
+            let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
+            let options = [
+                MKLaunchOptionsMapCenterKey: NSValue(MKCoordinate: regionSpan.center),
+                MKLaunchOptionsMapSpanKey: NSValue(MKCoordinateSpan: regionSpan.span)
+            ]
+            
+            let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+            let mapItem = MKMapItem(placemark: placemark)
+            mapItem.name = "\(quest.Name) start"
+            mapItem.openInMapsWithLaunchOptions(options)
         }
     }
     
@@ -114,7 +139,7 @@ class QuestDetailViewController: UIViewController {
     
     func centerOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
-            regionRadius * 2.0, regionRadius * 2.0)
+            regionRadius * 50.0, regionRadius * 50.0)
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
