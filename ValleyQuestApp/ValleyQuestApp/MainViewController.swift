@@ -9,10 +9,12 @@
 import UIKit
 import Parse
 
-class MainViewController: UITableViewController, UIViewControllerPreviewingDelegate {
+class MainViewController: UITableViewController, UIViewControllerPreviewingDelegate, UISearchResultsUpdating {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    var quests: Array<Quest> = [];
+    let searchController = UISearchController(searchResultsController: nil)
+    var quests = [Quest]();
+    var filteredQuests = [Quest]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +27,13 @@ class MainViewController: UITableViewController, UIViewControllerPreviewingDeleg
             
         }
         
+        // Add a search bar
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
+        tableView.tableHeaderView = searchController.searchBar
+        
+        // Add a refresh control
         self.refreshControl = UIRefreshControl()
         self.refreshControl?.backgroundColor = UIColor(red: 0.85, green: 0.85, blue: 0.85, alpha: 1.0)
         self.refreshControl?.tintColor = UIColor.whiteColor()
@@ -32,6 +41,21 @@ class MainViewController: UITableViewController, UIViewControllerPreviewingDeleg
         
 //        self.refreshControl?.beginRefreshing()
         refreshData()
+    }
+    
+    func getQuestAt(indexPath: NSIndexPath) -> Quest {
+        if self.searchController.active && self.searchController.searchBar.text != "" {
+            return filteredQuests[indexPath.row]
+        }else{
+            return quests[indexPath.row]
+        }
+    }
+    
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        filteredQuests = quests.filter({ (quest) -> Bool in
+            return quest.Name.lowercaseString.containsString(searchController.searchBar.text!.lowercaseString)
+        })
+        self.tableView.reloadData()
     }
     
     func refreshData() {
@@ -68,7 +92,7 @@ class MainViewController: UITableViewController, UIViewControllerPreviewingDeleg
         
         guard let detailView = storyboard?.instantiateViewControllerWithIdentifier("QuestDetailViewController") as? QuestDetailViewController else {return nil}
         
-        let quest = quests[indexPath.row]
+        let quest = self.getQuestAt(indexPath)
         detailView.setQuestObject(quest)
         
         detailView.preferredContentSize = CGSize(width: 0.0, height: 500)
@@ -78,6 +102,9 @@ class MainViewController: UITableViewController, UIViewControllerPreviewingDeleg
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // This is the number of cells to show
+        if self.searchController.active && self.searchController.searchBar.text != "" {
+            return filteredQuests.count
+        }
         return quests.count
     }
     
@@ -98,9 +125,15 @@ class MainViewController: UITableViewController, UIViewControllerPreviewingDeleg
         
         // We need to prove that it is a Quest cell if we want to do all this
         if let checkedCell = cell as? QuestCell {
-            // Setting the title and description
-            checkedCell.setTitle(quests[indexPath.row].Name)
-            checkedCell.setSubTitle("Location: " + quests[indexPath.row].Location + " - Difficulty: " + quests[indexPath.row].Difficulty)
+            if self.searchController.active && searchController.searchBar.text != "" {
+                // Setting the title and description
+                checkedCell.setTitle(filteredQuests[indexPath.row].Name)
+                checkedCell.setSubTitle("Location: " + filteredQuests[indexPath.row].Location + " - Difficulty: " + filteredQuests[indexPath.row].Difficulty)
+            }else{
+                // Setting the title and description
+                checkedCell.setTitle(quests[indexPath.row].Name)
+                checkedCell.setSubTitle("Location: " + quests[indexPath.row].Location + " - Difficulty: " + quests[indexPath.row].Difficulty)
+            }
             // Done. Lets give them the cell
             return checkedCell
         }
@@ -128,7 +161,7 @@ class MainViewController: UITableViewController, UIViewControllerPreviewingDeleg
         // This way we deselect the cell
         tableView.cellForRowAtIndexPath(indexPath)?.setSelected(false, animated: true)
         // A cell was clicked, so we will go to it's detail page
-        self.performSegueWithIdentifier("showQuestDetail", sender: quests[indexPath.row])
+        self.performSegueWithIdentifier("showQuestDetail", sender: self.getQuestAt(indexPath))
     }
     
     override func didReceiveMemoryWarning() {

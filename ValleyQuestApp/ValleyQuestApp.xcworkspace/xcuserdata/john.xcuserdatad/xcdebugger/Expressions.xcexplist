@@ -3,12 +3,23 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "MainViewController.(updateSearchResultsForSearchController(MainViewController) -&gt; (UISearchController) -&gt; ()).(closure #1):MainViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "quest.Name.lowercaseString.containsString(searchController.searchBar.text!.lowercaseString)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "MainViewController.loadQuestView(String) -&gt; ():MainViewController.swift">
          <PersistentStrings>
             <PersistentString
                value = "PFObject(withoutDataWithClassName: &quot;Quests&quot;, objectId: id)">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MainViewController.updateSearchResultsForSearchController(UISearchController) -&gt; ():MainViewController.swift">
       </ContextState>
    </ContextStates>
 </VariablesViewState>
