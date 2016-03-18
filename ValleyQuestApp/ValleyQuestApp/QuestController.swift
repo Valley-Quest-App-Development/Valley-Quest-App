@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class MainViewController: UITableViewController, UIViewControllerPreviewingDelegate, UISearchResultsUpdating {
+class QuestController: UITableViewController, UIViewControllerPreviewingDelegate, UISearchResultsUpdating {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     let searchController = UISearchController(searchResultsController: nil)
@@ -78,7 +78,7 @@ class MainViewController: UITableViewController, UIViewControllerPreviewingDeleg
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         // Tells the cell how tall to be
-        return 70
+        return 90
     }
     
     func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {

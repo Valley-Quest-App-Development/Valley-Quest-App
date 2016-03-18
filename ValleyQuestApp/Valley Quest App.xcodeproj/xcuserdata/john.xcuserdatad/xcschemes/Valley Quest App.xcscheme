@@ -28,26 +28,6 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "52EA9F491BBB3B0E0063E082"
-               BuildableName = "Valley Quest App.xctest"
-               BlueprintName = "Valley Quest AppTests"
-               ReferencedContainer = "container:Valley Quest App.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "52EA9F541BBB3B0E0063E082"
-               BuildableName = "Valley Quest App.xctest"
-               BlueprintName = "Valley Quest AppUITests"
-               ReferencedContainer = "container:Valley Quest App.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

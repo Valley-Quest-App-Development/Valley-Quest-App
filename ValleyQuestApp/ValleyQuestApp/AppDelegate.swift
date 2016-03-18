@@ -65,7 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let navController = self.window!.rootViewController as! UINavigationController
                 navController.popToRootViewControllerAnimated(true)
                 
-                if let mainVC = navController.topViewController as? MainViewController {
+                if let mainVC = navController.topViewController as? QuestController {
                     mainVC.loadQuestView(id)
                 }
             }

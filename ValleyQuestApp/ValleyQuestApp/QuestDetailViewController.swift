@@ -12,52 +12,39 @@ import MapKit
 import Parse
 
 class QuestDetailViewController: UIViewController {
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var difficulty: UILabel!
     @IBOutlet weak var descriptionLabel: UITextView!
-    @IBOutlet weak var durationAndDifficulty: UILabel!
-    @IBOutlet weak var moreButton: UIButton!
-    @IBOutlet weak var cluesButton: UIButton!
-    @IBOutlet var mapView: MKMapView!
+    
+    @IBOutlet weak var descriptionHeight: NSLayoutConstraint!
     
     var object: Quest? = nil
     let regionRadius: CLLocationDistance = 1000
     
     override func viewDidLoad() {
         
+        self.navigationItem
+        
         if let quest = object {
-            mapView.hidden = !quest.hasGPS()
-            if (quest.hasGPS()) {
-                // Drop a pin
-                let dropPin = MKPointAnnotation()
-                dropPin.coordinate = CLLocationCoordinate2D(latitude: quest.GPS!.latitude, longitude: quest.GPS!.longitude)
-                dropPin.title = "Start of " + quest.Name
-                mapView.addAnnotation(dropPin)
-                
-                
-                centerOnLocation(CLLocation(latitude: quest.GPS!.latitude, longitude: quest.GPS!.longitude))
-                let location = CLLocationManager()
-                location.requestWhenInUseAuthorization()
-            }
+            titleLabel.text = quest.Name
+            difficulty.text = "Difficulty: " + quest.Difficulty
             
-            // If the clues are empty, don't show the clues button
-            if quest.Clues == nil || quest.Clues!.count == 0 {
-                cluesButton.hidden = true
-            }
+            descriptionLabel.text = quest.Description
+            print(quest.Description)
+            let font = UIFont.systemFontOfSize(15)
+            descriptionLabel.font = font
             
-            self.moreButton.hidden = true
+            let maxHeight:CGFloat = 200
+            let height = HelperMethods.getHeightForText(descriptionLabel.text, font: font, width: descriptionLabel.frame.width, maxHeight: maxHeight) + font.lineHeight
+            descriptionHeight.constant = height > maxHeight ? maxHeight : height
             
-            // Set the text for the duration and such
-            durationAndDifficulty.text = "Difficulty: " + quest.Difficulty
-            if quest.description == "" {
-                // Missing description!!
-                descriptionLabel.text = "There is no description listed for this quest"
-            }else{
-                // Set description
-                descriptionLabel.text = quest.Description
+            if height > maxHeight {
+                descriptionLabel.scrollEnabled = true
             }
-            self.title = quest.Name
         }
-        descriptionLabel.setContentOffset(CGPoint.zero, animated: false)
     }
+    
+    
     
     override func previewActionItems() -> [UIPreviewActionItem] {
         let saveQuest = UIPreviewAction(title: "Save", style: UIPreviewActionStyle.Default) { (action, viewController) -> Void in
@@ -116,34 +103,15 @@ class QuestDetailViewController: UIViewController {
         }
     }
     
-    func openLocation() {
-        if let quest = object, let gps = quest.GPS {
-            let regionDistance:CLLocationDistance = regionRadius * 50.0
-            let coordinates = CLLocationCoordinate2DMake(gps.latitude, gps.longitude)
-            let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
-            let options = [
-                MKLaunchOptionsMapCenterKey: NSValue(MKCoordinate: regionSpan.center),
-                MKLaunchOptionsMapSpanKey: NSValue(MKCoordinateSpan: regionSpan.span)
-            ]
-            
-            let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
-            let mapItem = MKMapItem(placemark: placemark)
-            mapItem.name = "\(quest.Name) start"
-            mapItem.openInMapsWithLaunchOptions(options)
-        }
-    }
-    
     @IBAction func showClues(sender: AnyObject) {
         self.performSegueWithIdentifier("showClues", sender: nil)
     }
     
-    func centerOnLocation(location: CLLocation) {
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
-            regionRadius * 50.0, regionRadius * 50.0)
-        mapView.setRegion(coordinateRegion, animated: true)
-    }
-    
     func setQuestObject(object: Quest) {
         self.object = object
+    }
+    
+    override func viewDidLayoutSubviews() {
+        descriptionLabel.setContentOffset(CGPointZero, animated: false)
     }
 }
