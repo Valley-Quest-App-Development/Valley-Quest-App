@@ -13,7 +13,7 @@ class CluesViewController: UITableViewController {
     var object: Quest? = nil
     
     override func viewWillAppear(animated: Bool) {
-        self.title = "Clues - " + object!.Name
+        self.title = "Clues"
     }
     
     func set(object: Quest) {
@@ -47,6 +47,14 @@ class CluesViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return VariableHeightCell.getHeightOfQuest(object!, clueID: indexPath.row)
+        return VariableHeightCell.getHeightForText(self.object!.Clues![indexPath.row], font: VariableHeightCell.font, width: tableView.frame.width - 16 - 30)
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: false)
+        if let cell = tableView.cellForRowAtIndexPath(indexPath) as? VariableHeightCell {
+            cell.checkBox.setOn(!cell.checkBox.on, animated: true)
+            cell.didTapCheckBox(cell.checkBox)
+        }
     }
 }

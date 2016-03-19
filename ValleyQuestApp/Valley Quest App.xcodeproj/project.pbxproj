@@ -25,7 +25,7 @@
 		52EA9F3F1BBB3B0D0063E082 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52EA9F3D1BBB3B0D0063E082 /* Main.storyboard */; };
 		52EA9F441BBB3B0E0063E082 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52EA9F421BBB3B0E0063E082 /* LaunchScreen.storyboard */; };
 		8B40A95A1BE15BB500DC30AC /* QuestDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B40A9591BE15BB500DC30AC /* QuestDetailViewController.swift */; };
-		C39D6A65BE5D3A3903BE5B88 /* Pods_ValleyQuestApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 702DCD31CD75ED348A9AC3BA /* Pods_ValleyQuestApp.framework */; };
+		D06DBB66978299D4DF0A2FA2 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 831939FF962680D8031EEFD8 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,7 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		32E50BB8EDEC9C9B80085E9D /* Pods-ValleyQuestApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ValleyQuestApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ValleyQuestApp/Pods-ValleyQuestApp.debug.xcconfig"; sourceTree = "<group>"; };
+		0AE72FB39E6C8D966954840F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		5206324E1C44439100F94463 /* ObjCBridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ObjCBridgingHeader.h; path = ../ObjCBridgingHeader.h; sourceTree = "<group>"; };
 		522A254C1BE03BCC008FE49E /* Quest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quest.swift; sourceTree = "<group>"; };
 		522EC6931BEFF76000262690 /* CluesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CluesViewController.swift; sourceTree = "<group>"; };
@@ -72,7 +72,8 @@
 		702DCD31CD75ED348A9AC3BA /* Pods_ValleyQuestApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ValleyQuestApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		831939FF962680D8031EEFD8 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B40A9591BE15BB500DC30AC /* QuestDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestDetailViewController.swift; sourceTree = "<group>"; };
-		D5FF9E3982CC68D2D4310CF7 /* Pods-ValleyQuestApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ValleyQuestApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-ValleyQuestApp/Pods-ValleyQuestApp.release.xcconfig"; sourceTree = "<group>"; };
+		A9C7901D6ECDB2FA59B3C03A /* Pods_Valley_Quest_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Valley_Quest_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6B6877D66920FD8B0CF4E06 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +84,7 @@
 				522F90951BED335D00F60652 /* CoreSpotlight.framework in Frameworks */,
 				522F90991BED47DA00F60652 /* MapKit.framework in Frameworks */,
 				522F90931BED334D00F60652 /* MobileCoreServices.framework in Frameworks */,
-				C39D6A65BE5D3A3903BE5B88 /* Pods_ValleyQuestApp.framework in Frameworks */,
+				D06DBB66978299D4DF0A2FA2 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +110,7 @@
 			children = (
 				831939FF962680D8031EEFD8 /* Pods.framework */,
 				702DCD31CD75ED348A9AC3BA /* Pods_ValleyQuestApp.framework */,
+				A9C7901D6ECDB2FA59B3C03A /* Pods_Valley_Quest_App.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -163,8 +165,8 @@
 		72C3CC2B1946438F123EB6B5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				32E50BB8EDEC9C9B80085E9D /* Pods-ValleyQuestApp.debug.xcconfig */,
-				D5FF9E3982CC68D2D4310CF7 /* Pods-ValleyQuestApp.release.xcconfig */,
+				0AE72FB39E6C8D966954840F /* Pods.release.xcconfig */,
+				E6B6877D66920FD8B0CF4E06 /* Pods.debug.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -319,7 +321,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ValleyQuestApp/Pods-ValleyQuestApp-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E489968E65412F2B648B09F6 /* Copy Pods Resources */ = {
@@ -334,7 +336,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ValleyQuestApp/Pods-ValleyQuestApp-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FF37C047BD8D25169B0E96E4 /* Check Pods Manifest.lock */ = {
@@ -420,7 +422,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		52EA9F5C1BBB3B0E0063E082 /* Debug */ = {
+		52669C821C9D315600483E4E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -439,17 +441,11 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -457,11 +453,53 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Debug;
+		};
+		52669C831C9D315600483E4E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E6B6877D66920FD8B0CF4E06 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Lauren Whittlesey (26D6RAUKYU)";
+				INFOPLIST_FILE = ValleyQuestApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CODE_SIGN_FLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vitalcommunities.ValleyQuest;
+				PRODUCT_NAME = "Valley Quest App";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = ObjCBridgingHeader.h;
+			};
+			name = Debug;
+		};
+		52669C841C9D315600483E4E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = ValleyQuestAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ValleyQuest.ValleyQuestAppTests;
+				PRODUCT_NAME = "Valley Quest App";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Valley Quest App.app/Valley Quest App";
+			};
+			name = Debug;
+		};
+		52669C851C9D315600483E4E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = ValleyQuestAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ValleyQuest.ValleyQuestAppUITests;
+				PRODUCT_NAME = "Valley Quest App";
+				TEST_TARGET_NAME = ValleyQuestApp;
+				USES_XCTRUNNER = YES;
 			};
 			name = Debug;
 		};
@@ -503,30 +541,12 @@
 			};
 			name = Release;
 		};
-		52EA9F5F1BBB3B0E0063E082 /* Debug */ = {
+		52EA9F601BBB3B0E0063E082 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 32E50BB8EDEC9C9B80085E9D /* Pods-ValleyQuestApp.debug.xcconfig */;
+			baseConfigurationReference = 0AE72FB39E6C8D966954840F /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = ValleyQuestApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_CODE_SIGN_FLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.vitalcommunities.ValleyQuest;
-				PRODUCT_NAME = "Valley Quest App";
-				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = ObjCBridgingHeader.h;
-			};
-			name = Debug;
-		};
-		52EA9F601BBB3B0E0063E082 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D5FF9E3982CC68D2D4310CF7 /* Pods-ValleyQuestApp.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Lauren Whittlesey (ZENTEP64J9)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Lauren Whittlesey (ZENTEP64J9)";
 				INFOPLIST_FILE = ValleyQuestApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
@@ -540,18 +560,6 @@
 			};
 			name = Release;
 		};
-		52EA9F621BBB3B0E0063E082 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = ValleyQuestAppTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ValleyQuest.ValleyQuestAppTests;
-				PRODUCT_NAME = "Valley Quest App";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Valley Quest App.app/Valley Quest App";
-			};
-			name = Debug;
-		};
 		52EA9F631BBB3B0E0063E082 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -563,18 +571,6 @@
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Valley Quest App.app/Valley Quest App";
 			};
 			name = Release;
-		};
-		52EA9F651BBB3B0E0063E082 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = ValleyQuestAppUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ValleyQuest.ValleyQuestAppUITests;
-				PRODUCT_NAME = "Valley Quest App";
-				TEST_TARGET_NAME = ValleyQuestApp;
-				USES_XCTRUNNER = YES;
-			};
-			name = Debug;
 		};
 		52EA9F661BBB3B0E0063E082 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -594,8 +590,8 @@
 		52EA9F311BBB3B0D0063E082 /* Build configuration list for PBXProject "Valley Quest App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				52EA9F5C1BBB3B0E0063E082 /* Debug */,
 				52EA9F5D1BBB3B0E0063E082 /* Release */,
+				52669C821C9D315600483E4E /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -603,8 +599,8 @@
 		52EA9F5E1BBB3B0E0063E082 /* Build configuration list for PBXNativeTarget "Valley Quest App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				52EA9F5F1BBB3B0E0063E082 /* Debug */,
 				52EA9F601BBB3B0E0063E082 /* Release */,
+				52669C831C9D315600483E4E /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -612,8 +608,8 @@
 		52EA9F611BBB3B0E0063E082 /* Build configuration list for PBXNativeTarget "Valley Quest AppTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				52EA9F621BBB3B0E0063E082 /* Debug */,
 				52EA9F631BBB3B0E0063E082 /* Release */,
+				52669C841C9D315600483E4E /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -621,8 +617,8 @@
 		52EA9F641BBB3B0E0063E082 /* Build configuration list for PBXNativeTarget "Valley Quest AppUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				52EA9F651BBB3B0E0063E082 /* Debug */,
 				52EA9F661BBB3B0E0063E082 /* Release */,
+				52669C851C9D315600483E4E /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

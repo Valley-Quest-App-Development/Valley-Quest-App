@@ -9,5 +9,6 @@
 #ifndef ObjCBridgingHeader_h
 #define ObjCBridgingHeader_h
 #import "Parse/Parse.h"
+#import "BEMCheckBox/BEMCheckBox.h"
 
 #endif /* ObjCBridgingHeader_h */

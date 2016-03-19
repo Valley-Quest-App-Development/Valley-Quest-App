@@ -63,6 +63,13 @@ class Quest: PFObject, PFSubclassing {
         return self.GPS != nil
     }
     
+    func hasClues() -> Bool {
+        return self.Clues != nil
+    }
+    
+    func hasPDF() -> Bool {
+        return self.pdf != nil
+    }
     
     static func parseClassName() -> String {
         return "Quests"

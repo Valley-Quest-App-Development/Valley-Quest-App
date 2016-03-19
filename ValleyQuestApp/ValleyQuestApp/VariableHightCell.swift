@@ -8,16 +8,19 @@
 
 import Foundation
 import UIKit
+import BEMCheckBox
 
-class VariableHeightCell: UITableViewCell {
+class VariableHeightCell: UITableViewCell, BEMCheckBoxDelegate {
     @IBOutlet weak var infoLabel: UITextView!
-    static let font = UIFont(name: "Arial", size: 14.0)!
-    
+    static let font = UIFont.systemFontOfSize(15)
+    @IBOutlet weak var checkBox: BEMCheckBox!
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         infoLabel.font = VariableHeightCell.font
+        
+        checkBox.delegate = self
     }
     
     func setInfoHidden(hidden: Bool) {
@@ -34,29 +37,40 @@ class VariableHeightCell: UITableViewCell {
             infoLabel.text = ""
         }
         
-        
+        checkBox.delegate = self
+        checkBox.onCheckColor = UIColor.darkGrayColor()
+        checkBox.onTintColor = UIColor.grayColor()
+        checkBox.tintColor = UIColor.lightGrayColor()
+        self.infoLabel.font = VariableHeightCell.font
         self.setInfoHidden(infoLabel.text == "")
     }
     
-    static func getHeightForText(text: String, font: UIFont, size: CGSize) -> CGFloat {
-        return (text as NSString).boundingRectWithSize(size, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName : font], context: nil).size.height
+    func didTapCheckBox(checkBox: BEMCheckBox) {
+        if checkBox.on {
+            self.backgroundColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0)
+            self.infoLabel.textColor = UIColor.grayColor()
+            self.infoLabel.backgroundColor = UIColor.clearColor()
+        }else{
+            self.backgroundColor = UIColor.whiteColor()
+            self.infoLabel.textColor = UIColor.blackColor()
+            self.infoLabel.backgroundColor = UIColor.clearColor()
+        }
+    }
+    
+    
+    static func getHeightForText(text: String, font: UIFont, width: CGFloat) -> CGFloat {
+        let height = HelperMethods.getHeightForText(text, font: font, width: width, maxHeight: CGFloat.max)
+        
+        return height + 25
     }
     
     func getHeight() -> CGFloat {
-        var infoHeight = VariableHeightCell.getHeightForText(infoLabel.text, font: infoLabel.font!, size: infoLabel.bounds.size)
-        if infoLabel.hidden {
-            infoHeight = 0;
-        }
+        let height = VariableHeightCell.getHeightForText(self.infoLabel.text, font: self.infoLabel.font!, width: self.infoLabel.frame.width)
         
-        return infoHeight
+        return self.infoLabel.hidden ? 0 : height
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-    }
-    
-    static func getHeightOfQuest(quest: Quest, clueID: Int) -> CGFloat {
-        let infoHeight = VariableHeightCell.getHeightForText(quest.Clues![clueID], font: font, size: CGSize(width: UIScreen.mainScreen().bounds.size.width, height: 0))
-        return infoHeight
     }
 }

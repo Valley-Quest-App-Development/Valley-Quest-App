@@ -3,37 +3,64 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cluesCell" selectionStyle="none" indentationWidth="10" rowHeight="155" id="MbD-di-ae5" customClass="VariableHeightCell" customModule="Valley_Quest_App" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cluesCell" selectionStyle="default" indentationWidth="10" rowHeight="155" id="MbD-di-ae5" customClass="VariableHeightCell" customModule="Valley_Quest_App" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="540" height="155"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MbD-di-ae5" id="OpY-zI-EnB">
-                <rect key="frame" x="0.0" y="0.0" width="540" height="154.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="540" height="154"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ShF-1s-rSt">
-                        <rect key="frame" x="0.0" y="0.0" width="540" height="155"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ShF-1s-rSt">
+                        <rect key="frame" x="8" y="8" width="486" height="138"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="enn-me-73a" appends="YES" id="Ons-Qg-gZJ"/>
+                        </connections>
                     </textView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Xd-6E-Y7G" customClass="BEMCheckBox">
+                        <rect key="frame" x="502" y="62" width="30" height="30"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="HTl-Dx-8kV"/>
+                            <constraint firstAttribute="width" secondItem="2Xd-6E-Y7G" secondAttribute="height" multiplier="1:1" id="r0B-UC-gsl"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="ShF-1s-rSt" firstAttribute="top" secondItem="OpY-zI-EnB" secondAttribute="topMargin" constant="-8" id="3CV-Uq-7yT"/>
-                    <constraint firstItem="ShF-1s-rSt" firstAttribute="leading" secondItem="OpY-zI-EnB" secondAttribute="leadingMargin" constant="-8" id="4Ah-sw-hKu"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="ShF-1s-rSt" secondAttribute="bottom" constant="-8" id="7dc-6R-NrW"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="ShF-1s-rSt" secondAttribute="trailing" constant="-8" id="uPp-nf-Fm8"/>
+                    <constraint firstItem="ShF-1s-rSt" firstAttribute="bottom" secondItem="OpY-zI-EnB" secondAttribute="bottomMargin" id="C8D-7l-Ifr"/>
+                    <constraint firstItem="2Xd-6E-Y7G" firstAttribute="centerY" secondItem="OpY-zI-EnB" secondAttribute="centerY" id="JlW-IP-4jb"/>
+                    <constraint firstItem="2Xd-6E-Y7G" firstAttribute="leading" secondItem="ShF-1s-rSt" secondAttribute="trailing" constant="8" id="Zpt-3i-YKj"/>
+                    <constraint firstItem="ShF-1s-rSt" firstAttribute="trailing" secondItem="OpY-zI-EnB" secondAttribute="trailingMargin" id="Ztd-Dq-J0v"/>
+                    <constraint firstItem="ShF-1s-rSt" firstAttribute="leading" secondItem="OpY-zI-EnB" secondAttribute="leadingMargin" id="fuF-NF-U23"/>
+                    <constraint firstItem="2Xd-6E-Y7G" firstAttribute="trailing" secondItem="OpY-zI-EnB" secondAttribute="trailingMargin" id="try-6t-tse"/>
+                    <constraint firstItem="ShF-1s-rSt" firstAttribute="top" secondItem="OpY-zI-EnB" secondAttribute="topMargin" id="yqu-gx-gIb"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="Ztd-Dq-J0v"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
+                <outlet property="checkBox" destination="2Xd-6E-Y7G" id="kyD-im-fYM"/>
                 <outlet property="infoLabel" destination="ShF-1s-rSt" id="CG7-oY-OZe"/>
             </connections>
             <point key="canvasLocation" x="476" y="331.5"/>
         </tableViewCell>
+        <tapGestureRecognizer id="enn-me-73a">
+            <connections>
+                <action selector="tapped:" destination="MbD-di-ae5" id="DfU-xJ-fUa"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
 </document>

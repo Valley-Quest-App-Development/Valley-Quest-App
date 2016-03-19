@@ -1,6 +1,5 @@
 use_frameworks!
 platform :ios, '9.0'
 
-target "ValleyQuestApp" do
-	pod 'Parse'
-end
+pod 'Parse'
+pod 'BEMCheckBox', '~> 1.2'

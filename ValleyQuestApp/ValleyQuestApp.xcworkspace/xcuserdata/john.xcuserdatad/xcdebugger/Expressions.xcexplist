@@ -3,6 +3,14 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "static HelperMethods.getHeightForText(String, font : UIFont, width : CGFloat, maxHeight : CGFloat) -&gt; CGFloat:HelperMethods.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "font.lineHeight">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "MainViewController.(updateSearchResultsForSearchController(MainViewController) -&gt; (UISearchController) -&gt; ()).(closure #1):MainViewController.swift">
          <PersistentStrings>
             <PersistentString

@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Parse
 
-class PDFViewController: UIViewController {
+class PDFViewController: UIViewController, UIWebViewDelegate {
     @IBOutlet weak var pdfView: UIWebView!
     
     var file: PFFile?
@@ -27,11 +27,16 @@ class PDFViewController: UIViewController {
             if let checkedPath = path {
                 if self.pdfView != nil {
                     self.pdfView.loadRequest(NSURLRequest(URL: NSURL.fileURLWithPath(checkedPath)))
+                    self.pdfView.delegate = self
                 }
             }else{
                 print("Error!! \(error)")
             }
         })
+    }
+    
+    func webViewDidFinishLoad(webView: UIWebView) {
+        self.pdfView.scrollView.setContentOffset(CGPoint(x: 0, y: -(self.navigationController!.navigationBar.frame.height + 20)), animated: false)
     }
     
     func setObject(file: PFFile) {
