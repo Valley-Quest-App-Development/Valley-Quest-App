@@ -64,7 +64,6 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
             
             if let checkedResults = results {
                 self.quests = Quest.getQuestsFromPFOBjects(checkedResults)
-                self.quests[0].Clues = ["Test", "Testjidasfkl dsjaklfj sadlkfj klasjdflkasjh flkdsh ajkfhasdkjhflksajhd f lkashdkjfhasdlkfjh lksadhflkasj dlkfjksajhf ;laksh dflkasflk hsadf"]
                 self.quests[0].saveInBackground()
             }
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
