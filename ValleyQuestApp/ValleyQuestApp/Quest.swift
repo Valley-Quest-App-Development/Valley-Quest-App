@@ -64,7 +64,7 @@ class Quest: PFObject, PFSubclassing {
     }
     
     func hasClues() -> Bool {
-        return self.Clues != nil
+        return self.Clues != nil && self.Clues?.count != 0
     }
     
     func hasPDF() -> Bool {
