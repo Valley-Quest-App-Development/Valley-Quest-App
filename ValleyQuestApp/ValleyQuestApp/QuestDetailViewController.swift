@@ -21,9 +21,10 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
     
     var object: Quest? = nil
     let regionRadius: CLLocationDistance = 1000
+    var delegate: QuestController?
     
     var sections : [String] = []
-    var rows : [[String]] = []
+    var rows : [[[String]]] = []
     
     var selectableRows: [NSIndexPath] = []
     
@@ -33,17 +34,19 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
             titleLabel.text = quest.Name
             difficulty.text = "Difficulty: " + quest.Difficulty
             
-            descriptionLabel.text = quest.Description
+            
+            let style = NSMutableParagraphStyle()
+            style.lineSpacing = 5
+            let atributes = [NSParagraphStyleAttributeName : style]
+            descriptionLabel.attributedText = NSAttributedString(string: quest.Description, attributes: atributes)
             
             // We need outlets for locations and directions
             let index = sections.count
             sections.append("Location")
             rows.append([])
-                
-            rows[index].append(quest.Location)
-            if quest.hasGPS() {
-                selectableRows.append(NSIndexPath(forItem: rows[index].count - 1, inSection: index))
-            }
+            
+            rows[index].append([quest.Location, quest.directions])
+            selectableRows.append(NSIndexPath(forItem: rows[index].count - 1, inSection: index))
             
             // We know that we need an outlet for the clues. That could be pdf or clues
             // The first section will be 
@@ -52,13 +55,21 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
                 sections.append("Details")
                 rows.append([])
                 
+                
+                rows[index].append(["Season", quest.Season])
+                rows[index].append(["Type", quest.SpecialFeatures])
+                rows[index].append(["Walking conditions", quest.WalkingConditions])
+                rows[index].append(["Things to bring", quest.Bring])
+                selectableRows.append(NSIndexPath(forItem: rows[index].count - 1, inSection: index))
+                
+                
                 if quest.hasPDF() {
-                    rows[index].append("PDF")
+                    rows[index].append(["PDF"])
                     selectableRows.append(NSIndexPath(forItem: rows[index].count - 1, inSection: index))
                 }
                 
                 if quest.hasClues() {
-                    rows[index].append("Clues")
+                    rows[index].append(["Clues"])
                     selectableRows.append(NSIndexPath(forItem: rows[index].count - 1, inSection: index))
                 }
             }
@@ -68,9 +79,12 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell")
         
-        cell?.textLabel?.text = rows[indexPath.section][indexPath.row]
+        cell?.textLabel?.text = rows[indexPath.section][indexPath.row][0]
+        cell?.detailTextLabel?.text = rows[indexPath.section][indexPath.row].count > 1 ? rows[indexPath.section][indexPath.row][1] : ""
         if selectableRows.contains(indexPath) {
             cell?.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+        }else{
+            cell?.selectionStyle = UITableViewCellSelectionStyle.None
         }
         
         return cell!
@@ -92,7 +106,7 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
         var animated = true
         let quest = object!
         
-        switch rows[indexPath.section][indexPath.row]{
+        switch rows[indexPath.section][indexPath.row][0]{
             case "PDF":
                 animated = quest.hasPDF()
                 self.performSegueWithIdentifier("showPDF", sender: quest.pdf)
@@ -104,36 +118,22 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
             break
             
             case quest.Location:
-                animated = quest.hasGPS()
-                openLocation()
+                animated = true
+                self.performSegueWithIdentifier("showDirections", sender: nil)
+            break
+            
+            case "Things to bring":
+                animated = true
+                let alert = UIAlertController(title: "Things to bring", message: quest.Bring, preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
             break
             
             default:
                 animated = false
-                print("Unknown cell clicked")
             break
         }
         tableView.deselectRowAtIndexPath(indexPath, animated: animated)
-    }
-    
-    func openLocation() {
-        let quest = object!
-        let lat: CLLocationDegrees = quest.GPS!.latitude
-        let long: CLLocationDegrees = quest.GPS!.longitude
-        
-        let coords = CLLocationCoordinate2DMake(lat, long)
-        let dist: CLLocationDistance = 10000
-        let span = MKCoordinateRegionMakeWithDistance(coords, dist, dist)
-        
-        let options = [
-            MKLaunchOptionsMapCenterKey: NSValue(MKCoordinate: span.center),
-            MKLaunchOptionsMapSpanKey: NSValue(MKCoordinateSpan: span.span)
-        ]
-        
-        let placemark = MKPlacemark(coordinate: coords, addressDictionary: nil)
-        let mapItem = MKMapItem(placemark: placemark)
-        mapItem.name = "\(quest.Name)"
-        mapItem.openInMapsWithLaunchOptions(options)
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -146,13 +146,17 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
         }
         
         let share = UIPreviewAction(title: "Share", style: UIPreviewActionStyle.Default) { (action, viewController) -> Void in
-            print("Need to share a quest!")
+            self.shareQuest(nil, viewController: self.delegate!)
         }
         
         return [saveQuest, share]
     }
     
     @IBAction func share(sender: UIBarButtonItem) {
+        self.shareQuest(sender, viewController: self)
+    }
+    
+    func shareQuest(barButton: UIBarButtonItem?, viewController: UIViewController) {
         if let quest = object {
             let textToShare = "Check out the quest " + quest.Name + " in the Valley Quest app\n"
             if let url = NSURL(string: "http://appstore.com/valleyquest") {
@@ -161,12 +165,14 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
                 activity.excludedActivityTypes = [UIActivityTypeAddToReadingList]
                 
                 if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.Pad) {
-                    activity.modalPresentationStyle = UIModalPresentationStyle.Popover
-                    activity.popoverPresentationController!.barButtonItem = sender
+                    if let sender = barButton {
+                        activity.modalPresentationStyle = UIModalPresentationStyle.Popover
+                        activity.popoverPresentationController!.barButtonItem = sender
+                    }
                 }
                 
                 
-                self.presentViewController(activity, animated: true, completion: nil)
+                viewController.presentViewController(activity, animated: true, completion: nil)
             }
         }
     }
@@ -178,6 +184,15 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
         
         if let destination = segue.destinationViewController as? PDFViewController {
             destination.setObject(sender as! PFFile)
+        }
+        
+        if let destination = segue.destinationViewController as? DirectionsViewController, let quest = object {
+            var coords: CLLocationCoordinate2D?
+            if let gps = quest.GPS {
+                coords = CLLocationCoordinate2DMake(gps.latitude, gps.longitude)
+            }
+            
+            destination.setThings(quest.directions, coords: coords, name: quest.Name)
         }
     }
     
@@ -192,7 +207,7 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
         let font = UIFont.systemFontOfSize(15)
         descriptionLabel.font = font
         
-        let maxHeight:CGFloat = 160
+        let maxHeight:CGFloat = 180
         let height = HelperMethods.getHeightForText(descriptionLabel.text, font: font, width: self.descriptionLabel.frame.width, maxHeight: maxHeight)
         descriptionHeight.constant = height > maxHeight ? maxHeight : height
         

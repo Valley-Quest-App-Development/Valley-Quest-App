@@ -95,6 +95,7 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
         
         let quest = self.getQuestAt(indexPath)
         detailView.setQuestObject(quest)
+        detailView.delegate = self
         
         detailView.preferredContentSize = CGSize(width: 0.0, height: 500)
         previewingContext.sourceRect = cell.frame

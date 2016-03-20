@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MapKit
 
 extension String {
     func sizeForWidth(width: CGFloat, font: UIFont) -> CGSize {
@@ -20,6 +21,21 @@ class HelperMethods {
     class func getHeightForText(text : String, font : UIFont, width : CGFloat, maxHeight: CGFloat) -> CGFloat {
         let height = text.sizeForWidth(width, font: font).height
         let numLines = round(height / font.lineHeight)
-        return (font.lineHeight * 1.2) * numLines
+        return (font.lineHeight * 1.2 + 5) * numLines
+    }
+    
+    class func openLocation(coords: CLLocationCoordinate2D, name: String) {
+        let dist: CLLocationDistance = 10000
+        let span = MKCoordinateRegionMakeWithDistance(coords, dist, dist)
+        
+        let options = [
+            MKLaunchOptionsMapCenterKey: NSValue(MKCoordinate: span.center),
+            MKLaunchOptionsMapSpanKey: NSValue(MKCoordinateSpan: span.span)
+        ]
+        
+        let placemark = MKPlacemark(coordinate: coords, addressDictionary: nil)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = "\(name)"
+        mapItem.openInMapsWithLaunchOptions(options)
     }
 }

@@ -6,7 +6,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Quest Controller-->
         <scene sceneID="MDf-Br-4MA">
             <objects>
                 <tableViewController id="qou-Bg-yHz" customClass="QuestController" customModule="Valley_Quest_App" customModuleProvider="target" sceneMemberID="viewController">
@@ -49,7 +49,7 @@
                             <outlet property="delegate" destination="qou-Bg-yHz" id="0M1-Mc-XIu"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="cxY-Ey-p2y"/>
+                    <navigationItem key="navigationItem" id="cxY-Ey-p2y"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ycs-pZ-hia" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -99,7 +99,7 @@
                                 <rect key="frame" x="0.0" y="275" width="600" height="325"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="WdI-hQ-0eH" rowHeight="65" style="IBUITableViewCellStyleDefault" id="Agm-do-1dS">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="WdI-hQ-0eH" detailTextLabel="QxH-ld-aPR" rowHeight="65" style="IBUITableViewCellStyleValue1" id="Agm-do-1dS">
                                         <rect key="frame" x="0.0" y="50" width="600" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Agm-do-1dS" id="Kyp-Kx-sB0">
@@ -107,10 +107,17 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WdI-hQ-0eH">
-                                                    <rect key="frame" x="15" y="0.0" width="570" height="64"/>
+                                                    <rect key="frame" x="15" y="22" width="32" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QxH-ld-aPR">
+                                                    <rect key="frame" x="529" y="22" width="56" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -155,11 +162,105 @@
                         <outlet property="titleLabel" destination="Oj4-XX-UDw" id="qCG-1z-J5v"/>
                         <segue destination="Qsv-d5-Q6s" kind="show" identifier="showClues" id="oOa-RK-xwV"/>
                         <segue destination="IX3-n4-gLX" kind="show" identifier="showPDF" id="fsP-0P-CzD"/>
+                        <segue destination="AC4-4C-JOw" kind="popoverPresentation" identifier="showDirections" popoverAnchorView="NZc-t9-OPO" id="bm4-2g-y7e">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                            <popoverPassthroughViews>
+                                <tableView reference="Vof-rZ-CQF"/>
+                            </popoverPassthroughViews>
+                        </segue>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ppP-Ig-1GN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1840" y="285"/>
+        </scene>
+        <!--Directions View Controller-->
+        <scene sceneID="Xmx-cj-rOS">
+            <objects>
+                <viewController id="AC4-4C-JOw" customClass="DirectionsViewController" customModule="Valley_Quest_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="afu-9B-JRx"/>
+                        <viewControllerLayoutGuide type="bottom" id="S8w-tK-EEh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MZn-JY-GDZ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of Quest" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gaa-AW-JQe">
+                                <rect key="frame" x="20" y="20" width="560" height="62"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="62" id="aUa-5R-YtS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="24"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NOi-lS-emK">
+                                <rect key="frame" x="20" y="535" width="560" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="9ep-Sr-xiX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="hide:" destination="AC4-4C-JOw" eventType="touchUpInside" id="Nr0-Ps-iS6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oln-9t-zXc">
+                                <rect key="frame" x="20" y="90" width="560" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="26" id="Uip-9W-eNQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="Open in maps"/>
+                                <connections>
+                                    <action selector="openInMaps:" destination="AC4-4C-JOw" eventType="touchUpInside" id="AnJ-qT-OL6"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lru-vf-LfC">
+                                <rect key="frame" x="20" y="124" width="560" height="403"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gaa-AW-JQe" firstAttribute="top" secondItem="afu-9B-JRx" secondAttribute="bottom" id="0H2-TH-T2K"/>
+                            <constraint firstItem="lru-vf-LfC" firstAttribute="trailing" secondItem="MZn-JY-GDZ" secondAttribute="trailingMargin" id="1au-4Y-raA"/>
+                            <constraint firstItem="S8w-tK-EEh" firstAttribute="top" secondItem="NOi-lS-emK" secondAttribute="bottom" constant="20" id="D15-Sp-F3t"/>
+                            <constraint firstItem="oln-9t-zXc" firstAttribute="leading" secondItem="MZn-JY-GDZ" secondAttribute="leadingMargin" id="FJD-Pn-LBs"/>
+                            <constraint firstItem="NOi-lS-emK" firstAttribute="leading" secondItem="MZn-JY-GDZ" secondAttribute="leadingMargin" id="H3e-Db-bAJ"/>
+                            <constraint firstItem="oln-9t-zXc" firstAttribute="trailing" secondItem="MZn-JY-GDZ" secondAttribute="trailingMargin" id="N6B-25-jfj"/>
+                            <constraint firstItem="gaa-AW-JQe" firstAttribute="leading" secondItem="MZn-JY-GDZ" secondAttribute="leadingMargin" id="Odv-tf-d9h"/>
+                            <constraint firstItem="lru-vf-LfC" firstAttribute="top" secondItem="gaa-AW-JQe" secondAttribute="bottom" constant="42" id="Xi7-4F-N77"/>
+                            <constraint firstItem="lru-vf-LfC" firstAttribute="top" secondItem="gaa-AW-JQe" secondAttribute="bottom" constant="8" id="eXH-TI-H93"/>
+                            <constraint firstItem="NOi-lS-emK" firstAttribute="top" secondItem="lru-vf-LfC" secondAttribute="bottom" constant="8" id="gLe-Gc-Vkl"/>
+                            <constraint firstItem="gaa-AW-JQe" firstAttribute="trailing" secondItem="MZn-JY-GDZ" secondAttribute="trailingMargin" id="hJ3-oI-efF"/>
+                            <constraint firstItem="lru-vf-LfC" firstAttribute="top" secondItem="oln-9t-zXc" secondAttribute="bottom" constant="8" id="hmu-ql-O3Y"/>
+                            <constraint firstItem="oln-9t-zXc" firstAttribute="top" secondItem="gaa-AW-JQe" secondAttribute="bottom" constant="8" id="n3q-zF-acm"/>
+                            <constraint firstItem="lru-vf-LfC" firstAttribute="leading" secondItem="MZn-JY-GDZ" secondAttribute="leadingMargin" id="r7b-gW-l6S"/>
+                            <constraint firstItem="NOi-lS-emK" firstAttribute="trailing" secondItem="MZn-JY-GDZ" secondAttribute="trailingMargin" id="sKm-QY-2MV"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="eXH-TI-H93"/>
+                                <exclude reference="hmu-ql-O3Y"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="doneButton" destination="NOi-lS-emK" id="Bd4-ys-bqD"/>
+                        <outlet property="openInMapsButton" destination="oln-9t-zXc" id="1E0-B8-uDq"/>
+                        <outlet property="questNameLabel" destination="gaa-AW-JQe" id="iFA-yK-B0U"/>
+                        <outlet property="textView" destination="lru-vf-LfC" id="j2n-OW-TS0"/>
+                        <outlet property="textViewDiff" destination="Xi7-4F-N77" id="oKs-pp-IUX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XRN-RB-MZm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1840" y="-447"/>
         </scene>
         <!--Clues View Controller-->
         <scene sceneID="TMk-6W-wqK">
@@ -230,7 +331,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.33673762581075206" green="0.55710361379258744" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
-                        <color key="tintColor" red="0.95147752880000003" green="0.8996428018" blue="0.3912804111" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.95147752880000003" green="0.86543139552855086" blue="0.045518959270012538" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="barTintColor" red="0.33333333333333331" green="0.76470588235294112" blue="0.14509803921568626" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="20"/>

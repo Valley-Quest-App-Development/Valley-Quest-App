@@ -40,6 +40,7 @@ class Quest: PFObject, PFSubclassing {
     @NSManaged var Difficulty: String
     @NSManaged var WalkingConditions: String
     @NSManaged var pdf: PFFile?
+    @NSManaged var directions: String
     
     // ----------------------------
     // Initialization methods
