@@ -9,8 +9,9 @@
 import UIKit
 import Parse
 
-class QuestController: UITableViewController, UIViewControllerPreviewingDelegate, UISearchResultsUpdating {
+class QuestController: UITableViewController, UIViewControllerPreviewingDelegate, UISearchResultsUpdating, UISearchBarDelegate {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var revealButton: UIBarButtonItem!
     
     let searchController = UISearchController(searchResultsController: nil)
     var quests = [Quest]();
@@ -30,6 +31,8 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
         // Add a search bar
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchBar.scopeButtonTitles = ["Name", "Location"]
+        searchController.searchBar.tintColor = UIColor(red: 65.0 / 255.0, green: 175.0 / 255.0, blue: 17.0 / 255.0, alpha: 1.0)
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
         
@@ -40,7 +43,24 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
         self.refreshControl?.addTarget(self, action: "refreshData", forControlEvents: UIControlEvents.ValueChanged)
         
 //        self.refreshControl?.beginRefreshing()
+        setUpHamberger()
         refreshData()
+    }
+    
+    func setUpHamberger() {
+        if let revealViewController = self.revealViewController() {
+            self.revealButton.target = self
+            self.revealButton.action = Selector("showSide")
+            self.navigationController?.navigationBar.addGestureRecognizer(revealViewController.panGestureRecognizer())
+        }
+    }
+    
+    func showSide() {
+        self.revealViewController().revealToggle(nil)
+    }
+    
+    func searchBar(searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        self.updateSearchResultsForSearchController(searchController)
     }
     
     func getQuestAt(indexPath: NSIndexPath) -> Quest {
@@ -53,7 +73,11 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
     
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         filteredQuests = quests.filter({ (quest) -> Bool in
-            return quest.Name.lowercaseString.containsString(searchController.searchBar.text!.lowercaseString)
+            if searchController.searchBar.scopeButtonTitles![searchController.searchBar.selectedScopeButtonIndex] == "Name" {
+                return quest.Name.lowercaseString.containsString(searchController.searchBar.text!.lowercaseString)
+            }else{
+                return quest.Location.lowercaseString.containsString(searchController.searchBar.text!.lowercaseString)
+            }
         })
         self.tableView.reloadData()
     }

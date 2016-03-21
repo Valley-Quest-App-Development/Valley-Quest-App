@@ -10,5 +10,6 @@
 #define ObjCBridgingHeader_h
 #import "Parse/Parse.h"
 #import "BEMCheckBox/BEMCheckBox.h"
+#import "SWRevealViewController.h"
 
 #endif /* ObjCBridgingHeader_h */

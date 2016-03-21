@@ -11,6 +11,15 @@ import UIKit
 import MapKit
 import Parse
 
+extension UIFont {
+    func sizeOfString (string: NSString, constrainedToWidth width: Double) -> CGSize {
+        return string.boundingRectWithSize(CGSize(width: width, height: DBL_MAX),
+            options: NSStringDrawingOptions.UsesLineFragmentOrigin,
+            attributes: [NSFontAttributeName: self],
+            context: nil).size
+    }
+}
+
 class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var difficulty: UILabel!
@@ -60,9 +69,18 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
                 rows[index].append(["Type", quest.SpecialFeatures])
                 rows[index].append(["Walking conditions", quest.WalkingConditions])
                 rows[index].append(["Things to bring", quest.Bring])
-                selectableRows.append(NSIndexPath(forItem: rows[index].count - 1, inSection: index))
                 
                 
+                let textSize = UIFont.systemFontOfSize(16).sizeOfString(rows[index][rows[index].count - 1][1], constrainedToWidth: Double(self.view.frame.width)).width
+                
+                let mainTitleWidth = UIFont.systemFontOfSize(16).sizeOfString(rows[index][rows[index].count - 1][0], constrainedToWidth: Double(self.view.frame.width)).width
+                
+                // This determines if the string is too long to all be shown. If it is, we make is selectable so we can expand it for people
+                if textSize > self.view.frame.width - mainTitleWidth - 30 {
+                    selectableRows.append(NSIndexPath(forItem: rows[index].count - 1, inSection: index))
+                }
+                
+                // If there is a pdf, we can show it
                 if quest.hasPDF() {
                     rows[index].append(["PDF"])
                     selectableRows.append(NSIndexPath(forItem: rows[index].count - 1, inSection: index))
@@ -123,10 +141,12 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
             break
             
             case "Things to bring":
-                animated = true
-                let alert = UIAlertController(title: "Things to bring", message: quest.Bring, preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.Default, handler: nil))
-                self.presentViewController(alert, animated: true, completion: nil)
+                if (self.selectableRows.contains(indexPath)) {
+                    animated = true
+                    let alert = UIAlertController(title: "Things to bring", message: quest.Bring, preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.Default, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                }
             break
             
             default:

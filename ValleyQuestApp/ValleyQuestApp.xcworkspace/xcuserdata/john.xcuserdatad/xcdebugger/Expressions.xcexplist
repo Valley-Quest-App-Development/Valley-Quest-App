@@ -27,6 +27,17 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "DirectionsViewController.reload() -&gt; ():DirectionsViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "QuestDetailViewController.viewDidLoad() -&gt; ():QuestDetailViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "textSize">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "MainViewController.updateSearchResultsForSearchController(UISearchController) -&gt; ():MainViewController.swift">
       </ContextState>
    </ContextStates>

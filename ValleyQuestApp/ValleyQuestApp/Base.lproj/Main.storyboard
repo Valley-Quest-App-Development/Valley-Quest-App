@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6Dg-ks-hev">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="IJr-1M-pGA">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -49,7 +49,12 @@
                             <outlet property="delegate" destination="qou-Bg-yHz" id="0M1-Mc-XIu"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="cxY-Ey-p2y"/>
+                    <navigationItem key="navigationItem" id="cxY-Ey-p2y">
+                        <barButtonItem key="leftBarButtonItem" image="reveal-icon" style="plain" id="egJ-Vz-aRo"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="revealButton" destination="egJ-Vz-aRo" id="cfh-NK-E82"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ycs-pZ-hia" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -323,6 +328,53 @@
             </objects>
             <point key="canvasLocation" x="2563" y="1060"/>
         </scene>
+        <!--Reveal View Controller-->
+        <scene sceneID="FAi-22-JL8">
+            <objects>
+                <viewController id="IJr-1M-pGA" customClass="SWRevealViewController" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="6Dg-ks-hev" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="HXL-sz-WjX"/>
+                        <segue destination="fae-m7-SnV" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="QQX-qU-Cie"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Voe-dO-TVm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-412" y="285"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Gaf-vx-ZOJ">
+            <objects>
+                <viewController id="fae-m7-SnV" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="E5Z-xw-J5V"/>
+                        <viewControllerLayoutGuide type="bottom" id="u8e-kJ-5lM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ag5-FQ-xJe">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kke-GR-LDG">
+                                <rect key="frame" x="279" y="96" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="0KS-Yc-hN5"/>
+                                    <constraint firstAttribute="width" constant="42" id="pvd-qK-g34"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Kke-GR-LDG" firstAttribute="top" secondItem="E5Z-xw-J5V" secondAttribute="bottom" constant="76" id="K8w-at-OZx"/>
+                            <constraint firstItem="Kke-GR-LDG" firstAttribute="centerX" secondItem="Ag5-FQ-xJe" secondAttribute="centerX" id="mXa-kp-GBw"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IHA-ag-CUD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="428" y="-419"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="0EX-BP-Ex0">
             <objects>
@@ -349,4 +401,7 @@
             <point key="canvasLocation" x="428" y="285"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="reveal-icon" width="22" height="17"/>
+    </resources>
 </document>
