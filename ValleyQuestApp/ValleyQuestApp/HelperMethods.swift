@@ -17,6 +17,16 @@ extension String {
     }
 }
 
+extension UIFont {
+    func sizeOfString (string: NSString, constrainedToWidth width: Double) -> CGSize {
+        return string.boundingRectWithSize(CGSize(width: width, height: DBL_MAX),
+            options: NSStringDrawingOptions.UsesLineFragmentOrigin,
+            attributes: [NSFontAttributeName: self],
+            context: nil).size
+    }
+}
+
+
 class HelperMethods {
     class func getHeightForText(text : String, font : UIFont, width : CGFloat, maxHeight: CGFloat) -> CGFloat {
         let height = text.sizeForWidth(width, font: font).height
@@ -37,5 +47,9 @@ class HelperMethods {
         let mapItem = MKMapItem(placemark: placemark)
         mapItem.name = "\(name)"
         mapItem.openInMapsWithLaunchOptions(options)
+    }
+    
+    class func getWidthForText(text: String, font: UIFont) -> CGFloat {
+        return font.sizeOfString(text, constrainedToWidth: Double.infinity).width
     }
 }

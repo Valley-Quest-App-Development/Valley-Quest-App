@@ -18,6 +18,11 @@
 		5244C8FA1C9E612E0040E565 /* DirectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5244C8F91C9E612E0040E565 /* DirectionsViewController.swift */; };
 		5244C8FD1C9E91AB0040E565 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5244C8FC1C9E91AB0040E565 /* SWRevealViewController.m */; };
 		5244C8FF1CA09F1F0040E565 /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5244C8FE1CA09F1F0040E565 /* Feedback.swift */; };
+		5281CDA11CA10A13001B6F6C /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5281CDA01CA10A13001B6F6C /* FeedbackViewController.swift */; };
+		5281CDA31CA10A23001B6F6C /* FeedbackBoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5281CDA21CA10A23001B6F6C /* FeedbackBoxViewController.swift */; };
+		5281CDA51CA10A42001B6F6C /* FeedbackCluesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5281CDA41CA10A42001B6F6C /* FeedbackCluesViewController.swift */; };
+		5281CDA81CA11416001B6F6C /* FeedbackTextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5281CDA71CA11416001B6F6C /* FeedbackTextViewCell.swift */; };
+		5281CDAA1CA11435001B6F6C /* FeedbackTextViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5281CDA91CA11435001B6F6C /* FeedbackTextViewCell.xib */; };
 		52BD6E221C7278FA005A0FC3 /* Valley Quest App.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 52BD6E211C7278FA005A0FC3 /* Valley Quest App.entitlements */; };
 		52C8E26C1BDBE4BB005996E3 /* QuestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52C8E26B1BDBE4BB005996E3 /* QuestCell.xib */; };
 		52C8E2701BDBE75F005996E3 /* QuestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C8E26F1BDBE75F005996E3 /* QuestCell.swift */; };
@@ -63,6 +68,11 @@
 		5244C8FB1C9E91AB0040E565 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		5244C8FC1C9E91AB0040E565 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		5244C8FE1CA09F1F0040E565 /* Feedback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
+		5281CDA01CA10A13001B6F6C /* FeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
+		5281CDA21CA10A23001B6F6C /* FeedbackBoxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackBoxViewController.swift; sourceTree = "<group>"; };
+		5281CDA41CA10A42001B6F6C /* FeedbackCluesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackCluesViewController.swift; sourceTree = "<group>"; };
+		5281CDA71CA11416001B6F6C /* FeedbackTextViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackTextViewCell.swift; sourceTree = "<group>"; };
+		5281CDA91CA11435001B6F6C /* FeedbackTextViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedbackTextViewCell.xib; sourceTree = "<group>"; };
 		52BD6E211C7278FA005A0FC3 /* Valley Quest App.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Valley Quest App.entitlements"; sourceTree = "<group>"; };
 		52C8E26B1BDBE4BB005996E3 /* QuestCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestCell.xib; sourceTree = "<group>"; };
 		52C8E26F1BDBE75F005996E3 /* QuestCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestCell.swift; sourceTree = "<group>"; };
@@ -118,6 +128,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5281CDA61CA10A46001B6F6C /* Feedback view */ = {
+			isa = PBXGroup;
+			children = (
+				5281CDA01CA10A13001B6F6C /* FeedbackViewController.swift */,
+				5281CDA71CA11416001B6F6C /* FeedbackTextViewCell.swift */,
+				5281CDA91CA11435001B6F6C /* FeedbackTextViewCell.xib */,
+				5281CDA21CA10A23001B6F6C /* FeedbackBoxViewController.swift */,
+				5281CDA41CA10A42001B6F6C /* FeedbackCluesViewController.swift */,
+			);
+			name = "Feedback view";
+			sourceTree = "<group>";
+		};
 		52EA9F2D1BBB3B0D0063E082 = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +176,7 @@
 				8B40A9591BE15BB500DC30AC /* QuestDetailViewController.swift */,
 				522A254C1BE03BCC008FE49E /* Quest.swift */,
 				5244C8FE1CA09F1F0040E565 /* Feedback.swift */,
+				5281CDA61CA10A46001B6F6C /* Feedback view */,
 				522EC6931BEFF76000262690 /* CluesViewController.swift */,
 				522EC6951BEFF85400262690 /* VariableHightCell.swift */,
 				522EC6971BEFF91500262690 /* VariableHeightCell.xib */,
@@ -243,7 +266,7 @@
 		52EA9F2E1BBB3B0D0063E082 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = vitalCommunities;
 				TargetAttributes = {
 					52EA9F351BBB3B0D0063E082 = {
@@ -294,6 +317,7 @@
 				52EA9F3F1BBB3B0D0063E082 /* Main.storyboard in Resources */,
 				522EC6981BEFF91500262690 /* VariableHeightCell.xib in Resources */,
 				52C8E26C1BDBE4BB005996E3 /* QuestCell.xib in Resources */,
+				5281CDAA1CA11435001B6F6C /* FeedbackTextViewCell.xib in Resources */,
 				52E0CDE11C94EBAA00E547AA /* Assets.xcassets in Resources */,
 				52BD6E221C7278FA005A0FC3 /* Valley Quest App.entitlements in Resources */,
 			);
@@ -371,13 +395,17 @@
 				52C8E2701BDBE75F005996E3 /* QuestCell.swift in Sources */,
 				52E13E231C9A7512002CE8AD /* HelperMethods.swift in Sources */,
 				5244C8FF1CA09F1F0040E565 /* Feedback.swift in Sources */,
+				5281CDA31CA10A23001B6F6C /* FeedbackBoxViewController.swift in Sources */,
 				522A254D1BE03BCC008FE49E /* Quest.swift in Sources */,
 				8B40A95A1BE15BB500DC30AC /* QuestDetailViewController.swift in Sources */,
 				52EA9F3C1BBB3B0D0063E082 /* QuestController.swift in Sources */,
+				5281CDA51CA10A42001B6F6C /* FeedbackCluesViewController.swift in Sources */,
 				522EC6961BEFF85400262690 /* VariableHightCell.swift in Sources */,
 				5244C8FA1C9E612E0040E565 /* DirectionsViewController.swift in Sources */,
+				5281CDA81CA11416001B6F6C /* FeedbackTextViewCell.swift in Sources */,
 				522EC6941BEFF76000262690 /* CluesViewController.swift in Sources */,
 				5244C8FD1C9E91AB0040E565 /* SWRevealViewController.m in Sources */,
+				5281CDA11CA10A13001B6F6C /* FeedbackViewController.swift in Sources */,
 				52EA9F3A1BBB3B0D0063E082 /* AppDelegate.swift in Sources */,
 				523AC4241C61568200461BBA /* PDFViewController.swift in Sources */,
 			);
@@ -454,6 +482,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -464,6 +493,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;

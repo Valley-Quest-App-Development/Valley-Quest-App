@@ -11,14 +11,6 @@ import UIKit
 import MapKit
 import Parse
 
-extension UIFont {
-    func sizeOfString (string: NSString, constrainedToWidth width: Double) -> CGSize {
-        return string.boundingRectWithSize(CGSize(width: width, height: DBL_MAX),
-            options: NSStringDrawingOptions.UsesLineFragmentOrigin,
-            attributes: [NSFontAttributeName: self],
-            context: nil).size
-    }
-}
 
 class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var titleLabel: UILabel!
@@ -30,6 +22,7 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
     
     var object: Quest? = nil
     let regionRadius: CLLocationDistance = 1000
+    private static let feedbackCellMessage = "Send feedback on this quest"
     var delegate: QuestController?
     
     var sections : [String] = []
@@ -50,7 +43,7 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
             descriptionLabel.attributedText = NSAttributedString(string: quest.Description, attributes: atributes)
             
             // We need outlets for locations and directions
-            let index = sections.count
+            var index = sections.count
             sections.append("Location")
             rows.append([])
             
@@ -59,16 +52,18 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
             
             // We know that we need an outlet for the clues. That could be pdf or clues
             // The first section will be 
+            
+            index = sections.count
+            sections.append("Details")
+            rows.append([])
+            
+            
+            rows[index].append(["Season", quest.Season])
+            rows[index].append(["Type", quest.SpecialFeatures])
+            rows[index].append(["Walking conditions", quest.WalkingConditions])
+            rows[index].append(["Things to bring", quest.Bring])
+            
             if quest.hasClues() || quest.hasPDF() {
-                let index = sections.count
-                sections.append("Details")
-                rows.append([])
-                
-                
-                rows[index].append(["Season", quest.Season])
-                rows[index].append(["Type", quest.SpecialFeatures])
-                rows[index].append(["Walking conditions", quest.WalkingConditions])
-                rows[index].append(["Things to bring", quest.Bring])
                 
                 
                 let textSize = UIFont.systemFontOfSize(16).sizeOfString(rows[index][rows[index].count - 1][1], constrainedToWidth: Double(self.view.frame.width)).width
@@ -91,6 +86,18 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
                     selectableRows.append(NSIndexPath(forItem: rows[index].count - 1, inSection: index))
                 }
             }
+            
+            
+            
+            // Now add a view for feedback
+            
+            index = sections.count
+            sections.append("Feedback")
+            rows.append([])
+            
+            
+            rows[index].append([QuestDetailViewController.feedbackCellMessage])
+            selectableRows.append(NSIndexPath(forItem: rows[index].count - 1, inSection: index))
         }
     }
     
@@ -147,6 +154,10 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
                     alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.Default, handler: nil))
                     self.presentViewController(alert, animated: true, completion: nil)
                 }
+            break
+            
+            case QuestDetailViewController.feedbackCellMessage:
+                self.performSegueWithIdentifier("showFeedbackView", sender: nil)
             break
             
             default:
@@ -213,6 +224,10 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
             }
             
             destination.setThings(quest.directions, coords: coords, name: quest.Name)
+        }
+        
+        if let destination = segue.destinationViewController as? FeedbackViewController, let quest = object {
+            destination.quest = quest
         }
     }
     

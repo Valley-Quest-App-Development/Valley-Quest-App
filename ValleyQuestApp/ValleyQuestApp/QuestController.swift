@@ -40,7 +40,7 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
         self.refreshControl = UIRefreshControl()
         self.refreshControl?.backgroundColor = UIColor(red: 0.85, green: 0.85, blue: 0.85, alpha: 1.0)
         self.refreshControl?.tintColor = UIColor.whiteColor()
-        self.refreshControl?.addTarget(self, action: "refreshData", forControlEvents: UIControlEvents.ValueChanged)
+        self.refreshControl?.addTarget(self, action: #selector(QuestController.refreshData), forControlEvents: UIControlEvents.ValueChanged)
         
 //        self.refreshControl?.beginRefreshing()
         setUpHamberger()
@@ -50,7 +50,7 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
     func setUpHamberger() {
         if let revealViewController = self.revealViewController() {
             self.revealButton.target = self
-            self.revealButton.action = Selector("showSide")
+            self.revealButton.action = #selector(QuestController.showSide)
             self.navigationController?.navigationBar.addGestureRecognizer(revealViewController.panGestureRecognizer())
         }
     }
@@ -167,7 +167,7 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
     }
     
     func loadQuestView(id: String) {
-        if let quest = PFObject(withoutDataWithClassName: "Quests", objectId: id) as? Quest {
+        if let quest = PFObject(outDataWithClassName: "Quests", objectId: id) as? Quest {
             quest.fetchIfNeededInBackgroundWithBlock({ (quest, error) -> Void in
                 self.performSegueWithIdentifier("showQuestDetail", sender: quest)
             })
