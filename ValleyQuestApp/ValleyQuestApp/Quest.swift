@@ -84,20 +84,13 @@ class Quest: PFObject, PFSubclassing {
      Parses the given PFObjects into quest objects
     */
     class func getQuestsFromPFOBjects(objects: [PFObject]) -> Array<Quest> {
-        var array: [Quest] = []
-        
-        for object: PFObject in objects {
-            if let quest = object as? Quest {
-                quest.addToSpotlight()
-                array.append(quest)
-            }
-        }
-        
-        return array
+        return objects as! [Quest]
     }
     
     static func sortQuests(inout quests: Array<Quest>) {
-        quickSort(&quests, start: 0, end: quests.count - 1)
+        quests.sortInPlace { (quest1, quest2) -> Bool in
+            return quest1.Name < quest2.Name
+        }
     }
     
     // Quicksort

@@ -15,6 +15,7 @@ class FeedbackViewController: UITableViewController {
     var quest: Quest?
     var messageTextView: UITextView = UITextView()
     var emailTextField = UITextField()
+    @IBOutlet weak var submitButton: UIButton!
     
     override func viewDidLoad() {
         assert(quest != nil, "Given quest must be a quest")
@@ -22,12 +23,25 @@ class FeedbackViewController: UITableViewController {
         let tap = UITapGestureRecognizer(target: self, action: #selector(FeedbackViewController.hideKeyboard))
         tap.cancelsTouchesInView = false
         self.tableView.addGestureRecognizer(tap)
-        self.title = "Send Feedback"
+        self.title = "Feedback"
     }
     
     func hideKeyboard() {
         messageTextView.resignFirstResponder()
         emailTextField.resignFirstResponder()
+    }
+    
+    @IBAction func submit(sender: UIButton) {
+        feedbackObject.message = messageTextView.text!
+        feedbackObject.submitterEmail = emailTextField.text!
+        if feedbackObject.isValid() {
+            feedbackObject.saveInBackground()
+            self.navigationController?.popViewControllerAnimated(true)
+        }else{
+            let alert = UIAlertController(title: "Something is wrong", message: "Something with the inputs was wrong", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "Okay", style: .Cancel, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -90,6 +104,12 @@ class FeedbackViewController: UITableViewController {
         }
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let destination = segue.destinationViewController as? FeedbackBoxViewController {
+            destination.feedBack = self.feedbackObject
+        }
+    }
+    
     override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         switch section {
         case 0:
@@ -105,10 +125,28 @@ class FeedbackViewController: UITableViewController {
         switch indexPath.section {
         case 1:
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
+            // it was the second section. Now we just need to open the other views
+            switch  indexPath.row {
+            case 0:
+                self.performSegueWithIdentifier("boxFeedbackView", sender: nil)
+                break
+            case 1:
+                self.performSegueWithIdentifier("cluesFeedbackView", sender: nil)
+                break
+            default:
+                // This is not one of the cells I remember!
+                break
+            }
+            
+            
             break
             
-        default: break
+        default:
+            tableView.deselectRowAtIndexPath(indexPath, animated: false)
+            break
         }
+        
+        
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -19,6 +19,8 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var descriptionHeight: NSLayoutConstraint!
+    @IBOutlet weak var topView: UIView!
+    var topHeight: CGFloat?
     
     var object: Quest? = nil
     let regionRadius: CLLocationDistance = 1000
@@ -56,7 +58,6 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
             index = sections.count
             sections.append("Details")
             rows.append([])
-            
             
             rows[index].append(["Season", quest.Season])
             rows[index].append(["Type", quest.SpecialFeatures])
@@ -193,7 +194,8 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
             if let url = NSURL(string: "http://appstore.com/valleyquest") {
                 
                 let activity: UIActivityViewController = UIActivityViewController(activityItems: [textToShare, url, quest], applicationActivities: nil)
-                activity.excludedActivityTypes = [UIActivityTypeAddToReadingList]
+                
+                
                 
                 if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.Pad) {
                     if let sender = barButton {
@@ -235,8 +237,12 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
         self.object = object
     }
     
+    override func viewWillAppear(animated: Bool) {
+        descriptionLabel.setContentOffset(CGPointZero, animated: animated)
+    }
+    
     override func viewDidLayoutSubviews() {
-        descriptionLabel.setContentOffset(CGPointZero, animated: false)
+        descriptionLabel.setContentOffset(CGPointZero, animated: true)
         descriptionLabel.textContainer.lineFragmentPadding = 0
         
         let font = UIFont.systemFontOfSize(15)
@@ -246,8 +252,13 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
         let height = HelperMethods.getHeightForText(descriptionLabel.text, font: font, width: self.descriptionLabel.frame.width, maxHeight: maxHeight)
         descriptionHeight.constant = height > maxHeight ? maxHeight : height
         
-        if height > maxHeight {
-            descriptionLabel.scrollEnabled = true
+        
+        let value = (self.navigationController?.navigationBar.frame.height)
+        if self.topHeight == nil {
+            self.topHeight = self.descriptionLabel.frame.origin.x + self.descriptionLabel.frame.height + (value == nil ? 0 : value!) + 15
         }
+        self.topView.frame = CGRect(origin: self.topView.frame.origin, size: CGSize(width: self.topView.frame.width, height: self.topHeight!))
+        
+        descriptionLabel.scrollEnabled = height > maxHeight
     }
 }

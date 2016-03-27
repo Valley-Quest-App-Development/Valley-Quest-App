@@ -88,7 +88,7 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
             
             if let checkedResults = results {
                 self.quests = Quest.getQuestsFromPFOBjects(checkedResults)
-                self.quests[0].saveInBackground()
+                Quest.sortQuests(&self.quests)
             }
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.refreshControl?.endRefreshing()

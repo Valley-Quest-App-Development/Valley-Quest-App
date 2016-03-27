@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+class FeedbackCluesViewController: UITableViewController {
+    
+    
+    override func viewDidLoad() {
+        self.title = "Feedback - Clues"
+    }
+}
