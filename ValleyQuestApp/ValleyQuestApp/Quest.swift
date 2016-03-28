@@ -35,12 +35,13 @@ class Quest: PFObject, PFSubclassing {
     @NSManaged var SpecialFeatures: String
     @NSManaged var Location: String
     @NSManaged var GPS: PFGeoPoint?
-    @NSManaged var Bring: String
+    @NSManaged var Bring: String?
     @NSManaged var Description: String
     @NSManaged var Difficulty: String
     @NSManaged var WalkingConditions: String
     @NSManaged var pdf: PFFile?
-    @NSManaged var directions: String
+    @NSManaged var Directions: String
+    @NSManaged var cluesLocation: String?
     
     // ----------------------------
     // Initialization methods
@@ -72,19 +73,39 @@ class Quest: PFObject, PFSubclassing {
         return self.pdf != nil
     }
     
-    static func parseClassName() -> String {
-        return "Quests"
+    func getSource() -> String? {
+        if let location = self.cluesLocation {
+            if location.containsString(".pdf") {
+                return nil
+            }
+        }
+        
+        return self.cluesLocation
     }
     
     // ---------------------------
     // Static methods
     // ---------------------------
     
+    
+    static func parseClassName() -> String {
+        return "Quests"
+    }
+    
     /**
      Parses the given PFObjects into quest objects
     */
     class func getQuestsFromPFOBjects(objects: [PFObject]) -> Array<Quest> {
-        return objects as! [Quest]
+        var array = [Quest]()
+        
+        for quest in objects {
+            if let quest = quest as? Quest {
+                array.append(quest)
+                quest.addToSpotlight()
+            }
+        }
+        
+        return array
     }
     
     static func sortQuests(inout quests: Array<Quest>) {

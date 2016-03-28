@@ -13,14 +13,9 @@ import Parse
 
 
 class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var difficulty: UILabel!
-    @IBOutlet weak var descriptionLabel: UITextView!
     @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var descriptionHeight: NSLayoutConstraint!
-    @IBOutlet weak var topView: UIView!
-    var topHeight: CGFloat?
+    var titleCell: QuestDetailCell = QuestDetailCell()
     
     var object: Quest? = nil
     let regionRadius: CLLocationDistance = 1000
@@ -35,23 +30,24 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
     override func viewDidLoad() {
         
         if let quest = object {
-            titleLabel.text = quest.Name
-            difficulty.text = "Difficulty: " + quest.Difficulty
-            
-            
-            let style = NSMutableParagraphStyle()
-            style.lineSpacing = 5
-            let atributes = [NSParagraphStyleAttributeName : style]
-            descriptionLabel.attributedText = NSAttributedString(string: quest.Description, attributes: atributes)
-            
             // We need outlets for locations and directions
+            sections.append("")
+            rows.append([[]])
+            
             var index = sections.count
             sections.append("Location")
             rows.append([])
             
-            rows[index].append([quest.Location, quest.directions])
+            rows[index].append([quest.Location, quest.Directions])
             selectableRows.append(NSIndexPath(forItem: rows[index].count - 1, inSection: index))
-            
+//            
+//            
+//            index = sections.count
+//            sections.append("Overview")
+//            rows.append([])
+//            
+//            rows[index].append(["", ])
+//            
             // We know that we need an outlet for the clues. That could be pdf or clues
             // The first section will be 
             
@@ -62,7 +58,9 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
             rows[index].append(["Season", quest.Season])
             rows[index].append(["Type", quest.SpecialFeatures])
             rows[index].append(["Walking conditions", quest.WalkingConditions])
-            rows[index].append(["Things to bring", quest.Bring])
+            if let bring = quest.Bring {
+                rows[index].append(["Things to bring", bring])
+            }
             
             if quest.hasClues() || quest.hasPDF() {
                 
@@ -103,10 +101,23 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        if let quest = object where indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCellWithIdentifier("titleCell") as! QuestDetailCell
+            
+            cell.nameOfQuestLabel.text = quest.Name
+            cell.setDifficulty(quest.Difficulty)
+            cell.setDescription(quest.Description)
+            
+            titleCell = cell
+            
+            return cell
+        }
+        
+        
         let cell = tableView.dequeueReusableCellWithIdentifier("cell")
         
         cell?.textLabel?.text = rows[indexPath.section][indexPath.row][0]
-        cell?.detailTextLabel?.text = rows[indexPath.section][indexPath.row].count > 1 ? rows[indexPath.section][indexPath.row][1] : ""
+        cell?.detailTextLabel?.text = rows[indexPath.section ][indexPath.row].count > 1 ? rows[indexPath.section][indexPath.row][1] : ""
         if selectableRows.contains(indexPath) {
             cell?.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         }else{
@@ -117,6 +128,10 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            return titleCell.getHeight()
+        }
+        
         return 50
     }
     
@@ -129,7 +144,7 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        var animated = true
+        var animated = false
         let quest = object!
         
         switch rows[indexPath.section][indexPath.row][0]{
@@ -225,7 +240,7 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
                 coords = CLLocationCoordinate2DMake(gps.latitude, gps.longitude)
             }
             
-            destination.setThings(quest.directions, coords: coords, name: quest.Name)
+            destination.setThings(quest.Directions, coords: coords, name: quest.Name)
         }
         
         if let destination = segue.destinationViewController as? FeedbackViewController, let quest = object {
@@ -235,30 +250,5 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
     
     func setQuestObject(object: Quest) {
         self.object = object
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        descriptionLabel.setContentOffset(CGPointZero, animated: animated)
-    }
-    
-    override func viewDidLayoutSubviews() {
-        descriptionLabel.setContentOffset(CGPointZero, animated: true)
-        descriptionLabel.textContainer.lineFragmentPadding = 0
-        
-        let font = UIFont.systemFontOfSize(15)
-        descriptionLabel.font = font
-        
-        let maxHeight:CGFloat = 180
-        let height = HelperMethods.getHeightForText(descriptionLabel.text, font: font, width: self.descriptionLabel.frame.width, maxHeight: maxHeight)
-        descriptionHeight.constant = height > maxHeight ? maxHeight : height
-        
-        
-        let value = (self.navigationController?.navigationBar.frame.height)
-        if self.topHeight == nil {
-            self.topHeight = self.descriptionLabel.frame.origin.x + self.descriptionLabel.frame.height + (value == nil ? 0 : value!) + 15
-        }
-        self.topView.frame = CGRect(origin: self.topView.frame.origin, size: CGSize(width: self.topView.frame.width, height: self.topHeight!))
-        
-        descriptionLabel.scrollEnabled = height > maxHeight
     }
 }

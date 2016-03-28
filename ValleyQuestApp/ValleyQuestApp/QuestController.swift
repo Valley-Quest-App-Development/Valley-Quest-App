@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import CoreSpotlight
 
 class QuestController: UITableViewController, UIViewControllerPreviewingDelegate, UISearchResultsUpdating, UISearchBarDelegate {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -87,6 +88,7 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
         query.findObjectsInBackgroundWithBlock { (results: [PFObject]?, error: NSError?) -> Void in
             
             if let checkedResults = results {
+                CSSearchableIndex.defaultSearchableIndex().deleteAllSearchableItemsWithCompletionHandler(nil)
                 self.quests = Quest.getQuestsFromPFOBjects(checkedResults)
                 Quest.sortQuests(&self.quests)
             }

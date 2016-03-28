@@ -64,11 +64,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
         if userActivity.activityType == CSSearchableItemActionType {
             if let id = userActivity.userInfo?[CSSearchableItemActivityIdentifier] as? String {
-                let navController = self.window!.rootViewController as! UINavigationController
-                navController.popToRootViewControllerAnimated(true)
-                
-                if let mainVC = navController.topViewController as? QuestController {
-                    mainVC.loadQuestView(id)
+                let mainController = self.window!.rootViewController as! SWRevealViewController
+                if let navController = mainController.rightViewController as? UINavigationController {
+                    navController.popToRootViewControllerAnimated(true)
+                    
+                    if let mainVC = navController.topViewController as? QuestController {
+                        mainVC.loadQuestView(id)
+                    }
                 }
             }
         }

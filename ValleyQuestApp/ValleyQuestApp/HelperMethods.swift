@@ -31,7 +31,7 @@ class HelperMethods {
     class func getHeightForText(text : String, font : UIFont, width : CGFloat, maxHeight: CGFloat) -> CGFloat {
         let height = text.sizeForWidth(width, font: font).height
         let numLines = round(height / font.lineHeight)
-        return (font.lineHeight * 1.2 + 5) * numLines
+        return (font.lineHeight) * numLines
     }
     
     class func openLocation(coords: CLLocationCoordinate2D, name: String) {

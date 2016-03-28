@@ -23,6 +23,7 @@
 		5281CDA51CA10A42001B6F6C /* FeedbackCluesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5281CDA41CA10A42001B6F6C /* FeedbackCluesViewController.swift */; };
 		5281CDA81CA11416001B6F6C /* FeedbackTextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5281CDA71CA11416001B6F6C /* FeedbackTextViewCell.swift */; };
 		5281CDAA1CA11435001B6F6C /* FeedbackTextViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5281CDA91CA11435001B6F6C /* FeedbackTextViewCell.xib */; };
+		52BC33801CA9A79500D610AC /* QuestDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BC337F1CA9A79500D610AC /* QuestDetailCell.swift */; };
 		52BD6E221C7278FA005A0FC3 /* Valley Quest App.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 52BD6E211C7278FA005A0FC3 /* Valley Quest App.entitlements */; };
 		52C8E26C1BDBE4BB005996E3 /* QuestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52C8E26B1BDBE4BB005996E3 /* QuestCell.xib */; };
 		52C8E2701BDBE75F005996E3 /* QuestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C8E26F1BDBE75F005996E3 /* QuestCell.swift */; };
@@ -74,6 +75,7 @@
 		5281CDA41CA10A42001B6F6C /* FeedbackCluesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackCluesViewController.swift; sourceTree = "<group>"; };
 		5281CDA71CA11416001B6F6C /* FeedbackTextViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackTextViewCell.swift; sourceTree = "<group>"; };
 		5281CDA91CA11435001B6F6C /* FeedbackTextViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedbackTextViewCell.xib; sourceTree = "<group>"; };
+		52BC337F1CA9A79500D610AC /* QuestDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestDetailCell.swift; sourceTree = "<group>"; };
 		52BD6E211C7278FA005A0FC3 /* Valley Quest App.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Valley Quest App.entitlements"; sourceTree = "<group>"; };
 		52C8E26B1BDBE4BB005996E3 /* QuestCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestCell.xib; sourceTree = "<group>"; };
 		52C8E26F1BDBE75F005996E3 /* QuestCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestCell.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				52E13E221C9A7512002CE8AD /* HelperMethods.swift */,
 				523AC4231C61568200461BBA /* PDFViewController.swift */,
 				8B40A9591BE15BB500DC30AC /* QuestDetailViewController.swift */,
+				52BC337F1CA9A79500D610AC /* QuestDetailCell.swift */,
 				522A254C1BE03BCC008FE49E /* Quest.swift */,
 				5244C8FE1CA09F1F0040E565 /* Feedback.swift */,
 				5281CDA61CA10A46001B6F6C /* Feedback view */,
@@ -400,6 +403,7 @@
 				52E13E231C9A7512002CE8AD /* HelperMethods.swift in Sources */,
 				5244C8FF1CA09F1F0040E565 /* Feedback.swift in Sources */,
 				5281CDA31CA10A23001B6F6C /* FeedbackBoxViewController.swift in Sources */,
+				52BC33801CA9A79500D610AC /* QuestDetailCell.swift in Sources */,
 				522A254D1BE03BCC008FE49E /* Quest.swift in Sources */,
 				8B40A95A1BE15BB500DC30AC /* QuestDetailViewController.swift in Sources */,
 				52EA9F3C1BBB3B0D0063E082 /* QuestController.swift in Sources */,
@@ -489,6 +493,7 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -499,6 +504,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};

@@ -3,10 +3,48 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "MainViewController.loadQuestView(String) -&gt; ():MainViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "PFObject(withoutDataWithClassName: &quot;Quests&quot;, objectId: id)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "static HelperMethods.getHeightForText(String, font : UIFont, width : CGFloat, maxHeight : CGFloat) -&gt; CGFloat:HelperMethods.swift">
          <PersistentStrings>
             <PersistentString
                value = "font.lineHeight">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "QuestDetailViewController.viewDidLoad() -&gt; ():QuestDetailViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "textSize">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "QuestController.prepareForSegue(UIStoryboardSegue, sender : AnyObject?) -&gt; () [inlined]:QuestController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "segue">
+            </PersistentString>
+            <PersistentString
+               value = "sender">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MainViewController.updateSearchResultsForSearchController(UISearchController) -&gt; ():MainViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "QuestDetailCell.(getHeightOfDescription in _FC1A0C37999F0C055C94810AAA7F7F9A)() -&gt; CGFloat:QuestDetailCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.frame.width">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -19,26 +57,7 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "MainViewController.loadQuestView(String) -&gt; ():MainViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "PFObject(withoutDataWithClassName: &quot;Quests&quot;, objectId: id)">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "DirectionsViewController.reload() -&gt; ():DirectionsViewController.swift">
-      </ContextState>
-      <ContextState
-         contextName = "QuestDetailViewController.viewDidLoad() -&gt; ():QuestDetailViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "textSize">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "MainViewController.updateSearchResultsForSearchController(UISearchController) -&gt; ():MainViewController.swift">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

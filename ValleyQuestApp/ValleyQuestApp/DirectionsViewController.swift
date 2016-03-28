@@ -9,12 +9,8 @@
 import Foundation
 
 class DirectionsViewController: UIViewController {
-    @IBOutlet weak var questNameLabel: UILabel!
     @IBOutlet weak var openInMapsButton: UIButton!
     @IBOutlet weak var textView: UITextView!
-    @IBOutlet weak var doneButton: UIButton!
-    
-    @IBOutlet weak var textViewDiff: NSLayoutConstraint!
     
     var text: String?
     var coords: CLLocationCoordinate2D?
@@ -24,12 +20,13 @@ class DirectionsViewController: UIViewController {
         self.text = text
         self.coords = coords
         self.name = name
-        if self.questNameLabel != nil {
+        if textView != nil {
             reload()
         }
     }
     
     override func viewDidLoad() {
+        self.title = name
         reload()
     }
     
@@ -44,15 +41,9 @@ class DirectionsViewController: UIViewController {
                 textView.font = UIFont.systemFontOfSize(15)
                 textView.textAlignment = .Center
             }
-            if let questNameLabel = self.questNameLabel {
-                questNameLabel.text = name
-            }
             if coords == nil {
-                if let openInMapsButton = self.openInMapsButton, let textViewDiff = self.textViewDiff {
-                    openInMapsButton.hidden = true
-                    openInMapsButton.enabled = false
-                    textViewDiff.constant = 8
-                }
+                openInMapsButton.hidden = true
+                openInMapsButton.enabled = false
             }
         }
     }
@@ -64,6 +55,6 @@ class DirectionsViewController: UIViewController {
     }
     
     @IBAction func hide(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.navigationController?.popViewControllerAnimated(true)
     }
 }
