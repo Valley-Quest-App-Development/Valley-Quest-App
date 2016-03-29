@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52235E1E1CAA1E1400F4F01D /* SegmentedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52235E1D1CAA1E1400F4F01D /* SegmentedCell.swift */; };
+		52235E201CAA249800F4F01D /* CheckBoxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52235E1F1CAA249800F4F01D /* CheckBoxCell.swift */; };
 		522A254D1BE03BCC008FE49E /* Quest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522A254C1BE03BCC008FE49E /* Quest.swift */; };
 		522EC6941BEFF76000262690 /* CluesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522EC6931BEFF76000262690 /* CluesViewController.swift */; };
 		522EC6961BEFF85400262690 /* VariableHightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522EC6951BEFF85400262690 /* VariableHightCell.swift */; };
@@ -58,6 +60,8 @@
 /* Begin PBXFileReference section */
 		0AE72FB39E6C8D966954840F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		5206324E1C44439100F94463 /* ObjCBridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ObjCBridgingHeader.h; path = ../ObjCBridgingHeader.h; sourceTree = "<group>"; };
+		52235E1D1CAA1E1400F4F01D /* SegmentedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedCell.swift; sourceTree = "<group>"; usesTabs = 1; };
+		52235E1F1CAA249800F4F01D /* CheckBoxCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBoxCell.swift; sourceTree = "<group>"; };
 		522A254C1BE03BCC008FE49E /* Quest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quest.swift; sourceTree = "<group>"; };
 		522EC6931BEFF76000262690 /* CluesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CluesViewController.swift; sourceTree = "<group>"; };
 		522EC6951BEFF85400262690 /* VariableHightCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VariableHightCell.swift; sourceTree = "<group>"; };
@@ -141,6 +145,8 @@
 				52DF7E6D1CA3C48D004D71F5 /* PercentCell.swift */,
 				5281CDA21CA10A23001B6F6C /* FeedbackBoxViewController.swift */,
 				5281CDA41CA10A42001B6F6C /* FeedbackCluesViewController.swift */,
+				52235E1D1CAA1E1400F4F01D /* SegmentedCell.swift */,
+				52235E1F1CAA249800F4F01D /* CheckBoxCell.swift */,
 			);
 			name = "Feedback view";
 			sourceTree = "<group>";
@@ -398,6 +404,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52235E201CAA249800F4F01D /* CheckBoxCell.swift in Sources */,
 				52C8E2701BDBE75F005996E3 /* QuestCell.swift in Sources */,
 				52DF7E6E1CA3C48D004D71F5 /* PercentCell.swift in Sources */,
 				52E13E231C9A7512002CE8AD /* HelperMethods.swift in Sources */,
@@ -407,6 +414,7 @@
 				522A254D1BE03BCC008FE49E /* Quest.swift in Sources */,
 				8B40A95A1BE15BB500DC30AC /* QuestDetailViewController.swift in Sources */,
 				52EA9F3C1BBB3B0D0063E082 /* QuestController.swift in Sources */,
+				52235E1E1CAA1E1400F4F01D /* SegmentedCell.swift in Sources */,
 				5281CDA51CA10A42001B6F6C /* FeedbackCluesViewController.swift in Sources */,
 				522EC6961BEFF85400262690 /* VariableHightCell.swift in Sources */,
 				5244C8FA1C9E612E0040E565 /* DirectionsViewController.swift in Sources */,

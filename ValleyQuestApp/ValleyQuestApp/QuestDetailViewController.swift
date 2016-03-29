@@ -106,7 +106,14 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
             
             cell.nameOfQuestLabel.text = quest.Name
             cell.setDifficulty(quest.Difficulty)
-            cell.setDescription(quest.Description)
+            
+            var finalString = quest.Description
+            
+            if let overview = quest.overview {
+                finalString = finalString + "\n\nOverview: " + overview
+            }
+            
+            cell.setDescription(finalString)
             
             titleCell = cell
             

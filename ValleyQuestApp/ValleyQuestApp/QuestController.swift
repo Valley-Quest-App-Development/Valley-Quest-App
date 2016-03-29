@@ -85,6 +85,7 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
     
     func refreshData() {
         let query: PFQuery = PFQuery(className: "Quests")
+        query.limit = 1000
         query.findObjectsInBackgroundWithBlock { (results: [PFObject]?, error: NSError?) -> Void in
             
             if let checkedResults = results {

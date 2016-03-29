@@ -41,7 +41,7 @@ class Feedback: PFObject, PFSubclassing {
     // The options for various multiple choice questions
     static let boxQualityOptions: [String] = ["Bad", "Okay", "Good"]
     static let boxMissingItemsOptions: [String] = ["Box", "Book", "Pen", "Stamp", "Ink pad (aka empty)"]
-    static let cluesAccuracyOptions: [String] = ["Wrong", "Not great", "Okay", "Pretty good", "Great"]
+    static let cluesAccuracyOptions: [String] = ["Wrong", "Not great", "Good", "Great"]
     static let cluesUnderstandableOptions: [String] = ["Confusing", "Good", "Too easy"]
     
     

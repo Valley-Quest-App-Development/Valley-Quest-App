@@ -18,13 +18,22 @@ class PercentCell: UITableViewCell {
             return Double(percentChanger.value)/100.0
         }
         set {
-            percentChanger.value = Float(round(newValue * 100.0))
-            percentLabel.text = "\(Int(round(newValue * 100.0)))%"
+            percentChanger.value = Float(roundToTens(newValue * 100.0))
+            percentLabel.text = "\(roundToTens(newValue * 100.0))%"
         }
     }
     
+    private func roundToTens(value: Double) -> Int {
+        let thing = value / 10.0
+        return 10 * Int(round(thing))
+    }
+    
+    @IBAction func roundValue(sender: AnyObject) {
+        percentChanger.setValue(Float(self.roundToTens(sender.value)), animated: true)
+    }
+    
     @IBAction func percentChanged(sender: UISlider) {
-        percentLabel.text = "\(Int(round(sender.value)))%"
+        percentLabel.text = "\(self.roundToTens(Double(sender.value)))%"
     }
 }
 

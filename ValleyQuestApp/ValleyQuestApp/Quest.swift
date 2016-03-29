@@ -42,6 +42,7 @@ class Quest: PFObject, PFSubclassing {
     @NSManaged var pdf: PFFile?
     @NSManaged var Directions: String
     @NSManaged var cluesLocation: String?
+    @NSManaged var overview: String?
     
     // ----------------------------
     // Initialization methods
@@ -73,15 +74,15 @@ class Quest: PFObject, PFSubclassing {
         return self.pdf != nil
     }
     
-    func getSource() -> String? {
-        if let location = self.cluesLocation {
-            if location.containsString(".pdf") {
-                return nil
-            }
-        }
-        
-        return self.cluesLocation
-    }
+//    func getSource() -> String? {
+//        if let location = self.cluesLocation {
+//            if location.containsString(".pdf") {
+//                return nil
+//            }
+//        }
+//        
+//        return self.cluesLocation
+//    }
     
     // ---------------------------
     // Static methods
