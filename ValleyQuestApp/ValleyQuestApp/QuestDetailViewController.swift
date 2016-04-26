@@ -86,6 +86,22 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
                 }
             }
             
+            if let book = quest.book {
+                index = sections.count
+                sections.append("Book")
+                rows.append([])
+                
+                var data = ["Book", book]
+                if let cluesLocation = quest.cluesLocation where !cluesLocation.containsString(".pdf") {
+                    data = [quest.cluesLocation!, book]
+                }
+                rows[index].append(data)
+                
+                if let correction = quest.Correction {
+                    rows[index].append(["Corrections", correction])
+                    selectableRows.append(NSIndexPath(forItem: rows[index].count - 1, inSection: index))
+                }
+            }
             
             
             // Now add a view for feedback
@@ -106,14 +122,22 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
             
             cell.nameOfQuestLabel.text = quest.Name
             cell.setDifficulty(quest.Difficulty)
+            if let duration = quest.duration as? Int {
+                cell.setDuration("\(duration) mins")
+            }
             
             var finalString = quest.Description
             
             if let overview = quest.overview {
-                finalString = finalString + "\n\nOverview: " + overview
+                if (finalString != "") {
+                    finalString += "\n\n"
+                }
+                finalString += "Overview: " + overview
             }
             
             cell.setDescription(finalString)
+            cell.descriptionTextView.dataDetectorTypes = .All
+            cell.userInteractionEnabled = true;
             
             titleCell = cell
             
@@ -125,13 +149,23 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
         
         cell?.textLabel?.text = rows[indexPath.section][indexPath.row][0]
         cell?.detailTextLabel?.text = rows[indexPath.section ][indexPath.row].count > 1 ? rows[indexPath.section][indexPath.row][1] : ""
-        if selectableRows.contains(indexPath) {
+        if selectableRowsContains(indexPath) {
             cell?.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         }else{
+            cell?.accessoryType = .None
             cell?.selectionStyle = UITableViewCellSelectionStyle.None
         }
         
         return cell!
+    }
+    
+    private func selectableRowsContains(indexPath: NSIndexPath) -> Bool {
+        for path in selectableRows {
+            if (indexPath.row == path.row && indexPath.section == path.section) {
+                return true
+            }
+        }
+        return false
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -177,6 +211,12 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
                     alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.Default, handler: nil))
                     self.presentViewController(alert, animated: true, completion: nil)
                 }
+            break
+            
+            case "Corrections":
+                let alert = UIAlertController(title: "Corrections", message: quest.Correction!, preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
             break
             
             case QuestDetailViewController.feedbackCellMessage:

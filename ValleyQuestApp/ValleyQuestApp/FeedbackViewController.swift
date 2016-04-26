@@ -107,6 +107,8 @@ class FeedbackViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let destination = segue.destinationViewController as? FeedbackBoxViewController {
             destination.feedBack = self.feedbackObject
+        }else if let destination = segue.destinationViewController as? FeedbackCluesViewController {
+            destination.feedBack = self.feedbackObject
         }
     }
     

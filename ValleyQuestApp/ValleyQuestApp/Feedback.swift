@@ -34,7 +34,7 @@ class Feedback: PFObject, PFSubclassing {
     // Clues feedback
     @NSManaged var hasCluesFeedback: Bool
     @NSManaged var cluesAccuracy: String?
-    @NSManaged var cluesUnderstandable: String?
+    @NSManaged var clarity: String?
     @NSManaged var cluesNeedUpdate: Bool
     @NSManaged var cluesMore: String?
     
@@ -42,7 +42,7 @@ class Feedback: PFObject, PFSubclassing {
     static let boxQualityOptions: [String] = ["Bad", "Okay", "Good"]
     static let boxMissingItemsOptions: [String] = ["Box", "Book", "Pen", "Stamp", "Ink pad (aka empty)"]
     static let cluesAccuracyOptions: [String] = ["Wrong", "Not great", "Good", "Great"]
-    static let cluesUnderstandableOptions: [String] = ["Confusing", "Good", "Too easy"]
+    static let clarityOptions: [String] = [ "Good", "Confusing", "Too easy"]
     
     
     // Create a simple feedback object
@@ -61,7 +61,7 @@ class Feedback: PFObject, PFSubclassing {
     }
     
     func cluesFeedbackIsValid() -> Bool {
-        return hasCluesFeedback ? cluesAccuracy != nil && cluesUnderstandable != nil && cluesMore != nil && Feedback.cluesAccuracyOptions.contains(self.cluesAccuracy!) && Feedback.cluesUnderstandableOptions.contains(self.cluesUnderstandable!) : true
+        return hasCluesFeedback ? cluesAccuracy != nil && clarity != nil && cluesMore != nil && Feedback.cluesAccuracyOptions.contains(self.cluesAccuracy!) && Feedback.clarityOptions.contains(self.clarity!) : true
     }
     
     func boxFeedbackIsValid() -> Bool {
@@ -104,14 +104,14 @@ class Feedback: PFObject, PFSubclassing {
         self.boxMore = more
     }
     
-    func addCluesFeedback(accuracy: String, understandable: String, needUpdate: Bool, more: String) {
+    func addCluesFeedback(accuracy: String, clarity: String, needUpdate: Bool, more: String) {
         hasCluesFeedback = true
         
         assert(Feedback.cluesAccuracyOptions.contains(accuracy), "Accuracy must be one of the accuracy options")
-        assert(Feedback.cluesUnderstandableOptions.contains(understandable), "Understandable must be one of the understandable options")
+        assert(Feedback.clarityOptions.contains(clarity), "Understandable must be one of the understandable options")
         
         self.cluesAccuracy = accuracy
-        self.cluesUnderstandable = understandable
+        self.clarity = clarity
         self.cluesNeedUpdate = needUpdate
         self.cluesMore = more
     }
@@ -121,7 +121,7 @@ class Feedback: PFObject, PFSubclassing {
         self.cluesNeedUpdate = false
         self.cluesAccuracy = nil
         self.cluesMore = nil
-        self.cluesUnderstandable = nil
+        self.clarity = nil
     }
     
     static func parseClassName() -> String {

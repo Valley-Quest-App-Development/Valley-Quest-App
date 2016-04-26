@@ -43,6 +43,9 @@ class Quest: PFObject, PFSubclassing {
     @NSManaged var Directions: String
     @NSManaged var cluesLocation: String?
     @NSManaged var overview: String?
+    @NSManaged var book: String?
+    @NSManaged var Correction: String?
+    @NSManaged var duration: NSNumber?
     
     // ----------------------------
     // Initialization methods
@@ -52,7 +55,15 @@ class Quest: PFObject, PFSubclassing {
     func addToSpotlight() {
         let atributeSet = CSSearchableItemAttributeSet(itemContentType: kUTTypeText as String)
         atributeSet.title = self.Name
-        atributeSet.contentDescription = self.Description
+        
+        var value = self.Description
+        
+        if let overview = self.overview where value == "" {
+            value = overview
+        }
+        
+        atributeSet.contentDescription = value
+        atributeSet.namedLocation = self.Location
         
         let searchItem = CSSearchableItem(uniqueIdentifier: "\(self.objectId!)", domainIdentifier: "com.vitalcommunities.ValleyQuest", attributeSet: atributeSet)
         CSSearchableIndex.defaultSearchableIndex().indexSearchableItems([searchItem], completionHandler: { (error: NSError?) -> Void in

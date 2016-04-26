@@ -29,6 +29,10 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
             
         }
         
+        if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+            delegate.registerMainViewController(self)
+        }
+        
         // Add a search bar
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
@@ -51,12 +55,12 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
     func setUpHamberger() {
         if let revealViewController = self.revealViewController() {
             self.revealButton.target = self
-            self.revealButton.action = #selector(QuestController.showSide)
+            self.revealButton.action = #selector(QuestController.toggleSide)
             self.navigationController?.navigationBar.addGestureRecognizer(revealViewController.panGestureRecognizer())
         }
     }
     
-    func showSide() {
+    func toggleSide() {
         self.revealViewController().revealToggle(nil)
     }
     
@@ -172,7 +176,11 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
     func loadQuestView(id: String) {
         if let quest = PFObject(outDataWithClassName: "Quests", objectId: id) as? Quest {
             quest.fetchIfNeededInBackgroundWithBlock({ (quest, error) -> Void in
-                self.performSegueWithIdentifier("showQuestDetail", sender: quest)
+                if error == nil {
+                    self.performSegueWithIdentifier("showQuestDetail", sender: quest)
+                }else{
+                    print("Failed to load quest view!")
+                }
             })
         }
     }

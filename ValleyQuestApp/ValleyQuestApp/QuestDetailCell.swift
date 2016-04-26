@@ -17,6 +17,8 @@ class QuestDetailCell: UITableViewCell {
     private static let descriptionFont = UIFont.systemFontOfSize(15)
     private static let lineFragmentPadding: CGFloat = 10
     private var descriptionText: String = ""
+    private var difficulty: String?
+    private var duration: String?
     
     func setDescription(text: String) {
         descriptionTextView.text = text
@@ -27,7 +29,24 @@ class QuestDetailCell: UITableViewCell {
     }
     
     func setDifficulty(text: String) {
-        self.difficultyLabel.text = "Difficulty: \(text)"
+        difficulty = text
+        self.updateDifficultyAndDuration()
+    }
+    
+    func setDuration(text: String) {
+        duration = text;
+        self.updateDifficultyAndDuration()
+    }
+    
+    private func updateDifficultyAndDuration() {
+        if let difficulty = difficulty {
+            self.difficultyLabel.text = "Difficulty: \(difficulty)"
+            if let duration = duration {
+                self.difficultyLabel.text = "Difficulty: \(difficulty) Duration: \(duration)"
+            }
+        }else if let duration = duration {
+            self.difficultyLabel.text = "Duration: \(duration)"
+        }
     }
     
     private func getHeightOfDescription() -> CGFloat {

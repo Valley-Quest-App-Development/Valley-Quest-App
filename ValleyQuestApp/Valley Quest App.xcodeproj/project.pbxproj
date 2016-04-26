@@ -20,6 +20,8 @@
 		5244C8FA1C9E612E0040E565 /* DirectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5244C8F91C9E612E0040E565 /* DirectionsViewController.swift */; };
 		5244C8FD1C9E91AB0040E565 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5244C8FC1C9E91AB0040E565 /* SWRevealViewController.m */; };
 		5244C8FF1CA09F1F0040E565 /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5244C8FE1CA09F1F0040E565 /* Feedback.swift */; };
+		525E0A051CCF0EB400D86AC7 /* FeedbackMissingItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525E0A041CCF0EB400D86AC7 /* FeedbackMissingItemsViewController.swift */; };
+		525E0A071CCF1D5100D86AC7 /* CorrectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525E0A061CCF1D5100D86AC7 /* CorrectionViewController.swift */; };
 		5281CDA11CA10A13001B6F6C /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5281CDA01CA10A13001B6F6C /* FeedbackViewController.swift */; };
 		5281CDA31CA10A23001B6F6C /* FeedbackBoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5281CDA21CA10A23001B6F6C /* FeedbackBoxViewController.swift */; };
 		5281CDA51CA10A42001B6F6C /* FeedbackCluesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5281CDA41CA10A42001B6F6C /* FeedbackCluesViewController.swift */; };
@@ -74,6 +76,8 @@
 		5244C8FB1C9E91AB0040E565 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		5244C8FC1C9E91AB0040E565 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		5244C8FE1CA09F1F0040E565 /* Feedback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
+		525E0A041CCF0EB400D86AC7 /* FeedbackMissingItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackMissingItemsViewController.swift; sourceTree = "<group>"; };
+		525E0A061CCF1D5100D86AC7 /* CorrectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CorrectionViewController.swift; sourceTree = "<group>"; };
 		5281CDA01CA10A13001B6F6C /* FeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
 		5281CDA21CA10A23001B6F6C /* FeedbackBoxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackBoxViewController.swift; sourceTree = "<group>"; };
 		5281CDA41CA10A42001B6F6C /* FeedbackCluesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackCluesViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +149,7 @@
 				52DF7E6D1CA3C48D004D71F5 /* PercentCell.swift */,
 				5281CDA21CA10A23001B6F6C /* FeedbackBoxViewController.swift */,
 				5281CDA41CA10A42001B6F6C /* FeedbackCluesViewController.swift */,
+				525E0A041CCF0EB400D86AC7 /* FeedbackMissingItemsViewController.swift */,
 				52235E1D1CAA1E1400F4F01D /* SegmentedCell.swift */,
 				52235E1F1CAA249800F4F01D /* CheckBoxCell.swift */,
 			);
@@ -182,6 +187,7 @@
 				52EA9F3B1BBB3B0D0063E082 /* QuestController.swift */,
 				52EA9F3D1BBB3B0D0063E082 /* Main.storyboard */,
 				5244C8F91C9E612E0040E565 /* DirectionsViewController.swift */,
+				525E0A061CCF1D5100D86AC7 /* CorrectionViewController.swift */,
 				52E13E221C9A7512002CE8AD /* HelperMethods.swift */,
 				523AC4231C61568200461BBA /* PDFViewController.swift */,
 				8B40A9591BE15BB500DC30AC /* QuestDetailViewController.swift */,
@@ -404,6 +410,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				525E0A071CCF1D5100D86AC7 /* CorrectionViewController.swift in Sources */,
 				52235E201CAA249800F4F01D /* CheckBoxCell.swift in Sources */,
 				52C8E2701BDBE75F005996E3 /* QuestCell.swift in Sources */,
 				52DF7E6E1CA3C48D004D71F5 /* PercentCell.swift in Sources */,
@@ -414,6 +421,7 @@
 				522A254D1BE03BCC008FE49E /* Quest.swift in Sources */,
 				8B40A95A1BE15BB500DC30AC /* QuestDetailViewController.swift in Sources */,
 				52EA9F3C1BBB3B0D0063E082 /* QuestController.swift in Sources */,
+				525E0A051CCF0EB400D86AC7 /* FeedbackMissingItemsViewController.swift in Sources */,
 				52235E1E1CAA1E1400F4F01D /* SegmentedCell.swift in Sources */,
 				5281CDA51CA10A42001B6F6C /* FeedbackCluesViewController.swift in Sources */,
 				522EC6961BEFF85400262690 /* VariableHightCell.swift in Sources */,
