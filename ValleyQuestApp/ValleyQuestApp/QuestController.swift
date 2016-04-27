@@ -57,6 +57,7 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
             self.revealButton.target = self
             self.revealButton.action = #selector(QuestController.toggleSide)
             self.navigationController?.navigationBar.addGestureRecognizer(revealViewController.panGestureRecognizer())
+            self.tableView.addGestureRecognizer(revealViewController.panGestureRecognizer())
         }
     }
     
@@ -162,10 +163,24 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
                 // Setting the title and description
                 checkedCell.setTitle(filteredQuests[indexPath.row].Name)
                 checkedCell.setSubTitle("Location: " + filteredQuests[indexPath.row].Location + " - Difficulty: " + filteredQuests[indexPath.row].Difficulty)
+                checkedCell.subTitleLabel.textColor = UIColor.grayColor()
+                if let location = filteredQuests[indexPath.row].cluesLocation {
+                    if location.lowercaseString.containsString("closed") {
+                        checkedCell.setSubTitle("Closed")
+                        checkedCell.subTitleLabel.textColor = UIColor(red: 1.0, green: 0.5, blue: 0.5, alpha: 1.0)
+                    }
+                }
             }else{
                 // Setting the title and description
                 checkedCell.setTitle(quests[indexPath.row].Name)
                 checkedCell.setSubTitle("Location: " + quests[indexPath.row].Location + " - Difficulty: " + quests[indexPath.row].Difficulty)
+                checkedCell.subTitleLabel.textColor = UIColor.grayColor()
+                if let location = quests[indexPath.row].cluesLocation {
+                    if location.lowercaseString.containsString("closed") {
+                        checkedCell.setSubTitle("Closed")
+                        checkedCell.subTitleLabel.textColor = UIColor(red: 1.0, green: 0.5, blue: 0.5, alpha: 1.0)
+                    }
+                }
             }
             // Done. Lets give them the cell
             return checkedCell

@@ -63,6 +63,12 @@ class Quest: PFObject, PFSubclassing {
         }
         
         atributeSet.contentDescription = value
+        
+        if let location = self.cluesLocation {
+            if location.lowercaseString.containsString("closed") {
+                atributeSet.contentDescription = "Closed"
+            }
+        }
         atributeSet.namedLocation = self.Location
         
         let searchItem = CSSearchableItem(uniqueIdentifier: "\(self.objectId!)", domainIdentifier: "com.vitalcommunities.ValleyQuest", attributeSet: atributeSet)
