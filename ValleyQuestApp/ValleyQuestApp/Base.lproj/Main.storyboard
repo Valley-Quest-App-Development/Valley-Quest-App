@@ -100,7 +100,7 @@
                                                         <constraint firstAttribute="height" constant="117.5" id="9l7-m5-ZhN"/>
                                                     </constraints>
                                                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
                                                     <variation key="default">
@@ -235,13 +235,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lru-vf-LfC">
-                                <rect key="frame" x="20" y="0.0" width="560" height="538"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oln-9t-zXc">
                                 <rect key="frame" x="20" y="546" width="560" height="34"/>
                                 <constraints>
@@ -253,31 +246,33 @@
                                     <action selector="openInMaps:" destination="AC4-4C-JOw" eventType="touchUpInside" id="AnJ-qT-OL6"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mqO-cp-7fD">
+                                <rect key="frame" x="20" y="72" width="560" height="466"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="oln-9t-zXc" firstAttribute="top" secondItem="mqO-cp-7fD" secondAttribute="bottom" constant="8" id="11s-Wd-Ghc"/>
                             <constraint firstItem="oln-9t-zXc" firstAttribute="top" secondItem="afu-9B-JRx" secondAttribute="bottom" constant="8" id="5Ak-xl-W4w"/>
-                            <constraint firstItem="lru-vf-LfC" firstAttribute="trailing" secondItem="MZn-JY-GDZ" secondAttribute="trailingMargin" id="6qn-t3-YaW"/>
-                            <constraint firstItem="lru-vf-LfC" firstAttribute="leading" secondItem="MZn-JY-GDZ" secondAttribute="leadingMargin" id="Wx8-0m-mMX"/>
-                            <constraint firstItem="oln-9t-zXc" firstAttribute="top" secondItem="lru-vf-LfC" secondAttribute="bottom" constant="8" id="ZG1-zk-9Cy"/>
+                            <constraint firstItem="mqO-cp-7fD" firstAttribute="top" secondItem="afu-9B-JRx" secondAttribute="bottom" constant="8" id="Npl-sW-m74"/>
+                            <constraint firstItem="mqO-cp-7fD" firstAttribute="leading" secondItem="MZn-JY-GDZ" secondAttribute="leadingMargin" id="UaM-De-OBi"/>
                             <constraint firstItem="S8w-tK-EEh" firstAttribute="top" secondItem="oln-9t-zXc" secondAttribute="bottom" constant="20" id="gO9-n5-DMo"/>
                             <constraint firstItem="oln-9t-zXc" firstAttribute="leading" secondItem="MZn-JY-GDZ" secondAttribute="leadingMargin" id="gQT-RT-XUd"/>
-                            <constraint firstItem="lru-vf-LfC" firstAttribute="top" secondItem="oln-9t-zXc" secondAttribute="bottom" constant="8" id="hkl-dh-3r7"/>
-                            <constraint firstItem="lru-vf-LfC" firstAttribute="top" secondItem="oln-9t-zXc" secondAttribute="bottom" constant="8" id="hmu-ql-O3Y"/>
-                            <constraint firstItem="lru-vf-LfC" firstAttribute="top" secondItem="MZn-JY-GDZ" secondAttribute="topMargin" id="kmF-je-Qaf"/>
+                            <constraint firstItem="mqO-cp-7fD" firstAttribute="trailing" secondItem="MZn-JY-GDZ" secondAttribute="trailingMargin" id="lg5-Kz-Ih2"/>
                             <constraint firstItem="oln-9t-zXc" firstAttribute="trailing" secondItem="MZn-JY-GDZ" secondAttribute="trailingMargin" id="uSj-Rr-CyE"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="hkl-dh-3r7"/>
-                                <exclude reference="hmu-ql-O3Y"/>
                                 <exclude reference="5Ak-xl-W4w"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="label" destination="mqO-cp-7fD" id="wwp-dc-Gct"/>
                         <outlet property="openInMapsButton" destination="oln-9t-zXc" id="1E0-B8-uDq"/>
-                        <outlet property="textView" destination="lru-vf-LfC" id="j2n-OW-TS0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XRN-RB-MZm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -829,11 +824,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.33673762581075206" green="0.55710361379258744" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
-                        <color key="tintColor" red="0.95147752880000003" green="0.86543139552855086" blue="0.045518959270012538" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="barTintColor" red="0.33333333333333331" green="0.76470588235294112" blue="0.14509803921568626" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.30267442211537016" green="0.76887085649743592" blue="0.37333316524093452" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="20"/>
-                            <color key="textColor" red="0.90708811647853882" green="0.85029708836094009" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="textShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>
                         </textAttributes>

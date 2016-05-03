@@ -27,6 +27,15 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
     
     var selectableRows: [NSIndexPath] = []
     
+    
+    override func viewWillAppear(animated: Bool) {
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        self.view.removeGestureRecognizer(self.revealViewController().panGestureRecognizer())
+    }
+    
     override func viewDidLoad() {
         
         if let quest = object {
@@ -253,7 +262,7 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
     func shareQuest(barButton: UIBarButtonItem?, viewController: UIViewController) {
         if let quest = object {
             let textToShare = "Check out the quest " + quest.Name + " in the Valley Quest app\n"
-            if let url = NSURL(string: "http://appstore.com/valleyquest") {
+            if let url = NSURL(string: "VitalCommunities://\(quest.objectId!)") {
                 
                 let activity: UIActivityViewController = UIActivityViewController(activityItems: [textToShare, url, quest], applicationActivities: nil)
                 

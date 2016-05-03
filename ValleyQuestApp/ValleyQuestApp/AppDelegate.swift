@@ -37,6 +37,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
         print("url: \(url.absoluteString) options: \(options)")
+        if let id = url.host where id != "" {
+            loadQuest(id);
+        }
         return true
     }
     
@@ -72,31 +75,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
         if userActivity.activityType == CSSearchableItemActionType {
             if let id = userActivity.userInfo?[CSSearchableItemActivityIdentifier] as? String {
-                self.id = id
-                let mainController = self.window!.rootViewController as! SWRevealViewController
-                if let navController = mainController.rightViewController as? UINavigationController {
-                    navController.popToRootViewControllerAnimated(true)
-                    
-                    if let mainVC = navController.topViewController as? QuestController {
-                        mainVC.loadQuestView(id)
-                        self.id = nil
-                        return true;
-                    }
-                }else{
-                    // We failed to get it!
-                    // Try this
-                    if let mainViewController = self.mainViewController {
-                        mainViewController.loadQuestView(id)
-                        self.id = nil
-                    }
-                }
+                loadQuest(id);
             }
         }
-        
-        
         
         return true
     }
 
+    
+    func loadQuest(id: String) {
+        self.id = id
+        let mainController = self.window!.rootViewController as! SWRevealViewController
+        if let navController = mainController.rightViewController as? UINavigationController {
+            navController.popToRootViewControllerAnimated(true)
+            
+            if let mainVC = navController.topViewController as? QuestController {
+                mainVC.loadQuestView(id)
+                self.id = nil
+                return
+            }
+        }else{
+            // We failed to get it!
+            // Try this
+            if let mainViewController = self.mainViewController {
+                mainViewController.loadQuestView(id)
+                self.id = nil
+            }
+        }
+    }
 }
 

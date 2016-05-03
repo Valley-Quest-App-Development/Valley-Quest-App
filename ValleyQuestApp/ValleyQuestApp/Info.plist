@@ -32,8 +32,10 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>VitalCommunities</string>
+			</array>
 			<key>CFBundleURLName</key>
 			<string>com.vitalcommunities.ValleyQuest</string>
 		</dict>

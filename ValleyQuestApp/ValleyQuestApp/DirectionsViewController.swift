@@ -10,7 +10,7 @@ import Foundation
 
 class DirectionsViewController: UIViewController {
     @IBOutlet weak var openInMapsButton: UIButton!
-    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var label: UILabel!
     
     var text: String?
     var coords: CLLocationCoordinate2D?
@@ -20,7 +20,7 @@ class DirectionsViewController: UIViewController {
         self.text = text
         self.coords = coords
         self.name = name
-        if textView != nil {
+        if label != nil {
             reload()
         }
     }
@@ -32,14 +32,22 @@ class DirectionsViewController: UIViewController {
     
     func reload() {
         if let text = self.text {
-            if let textView = self.textView {
-                let style = NSMutableParagraphStyle()
-                style.lineSpacing = 20
-                let atributes = [NSParagraphStyleAttributeName : style]
-                textView.attributedText = NSAttributedString(string: text, attributes: atributes)
+            if let label = self.label {
+                print(text);
+                let paragraphStyle = NSMutableParagraphStyle()
                 
-                textView.font = UIFont.systemFontOfSize(15)
-                textView.textAlignment = .Center
+                if (UIDevice.currentDevice().userInterfaceIdiom == .Pad) {
+                    paragraphStyle.lineSpacing = 40
+                }else{
+                    paragraphStyle.lineSpacing = 20
+                }
+                
+                paragraphStyle.alignment = NSTextAlignment.Center
+                
+                let attrString = NSMutableAttributedString(string: text)
+                attrString.addAttribute(NSParagraphStyleAttributeName, value:paragraphStyle, range:NSMakeRange(0, attrString.length))
+                
+                label.attributedText = attrString
             }
             if coords == nil {
                 openInMapsButton.hidden = true

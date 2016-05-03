@@ -37,7 +37,7 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.scopeButtonTitles = ["Name", "Location"]
-        searchController.searchBar.tintColor = UIColor(red: 65.0 / 255.0, green: 175.0 / 255.0, blue: 17.0 / 255.0, alpha: 1.0)
+        searchController.searchBar.tintColor = UIColor(red: 84 / 255.0, green: 197 / 255.0, blue: 111 / 255.0, alpha: 1.0)
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
         
@@ -57,8 +57,17 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
             self.revealButton.target = self
             self.revealButton.action = #selector(QuestController.toggleSide)
             self.navigationController?.navigationBar.addGestureRecognizer(revealViewController.panGestureRecognizer())
-            self.tableView.addGestureRecognizer(revealViewController.panGestureRecognizer())
+            self.view.addGestureRecognizer(revealViewController.panGestureRecognizer())
         }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBar.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        self.view.removeGestureRecognizer(self.revealViewController().panGestureRecognizer())
     }
     
     func toggleSide() {
@@ -104,6 +113,11 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
             })
         }
     }
+    
+    // For providing that side scroll thing. Not decided
+//    override func sectionIndexTitlesForTableView(tableView: UITableView) -> [String]? {
+//        return ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+//    }
     
     func hideRefreshControl() {
         self.refreshControl?.endRefreshing()
@@ -192,6 +206,10 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
         if let quest = PFObject(outDataWithClassName: "Quests", objectId: id) as? Quest {
             quest.fetchIfNeededInBackgroundWithBlock({ (quest, error) -> Void in
                 if error == nil {
+                    // We got a valid quest
+                    // Lets pop all the view controllers
+                    self.navigationController?.popViewControllerAnimated(true);
+                    
                     self.performSegueWithIdentifier("showQuestDetail", sender: quest)
                 }else{
                     print("Failed to load quest view!")

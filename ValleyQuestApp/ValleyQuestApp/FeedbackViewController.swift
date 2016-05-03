@@ -26,6 +26,14 @@ class FeedbackViewController: UITableViewController {
         self.title = "Feedback"
     }
     
+    override func viewWillAppear(animated: Bool) {
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        self.view.removeGestureRecognizer(self.revealViewController().panGestureRecognizer())
+    }
+    
     func hideKeyboard() {
         messageTextView.resignFirstResponder()
         emailTextField.resignFirstResponder()

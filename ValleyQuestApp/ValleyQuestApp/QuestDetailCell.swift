@@ -52,7 +52,10 @@ class QuestDetailCell: UITableViewCell {
     private func getHeightOfDescription() -> CGFloat {
         let maxHeight:CGFloat = 180
         let height = HelperMethods.getHeightForText(self.descriptionText, font: QuestDetailCell.descriptionFont, width: self.frame.width - 8 * 2 - QuestDetailCell.lineFragmentPadding * 2, maxHeight: maxHeight)
-        return height
+        if (height > maxHeight){
+            self.descriptionTextView.scrollEnabled = true;
+        }
+        return height > maxHeight ? maxHeight : height
     }
     
     func getHeight() -> CGFloat {
