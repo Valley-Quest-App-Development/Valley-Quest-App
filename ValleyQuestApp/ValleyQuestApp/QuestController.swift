@@ -50,6 +50,12 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
 //        self.refreshControl?.beginRefreshing()
         setUpHamberger()
         refreshData()
+        
+        if NSUserDefaults.standardUserDefaults().objectForKey("hasLaunched") == nil || !NSUserDefaults.standardUserDefaults().boolForKey("hasLaunched") || true {
+            self.performSegueWithIdentifier("firstOpen", sender: nil)
+        }
+        NSUserDefaults.standardUserDefaults().setBool(true, forKey: "hasLaunched")
+        NSUserDefaults.standardUserDefaults().synchronize()
     }
     
     func setUpHamberger() {
@@ -98,8 +104,18 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
     }
     
     func refreshData() {
+        let reach = Reachability.reachabilityForInternetConnection()
+        
         let query: PFQuery = PFQuery(className: "Quests")
         query.limit = 1000
+        
+        if (reach.currentReachabilityStatus() == NotReachable) {
+            query.fromLocalDatastore()
+        }
+        completeRefreshQuery(query)
+    }
+    
+    func completeRefreshQuery(query: PFQuery) {
         query.findObjectsInBackgroundWithBlock { (results: [PFObject]?, error: NSError?) -> Void in
             
             if let checkedResults = results {
@@ -133,19 +149,21 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
     }
     
     func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-        guard let indexPath = self.tableView.indexPathForRowAtPoint(location) else {return nil}
+        let indexPath = self.tableView.indexPathForRowAtPoint(location)!
         
-        guard let cell = self.tableView.cellForRowAtIndexPath(indexPath) else {return nil}
+        let cell = self.tableView.cellForRowAtIndexPath(indexPath)!
         
-        guard let detailView = storyboard?.instantiateViewControllerWithIdentifier("QuestDetailViewController") as? QuestDetailViewController else {return nil}
+        if let detailView = storyboard?.instantiateViewControllerWithIdentifier("QuestDetailViewController") as? QuestDetailViewController {
         
-        let quest = self.getQuestAt(indexPath)
-        detailView.setQuestObject(quest)
-        detailView.delegate = self
-        
-        detailView.preferredContentSize = CGSize(width: 0.0, height: 500)
-        previewingContext.sourceRect = cell.frame
-        return detailView
+            let quest = self.getQuestAt(indexPath)
+            detailView.setQuestObject(quest)
+            detailView.delegate = self
+            
+            detailView.preferredContentSize = CGSize(width: 0.0, height: 500)
+            previewingContext.sourceRect = cell.frame
+            return detailView
+        }
+        return nil;
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

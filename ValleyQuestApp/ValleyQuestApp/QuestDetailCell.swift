@@ -13,12 +13,16 @@ class QuestDetailCell: UITableViewCell {
     @IBOutlet weak var difficultyLabel: UILabel!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var staticItemsHeight: NSLayoutConstraint!
+    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var activity: UIActivityIndicatorView!
+    @IBOutlet weak var saveHeight: NSLayoutConstraint!
     
     private static let descriptionFont = UIFont.systemFontOfSize(15)
     private static let lineFragmentPadding: CGFloat = 10
     private var descriptionText: String = ""
     private var difficulty: String?
     private var duration: String?
+    var delegate: QuestDetailViewController?
     
     func setDescription(text: String) {
         descriptionTextView.text = text
@@ -36,6 +40,27 @@ class QuestDetailCell: UITableViewCell {
     func setDuration(text: String) {
         duration = text;
         self.updateDifficultyAndDuration()
+    }
+    
+    @IBAction func save(sender: UIButton) {
+        if let delegate = delegate {
+            delegate.saveQuest()
+        }
+    }
+    
+    func startLoadingSave() {
+        self.activity.startAnimating()
+        self.saveButton.enabled = false
+    }
+    
+    func endLoadingSave(saved: Bool) {
+        self.activity.stopAnimating()
+        self.saveButton.enabled = true
+        if saved {
+            self.saveButton.setTitle("✓ Saved", forState: .Normal)
+        }else{
+            self.saveButton.setTitle("Save", forState: .Normal)
+        }
     }
     
     private func updateDifficultyAndDuration() {
@@ -59,6 +84,7 @@ class QuestDetailCell: UITableViewCell {
     }
     
     func getHeight() -> CGFloat {
-        return self.getHeightOfDescription() + (staticItemsHeight != nil ? staticItemsHeight.constant : 74) + 35
+        let buttonHeight = 8 * 2 + (saveHeight != nil ? saveHeight.constant : 43)
+        return self.getHeightOfDescription() + (staticItemsHeight != nil ? staticItemsHeight.constant : 74) + 35 + buttonHeight
     }
 }

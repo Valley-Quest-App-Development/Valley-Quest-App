@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5202B83F1CE9793100AE4E49 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5202B83E1CE9793100AE4E49 /* SystemConfiguration.framework */; };
+		5202B8451CE97B3200AE4E49 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 5202B8441CE97B3200AE4E49 /* Reachability.m */; };
+		5202B8471CE9813200AE4E49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5202B8461CE9813200AE4E49 /* Assets.xcassets */; };
 		52235E1E1CAA1E1400F4F01D /* SegmentedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52235E1D1CAA1E1400F4F01D /* SegmentedCell.swift */; };
 		52235E201CAA249800F4F01D /* CheckBoxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52235E1F1CAA249800F4F01D /* CheckBoxCell.swift */; };
 		522A254D1BE03BCC008FE49E /* Quest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522A254C1BE03BCC008FE49E /* Quest.swift */; };
@@ -28,12 +31,12 @@
 		5281CDA51CA10A42001B6F6C /* FeedbackCluesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5281CDA41CA10A42001B6F6C /* FeedbackCluesViewController.swift */; };
 		5281CDA81CA11416001B6F6C /* FeedbackTextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5281CDA71CA11416001B6F6C /* FeedbackTextViewCell.swift */; };
 		5281CDAA1CA11435001B6F6C /* FeedbackTextViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5281CDA91CA11435001B6F6C /* FeedbackTextViewCell.xib */; };
+		52A8DBFC1CE3DD8A00530770 /* FirstLoadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A8DBFB1CE3DD8A00530770 /* FirstLoadViewController.swift */; };
 		52BC33801CA9A79500D610AC /* QuestDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BC337F1CA9A79500D610AC /* QuestDetailCell.swift */; };
 		52BD6E221C7278FA005A0FC3 /* Valley Quest App.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 52BD6E211C7278FA005A0FC3 /* Valley Quest App.entitlements */; };
 		52C8E26C1BDBE4BB005996E3 /* QuestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52C8E26B1BDBE4BB005996E3 /* QuestCell.xib */; };
 		52C8E2701BDBE75F005996E3 /* QuestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C8E26F1BDBE75F005996E3 /* QuestCell.swift */; };
 		52DF7E6E1CA3C48D004D71F5 /* PercentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DF7E6D1CA3C48D004D71F5 /* PercentCell.swift */; };
-		52E0CDE11C94EBAA00E547AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52E0CDE01C94EBAA00E547AA /* Assets.xcassets */; };
 		52E13E231C9A7512002CE8AD /* HelperMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E13E221C9A7512002CE8AD /* HelperMethods.swift */; };
 		52EA9F3A1BBB3B0D0063E082 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EA9F391BBB3B0D0063E082 /* AppDelegate.swift */; };
 		52EA9F3C1BBB3B0D0063E082 /* QuestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EA9F3B1BBB3B0D0063E082 /* QuestController.swift */; };
@@ -62,6 +65,10 @@
 
 /* Begin PBXFileReference section */
 		0AE72FB39E6C8D966954840F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		5202B83E1CE9793100AE4E49 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		5202B8431CE97B3200AE4E49 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		5202B8441CE97B3200AE4E49 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		5202B8461CE9813200AE4E49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5206324E1C44439100F94463 /* ObjCBridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ObjCBridgingHeader.h; path = ../ObjCBridgingHeader.h; sourceTree = "<group>"; };
 		52235E1D1CAA1E1400F4F01D /* SegmentedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedCell.swift; sourceTree = "<group>"; usesTabs = 1; };
 		52235E1F1CAA249800F4F01D /* CheckBoxCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBoxCell.swift; sourceTree = "<group>"; };
@@ -85,12 +92,12 @@
 		5281CDA41CA10A42001B6F6C /* FeedbackCluesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackCluesViewController.swift; sourceTree = "<group>"; };
 		5281CDA71CA11416001B6F6C /* FeedbackTextViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackTextViewCell.swift; sourceTree = "<group>"; };
 		5281CDA91CA11435001B6F6C /* FeedbackTextViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedbackTextViewCell.xib; sourceTree = "<group>"; };
+		52A8DBFB1CE3DD8A00530770 /* FirstLoadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstLoadViewController.swift; sourceTree = "<group>"; };
 		52BC337F1CA9A79500D610AC /* QuestDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestDetailCell.swift; sourceTree = "<group>"; };
 		52BD6E211C7278FA005A0FC3 /* Valley Quest App.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Valley Quest App.entitlements"; sourceTree = "<group>"; };
 		52C8E26B1BDBE4BB005996E3 /* QuestCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestCell.xib; sourceTree = "<group>"; };
 		52C8E26F1BDBE75F005996E3 /* QuestCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestCell.swift; sourceTree = "<group>"; };
 		52DF7E6D1CA3C48D004D71F5 /* PercentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PercentCell.swift; sourceTree = "<group>"; };
-		52E0CDE01C94EBAA00E547AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52E13E221C9A7512002CE8AD /* HelperMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperMethods.swift; sourceTree = "<group>"; };
 		52EA9F361BBB3B0D0063E082 /* Valley Quest App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Valley Quest App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52EA9F391BBB3B0D0063E082 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -110,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5202B83F1CE9793100AE4E49 /* SystemConfiguration.framework in Frameworks */,
 				522F90951BED335D00F60652 /* CoreSpotlight.framework in Frameworks */,
 				522F90991BED47DA00F60652 /* MapKit.framework in Frameworks */,
 				522F90931BED334D00F60652 /* MobileCoreServices.framework in Frameworks */,
@@ -137,6 +145,7 @@
 		18B17195EC919034BFF7E5D8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5202B83E1CE9793100AE4E49 /* SystemConfiguration.framework */,
 				831939FF962680D8031EEFD8 /* Pods.framework */,
 			);
 			name = Frameworks;
@@ -187,6 +196,7 @@
 				5206324E1C44439100F94463 /* ObjCBridgingHeader.h */,
 				52EA9F391BBB3B0D0063E082 /* AppDelegate.swift */,
 				52EA9F3B1BBB3B0D0063E082 /* QuestController.swift */,
+				52A8DBFB1CE3DD8A00530770 /* FirstLoadViewController.swift */,
 				5271A60C1CD1016800C291DB /* PlaceholderViewController.swift */,
 				52EA9F3D1BBB3B0D0063E082 /* Main.storyboard */,
 				5244C8F91C9E612E0040E565 /* DirectionsViewController.swift */,
@@ -203,9 +213,11 @@
 				522EC6971BEFF91500262690 /* VariableHeightCell.xib */,
 				52C8E26F1BDBE75F005996E3 /* QuestCell.swift */,
 				52C8E26B1BDBE4BB005996E3 /* QuestCell.xib */,
+				5202B8461CE9813200AE4E49 /* Assets.xcassets */,
 				5244C8FB1C9E91AB0040E565 /* SWRevealViewController.h */,
 				5244C8FC1C9E91AB0040E565 /* SWRevealViewController.m */,
-				52E0CDE01C94EBAA00E547AA /* Assets.xcassets */,
+				5202B8431CE97B3200AE4E49 /* Reachability.h */,
+				5202B8441CE97B3200AE4E49 /* Reachability.m */,
 				52EA9F421BBB3B0E0063E082 /* LaunchScreen.storyboard */,
 				52EA9F451BBB3B0E0063E082 /* Info.plist */,
 				52BD6E211C7278FA005A0FC3 /* Valley Quest App.entitlements */,
@@ -338,8 +350,8 @@
 				52EA9F3F1BBB3B0D0063E082 /* Main.storyboard in Resources */,
 				522EC6981BEFF91500262690 /* VariableHeightCell.xib in Resources */,
 				52C8E26C1BDBE4BB005996E3 /* QuestCell.xib in Resources */,
+				5202B8471CE9813200AE4E49 /* Assets.xcassets in Resources */,
 				5281CDAA1CA11435001B6F6C /* FeedbackTextViewCell.xib in Resources */,
-				52E0CDE11C94EBAA00E547AA /* Assets.xcassets in Resources */,
 				52BD6E221C7278FA005A0FC3 /* Valley Quest App.entitlements in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -417,6 +429,7 @@
 				52235E201CAA249800F4F01D /* CheckBoxCell.swift in Sources */,
 				52C8E2701BDBE75F005996E3 /* QuestCell.swift in Sources */,
 				52DF7E6E1CA3C48D004D71F5 /* PercentCell.swift in Sources */,
+				5202B8451CE97B3200AE4E49 /* Reachability.m in Sources */,
 				52E13E231C9A7512002CE8AD /* HelperMethods.swift in Sources */,
 				5244C8FF1CA09F1F0040E565 /* Feedback.swift in Sources */,
 				5271A60D1CD1016800C291DB /* PlaceholderViewController.swift in Sources */,
@@ -436,6 +449,7 @@
 				5281CDA11CA10A13001B6F6C /* FeedbackViewController.swift in Sources */,
 				52EA9F3A1BBB3B0D0063E082 /* AppDelegate.swift in Sources */,
 				523AC4241C61568200461BBA /* PDFViewController.swift in Sources */,
+				52A8DBFC1CE3DD8A00530770 /* FirstLoadViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

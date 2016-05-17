@@ -29,8 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Feedback.registerSubclass()
         UIApplication.sharedApplication().shortcutItems = shortcuts
         
+        Parse.enableLocalDatastore()
         Parse.setApplicationId("ZoalMIIVftZEKQoUcIWFkQqJWDsn2zYF8jJZiBlz", clientKey: "Sd3CVO3sXH8muH70ut5fOINuvee4zk8OaAxyoxTH")
-        
         
         return true
     }

@@ -14,6 +14,14 @@
          contextName = "QuestDetailViewController.tableView(UITableView, cellForRowAtIndexPath : NSIndexPath) -&gt; UITableViewCell:QuestDetailViewController.swift">
       </ContextState>
       <ContextState
+         contextName = "QuestController.previewingContext(UIViewControllerPreviewing, viewControllerForLocation : CGPoint) -&gt; UIViewController?:QuestController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.tableView.indexPathForRowAtPoint(location)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "QuestDetailViewController.viewDidLoad() -&gt; ():QuestDetailViewController.swift">
          <PersistentStrings>
             <PersistentString

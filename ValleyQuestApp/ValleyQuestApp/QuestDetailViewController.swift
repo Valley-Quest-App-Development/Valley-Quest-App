@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import MapKit
 import Parse
+import MessageUI
 
 
 class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -25,6 +26,8 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
     var sections : [String] = []
     var rows : [[[String]]] = []
     
+    var saved = false;
+    
     var selectableRows: [NSIndexPath] = []
     
     
@@ -39,6 +42,7 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
     override func viewDidLoad() {
         
         if let quest = object {
+            
             // We need outlets for locations and directions
             sections.append("")
             rows.append([[]])
@@ -125,9 +129,72 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
         }
     }
     
+    func saveQuest() {
+        if let quest = object {
+            if saved {
+                // Then unsave it
+                quest.unpinInBackgroundWithBlock({ (success, error) in
+                    if success {
+                        self.saved = false
+                        self.titleCell.endLoadingSave(false)
+                    }else{
+                        print(error?.description)
+                        self.titleCell.endLoadingSave(true)
+                        let alert = UIAlertController(title: "Failed to unsave", message: "There was a failure when trying to unsave this quest. Report this to Vital Communities", preferredStyle: .Alert)
+                        alert.addAction(UIAlertAction(title: "Done", style: .Cancel, handler: nil))
+                        alert.addAction(UIAlertAction(title: "Report", style: .Default, handler: { (_) in
+                            let mailComposer = MFMailComposeViewController()
+                            
+                            
+                            mailComposer.setSubject("Failure Report")
+                            var body = "Failed to unsave saved object!\n\n Error:\n"
+                            if let error = error {
+                                body += error.description
+                            }else{
+                                body += "nil"
+                            }
+                            mailComposer.setMessageBody(body, isHTML: false)
+                            mailComposer.setToRecipients(["John.P.Kotz.19@Dartmouth.edu", "valleyquest@vitalcommunities.org"])
+                            self.presentViewController(mailComposer, animated: true, completion: nil)
+                        }))
+                    }
+                })
+            }else{
+                // Save it
+                quest.pinInBackgroundWithBlock({ (success, error) in
+                    if success {
+                        self.saved = true
+                        self.titleCell.endLoadingSave(true)
+                    }else{
+                        print(error?.description)
+                        self.titleCell.endLoadingSave(true)
+                        let alert = UIAlertController(title: "Failed to save", message: "There was a failure when trying to save this quest. Report this to Vital Communities", preferredStyle: .Alert)
+                        alert.addAction(UIAlertAction(title: "Done", style: .Cancel, handler: nil))
+                        alert.addAction(UIAlertAction(title: "Report", style: .Default, handler: { (_) in
+                            let mailComposer = MFMailComposeViewController()
+                            
+                            
+                            mailComposer.setSubject("Failure Report")
+                            var body = "Failed to save object!\n\n Error:\n"
+                            if let error = error {
+                                body += error.description
+                            }else{
+                                body += "nil"
+                            }
+                            mailComposer.setMessageBody(body, isHTML: false)
+                            mailComposer.setToRecipients(["John.P.Kotz.19@Dartmouth.edu", "valleyquest@vitalcommunities.org"])
+                            self.presentViewController(mailComposer, animated: true, completion: nil)
+                        }))
+                    }
+                })
+            }
+        }
+    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if let quest = object where indexPath.section == 0 {
             let cell = tableView.dequeueReusableCellWithIdentifier("titleCell") as! QuestDetailCell
+            cell.delegate = self;
             
             cell.nameOfQuestLabel.text = quest.Name
             cell.setDifficulty(quest.Difficulty)
@@ -149,6 +216,26 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
             cell.userInteractionEnabled = true;
             
             titleCell = cell
+            
+            let query = PFQuery(className: "Quests")
+            query.fromLocalDatastore()
+            query.findObjectsInBackgroundWithBlock({ (objects, error) in
+                if let objects = objects {
+                    for object in objects {
+                        if object.objectId == quest.objectId {
+                            // It was previously there
+                            self.saved = true;
+                            dispatch_async(dispatch_get_main_queue(), {
+                                self.titleCell.endLoadingSave(true)
+                            })
+                            return
+                        }
+                    }
+                }
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.titleCell.endLoadingSave(false)
+                })
+            })
             
             return cell
         }

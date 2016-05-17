@@ -11,5 +11,6 @@
 #import "Parse/Parse.h"
 #import "BEMCheckBox/BEMCheckBox.h"
 #import "SWRevealViewController.h"
+#import "Reachability.h"
 
 #endif /* ObjCBridgingHeader_h */
