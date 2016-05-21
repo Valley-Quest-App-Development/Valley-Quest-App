@@ -51,7 +51,7 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
         setUpHamberger()
         refreshData()
         
-        if NSUserDefaults.standardUserDefaults().objectForKey("hasLaunched") == nil || !NSUserDefaults.standardUserDefaults().boolForKey("hasLaunched") || true {
+        if NSUserDefaults.standardUserDefaults().objectForKey("hasLaunched") == nil || !NSUserDefaults.standardUserDefaults().boolForKey("hasLaunched") {
             self.performSegueWithIdentifier("firstOpen", sender: nil)
         }
         NSUserDefaults.standardUserDefaults().setBool(true, forKey: "hasLaunched")

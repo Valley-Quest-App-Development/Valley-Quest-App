@@ -25,6 +25,8 @@
 		5244C8FF1CA09F1F0040E565 /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5244C8FE1CA09F1F0040E565 /* Feedback.swift */; };
 		525E0A051CCF0EB400D86AC7 /* FeedbackMissingItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525E0A041CCF0EB400D86AC7 /* FeedbackMissingItemsViewController.swift */; };
 		525E0A071CCF1D5100D86AC7 /* CorrectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525E0A061CCF1D5100D86AC7 /* CorrectionViewController.swift */; };
+		526AE5351CEF9F1B0011B6CF /* ImageChooserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526AE5341CEF9F1B0011B6CF /* ImageChooserViewController.swift */; };
+		526AE5371CEFB4DC0011B6CF /* NamedImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526AE5361CEFB4DC0011B6CF /* NamedImageCell.swift */; };
 		5271A60D1CD1016800C291DB /* PlaceholderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5271A60C1CD1016800C291DB /* PlaceholderViewController.swift */; };
 		5281CDA11CA10A13001B6F6C /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5281CDA01CA10A13001B6F6C /* FeedbackViewController.swift */; };
 		5281CDA31CA10A23001B6F6C /* FeedbackBoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5281CDA21CA10A23001B6F6C /* FeedbackBoxViewController.swift */; };
@@ -86,6 +88,8 @@
 		5244C8FE1CA09F1F0040E565 /* Feedback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
 		525E0A041CCF0EB400D86AC7 /* FeedbackMissingItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackMissingItemsViewController.swift; sourceTree = "<group>"; };
 		525E0A061CCF1D5100D86AC7 /* CorrectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CorrectionViewController.swift; sourceTree = "<group>"; };
+		526AE5341CEF9F1B0011B6CF /* ImageChooserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageChooserViewController.swift; sourceTree = "<group>"; };
+		526AE5361CEFB4DC0011B6CF /* NamedImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NamedImageCell.swift; sourceTree = "<group>"; };
 		5271A60C1CD1016800C291DB /* PlaceholderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceholderViewController.swift; sourceTree = "<group>"; };
 		5281CDA01CA10A13001B6F6C /* FeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
 		5281CDA21CA10A23001B6F6C /* FeedbackBoxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackBoxViewController.swift; sourceTree = "<group>"; };
@@ -117,10 +121,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				522F90931BED334D00F60652 /* MobileCoreServices.framework in Frameworks */,
 				5202B83F1CE9793100AE4E49 /* SystemConfiguration.framework in Frameworks */,
 				522F90951BED335D00F60652 /* CoreSpotlight.framework in Frameworks */,
 				522F90991BED47DA00F60652 /* MapKit.framework in Frameworks */,
-				522F90931BED334D00F60652 /* MobileCoreServices.framework in Frameworks */,
 				D06DBB66978299D4DF0A2FA2 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -155,6 +159,8 @@
 			isa = PBXGroup;
 			children = (
 				5281CDA01CA10A13001B6F6C /* FeedbackViewController.swift */,
+				526AE5341CEF9F1B0011B6CF /* ImageChooserViewController.swift */,
+				526AE5361CEFB4DC0011B6CF /* NamedImageCell.swift */,
 				5281CDA71CA11416001B6F6C /* FeedbackTextViewCell.swift */,
 				5281CDA91CA11435001B6F6C /* FeedbackTextViewCell.xib */,
 				52DF7E6D1CA3C48D004D71F5 /* PercentCell.swift */,
@@ -429,6 +435,7 @@
 				52235E201CAA249800F4F01D /* CheckBoxCell.swift in Sources */,
 				52C8E2701BDBE75F005996E3 /* QuestCell.swift in Sources */,
 				52DF7E6E1CA3C48D004D71F5 /* PercentCell.swift in Sources */,
+				526AE5351CEF9F1B0011B6CF /* ImageChooserViewController.swift in Sources */,
 				5202B8451CE97B3200AE4E49 /* Reachability.m in Sources */,
 				52E13E231C9A7512002CE8AD /* HelperMethods.swift in Sources */,
 				5244C8FF1CA09F1F0040E565 /* Feedback.swift in Sources */,
@@ -448,6 +455,7 @@
 				5244C8FD1C9E91AB0040E565 /* SWRevealViewController.m in Sources */,
 				5281CDA11CA10A13001B6F6C /* FeedbackViewController.swift in Sources */,
 				52EA9F3A1BBB3B0D0063E082 /* AppDelegate.swift in Sources */,
+				526AE5371CEFB4DC0011B6CF /* NamedImageCell.swift in Sources */,
 				523AC4241C61568200461BBA /* PDFViewController.swift in Sources */,
 				52A8DBFC1CE3DD8A00530770 /* FirstLoadViewController.swift in Sources */,
 			);

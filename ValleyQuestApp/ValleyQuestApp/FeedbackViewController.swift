@@ -80,7 +80,16 @@ class FeedbackViewController: UITableViewController {
                 cell.textLabel?.text = "Box"
             }else if indexPath.row == 1 {
                 cell.textLabel?.text = "Clues"
+            }else if indexPath.row == 2 {
+                cell.textLabel?.text = "Pictures"
             }
+            cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+            cell.selectionStyle = .Gray
+            return cell
+            
+        case 2:
+            let cell = tableView.dequeueReusableCellWithIdentifier("cell")!
+            cell.textLabel?.text = "Pictures"
             cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
             cell.selectionStyle = .Gray
             return cell
@@ -107,6 +116,8 @@ class FeedbackViewController: UITableViewController {
             return "Message"
         }else if section == 1 {
             return "Other"
+        }else if section == 2 {
+            return "Pictures"
         }else{
             return ""
         }
@@ -117,6 +128,8 @@ class FeedbackViewController: UITableViewController {
             destination.feedBack = self.feedbackObject
         }else if let destination = segue.destinationViewController as? FeedbackCluesViewController {
             destination.feedBack = self.feedbackObject
+        }else if let destination = segue.destinationViewController as? ImageChooserViewController {
+            destination.feedback = self.feedbackObject
         }
     }
     
@@ -126,6 +139,8 @@ class FeedbackViewController: UITableViewController {
             return "Enter your email so we can contact you if we have questions"
         case 1:
             return "If you want to be more specific you can use these features to make processing it easyer and more efficient"
+        case 2:
+            return "Share your photos from the quest. We will only use the photos you submit for photo albums and feedback"
         default:
             return ""
         }
@@ -151,6 +166,10 @@ class FeedbackViewController: UITableViewController {
             
             break
             
+        case 2:
+            self.performSegueWithIdentifier("photoChooser", sender: nil)
+            tableView.deselectRowAtIndexPath(indexPath, animated: true)
+            break
         default:
             tableView.deselectRowAtIndexPath(indexPath, animated: false)
             break
@@ -166,13 +185,16 @@ class FeedbackViewController: UITableViewController {
             
         case 1:
             return 2
-            
+        
+        case 2:
+            return 1
+        
         default:
             return 0
         }
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
 }

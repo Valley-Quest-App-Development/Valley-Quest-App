@@ -236,6 +236,8 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
                     self.titleCell.endLoadingSave(false)
                 })
             })
+            cell.selectionStyle = .None
+            cell.initialize()
             
             return cell
         }
@@ -283,6 +285,11 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         var animated = false
         let quest = object!
+        
+        if indexPath.section == 0 {
+            self.tableView.deselectRowAtIndexPath(indexPath, animated: false)
+            return;
+        }
         
         switch rows[indexPath.section][indexPath.row][0]{
             case "PDF":

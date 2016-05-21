@@ -3,7 +3,7 @@
 //  Valley Quest App
 //
 //  Created by John Kotz on 3/28/16.
-//  Copyright © 2016 vitalCommunities. All rights reserved.
+//  Copyright © 2016 Vital Communities. All rights reserved.
 //
 
 import Foundation
@@ -16,6 +16,7 @@ class QuestDetailCell: UITableViewCell {
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var activity: UIActivityIndicatorView!
     @IBOutlet weak var saveHeight: NSLayoutConstraint!
+    @IBOutlet weak var saveButtonBackground: UIImageView!
     
     private static let descriptionFont = UIFont.systemFontOfSize(15)
     private static let lineFragmentPadding: CGFloat = 10
@@ -23,6 +24,11 @@ class QuestDetailCell: UITableViewCell {
     private var difficulty: String?
     private var duration: String?
     var delegate: QuestDetailViewController?
+    
+    func initialize() {
+        self.saveButtonBackground.clipsToBounds = true;
+        self.saveButtonBackground.layer.cornerRadius = 10
+    }
     
     func setDescription(text: String) {
         descriptionTextView.text = text
@@ -83,8 +89,14 @@ class QuestDetailCell: UITableViewCell {
         return height > maxHeight ? maxHeight : height
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.initialize()
+    }
+    
     func getHeight() -> CGFloat {
         let buttonHeight = 8 * 2 + (saveHeight != nil ? saveHeight.constant : 43)
         return self.getHeightOfDescription() + (staticItemsHeight != nil ? staticItemsHeight.constant : 74) + 35 + buttonHeight
+    
     }
 }

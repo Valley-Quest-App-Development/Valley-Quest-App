@@ -53,7 +53,50 @@ class Feedback: PFObject, PFSubclassing {
         object.message = message
         assert(submitterEmail.isValidEmail(), "submitterEmail must be a valid email")
         assert(object.isValid(), "Something is wrong with the given things")
+        
+        object.relationForKey("photos")
+        
         return object
+    }
+    
+    func addPhotos(givenFiles: [(String, PFFile)]) {
+        self.saveInBackgroundWithBlock { (success, error) in
+            var files = [PFFile]()
+            var names = [String]()
+            
+            for item in givenFiles {
+                let name = item.0
+                let file = item.1
+                
+                files.append(file)
+                names.append(name)
+            }
+            
+            let saver = ParseSaver()
+            saver.saveAllFilesInBackground(files) {
+                var objects = [PFObject]()
+                for item in givenFiles {
+                    let name = item.0
+                    let file = item.1
+                    
+                    let object = PFObject(className: "photoObject")
+                    object.setObject(name, forKey: "Name")
+                    object.setObject(file, forKey: "File")
+                    object.setObject(self, forKey: "FeedbackObject")
+                    object.setObject(self.forQuest, forKey: "quest")
+                    
+                    objects.append(object)
+                }
+                
+                saver.saveAllInBackground(objects) {
+                    let relation = self.relationForKey("photos")
+                    
+                    for object in objects {
+                        relation.addObject(object)
+                    }
+                }
+            }
+        }
     }
     
     func isValid() -> Bool {

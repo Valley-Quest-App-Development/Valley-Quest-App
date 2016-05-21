@@ -27,7 +27,7 @@ class FirstLoadViewController: UIViewController {
         
         self.text.attributedText = attrString
         self.text.textAlignment = .Center
-        self.text.font = UIFont.systemFontOfSize(22)
+        self.text.font = UIFont.systemFontOfSize(15)
         
         if (UIDevice.currentDevice().userInterfaceIdiom == .Pad) {
             self.text.font = UIFont.systemFontOfSize(35)

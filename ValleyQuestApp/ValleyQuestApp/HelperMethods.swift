@@ -8,6 +8,7 @@
 
 import Foundation
 import MapKit
+import Parse
 
 extension String {
     func sizeForWidth(width: CGFloat, font: UIFont) -> CGSize {
@@ -51,5 +52,59 @@ class HelperMethods {
     
     class func getWidthForText(text: String, font: UIFont) -> CGFloat {
         return font.sizeOfString(text, constrainedToWidth: Double.infinity).width
+    }
+}
+
+class ParseSaver {
+    private var objectsToDo = [PFObject]()
+    private var filesToDo = [PFFile]()
+    private var done: (() -> Void)?
+    
+    func saveAllInBackground(objects: [PFObject], done: () -> Void) {
+        self.done = done
+        objectsToDo = objects
+        for object in objects {
+            object.saveInBackgroundWithBlock({ (success, error) in
+                if success {
+                    self.doneSavingObject(object)
+                }
+            })
+        }
+    }
+    
+    func saveAllFilesInBackground(files: [PFFile], done: () -> Void) {
+        filesToDo = files
+        self.done = done
+        for file in files {
+            file.saveInBackgroundWithBlock({ (success, error) in
+                if success {
+                    self.doneSavingFile(file)
+                }
+            })
+        }
+    }
+    
+    private func doneSavingFile(file: PFFile) {
+        if let index = filesToDo.indexOf(file) {
+            filesToDo.removeAtIndex(index)
+            
+            if filesToDo.count == 0 {
+                if let done = done {
+                    done()
+                }
+            }
+        }
+    }
+    
+    private func doneSavingObject(object: PFObject) {
+        if let index = objectsToDo.indexOf(object) {
+            objectsToDo.removeAtIndex(index)
+            
+            if objectsToDo.count == 0 {
+                if let done = done {
+                    done()
+                }
+            }
+        }
     }
 }

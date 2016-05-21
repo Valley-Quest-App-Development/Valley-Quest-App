@@ -3,29 +3,10 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "AppDelegate.application(UIApplication, continueUserActivity : NSUserActivity, restorationHandler : ([AnyObject]?) -&gt; ()) -&gt; Bool:AppDelegate.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "mainController.rightViewController">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "QuestDetailViewController.tableView(UITableView, cellForRowAtIndexPath : NSIndexPath) -&gt; UITableViewCell:QuestDetailViewController.swift">
-      </ContextState>
-      <ContextState
          contextName = "QuestController.previewingContext(UIViewControllerPreviewing, viewControllerForLocation : CGPoint) -&gt; UIViewController?:QuestController.swift">
          <PersistentStrings>
             <PersistentString
                value = "self.tableView.indexPathForRowAtPoint(location)">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "QuestDetailViewController.viewDidLoad() -&gt; ():QuestDetailViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "rows[index].count">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -45,6 +26,44 @@
             </PersistentString>
             <PersistentString
                value = "indexPath.section">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "QuestDetailCell.initialize() -&gt; ():QuestDetailCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.saveButtonBackground">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AppDelegate.application(UIApplication, continueUserActivity : NSUserActivity, restorationHandler : ([AnyObject]?) -&gt; ()) -&gt; Bool:AppDelegate.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "mainController.rightViewController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "QuestDetailViewController.viewDidLoad() -&gt; ():QuestDetailViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "rows[index].count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "QuestDetailViewController.tableView(UITableView, cellForRowAtIndexPath : NSIndexPath) -&gt; UITableViewCell:QuestDetailViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "ImageChooserViewController.addImage(UIImage) -&gt; ():ImageChooserViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.images">
+            </PersistentString>
+            <PersistentString
+               value = "self.files">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
