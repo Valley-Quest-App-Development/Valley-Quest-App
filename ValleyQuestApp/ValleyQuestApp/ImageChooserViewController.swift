@@ -28,6 +28,9 @@ class ImageChooserViewController: UIViewController, UITableViewDelegate, UITable
         self.disclamerTextView.text = "The images you upload will be used for feedback purposes. They will also be reviewed and may be selected to be used in the Valley Quest website. If one of your photos is selected, we will contact you and ask for your permission before using it."
         self.disclamerTextView.font = UIFont.systemFontOfSize(13)
         
+        images = feedback.images
+        files = feedback.photos
+        
         let height = HelperMethods.getHeightForText(self.disclamerTextView.text, font: UIFont.systemFontOfSize(13), width: self.disclamerTextView.frame.width, maxHeight: disclamerHeight.constant)
         disclamerHeight.constant = height
     }
@@ -49,6 +52,8 @@ class ImageChooserViewController: UIViewController, UITableViewDelegate, UITable
         let cell = tableView.dequeueReusableCellWithIdentifier("cell") as! NamedImageCell
         cell.initialize(indexPath.row, image: images[indexPath.row])
         cell.delegate = self
+        
+        cell.textInput.text = files[indexPath.row].0
         
         return cell
     }
@@ -73,6 +78,18 @@ class ImageChooserViewController: UIViewController, UITableViewDelegate, UITable
         dismissViewControllerAnimated(true, completion: nil)
     }
     
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        var actions = [UITableViewRowAction]()
+        
+        actions.append(UITableViewRowAction(style: .Destructive, title: "Delete", handler: { (_, indexPath) in
+            self.images.removeAtIndex(indexPath.row)
+            self.files.removeAtIndex(indexPath.row)
+            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Left)
+        }))
+        
+        return actions
+    }
+    
     @IBAction func addPicturePressed(sender: UIButton) {
         imagePicker.allowsEditing = true;
         imagePicker.sourceType = .PhotoLibrary;
@@ -86,6 +103,11 @@ class ImageChooserViewController: UIViewController, UITableViewDelegate, UITable
     override func viewWillDisappear(animated: Bool) {
         if (!isChoosingPhoto && images.count != 0) {
             feedback.addPhotos(files)
+            feedback.images = images
         }
+    }
+    
+    @IBAction func hideKeyboard(sender: AnyObject) {
+        self.view.endEditing(true)
     }
 }

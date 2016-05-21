@@ -44,6 +44,8 @@ class Feedback: PFObject, PFSubclassing {
     static let cluesAccuracyOptions: [String] = ["Wrong", "Not great", "Good", "Great"]
     static let clarityOptions: [String] = [ "Good", "Confusing", "Too easy"]
     
+    var photos = [(String, PFFile)]()
+    var images = [UIImage]()
     
     // Create a simple feedback object
     class func create(forQuest: Quest, submitterEmail: String, message: String) -> Feedback {
@@ -60,11 +62,15 @@ class Feedback: PFObject, PFSubclassing {
     }
     
     func addPhotos(givenFiles: [(String, PFFile)]) {
+        self.photos = givenFiles
+    }
+    
+    func savePhotos(callback: () -> Void) {
         self.saveInBackgroundWithBlock { (success, error) in
             var files = [PFFile]()
             var names = [String]()
             
-            for item in givenFiles {
+            for item in self.photos {
                 let name = item.0
                 let file = item.1
                 
@@ -75,7 +81,7 @@ class Feedback: PFObject, PFSubclassing {
             let saver = ParseSaver()
             saver.saveAllFilesInBackground(files) {
                 var objects = [PFObject]()
-                for item in givenFiles {
+                for item in self.photos {
                     let name = item.0
                     let file = item.1
                     
@@ -94,8 +100,15 @@ class Feedback: PFObject, PFSubclassing {
                     for object in objects {
                         relation.addObject(object)
                     }
+                    callback()
                 }
             }
+        }
+    }
+    
+    func submit() {
+        savePhotos {
+            self.saveEventually()
         }
     }
     

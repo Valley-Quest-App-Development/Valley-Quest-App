@@ -522,6 +522,7 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="xNy-k5-auI" firstAttribute="top" secondItem="rgw-H0-oXX" secondAttribute="bottom" constant="8" id="0WS-U5-ksY"/>
                             <constraint firstItem="bgp-bz-LuA" firstAttribute="leading" secondItem="E6X-Vz-GCc" secondAttribute="leadingMargin" id="2aI-r6-aDh"/>
@@ -542,6 +543,9 @@
                                 <exclude reference="Wog-VX-qbn"/>
                             </mask>
                         </variation>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="ptc-eR-gVU" appends="YES" id="oV8-n9-zbc"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="addButton" destination="xNy-k5-auI" id="cGy-nC-K7R"/>
@@ -551,6 +555,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sxO-L2-gCP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ptc-eR-gVU">
+                    <connections>
+                        <action selector="hideKeyboard:" destination="74h-3E-Mfg" id="0xu-9h-bKG"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2563" y="-1124"/>
         </scene>

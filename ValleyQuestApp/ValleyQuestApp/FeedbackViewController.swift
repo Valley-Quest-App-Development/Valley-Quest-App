@@ -43,7 +43,7 @@ class FeedbackViewController: UITableViewController {
         feedbackObject.message = messageTextView.text!
         feedbackObject.submitterEmail = emailTextField.text!
         if feedbackObject.isValid() {
-            feedbackObject.saveEventually()
+            feedbackObject.submit()
             self.navigationController?.popViewControllerAnimated(true)
         }else{
             let alert = UIAlertController(title: "Something is wrong", message: "Something with the inputs was wrong", preferredStyle: .Alert)

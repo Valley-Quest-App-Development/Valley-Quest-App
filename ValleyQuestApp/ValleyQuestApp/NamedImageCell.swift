@@ -18,6 +18,7 @@ class NamedImageCell: UITableViewCell {
     func initialize(id: Int, image: UIImage) {
         self.id = id;
         self.setMyImage(image)
+        self.selectionStyle = .None
     }
     
     func setMyImage(image: UIImage?) {
