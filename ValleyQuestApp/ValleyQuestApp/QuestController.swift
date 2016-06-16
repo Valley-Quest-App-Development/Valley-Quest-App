@@ -104,15 +104,30 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
     }
     
     func refreshData() {
-        let reach = Reachability.reachabilityForInternetConnection()
-        
-        let query: PFQuery = PFQuery(className: "Quests")
-        query.limit = 1000
-        
-        if (reach.currentReachabilityStatus() == NotReachable) {
-            query.fromLocalDatastore()
+        let object = PFQuery(className: "serverMove")
+        object.findObjectsInBackgroundWithBlock { (objects, error) in
+            if let objects = objects where objects.count > 0 {
+                let alert = UIAlertController(title: "Server moved", message: "The sever has been moved to a new location. Please update the app to get the right data", preferredStyle: .Alert)
+                
+                alert.addAction(UIAlertAction(title: "Done", style: .Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+                self.quests.removeAll()
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self.refreshControl?.endRefreshing()
+                    self.tableView.reloadData()
+                })
+            }else{
+                let reach = Reachability.reachabilityForInternetConnection()
+                
+                let query: PFQuery = PFQuery(className: "Quests")
+                query.limit = 1000
+                
+                if (reach.currentReachabilityStatus() == NotReachable) {
+                    query.fromLocalDatastore()
+                }
+                self.completeRefreshQuery(query)
+            }
         }
-        completeRefreshQuery(query)
     }
     
     func completeRefreshQuery(query: PFQuery) {
