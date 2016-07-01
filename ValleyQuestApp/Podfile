@@ -1,5 +1,11 @@
-use_frameworks!
-platform :ios, '9.0'
+# Uncomment this line to define a global platform for your project
+# platform :ios, '9.0'
 
-pod 'Parse'
-pod 'BEMCheckBox', '~> 1.2'
+target ‘Valley Quest App’ do
+  # Comment this line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  pod 'Parse'
+  pod 'SCLAlertView’
+  pod 'BEMCheckBox'
+end

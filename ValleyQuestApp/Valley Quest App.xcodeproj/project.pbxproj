@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00CC1F878DB6A8D2D2202F99 /* Pods_Valley_Quest_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C176864BD1B855327AF6C8B /* Pods_Valley_Quest_App.framework */; };
 		5202B83F1CE9793100AE4E49 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5202B83E1CE9793100AE4E49 /* SystemConfiguration.framework */; };
 		5202B8451CE97B3200AE4E49 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 5202B8441CE97B3200AE4E49 /* Reachability.m */; };
 		5202B8471CE9813200AE4E49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5202B8461CE9813200AE4E49 /* Assets.xcassets */; };
+		52232E881D22DBC5001E3955 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52232E871D22DBC5001E3955 /* Bolts.framework */; };
 		52235E1E1CAA1E1400F4F01D /* SegmentedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52235E1D1CAA1E1400F4F01D /* SegmentedCell.swift */; };
 		52235E201CAA249800F4F01D /* CheckBoxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52235E1F1CAA249800F4F01D /* CheckBoxCell.swift */; };
 		522A254D1BE03BCC008FE49E /* Quest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522A254C1BE03BCC008FE49E /* Quest.swift */; };
@@ -45,7 +47,6 @@
 		52EA9F3F1BBB3B0D0063E082 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52EA9F3D1BBB3B0D0063E082 /* Main.storyboard */; };
 		52EA9F441BBB3B0E0063E082 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52EA9F421BBB3B0E0063E082 /* LaunchScreen.storyboard */; };
 		8B40A95A1BE15BB500DC30AC /* QuestDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B40A9591BE15BB500DC30AC /* QuestDetailViewController.swift */; };
-		D06DBB66978299D4DF0A2FA2 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 831939FF962680D8031EEFD8 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,12 +67,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0AE72FB39E6C8D966954840F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		1C176864BD1B855327AF6C8B /* Pods_Valley_Quest_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Valley_Quest_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		29E1ED199386FECAF31FE731 /* Pods-Valley Quest App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Valley Quest App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Valley Quest App/Pods-Valley Quest App.debug.xcconfig"; sourceTree = "<group>"; };
 		5202B83E1CE9793100AE4E49 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		5202B8431CE97B3200AE4E49 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		5202B8441CE97B3200AE4E49 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		5202B8461CE9813200AE4E49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		5206324E1C44439100F94463 /* ObjCBridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ObjCBridgingHeader.h; path = ../ObjCBridgingHeader.h; sourceTree = "<group>"; };
+		52232E871D22DBC5001E3955 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "../../../Library/Developer/Xcode/DerivedData/Valley_Quest_App-awnxcqhekgaglnacmzmjjcfawckm/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework"; sourceTree = "<group>"; };
 		52235E1D1CAA1E1400F4F01D /* SegmentedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedCell.swift; sourceTree = "<group>"; usesTabs = 1; };
 		52235E1F1CAA249800F4F01D /* CheckBoxCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBoxCell.swift; sourceTree = "<group>"; };
 		522A254C1BE03BCC008FE49E /* Quest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quest.swift; sourceTree = "<group>"; };
@@ -113,7 +115,7 @@
 		52EA9F551BBB3B0E0063E082 /* Valley Quest App.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Valley Quest App.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		831939FF962680D8031EEFD8 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B40A9591BE15BB500DC30AC /* QuestDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestDetailViewController.swift; sourceTree = "<group>"; };
-		E6B6877D66920FD8B0CF4E06 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		E87FEC3EFF67604F00359DE2 /* Pods-Valley Quest App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Valley Quest App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Valley Quest App/Pods-Valley Quest App.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,11 +123,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52232E881D22DBC5001E3955 /* Bolts.framework in Frameworks */,
 				522F90931BED334D00F60652 /* MobileCoreServices.framework in Frameworks */,
 				5202B83F1CE9793100AE4E49 /* SystemConfiguration.framework in Frameworks */,
 				522F90951BED335D00F60652 /* CoreSpotlight.framework in Frameworks */,
 				522F90991BED47DA00F60652 /* MapKit.framework in Frameworks */,
-				D06DBB66978299D4DF0A2FA2 /* Pods.framework in Frameworks */,
+				00CC1F878DB6A8D2D2202F99 /* Pods_Valley_Quest_App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,8 +152,10 @@
 		18B17195EC919034BFF7E5D8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				52232E871D22DBC5001E3955 /* Bolts.framework */,
 				5202B83E1CE9793100AE4E49 /* SystemConfiguration.framework */,
 				831939FF962680D8031EEFD8 /* Pods.framework */,
+				1C176864BD1B855327AF6C8B /* Pods_Valley_Quest_App.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -182,7 +187,7 @@
 				52EA9F381BBB3B0D0063E082 /* ValleyQuestApp */,
 				52EA9F371BBB3B0D0063E082 /* Products */,
 				18B17195EC919034BFF7E5D8 /* Frameworks */,
-				72C3CC2B1946438F123EB6B5 /* Pods */,
+				F9B79E7949BB4AE3C45CF473 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -199,7 +204,6 @@
 		52EA9F381BBB3B0D0063E082 /* ValleyQuestApp */ = {
 			isa = PBXGroup;
 			children = (
-				5206324E1C44439100F94463 /* ObjCBridgingHeader.h */,
 				52EA9F391BBB3B0D0063E082 /* AppDelegate.swift */,
 				52EA9F3B1BBB3B0D0063E082 /* QuestController.swift */,
 				52A8DBFB1CE3DD8A00530770 /* FirstLoadViewController.swift */,
@@ -231,11 +235,11 @@
 			path = ValleyQuestApp;
 			sourceTree = "<group>";
 		};
-		72C3CC2B1946438F123EB6B5 /* Pods */ = {
+		F9B79E7949BB4AE3C45CF473 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				0AE72FB39E6C8D966954840F /* Pods.release.xcconfig */,
-				E6B6877D66920FD8B0CF4E06 /* Pods.debug.xcconfig */,
+				E87FEC3EFF67604F00359DE2 /* Pods-Valley Quest App.release.xcconfig */,
+				29E1ED199386FECAF31FE731 /* Pods-Valley Quest App.debug.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -247,12 +251,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 52EA9F5E1BBB3B0E0063E082 /* Build configuration list for PBXNativeTarget "Valley Quest App" */;
 			buildPhases = (
-				FF37C047BD8D25169B0E96E4 /* Check Pods Manifest.lock */,
+				49961C17E723C70BFBA88B6B /* [CP] Check Pods Manifest.lock */,
 				52EA9F321BBB3B0D0063E082 /* Sources */,
 				52EA9F331BBB3B0D0063E082 /* Frameworks */,
 				52EA9F341BBB3B0D0063E082 /* Resources */,
-				63D8F541A9F85E19E05B3BE0 /* Embed Pods Frameworks */,
-				E489968E65412F2B648B09F6 /* Copy Pods Resources */,
+				407F41EB6FE7011D37C634CC /* [CP] Embed Pods Frameworks */,
+				A192531101F57C1FA0485A69 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -267,9 +271,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 52EA9F611BBB3B0E0063E082 /* Build configuration list for PBXNativeTarget "Valley Quest AppTests" */;
 			buildPhases = (
+				98CDA67324154B9F623D8BAE /* [CP] Check Pods Manifest.lock */,
 				52EA9F461BBB3B0E0063E082 /* Sources */,
 				52EA9F471BBB3B0E0063E082 /* Frameworks */,
 				52EA9F481BBB3B0E0063E082 /* Resources */,
+				F199AF0CA583AE16F70D151B /* [CP] Embed Pods Frameworks */,
+				AB5816076B3BCB23871CF55D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -285,9 +292,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 52EA9F641BBB3B0E0063E082 /* Build configuration list for PBXNativeTarget "Valley Quest AppUITests" */;
 			buildPhases = (
+				328597A509A3BEA93A2E2DAC /* [CP] Check Pods Manifest.lock */,
 				52EA9F511BBB3B0E0063E082 /* Sources */,
 				52EA9F521BBB3B0E0063E082 /* Frameworks */,
 				52EA9F531BBB3B0E0063E082 /* Resources */,
+				BA8ACB67C0AE99831521B626 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -379,49 +388,124 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		63D8F541A9F85E19E05B3BE0 /* Embed Pods Frameworks */ = {
+		328597A509A3BEA93A2E2DAC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E489968E65412F2B648B09F6 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FF37C047BD8D25169B0E96E4 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		407F41EB6FE7011D37C634CC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Valley Quest App/Pods-Valley Quest App-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		49961C17E723C70BFBA88B6B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		98CDA67324154B9F623D8BAE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A192531101F57C1FA0485A69 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Valley Quest App/Pods-Valley Quest App-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AB5816076B3BCB23871CF55D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Valley Quest AppTests/Pods-Valley Quest AppTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BA8ACB67C0AE99831521B626 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Valley Quest AppUITests/Pods-Valley Quest AppUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F199AF0CA583AE16F70D151B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Valley Quest AppTests/Pods-Valley Quest AppTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -554,7 +638,7 @@
 		};
 		52669C831C9D315600483E4E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E6B6877D66920FD8B0CF4E06 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 29E1ED199386FECAF31FE731 /* Pods-Valley Quest App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -568,7 +652,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.vitalcommunities.ValleyQuest;
 				PRODUCT_NAME = "Valley Quest App";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = ObjCBridgingHeader.h;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Debug;
 		};
@@ -636,7 +720,7 @@
 		};
 		52EA9F601BBB3B0E0063E082 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0AE72FB39E6C8D966954840F /* Pods.release.xcconfig */;
+			baseConfigurationReference = E87FEC3EFF67604F00359DE2 /* Pods-Valley Quest App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -650,7 +734,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.vitalcommunities.ValleyQuest;
 				PRODUCT_NAME = "Valley Quest App";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = ObjCBridgingHeader.h;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;
 		};

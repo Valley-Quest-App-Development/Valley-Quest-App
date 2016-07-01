@@ -11,6 +11,8 @@ import UIKit
 import MapKit
 import Parse
 import MessageUI
+import SCLAlertView
+import Crashlytics
 
 
 class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -32,11 +34,11 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
     
     
     override func viewWillAppear(animated: Bool) {
-        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+//        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
     }
     
     override func viewWillDisappear(animated: Bool) {
-        self.view.removeGestureRecognizer(self.revealViewController().panGestureRecognizer())
+//        self.view.removeGestureRecognizer(self.revealViewController().panGestureRecognizer())
     }
     
     override func viewDidLoad() {
@@ -74,6 +76,8 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
             if let bring = quest.Bring {
                 rows[index].append(["Things to bring", bring])
             }
+            
+            Answers.logCustomEventWithName("Quest View", customAttributes: ["name" : quest.Name])
             
             if quest.hasClues() || quest.hasPDF() {
                 
@@ -139,26 +143,17 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
                     if success {
                         self.saved = false
                         self.titleCell.endLoadingSave(false)
+                        Answers.logCustomEventWithName("Unsaved quest", customAttributes: ["name" : quest.Name])
+                        if let delegate = self.delegate {
+                            if let index = delegate.savedQuests.indexOf(quest) {
+                                delegate.savedQuests.removeAtIndex(index)
+                            }
+                            delegate.tableView.reloadData()
+                        }
                     }else{
                         print(error?.description)
                         self.titleCell.endLoadingSave(true)
-                        let alert = UIAlertController(title: "Failed to unsave", message: "There was a failure when trying to unsave this quest. Report this to Vital Communities", preferredStyle: .Alert)
-                        alert.addAction(UIAlertAction(title: "Done", style: .Cancel, handler: nil))
-                        alert.addAction(UIAlertAction(title: "Report", style: .Default, handler: { (_) in
-                            let mailComposer = MFMailComposeViewController()
-                            
-                            
-                            mailComposer.setSubject("Failure Report")
-                            var body = "Failed to unsave saved object!\n\n Error:\n"
-                            if let error = error {
-                                body += error.description
-                            }else{
-                                body += "nil"
-                            }
-                            mailComposer.setMessageBody(body, isHTML: false)
-                            mailComposer.setToRecipients(["John.P.Kotz.19@Dartmouth.edu", "valleyquest@vitalcommunities.org"])
-                            self.presentViewController(mailComposer, animated: true, completion: nil)
-                        }))
+                        SCLAlertView().showError("Failed to unsave!", subTitle: "Contact Vital Communities for support")
                     }
                 })
             }else{
@@ -167,26 +162,18 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
                     if success {
                         self.saved = true
                         self.titleCell.endLoadingSave(true)
+                        Answers.logCustomEventWithName("Saved quest", customAttributes: ["name" : quest.Name])
+                        if let delegate = self.delegate {
+                            if delegate.savedQuests.indexOf(quest) == nil {
+                                delegate.savedQuests.append(quest)
+                                Quest.sortQuests(&delegate.savedQuests)
+                            }
+                            delegate.tableView.reloadData()
+                        }
                     }else{
                         print(error?.description)
                         self.titleCell.endLoadingSave(true)
-                        let alert = UIAlertController(title: "Failed to save", message: "There was a failure when trying to save this quest. Report this to Vital Communities", preferredStyle: .Alert)
-                        alert.addAction(UIAlertAction(title: "Done", style: .Cancel, handler: nil))
-                        alert.addAction(UIAlertAction(title: "Report", style: .Default, handler: { (_) in
-                            let mailComposer = MFMailComposeViewController()
-                            
-                            
-                            mailComposer.setSubject("Failure Report")
-                            var body = "Failed to save object!\n\n Error:\n"
-                            if let error = error {
-                                body += error.description
-                            }else{
-                                body += "nil"
-                            }
-                            mailComposer.setMessageBody(body, isHTML: false)
-                            mailComposer.setToRecipients(["John.P.Kotz.19@Dartmouth.edu", "valleyquest@vitalcommunities.org"])
-                            self.presentViewController(mailComposer, animated: true, completion: nil)
-                        }))
+                        SCLAlertView().showError("Failed to save!", subTitle: "Contact Vital Communities for support")
                     }
                 })
             }
@@ -199,9 +186,13 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
             cell.delegate = self;
             
             cell.nameOfQuestLabel.text = quest.Name
-            cell.setDifficulty(quest.Difficulty)
-            if let duration = quest.duration as? Int {
-                cell.setDuration("\(duration) mins")
+            if !quest.isClosed() {
+                cell.setDifficulty(quest.Difficulty)
+                if let duration = quest.duration as? Int {
+                    cell.setDuration("\(duration) mins")
+                }
+            }else{
+                cell.makeClosed()
             }
             
             var finalString = quest.Description
@@ -312,16 +303,12 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
             case "Things to bring":
                 if (self.selectableRows.contains(indexPath)) {
                     animated = true
-                    let alert = UIAlertController(title: "Things to bring", message: quest.Bring, preferredStyle: UIAlertControllerStyle.Alert)
-                    alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.Default, handler: nil))
-                    self.presentViewController(alert, animated: true, completion: nil)
+                    SCLAlertView().showInfo("Things to bring", subTitle: String(quest.Bring))
                 }
             break
             
             case "Corrections":
-                let alert = UIAlertController(title: "Corrections", message: quest.Correction!, preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.Default, handler: nil))
-                self.presentViewController(alert, animated: true, completion: nil)
+                SCLAlertView().showInfo("Corrections", subTitle: String(quest.Correction!))
             break
             
             case QuestDetailViewController.feedbackCellMessage:
@@ -340,8 +327,8 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     override func previewActionItems() -> [UIPreviewActionItem] {
-        let saveQuest = UIPreviewAction(title: "Save", style: UIPreviewActionStyle.Default) { (action, viewController) -> Void in
-            print("Need to save a quest!")
+        let saveQuest = UIPreviewAction(title: self.saved ? "Unsave" : "Save", style: UIPreviewActionStyle.Default) { (action, viewController) -> Void in
+            self.saveQuest()
         }
         
         let share = UIPreviewAction(title: "Share", style: UIPreviewActionStyle.Default) { (action, viewController) -> Void in
@@ -384,6 +371,7 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
         
         if let destination = segue.destinationViewController as? PDFViewController {
             destination.setObject(sender as! PFFile)
+            destination.quest = object
         }
         
         if let destination = segue.destinationViewController as? DirectionsViewController, let quest = object {
@@ -402,5 +390,9 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
     
     func setQuestObject(object: Quest) {
         self.object = object
+    }
+    
+    override func shouldAutorotate() -> Bool {
+        return false
     }
 }

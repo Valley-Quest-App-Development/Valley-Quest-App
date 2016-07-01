@@ -1,0 +1,834 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0114F8613F7A9DE9152046D8 /* Pods_Valley_Quest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FFE5D1F6CE686101582F07F /* Pods_Valley_Quest.framework */; };
+		522038EE1D23183A009D69B1 /* ValleyQuestState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522038ED1D23183A009D69B1 /* ValleyQuestState.swift */; };
+		52232E9A1D22E316001E3955 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52232E991D22E316001E3955 /* AppDelegate.swift */; };
+		52232EAF1D22E316001E3955 /* Valley_QuestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52232EAE1D22E316001E3955 /* Valley_QuestTests.swift */; };
+		52232EBA1D22E316001E3955 /* Valley_QuestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52232EB91D22E316001E3955 /* Valley_QuestUITests.swift */; };
+		52232EC81D22E454001E3955 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52232EC71D22E454001E3955 /* Main.storyboard */; };
+		52232ECA1D22E466001E3955 /* QuestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52232EC91D22E466001E3955 /* QuestController.swift */; };
+		52232ECC1D22E46F001E3955 /* FirstLoadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52232ECB1D22E46F001E3955 /* FirstLoadViewController.swift */; };
+		52232ECE1D22E47A001E3955 /* PlaceholderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52232ECD1D22E47A001E3955 /* PlaceholderViewController.swift */; };
+		52232ED11D22E48D001E3955 /* Quest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52232ECF1D22E48D001E3955 /* Quest.swift */; };
+		52232ED21D22E48D001E3955 /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52232ED01D22E48D001E3955 /* Feedback.swift */; };
+		52232ED51D22E4B8001E3955 /* QuestDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52232ED41D22E4B7001E3955 /* QuestDetailViewController.swift */; };
+		52232ED71D22E4BE001E3955 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52232ED61D22E4BE001E3955 /* LaunchScreen.storyboard */; };
+		52232EDA1D22E510001E3955 /* DirectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52232ED81D22E510001E3955 /* DirectionsViewController.swift */; };
+		52232EDD1D22E521001E3955 /* HelperMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52232EDC1D22E521001E3955 /* HelperMethods.swift */; };
+		52232EDF1D22E547001E3955 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52232EDE1D22E547001E3955 /* Assets.xcassets */; };
+		52232EE11D22E559001E3955 /* QuestDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52232EE01D22E559001E3955 /* QuestDetailCell.swift */; };
+		52232EE31D22E56C001E3955 /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52232EE21D22E56C001E3955 /* PDFViewController.swift */; };
+		52232EE71D22E5A0001E3955 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52232EE61D22E5A0001E3955 /* SWRevealViewController.m */; };
+		52232EE91D22E5DB001E3955 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52232EE81D22E5DB001E3955 /* MapKit.framework */; };
+		52232EEC1D22E609001E3955 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 52232EEB1D22E609001E3955 /* Reachability.m */; };
+		52232EEF1D22E634001E3955 /* QuestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52232EED1D22E634001E3955 /* QuestCell.swift */; };
+		52232EF01D22E634001E3955 /* QuestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52232EEE1D22E634001E3955 /* QuestCell.xib */; };
+		52232EF21D22E657001E3955 /* CluesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52232EF11D22E657001E3955 /* CluesViewController.swift */; };
+		52232EF51D22E665001E3955 /* VariableHightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52232EF31D22E665001E3955 /* VariableHightCell.swift */; };
+		52232EF61D22E665001E3955 /* VariableHeightCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52232EF41D22E665001E3955 /* VariableHeightCell.xib */; };
+		52232F021D22E689001E3955 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52232EF71D22E689001E3955 /* FeedbackViewController.swift */; };
+		52232F031D22E689001E3955 /* ImageChooserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52232EF81D22E689001E3955 /* ImageChooserViewController.swift */; };
+		52232F041D22E689001E3955 /* NamedImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52232EF91D22E689001E3955 /* NamedImageCell.swift */; };
+		52232F051D22E689001E3955 /* FeedbackTextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52232EFA1D22E689001E3955 /* FeedbackTextViewCell.swift */; };
+		52232F061D22E689001E3955 /* FeedbackTextViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52232EFB1D22E689001E3955 /* FeedbackTextViewCell.xib */; };
+		52232F071D22E689001E3955 /* PercentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52232EFC1D22E689001E3955 /* PercentCell.swift */; };
+		52232F081D22E689001E3955 /* FeedbackBoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52232EFD1D22E689001E3955 /* FeedbackBoxViewController.swift */; };
+		52232F091D22E689001E3955 /* FeedbackCluesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52232EFE1D22E689001E3955 /* FeedbackCluesViewController.swift */; };
+		52232F0A1D22E689001E3955 /* FeedbackMissingItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52232EFF1D22E689001E3955 /* FeedbackMissingItemsViewController.swift */; };
+		52232F0B1D22E689001E3955 /* SegmentedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52232F001D22E689001E3955 /* SegmentedCell.swift */; };
+		52232F0C1D22E689001E3955 /* CheckBoxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52232F011D22E689001E3955 /* CheckBoxCell.swift */; };
+		5E29530502A6350D49FC88D6 /* Pods_Valley_QuestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 380DEB1881F2958CD1B1825B /* Pods_Valley_QuestUITests.framework */; };
+		84467865D2C5CFDFBE6783DD /* Pods_Valley_QuestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EE58D8C1BE3809F7FA2EAF1 /* Pods_Valley_QuestTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		52232EAB1D22E316001E3955 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 52232E8E1D22E316001E3955 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 52232E951D22E316001E3955;
+			remoteInfo = "Valley Quest";
+		};
+		52232EB61D22E316001E3955 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 52232E8E1D22E316001E3955 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 52232E951D22E316001E3955;
+			remoteInfo = "Valley Quest";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		03745904043826AF6EED0F84 /* Pods-Valley Quest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Valley Quest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Valley Quest/Pods-Valley Quest.debug.xcconfig"; sourceTree = "<group>"; };
+		089996636FD56893FA03E9A8 /* Pods-Valley QuestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Valley QuestTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Valley QuestTests/Pods-Valley QuestTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1BC824E14DDA680ED99CDF1E /* Pods-Valley QuestUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Valley QuestUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Valley QuestUITests/Pods-Valley QuestUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		2EE58D8C1BE3809F7FA2EAF1 /* Pods_Valley_QuestTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Valley_QuestTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2FFE5D1F6CE686101582F07F /* Pods_Valley_Quest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Valley_Quest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		380DEB1881F2958CD1B1825B /* Pods_Valley_QuestUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Valley_QuestUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		522038ED1D23183A009D69B1 /* ValleyQuestState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValleyQuestState.swift; sourceTree = "<group>"; };
+		52232E961D22E316001E3955 /* Valley Quest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Valley Quest.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		52232E991D22E316001E3955 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		52232EA51D22E316001E3955 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52232EAA1D22E316001E3955 /* Valley QuestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Valley QuestTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		52232EAE1D22E316001E3955 /* Valley_QuestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Valley_QuestTests.swift; sourceTree = "<group>"; };
+		52232EB01D22E316001E3955 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52232EB51D22E316001E3955 /* Valley QuestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Valley QuestUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		52232EB91D22E316001E3955 /* Valley_QuestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Valley_QuestUITests.swift; sourceTree = "<group>"; };
+		52232EBB1D22E316001E3955 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52232EC71D22E454001E3955 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		52232EC91D22E466001E3955 /* QuestController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestController.swift; sourceTree = "<group>"; };
+		52232ECB1D22E46F001E3955 /* FirstLoadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstLoadViewController.swift; sourceTree = "<group>"; };
+		52232ECD1D22E47A001E3955 /* PlaceholderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceholderViewController.swift; sourceTree = "<group>"; };
+		52232ECF1D22E48D001E3955 /* Quest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quest.swift; sourceTree = "<group>"; };
+		52232ED01D22E48D001E3955 /* Feedback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
+		52232ED41D22E4B7001E3955 /* QuestDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestDetailViewController.swift; sourceTree = "<group>"; };
+		52232ED61D22E4BE001E3955 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		52232ED81D22E510001E3955 /* DirectionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionsViewController.swift; sourceTree = "<group>"; };
+		52232EDC1D22E521001E3955 /* HelperMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperMethods.swift; sourceTree = "<group>"; };
+		52232EDE1D22E547001E3955 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		52232EE01D22E559001E3955 /* QuestDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestDetailCell.swift; sourceTree = "<group>"; };
+		52232EE21D22E56C001E3955 /* PDFViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFViewController.swift; sourceTree = "<group>"; };
+		52232EE41D22E59F001E3955 /* Valley Quest-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Valley Quest-Bridging-Header.h"; sourceTree = "<group>"; };
+		52232EE51D22E5A0001E3955 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		52232EE61D22E5A0001E3955 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		52232EE81D22E5DB001E3955 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		52232EEA1D22E609001E3955 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		52232EEB1D22E609001E3955 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		52232EED1D22E634001E3955 /* QuestCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestCell.swift; sourceTree = "<group>"; };
+		52232EEE1D22E634001E3955 /* QuestCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestCell.xib; sourceTree = "<group>"; };
+		52232EF11D22E657001E3955 /* CluesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CluesViewController.swift; sourceTree = "<group>"; };
+		52232EF31D22E665001E3955 /* VariableHightCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VariableHightCell.swift; sourceTree = "<group>"; };
+		52232EF41D22E665001E3955 /* VariableHeightCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VariableHeightCell.xib; sourceTree = "<group>"; };
+		52232EF71D22E689001E3955 /* FeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
+		52232EF81D22E689001E3955 /* ImageChooserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageChooserViewController.swift; sourceTree = "<group>"; };
+		52232EF91D22E689001E3955 /* NamedImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NamedImageCell.swift; sourceTree = "<group>"; };
+		52232EFA1D22E689001E3955 /* FeedbackTextViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackTextViewCell.swift; sourceTree = "<group>"; };
+		52232EFB1D22E689001E3955 /* FeedbackTextViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedbackTextViewCell.xib; sourceTree = "<group>"; };
+		52232EFC1D22E689001E3955 /* PercentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PercentCell.swift; sourceTree = "<group>"; };
+		52232EFD1D22E689001E3955 /* FeedbackBoxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackBoxViewController.swift; sourceTree = "<group>"; };
+		52232EFE1D22E689001E3955 /* FeedbackCluesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackCluesViewController.swift; sourceTree = "<group>"; };
+		52232EFF1D22E689001E3955 /* FeedbackMissingItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackMissingItemsViewController.swift; sourceTree = "<group>"; };
+		52232F001D22E689001E3955 /* SegmentedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedCell.swift; sourceTree = "<group>"; };
+		52232F011D22E689001E3955 /* CheckBoxCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBoxCell.swift; sourceTree = "<group>"; };
+		C459C028F45C0879E801004E /* Pods-Valley QuestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Valley QuestTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Valley QuestTests/Pods-Valley QuestTests.release.xcconfig"; sourceTree = "<group>"; };
+		DF088C2371D0DC222DDFD514 /* Pods-Valley QuestUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Valley QuestUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Valley QuestUITests/Pods-Valley QuestUITests.release.xcconfig"; sourceTree = "<group>"; };
+		E6047380162A9C1A6470B5D1 /* Pods-Valley Quest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Valley Quest.release.xcconfig"; path = "Pods/Target Support Files/Pods-Valley Quest/Pods-Valley Quest.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		52232E931D22E316001E3955 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52232EE91D22E5DB001E3955 /* MapKit.framework in Frameworks */,
+				0114F8613F7A9DE9152046D8 /* Pods_Valley_Quest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52232EA71D22E316001E3955 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84467865D2C5CFDFBE6783DD /* Pods_Valley_QuestTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52232EB21D22E316001E3955 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E29530502A6350D49FC88D6 /* Pods_Valley_QuestUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		45D1C0FED2A68A0D5878C531 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				03745904043826AF6EED0F84 /* Pods-Valley Quest.debug.xcconfig */,
+				E6047380162A9C1A6470B5D1 /* Pods-Valley Quest.release.xcconfig */,
+				089996636FD56893FA03E9A8 /* Pods-Valley QuestTests.debug.xcconfig */,
+				C459C028F45C0879E801004E /* Pods-Valley QuestTests.release.xcconfig */,
+				1BC824E14DDA680ED99CDF1E /* Pods-Valley QuestUITests.debug.xcconfig */,
+				DF088C2371D0DC222DDFD514 /* Pods-Valley QuestUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		52232E8D1D22E316001E3955 = {
+			isa = PBXGroup;
+			children = (
+				52232E981D22E316001E3955 /* Valley Quest */,
+				52232EAD1D22E316001E3955 /* Valley QuestTests */,
+				52232EB81D22E316001E3955 /* Valley QuestUITests */,
+				52232E971D22E316001E3955 /* Products */,
+				45D1C0FED2A68A0D5878C531 /* Pods */,
+				BBA56568504820668C87A6D0 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		52232E971D22E316001E3955 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				52232E961D22E316001E3955 /* Valley Quest.app */,
+				52232EAA1D22E316001E3955 /* Valley QuestTests.xctest */,
+				52232EB51D22E316001E3955 /* Valley QuestUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		52232E981D22E316001E3955 /* Valley Quest */ = {
+			isa = PBXGroup;
+			children = (
+				52232E991D22E316001E3955 /* AppDelegate.swift */,
+				52232EC91D22E466001E3955 /* QuestController.swift */,
+				52232ED31D22E494001E3955 /* Parse Classes */,
+				52232ECB1D22E46F001E3955 /* FirstLoadViewController.swift */,
+				522038ED1D23183A009D69B1 /* ValleyQuestState.swift */,
+				52232ECD1D22E47A001E3955 /* PlaceholderViewController.swift */,
+				52232ED41D22E4B7001E3955 /* QuestDetailViewController.swift */,
+				52232EE21D22E56C001E3955 /* PDFViewController.swift */,
+				52232ED81D22E510001E3955 /* DirectionsViewController.swift */,
+				52232EF11D22E657001E3955 /* CluesViewController.swift */,
+				52232F0D1D22E68E001E3955 /* Feedback */,
+				52232EE01D22E559001E3955 /* QuestDetailCell.swift */,
+				52232EDC1D22E521001E3955 /* HelperMethods.swift */,
+				52232EC71D22E454001E3955 /* Main.storyboard */,
+				52232EDE1D22E547001E3955 /* Assets.xcassets */,
+				52232ED61D22E4BE001E3955 /* LaunchScreen.storyboard */,
+				52232EF31D22E665001E3955 /* VariableHightCell.swift */,
+				52232EF41D22E665001E3955 /* VariableHeightCell.xib */,
+				52232EED1D22E634001E3955 /* QuestCell.swift */,
+				52232EEE1D22E634001E3955 /* QuestCell.xib */,
+				52232EE51D22E5A0001E3955 /* SWRevealViewController.h */,
+				52232EE61D22E5A0001E3955 /* SWRevealViewController.m */,
+				52232EEA1D22E609001E3955 /* Reachability.h */,
+				52232EEB1D22E609001E3955 /* Reachability.m */,
+				52232EA51D22E316001E3955 /* Info.plist */,
+				52232EE41D22E59F001E3955 /* Valley Quest-Bridging-Header.h */,
+			);
+			path = "Valley Quest";
+			sourceTree = "<group>";
+		};
+		52232EAD1D22E316001E3955 /* Valley QuestTests */ = {
+			isa = PBXGroup;
+			children = (
+				52232EAE1D22E316001E3955 /* Valley_QuestTests.swift */,
+				52232EB01D22E316001E3955 /* Info.plist */,
+			);
+			path = "Valley QuestTests";
+			sourceTree = "<group>";
+		};
+		52232EB81D22E316001E3955 /* Valley QuestUITests */ = {
+			isa = PBXGroup;
+			children = (
+				52232EB91D22E316001E3955 /* Valley_QuestUITests.swift */,
+				52232EBB1D22E316001E3955 /* Info.plist */,
+			);
+			path = "Valley QuestUITests";
+			sourceTree = "<group>";
+		};
+		52232ED31D22E494001E3955 /* Parse Classes */ = {
+			isa = PBXGroup;
+			children = (
+				52232ECF1D22E48D001E3955 /* Quest.swift */,
+				52232ED01D22E48D001E3955 /* Feedback.swift */,
+			);
+			name = "Parse Classes";
+			sourceTree = "<group>";
+		};
+		52232F0D1D22E68E001E3955 /* Feedback */ = {
+			isa = PBXGroup;
+			children = (
+				52232EF71D22E689001E3955 /* FeedbackViewController.swift */,
+				52232EF81D22E689001E3955 /* ImageChooserViewController.swift */,
+				52232EF91D22E689001E3955 /* NamedImageCell.swift */,
+				52232EFA1D22E689001E3955 /* FeedbackTextViewCell.swift */,
+				52232EFB1D22E689001E3955 /* FeedbackTextViewCell.xib */,
+				52232EFC1D22E689001E3955 /* PercentCell.swift */,
+				52232EFD1D22E689001E3955 /* FeedbackBoxViewController.swift */,
+				52232EFE1D22E689001E3955 /* FeedbackCluesViewController.swift */,
+				52232EFF1D22E689001E3955 /* FeedbackMissingItemsViewController.swift */,
+				52232F001D22E689001E3955 /* SegmentedCell.swift */,
+				52232F011D22E689001E3955 /* CheckBoxCell.swift */,
+			);
+			name = Feedback;
+			sourceTree = "<group>";
+		};
+		BBA56568504820668C87A6D0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				52232EE81D22E5DB001E3955 /* MapKit.framework */,
+				2FFE5D1F6CE686101582F07F /* Pods_Valley_Quest.framework */,
+				2EE58D8C1BE3809F7FA2EAF1 /* Pods_Valley_QuestTests.framework */,
+				380DEB1881F2958CD1B1825B /* Pods_Valley_QuestUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		52232E951D22E316001E3955 /* Valley Quest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52232EBE1D22E316001E3955 /* Build configuration list for PBXNativeTarget "Valley Quest" */;
+			buildPhases = (
+				1D16DF84AFDBBDD6A1E1F25D /* [CP] Check Pods Manifest.lock */,
+				52232E921D22E316001E3955 /* Sources */,
+				52232E931D22E316001E3955 /* Frameworks */,
+				52232E941D22E316001E3955 /* Resources */,
+				47E85D4679FE7079C54516DA /* [CP] Embed Pods Frameworks */,
+				BBA2EF850E355D97E15F96C3 /* [CP] Copy Pods Resources */,
+				52D2639F1D25D9DD00689679 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Valley Quest";
+			productName = "Valley Quest";
+			productReference = 52232E961D22E316001E3955 /* Valley Quest.app */;
+			productType = "com.apple.product-type.application";
+		};
+		52232EA91D22E316001E3955 /* Valley QuestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52232EC11D22E316001E3955 /* Build configuration list for PBXNativeTarget "Valley QuestTests" */;
+			buildPhases = (
+				0C5CD45B738B45545CE3CDC4 /* [CP] Check Pods Manifest.lock */,
+				52232EA61D22E316001E3955 /* Sources */,
+				52232EA71D22E316001E3955 /* Frameworks */,
+				52232EA81D22E316001E3955 /* Resources */,
+				D178BDF5FB4E2894A608D377 /* [CP] Embed Pods Frameworks */,
+				A49A1A9E279D16465D4DC23D /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				52232EAC1D22E316001E3955 /* PBXTargetDependency */,
+			);
+			name = "Valley QuestTests";
+			productName = "Valley QuestTests";
+			productReference = 52232EAA1D22E316001E3955 /* Valley QuestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		52232EB41D22E316001E3955 /* Valley QuestUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52232EC41D22E316001E3955 /* Build configuration list for PBXNativeTarget "Valley QuestUITests" */;
+			buildPhases = (
+				5EEC8D03D19ACC2731E6B5D8 /* [CP] Check Pods Manifest.lock */,
+				52232EB11D22E316001E3955 /* Sources */,
+				52232EB21D22E316001E3955 /* Frameworks */,
+				52232EB31D22E316001E3955 /* Resources */,
+				12D50D18791F933B95A73C1C /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				52232EB71D22E316001E3955 /* PBXTargetDependency */,
+			);
+			name = "Valley QuestUITests";
+			productName = "Valley QuestUITests";
+			productReference = 52232EB51D22E316001E3955 /* Valley QuestUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		52232E8E1D22E316001E3955 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Valley Quest";
+				TargetAttributes = {
+					52232E951D22E316001E3955 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = ZENTEP64J9;
+					};
+					52232EA91D22E316001E3955 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 52232E951D22E316001E3955;
+					};
+					52232EB41D22E316001E3955 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 52232E951D22E316001E3955;
+					};
+				};
+			};
+			buildConfigurationList = 52232E911D22E316001E3955 /* Build configuration list for PBXProject "Valley Quest" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 52232E8D1D22E316001E3955;
+			productRefGroup = 52232E971D22E316001E3955 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				52232E951D22E316001E3955 /* Valley Quest */,
+				52232EA91D22E316001E3955 /* Valley QuestTests */,
+				52232EB41D22E316001E3955 /* Valley QuestUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		52232E941D22E316001E3955 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52232F061D22E689001E3955 /* FeedbackTextViewCell.xib in Resources */,
+				52232EF01D22E634001E3955 /* QuestCell.xib in Resources */,
+				52232ED71D22E4BE001E3955 /* LaunchScreen.storyboard in Resources */,
+				52232EDF1D22E547001E3955 /* Assets.xcassets in Resources */,
+				52232EC81D22E454001E3955 /* Main.storyboard in Resources */,
+				52232EF61D22E665001E3955 /* VariableHeightCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52232EA81D22E316001E3955 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52232EB31D22E316001E3955 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0C5CD45B738B45545CE3CDC4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		12D50D18791F933B95A73C1C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Valley QuestUITests/Pods-Valley QuestUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1D16DF84AFDBBDD6A1E1F25D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		47E85D4679FE7079C54516DA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Valley Quest/Pods-Valley Quest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		52D2639F1D25D9DD00689679 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 46ee2b2494200fc37080231a2cfd401866e5ae25 22bf5c454bec8c3bf4d7dcb6ce678e6bddc19983aa1c043f920da08ef84e068c";
+		};
+		5EEC8D03D19ACC2731E6B5D8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A49A1A9E279D16465D4DC23D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Valley QuestTests/Pods-Valley QuestTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BBA2EF850E355D97E15F96C3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Valley Quest/Pods-Valley Quest-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D178BDF5FB4E2894A608D377 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Valley QuestTests/Pods-Valley QuestTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		52232E921D22E316001E3955 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52232EEC1D22E609001E3955 /* Reachability.m in Sources */,
+				52232ED11D22E48D001E3955 /* Quest.swift in Sources */,
+				52232F021D22E689001E3955 /* FeedbackViewController.swift in Sources */,
+				52232F091D22E689001E3955 /* FeedbackCluesViewController.swift in Sources */,
+				52232EE31D22E56C001E3955 /* PDFViewController.swift in Sources */,
+				52232ECE1D22E47A001E3955 /* PlaceholderViewController.swift in Sources */,
+				52232EEF1D22E634001E3955 /* QuestCell.swift in Sources */,
+				52232ED51D22E4B8001E3955 /* QuestDetailViewController.swift in Sources */,
+				522038EE1D23183A009D69B1 /* ValleyQuestState.swift in Sources */,
+				52232EE11D22E559001E3955 /* QuestDetailCell.swift in Sources */,
+				52232ED21D22E48D001E3955 /* Feedback.swift in Sources */,
+				52232EDA1D22E510001E3955 /* DirectionsViewController.swift in Sources */,
+				52232EF21D22E657001E3955 /* CluesViewController.swift in Sources */,
+				52232EDD1D22E521001E3955 /* HelperMethods.swift in Sources */,
+				52232ECA1D22E466001E3955 /* QuestController.swift in Sources */,
+				52232F0C1D22E689001E3955 /* CheckBoxCell.swift in Sources */,
+				52232F041D22E689001E3955 /* NamedImageCell.swift in Sources */,
+				52232F051D22E689001E3955 /* FeedbackTextViewCell.swift in Sources */,
+				52232EF51D22E665001E3955 /* VariableHightCell.swift in Sources */,
+				52232E9A1D22E316001E3955 /* AppDelegate.swift in Sources */,
+				52232F081D22E689001E3955 /* FeedbackBoxViewController.swift in Sources */,
+				52232F0B1D22E689001E3955 /* SegmentedCell.swift in Sources */,
+				52232F0A1D22E689001E3955 /* FeedbackMissingItemsViewController.swift in Sources */,
+				52232ECC1D22E46F001E3955 /* FirstLoadViewController.swift in Sources */,
+				52232F031D22E689001E3955 /* ImageChooserViewController.swift in Sources */,
+				52232F071D22E689001E3955 /* PercentCell.swift in Sources */,
+				52232EE71D22E5A0001E3955 /* SWRevealViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52232EA61D22E316001E3955 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52232EAF1D22E316001E3955 /* Valley_QuestTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52232EB11D22E316001E3955 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52232EBA1D22E316001E3955 /* Valley_QuestUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		52232EAC1D22E316001E3955 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 52232E951D22E316001E3955 /* Valley Quest */;
+			targetProxy = 52232EAB1D22E316001E3955 /* PBXContainerItemProxy */;
+		};
+		52232EB71D22E316001E3955 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 52232E951D22E316001E3955 /* Valley Quest */;
+			targetProxy = 52232EB61D22E316001E3955 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		52232EBC1D22E316001E3955 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		52232EBD1D22E316001E3955 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		52232EBF1D22E316001E3955 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 03745904043826AF6EED0F84 /* Pods-Valley Quest.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "Valley Quest/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vitalcommunities.ValleyQuest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Valley Quest/Valley Quest-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		52232EC01D22E316001E3955 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E6047380162A9C1A6470B5D1 /* Pods-Valley Quest.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "Valley Quest/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vitalcommunities.ValleyQuest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Valley Quest/Valley Quest-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		52232EC21D22E316001E3955 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 089996636FD56893FA03E9A8 /* Pods-Valley QuestTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Valley QuestTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "VitalCommunities.Valley-QuestTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Valley Quest.app/Valley Quest";
+			};
+			name = Debug;
+		};
+		52232EC31D22E316001E3955 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C459C028F45C0879E801004E /* Pods-Valley QuestTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Valley QuestTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "VitalCommunities.Valley-QuestTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Valley Quest.app/Valley Quest";
+			};
+			name = Release;
+		};
+		52232EC51D22E316001E3955 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1BC824E14DDA680ED99CDF1E /* Pods-Valley QuestUITests.debug.xcconfig */;
+			buildSettings = {
+				INFOPLIST_FILE = "Valley QuestUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "VitalCommunities.Valley-QuestUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Valley Quest";
+			};
+			name = Debug;
+		};
+		52232EC61D22E316001E3955 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF088C2371D0DC222DDFD514 /* Pods-Valley QuestUITests.release.xcconfig */;
+			buildSettings = {
+				INFOPLIST_FILE = "Valley QuestUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "VitalCommunities.Valley-QuestUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Valley Quest";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		52232E911D22E316001E3955 /* Build configuration list for PBXProject "Valley Quest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52232EBC1D22E316001E3955 /* Debug */,
+				52232EBD1D22E316001E3955 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		52232EBE1D22E316001E3955 /* Build configuration list for PBXNativeTarget "Valley Quest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52232EBF1D22E316001E3955 /* Debug */,
+				52232EC01D22E316001E3955 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		52232EC11D22E316001E3955 /* Build configuration list for PBXNativeTarget "Valley QuestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52232EC21D22E316001E3955 /* Debug */,
+				52232EC31D22E316001E3955 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		52232EC41D22E316001E3955 /* Build configuration list for PBXNativeTarget "Valley QuestUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52232EC51D22E316001E3955 /* Debug */,
+				52232EC61D22E316001E3955 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 52232E8E1D22E316001E3955 /* Project object */;
+}
