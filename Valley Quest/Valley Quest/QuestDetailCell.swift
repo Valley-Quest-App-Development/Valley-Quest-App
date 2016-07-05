@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SCLAlertView
 
 class QuestDetailCell: UITableViewCell {
     @IBOutlet weak var nameOfQuestLabel: UILabel!
@@ -53,7 +54,18 @@ class QuestDetailCell: UITableViewCell {
     
     @IBAction func save(sender: UIButton) {
         if let delegate = delegate {
-            delegate.saveQuest()
+            if NSUserDefaults.standardUserDefaults().objectForKey("saveDone") == nil || !NSUserDefaults.standardUserDefaults().boolForKey("saveDone") && !delegate.saved {
+                let alert = SCLAlertView(appearance: noCloseButton)
+                
+                alert.addButton("Continue", action: { 
+                    delegate.saveQuest()
+                })
+                alert.addButton("Nevermind", action: {})
+                
+                alert.showInfo("Saving a Quest", subTitle: "By saving this quest, your phone will store everything about it so you can access it offline")
+            }else{
+                delegate.saveQuest()
+            }
         }
     }
     

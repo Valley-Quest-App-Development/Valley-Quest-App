@@ -170,6 +170,12 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
                             }
                             delegate.tableView.reloadData()
                         }
+                        
+                        if NSUserDefaults.standardUserDefaults().objectForKey("saveDone") == nil || !NSUserDefaults.standardUserDefaults().boolForKey("saveDone") {
+                            SCLAlertView().showSuccess("Saved!", subTitle: "Your saved quests will be shown at the top of the quest list")
+                        }
+                        
+                        NSUserDefaults.standardUserDefaults().setBool(true, forKey: "saveDone")
                     }else{
                         print(error?.description)
                         self.titleCell.endLoadingSave(true)

@@ -1,0 +1,6 @@
+framework module Pods_Valley_Quest {
+  umbrella header "Pods-Valley Quest-umbrella.h"
+
+  export *
+  module * { export * }
+}
