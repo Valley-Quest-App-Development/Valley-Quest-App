@@ -20,6 +20,7 @@ class PDFViewController: UIViewController, UIWebViewDelegate {
     
     var file: PFFile?
     var quest: Quest!
+    var delegate: QuestDetailViewController?
     
     override func viewDidLoad() {
         if file != nil {
@@ -87,7 +88,7 @@ class PDFViewController: UIViewController, UIWebViewDelegate {
                 })
                 alert.addButton("Dismiss", action: {})
                 
-                alert.showWarning("Already questing", subTitle: "You already have another quest active. Do you want to end that one?")
+                alert.showWarning("Already questing", subTitle: "You already have another quest active (\(prevQuest.Name)). Do you want to end that one?")
             }else{
                 State.questInProgress = quest
                 self.makeQuestInProgress()
@@ -98,8 +99,13 @@ class PDFViewController: UIViewController, UIWebViewDelegate {
             
             if let numComplete = NSUserDefaults.standardUserDefaults().objectForKey("questsCompleted") as? Int {
                 let alert = SCLAlertView()
-                alert.addButton("Send feedback", action: { 
-                    self.performSegueWithIdentifier("pdfToFeedback", sender: nil)
+                alert.addButton("Send feedback", action: {
+                    if let delegate = self.delegate {
+                        delegate.showFeedback = true
+                        self.navigationController?.popViewControllerAnimated(true)
+                    }else{
+                        self.performSegueWithIdentifier("pdfToFeedback", sender: nil)
+                    }
                 })
                 alert.showSuccess("Complete", subTitle: "You have now completed \(numComplete + 1) quests! Nice work!")
                 NSUserDefaults.standardUserDefaults().setInteger(numComplete + 1, forKey: "questsCompleted")

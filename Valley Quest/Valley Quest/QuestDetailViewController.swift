@@ -29,12 +29,18 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
     var rows : [[[String]]] = []
     
     var saved = false;
+    var showFeedback = false
     
     var selectableRows: [NSIndexPath] = []
     
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewDidAppear(animated: Bool) {
 //        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        
+        if showFeedback {
+            self.performSegueWithIdentifier("showFeedbackView", sender: nil)
+            showFeedback = false
+        }
     }
     
     override func viewWillDisappear(animated: Bool) {
