@@ -60,7 +60,11 @@ class State {
             if let objID = defaults.objectForKey("questInProgress") as? String {
                 let object = PFObject(withoutDataWithClassName: Quest.parseClassName(), objectId: objID)
                 
-                object.fetchInBackground()
+                object.fetchInBackgroundWithBlock({ (object, error) in
+                    if let object = object as? Quest where error == nil {
+                        questInProgressStored = object
+                    }
+                })
                 return object as? Quest
             }
             return nil
@@ -104,12 +108,20 @@ class State {
         }
     }
     
+    static func hasQuestLoaded() -> Bool {
+        return questInProgressStored != nil
+    }
+    
     static func loadQuestInProgress(callback: ((Quest?, NSError?)->Void)?) {
         if let objID = defaults.objectForKey("questInProgress") as? String {
             let object = PFObject(withoutDataWithClassName: Quest.parseClassName(), objectId: objID)
             object.fetchInBackgroundWithBlock({ (object, error) in
                 if let callback = callback {
                     callback(object as? Quest, error)
+                }
+                
+                if let object = object as? Quest where error == nil {
+                    questInProgressStored = object
                 }
             })
         }else{
