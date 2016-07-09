@@ -66,7 +66,11 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
         NSUserDefaults.standardUserDefaults().setBool(true, forKey: "hasLaunched")
         NSUserDefaults.standardUserDefaults().synchronize()
         
-        
+        State.loadQuestInProgress { (quest, error) in
+            if let quest = quest where error == nil {
+                self.tableView.reloadData()
+            }
+        }
     }
     
     func showInfo() {
@@ -114,18 +118,31 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
     }
     
     func getQuestAt(indexPath: NSIndexPath) -> Quest {
-        if self.isSearching() || self.savedQuests.count == 0 {
-            if self.isSearching() {
-                return filteredQuests[indexPath.row]
+        return getQuestListAt(indexPath.section)[indexPath.row]
+    }
+    
+    func getQuestListAt(section: Int) -> [Quest] {
+        if self.isSearching() {
+            return filteredQuests
+        }
+        
+        switch section {
+        case 0:
+            if let questInProgress = State.questInProgress where State.hasQuestLoaded() {
+                return [questInProgress]
+            }else if savedQuests.count > 0 {
+                return savedQuests
             }else{
-                return quests[indexPath.row]
+                return quests
             }
-        }else{
-            if indexPath.section == 0 {
-                return savedQuests[indexPath.row]
+        case 1:
+            if savedQuests.count > 0 && State.hasQuestLoaded() {
+                return savedQuests
             }else{
-                return quests[indexPath.row]
+                return quests
             }
+        default:
+            return quests
         }
     }
     
@@ -231,20 +248,35 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // This is the number of cells to show
-        if section == 1 || self.savedQuests.count == 0 || self.isSearching() {
-            if self.searchController.active && self.searchController.searchBar.text != "" {
-                return filteredQuests.count
-            }
-            return quests.count
-        }else{
-            return self.savedQuests.count
-        }
+        return getQuestListAt(section).count
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if self.isSearching() {
+            return nil
+        }
+        
         if self.savedQuests.count > 0 && !self.isSearching() {
+            if State.hasQuestLoaded() {
+                if section == 0 {
+                    return "Active Quest"
+                }else if section == 1 {
+                    return "Saved Quests"
+                }else{
+                    return "All Quests"
+                }
+            }else{
+                if section == 0 {
+                    return "Saved Quests"
+                }else{
+                    return "All Quests"
+                }
+            }
+        }
+        
+        if State.hasQuestLoaded() {
             if section == 0 {
-                return "Saved Quests"
+                return "Active Quest"
             }else{
                 return "All Quests"
             }
@@ -255,7 +287,11 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // We have no need for sections, but we have to have one
-        return self.savedQuests.count > 0 && !self.isSearching() ? 2 : 1
+        if isSearching() {
+            return 1
+        }
+        
+        return 1 + (self.savedQuests.count > 0 ? 1 : 0) + (State.hasQuestLoaded() ? 1 : 0)
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -268,7 +304,7 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
             cell = nib.objectAtIndex(0) as? UITableViewCell
         }
         
-        let quest = isSearching() ? filteredQuests[indexPath.row] : (self.savedQuests.count > 0 && indexPath.section == 0 ? savedQuests[indexPath.row] : quests[indexPath.row])
+        let quest = getQuestAt(indexPath)
         
         // We need to prove that it is a Quest cell if we want to do all this
         if let checkedCell = cell as? QuestCell {
