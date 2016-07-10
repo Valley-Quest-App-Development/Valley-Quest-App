@@ -67,7 +67,7 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
         NSUserDefaults.standardUserDefaults().synchronize()
         
         State.loadQuestInProgress { (quest, error) in
-            if let quest = quest where error == nil {
+            if let _ = quest where error == nil {
                 self.tableView.reloadData()
             }
         }
