@@ -141,6 +141,20 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
         }
     }
     
+    func saveQuestCheck() {
+        if let inProgress = State.questInProgress where object!.objectId == inProgress.objectId && saved {
+            let alert = SCLAlertView(appearance: noCloseButton)
+            alert.addButton("Unsave", action: { 
+                self.saveQuest()
+            })
+            alert.addButton("Nevermind", action: {})
+            
+            alert.showInfo("Unsave?", subTitle: "This quest was auto-saved because it is your active quest. Are you sure you want to unsave it?")
+        }else{
+            self.saveQuest()
+        }
+    }
+    
     func saveQuest() {
         if let quest = object {
             if saved {

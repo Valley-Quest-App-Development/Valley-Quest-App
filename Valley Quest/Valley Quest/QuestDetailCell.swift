@@ -58,13 +58,13 @@ class QuestDetailCell: UITableViewCell {
                 let alert = SCLAlertView(appearance: noCloseButton)
                 
                 alert.addButton("Continue", action: { 
-                    delegate.saveQuest()
+                    delegate.saveQuestCheck()
                 })
                 alert.addButton("Nevermind", action: {})
                 
                 alert.showInfo("Saving a Quest", subTitle: "By saving this quest, your phone will store everything about it so you can access it offline")
             }else{
-                delegate.saveQuest()
+                delegate.saveQuestCheck()
             }
         }
     }

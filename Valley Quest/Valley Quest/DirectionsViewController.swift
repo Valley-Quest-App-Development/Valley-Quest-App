@@ -38,9 +38,10 @@ class DirectionsViewController: UIViewController {
                 let paragraphStyle = NSMutableParagraphStyle()
                 
                 if (UIDevice.currentDevice().userInterfaceIdiom == .Pad) {
-                    paragraphStyle.lineSpacing = 40
+                    paragraphStyle.lineSpacing = 30
                 }else{
-                    paragraphStyle.lineSpacing = 20
+                    paragraphStyle.maximumLineHeight = 20
+                    paragraphStyle.minimumLineHeight = 5
                 }
                 
                 paragraphStyle.alignment = NSTextAlignment.Center

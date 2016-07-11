@@ -25,6 +25,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "QuestController.getQuestAt(NSIndexPath) -&gt; Quest:QuestController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "getQuestListAt(indexPath.section)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "AppDelegate.application(UIApplication, supportedInterfaceOrientationsForWindow : UIWindow?) -&gt; UIInterfaceOrientationMask:AppDelegate.swift">
          <PersistentStrings>
             <PersistentString

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -29,19 +28,19 @@
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ValleyQuest_Logo" translatesAutoresizingMaskIntoConstraints="NO" id="wpe-VL-OOa">
                                 <rect key="frame" x="65" y="262" width="470" height="76"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="wpe-VL-OOa" secondAttribute="height" multiplier="235:38" id="IvZ-8i-f5u"/>
-                                    <constraint firstAttribute="width" priority="750" constant="470" id="Ivr-EG-faI"/>
+                                    <constraint firstAttribute="width" secondItem="wpe-VL-OOa" secondAttribute="height" multiplier="235:38" id="Wa9-cc-44w"/>
+                                    <constraint firstAttribute="width" priority="750" constant="470" id="o1n-N5-V3w"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Myz-IR-hdu" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="6GD-mt-xuy"/>
-                            <constraint firstItem="wpe-VL-OOa" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Jt5-Vg-3DF"/>
-                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="wpe-VL-OOa" secondAttribute="trailing" constant="20" id="d3J-fi-WPn"/>
+                            <constraint firstItem="wpe-VL-OOa" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Aa1-1k-kqJ"/>
+                            <constraint firstItem="wpe-VL-OOa" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="ZjE-Ni-61Q"/>
+                            <constraint firstItem="wpe-VL-OOa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="45" id="gIS-nW-ZfN"/>
                             <constraint firstAttribute="bottom" secondItem="Myz-IR-hdu" secondAttribute="bottom" constant="20" symbolic="YES" id="j9m-pf-H6f"/>
-                            <constraint firstItem="wpe-VL-OOa" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="kpg-gc-mES"/>
-                            <constraint firstItem="wpe-VL-OOa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="20" id="pmf-RO-S63"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="wpe-VL-OOa" secondAttribute="trailing" constant="45" id="kf6-BO-VC0"/>
                         </constraints>
                     </view>
                 </viewController>

@@ -97,6 +97,9 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
             self.tableView.setContentOffset(CGPointMake(0, -self.refreshControl!.frame.size.height), animated: true)
             self.refreshControl?.beginRefreshing()
         }
+        
+        self.tableView.reloadData()
+        refreshData()
 //        self.navigationController?.navigationBar.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
 //        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
     }
@@ -174,7 +177,14 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
             firstQuery.fromLocalDatastore()
             firstQuery.findObjectsInBackgroundWithBlock({ (objects, error) in
                 if let objects = objects as? [Quest] {
-                    self.savedQuests = objects
+                    self.savedQuests.removeAll()
+                    for object in objects {
+                        if State.questInProgress != nil && object.objectId != State.questInProgress?.objectId {
+                            self.savedQuests.append(object)
+                        }else if State.questInProgress == nil {
+                            self.savedQuests.append(object)
+                        }
+                    }
                     Quest.sortQuests(&self.savedQuests)
                     self.tableView.reloadData()
                 }
