@@ -21,6 +21,8 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
     var filteredQuests = [Quest]()
     var savedQuests = [Quest]()
     var loading = false
+    
+    var topGestureRecognizer = UIGestureRecognizer()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,6 +75,10 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
         }
     }
     
+    func tappedTopNavBar() {
+        self.tableView.setContentOffset(CGPointMake(0, -self.searchController.searchBar.frame.height * 1.4), animated: true)
+    }
+    
     func showInfo() {
         self.performSegueWithIdentifier("firstOpen", sender: nil)
     }
@@ -100,12 +106,17 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
         
         self.tableView.reloadData()
         refreshData()
+        
+        topGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(QuestController.tappedTopNavBar))
+        self.navigationController?.navigationBar.addGestureRecognizer(topGestureRecognizer)
+        
 //        self.navigationController?.navigationBar.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
 //        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
     }
     
     override func viewWillDisappear(animated: Bool) {
 //        self.view.removeGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        self.navigationController?.navigationBar.removeGestureRecognizer(topGestureRecognizer)
     }
     
     func toggleSide() {

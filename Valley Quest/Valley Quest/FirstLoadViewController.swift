@@ -54,6 +54,12 @@ class FirstLoadViewController: UIViewController, MFMailComposeViewControllerDele
         }
     }
     
+    @IBAction func donate(sender: AnyObject) {
+        if let url = NSURL(string: "https://www.networkforgood.org/donation/ExpressDonation.aspx?ORGID2=030355283&vlrStratCode=sZOvB%2f0cd%2fdoiEayuvrC00Wpqg5KQXiMKCNvYiEF8abJeD1aG8utwd4qpQEAinGo") {
+            UIApplication.sharedApplication().openURL(url)
+        }
+    }
+    
     func configuredMailComposeViewController() -> MFMailComposeViewController {
         let mailComposerVC = MFMailComposeViewController()
         mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
