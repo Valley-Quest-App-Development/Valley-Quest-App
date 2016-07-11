@@ -12,6 +12,20 @@ import CoreSpotlight
 import SCLAlertView
 import Crashlytics
 
+extension UIColor {
+    convenience init(red: Int, green: Int, blue: Int) {
+        assert(red >= 0 && red <= 255, "Invalid red component")
+        assert(green >= 0 && green <= 255, "Invalid green component")
+        assert(blue >= 0 && blue <= 255, "Invalid blue component")
+        
+        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
+    }
+    
+    convenience init(netHex:Int) {
+        self.init(red:(netHex >> 16) & 0xff, green:(netHex >> 8) & 0xff, blue:netHex & 0xff)
+    }
+}
+
 class QuestController: UITableViewController, UIViewControllerPreviewingDelegate, UISearchResultsUpdating, UISearchBarDelegate {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var revealButton: UIBarButtonItem!
@@ -43,7 +57,9 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.scopeButtonTitles = ["Name", "Location"]
-        searchController.searchBar.tintColor = UIColor(red: 84 / 255.0, green: 197 / 255.0, blue: 111 / 255.0, alpha: 1.0)
+        searchController.searchBar.tintColor = UIColor.whiteColor()
+        searchController.searchBar.backgroundColor = UIColor(netHex: 0x4DC45F)
+        searchController.searchBar.barTintColor = UIColor(netHex: 0x4DC45F)
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
         
