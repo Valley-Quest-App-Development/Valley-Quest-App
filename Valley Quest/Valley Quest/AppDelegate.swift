@@ -44,6 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var id: String?
     var mainViewController: QuestController?
+    var locationController: LocationController?
     
     func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
         print("url: \(url.absoluteString) options: \(options)")
@@ -62,6 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         Quest.registerSubclass()
         Feedback.registerSubclass()
+        QuestGPSSet.registerSubclass()
         UIApplication.sharedApplication().shortcutItems = shortcuts
         
         Parse.enableLocalDatastore()

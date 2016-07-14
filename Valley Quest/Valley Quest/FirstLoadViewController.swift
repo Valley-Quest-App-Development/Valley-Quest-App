@@ -43,6 +43,9 @@ class FirstLoadViewController: UIViewController, MFMailComposeViewControllerDele
     
     @IBAction func dismiss(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
+        
+        NSUserDefaults.standardUserDefaults().setBool(true, forKey: "hasLaunched")
+        NSUserDefaults.standardUserDefaults().synchronize()
     }
     
     @IBAction func contact(sender: AnyObject) {

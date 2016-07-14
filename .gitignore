@@ -6,3 +6,5 @@ ValleyQuestApp/Pods
 
 ValleyQuestApp/ValleyQuestApp.xcworkspace/xcuserdata/ezekielelin.xcuserdatad
 ValleyQuestApp/ValleyQuestApp.xcodeproj/xcuserdata/ezekielelin.xcuserdatad
+server/logs
+server/node_modules

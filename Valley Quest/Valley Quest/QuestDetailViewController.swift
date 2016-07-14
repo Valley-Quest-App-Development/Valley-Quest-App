@@ -60,8 +60,10 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
             rows.append([])
             
             rows[index].append([quest.Location, quest.Directions])
-            selectableRows.append(NSIndexPath(forItem: rows[index].count - 1, inSection: index))
-//            
+            if quest.Directions != "" {
+                selectableRows.append(NSIndexPath(forItem: rows[index].count - 1, inSection: index))
+            }
+//
 //            
 //            index = sections.count
 //            sections.append("Overview")

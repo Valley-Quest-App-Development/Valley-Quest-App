@@ -17,10 +17,14 @@ class PDFViewController: UIViewController, UIWebViewDelegate {
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var hintButton: UIBarButtonItem!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var file: PFFile?
     var quest: Quest!
     var delegate: QuestDetailViewController?
+    var startGPSSet = QuestGPSSet()
+    var endGPSSet = QuestGPSSet()
+    var boxGPSSet = QuestGPSSet()
     
     override func viewDidLoad() {
         if file != nil {
@@ -37,14 +41,25 @@ class PDFViewController: UIViewController, UIWebViewDelegate {
             }
             self.startButton.enabled = true
         }
+        
+        activityIndicator.startAnimating()
+        
+        if QuestGPSSet.GPSIsEnabled() {
+            hintButton.title = "Mark box"
+            hintButton.enabled = true
+        }
     }
     
     func updateView() {
+        if let activityIndicator = activityIndicator {
+            activityIndicator.startAnimating()
+        }
         file?.getFilePathInBackgroundWithBlock({ (path, error) -> Void in
             if let checkedPath = path {
                 if self.pdfView != nil {
                     self.pdfView.loadRequest(NSURLRequest(URL: NSURL.fileURLWithPath(checkedPath)))
                     self.pdfView.delegate = self
+                    self.pdfView.hidden = false
                 }
             }else{
                 print("Error!! \(error)")
@@ -58,11 +73,30 @@ class PDFViewController: UIViewController, UIWebViewDelegate {
         self.makeFinished()
     }
     
+    @IBAction func hintButtonPressed(sender: AnyObject) {
+        if QuestGPSSet.GPSIsEnabled() {
+            if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+                delegate.locationController?.getOneLocation({ (loc) in
+                    self.boxGPSSet.quest = self.quest
+                    self.boxGPSSet.addBox(loc)
+                })
+            }
+        }
+    }
+    
     func makeQuestInProgress() {
         self.startButton.enabled = true
         self.cancelButton.enabled = true
         self.startButton.setTitle("Finish", forState: .Normal)
         self.startButton.setBackgroundImage(UIImage(named: "BubbleSecond"), forState: .Normal)
+        if QuestGPSSet.GPSIsEnabled() {
+            if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+                delegate.locationController?.getOneLocation({ (loc) in
+                    self.startGPSSet.quest = self.quest
+                    self.startGPSSet.addStart(loc)
+                })
+            }
+        }
     }
     
     func makeFinished() {
@@ -70,11 +104,29 @@ class PDFViewController: UIViewController, UIWebViewDelegate {
         self.cancelButton.enabled = false
         self.startButton.setTitle("Start", forState: .Normal)
         self.startButton.setBackgroundImage(UIImage(named: "Bubble"), forState: .Normal)
+        if QuestGPSSet.GPSIsEnabled() {
+            if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+                delegate.locationController?.getOneLocation({ (loc) in
+                    self.endGPSSet.quest = self.quest
+                    self.endGPSSet.addEnd(loc)
+                })
+            }
+        }
     }
     
     @IBAction func startQuest(sender: UIButton) {
+        if (self.pdfView.hidden) {
+            SCLAlertView().showNotice("Still loading", subTitle: "You can't start the quest until you have the clues")
+            return
+        }
+        
+        
         if (State.questInProgress == nil || State.questInProgress?.objectId != quest.objectId) {
+            // Starting a quest
+            
             if let prevQuest = State.questInProgress {
+                // Show alert for a previous quest
+                
                 let alert = SCLAlertView(appearance: noCloseButton)
                 alert.addButton("Finish it", action: {
                     State.finishQuest()
@@ -89,14 +141,22 @@ class PDFViewController: UIViewController, UIWebViewDelegate {
                 alert.addButton("Dismiss", action: {})
                 
                 alert.showWarning("Already questing", subTitle: "You already have another quest active (\(prevQuest.Name)). Do you want to end that one?")
+            
+            
             }else{
+                // Start new quest
+                
                 State.questInProgress = quest
                 self.makeQuestInProgress()
             }
         }else{
+            // Moving to finish quest!
+            
+            
             State.finishQuest()
             self.makeFinished()
             
+            // Show a message
             if let numComplete = NSUserDefaults.standardUserDefaults().objectForKey("questsCompleted") as? Int {
                 let alert = SCLAlertView()
                 alert.addButton("Send feedback", action: {
@@ -106,6 +166,9 @@ class PDFViewController: UIViewController, UIWebViewDelegate {
                     }else{
                         self.performSegueWithIdentifier("pdfToFeedback", sender: nil)
                     }
+                })
+                alert.addButton("Rate the app", action: {
+                    UIApplication.sharedApplication().openURL(NSURL(string : "itms-apps://itunes.apple.com/app/id1083576851")!)
                 })
                 alert.showSuccess("Complete", subTitle: "You have now completed \(numComplete + 1) quests! Nice work!")
                 NSUserDefaults.standardUserDefaults().setInteger(numComplete + 1, forKey: "questsCompleted")
@@ -119,6 +182,7 @@ class PDFViewController: UIViewController, UIWebViewDelegate {
     func webViewDidFinishLoad(webView: UIWebView) {
         if (UIDevice.currentDevice().userInterfaceIdiom == .Phone) {
             webView.scrollView.setContentOffset(CGPointMake(0, -self.navigationController!.navigationBar.frame.height - 15), animated: false)
+            activityIndicator.stopAnimating()
         }
     }
     

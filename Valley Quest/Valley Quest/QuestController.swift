@@ -11,6 +11,7 @@ import Parse
 import CoreSpotlight
 import SCLAlertView
 import Crashlytics
+import MessageUI
 
 extension UIColor {
     convenience init(red: Int, green: Int, blue: Int) {
@@ -26,7 +27,7 @@ extension UIColor {
     }
 }
 
-class QuestController: UITableViewController, UIViewControllerPreviewingDelegate, UISearchResultsUpdating, UISearchBarDelegate {
+class QuestController: UITableViewController, UIViewControllerPreviewingDelegate, UISearchResultsUpdating, UISearchBarDelegate, MFMailComposeViewControllerDelegate {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var revealButton: UIBarButtonItem!
     
@@ -78,16 +79,63 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
         infoButton.addTarget(self, action: #selector(QuestController.showInfo), forControlEvents: .TouchUpInside)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: infoButton)
         
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Send feedback", style: .Plain, target: self, action: #selector(QuestController.sendFeedback))
+        
         if NSUserDefaults.standardUserDefaults().objectForKey("hasLaunched") == nil || !NSUserDefaults.standardUserDefaults().boolForKey("hasLaunched") {
             showInfo()
         }
-        NSUserDefaults.standardUserDefaults().setBool(true, forKey: "hasLaunched")
-        NSUserDefaults.standardUserDefaults().synchronize()
         
         State.loadQuestInProgress { (quest, error) in
             if let _ = quest where error == nil {
                 self.tableView.reloadData()
             }
+        }
+        
+        if QuestGPSSet.GPSIsEnabled() {
+            if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+                delegate.locationController = LocationController()
+                delegate.locationController?.getOneLocation(nil)
+            }
+        }
+    }
+    
+    func configuredMailComposeViewController() -> MFMailComposeViewController {
+        let mailComposerVC = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
+        
+        mailComposerVC.setToRecipients(["valleyquest@vitalcommunities.org", "John.P.Kotz.19@Dartmouth.edu"])
+        mailComposerVC.setSubject("Valley Quest App feedback")
+        
+        return mailComposerVC
+    }
+    
+    func showSendMailErrorAlert() {
+        SCLAlertView().showError("Could not send email!", subTitle: "Your device could not send email.  Please check email configuration and try again")
+    }
+    
+    // MARK: MFMailComposeViewControllerDelegate
+    
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+        controller.dismissViewControllerAnimated(true, completion: nil)
+        if result == MFMailComposeResultSent {
+            let alert = SCLAlertView()
+            
+            alert.addButton("Rate the app", action: { 
+                UIApplication.sharedApplication().openURL(NSURL(string : "itms-apps://itunes.apple.com/app/id1083576851")!)
+            })
+                
+            alert.showSuccess("Thank you!", subTitle: "We very much appreciate your feedback. If you would like to help us out further please rate the app")
+        }else{
+            showSendMailErrorAlert()
+        }
+    }
+    
+    func sendFeedback() {
+        let mailComposeViewController = configuredMailComposeViewController()
+        if MFMailComposeViewController.canSendMail() {
+            self.presentViewController(mailComposeViewController, animated: true, completion: nil)
+        } else {
+            self.showSendMailErrorAlert()
         }
     }
     
@@ -126,8 +174,59 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
         topGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(QuestController.tappedTopNavBar))
         self.navigationController?.navigationBar.addGestureRecognizer(topGestureRecognizer)
         
+        if NSUserDefaults.standardUserDefaults().objectForKey("hasLaunched") != nil && NSUserDefaults.standardUserDefaults().boolForKey("hasLaunched") {
+            showGPSHelperAlert()
+        }
+        
 //        self.navigationController?.navigationBar.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
 //        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+    }
+    
+    func showGPSHelperAlert() {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let calendar: NSCalendar = NSCalendar.currentCalendar()
+        
+        if defaults.objectForKey("GPSAnswered") == nil || !defaults.boolForKey("GPSAnswered") {
+            if let date = defaults.objectForKey("GPSLastAsked") as? NSDate {
+                let startOfDate = calendar.startOfDayForDate(date)
+                let startOfNow = calendar.startOfDayForDate(NSDate())
+                
+                if calendar.components(.Day, fromDate: startOfDate, toDate: startOfNow, options: []).day < 3 {
+                    return
+                }
+            }
+            
+            let alert = SCLAlertView(appearance: noCloseButton)
+            alert.addButton("Sure, I'll help", action: {
+                defaults.setBool(true, forKey: "GPSAnswered")
+                defaults.setBool(true, forKey: "GPSEnabled")
+                
+                if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+                    delegate.locationController = LocationController(answeredCallback: {
+                    })
+                }
+            })
+            alert.addButton("No", action: {
+                defaults.setBool(true, forKey: "GPSAnswered")
+                defaults.setBool(false, forKey: "GPSEnabled")
+            })
+            alert.addButton("More info", action: {
+                self.showGPSMoreInfoAlert()
+            })
+            alert.addButton("Ask later", action: {
+                defaults.setObject(NSDate(), forKey: "GPSLastAsked")
+            })
+            
+            alert.showInfo("Help us out?", subTitle: "You can help us improve the app. When you start or end a quest, the app will simply store your GPS coordinates to improve the app for other people")
+        }
+    }
+    
+    func showGPSMoreInfoAlert() {
+        let alert = SCLAlertView(appearance: noCloseButton)
+        alert.addButton("Done") { 
+            self.showGPSHelperAlert()
+        }
+        alert.showInfo("GPS Help Info", subTitle: "In future versions we hope to help people navigate to the start of quests and to provide hints about the box locations, but at the moment we don't have any data for these spots. The data you collect as you complete quests will be immensely useful, and of course will be completely anonymous and very securely transfered")
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -347,7 +446,7 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
         if let checkedCell = cell as? QuestCell {
             // Setting the title and description
             checkedCell.setTitle(quest.Name)
-            checkedCell.setSubTitle("Location: " + quest.Location + " - Difficulty: " + quest.Difficulty)
+            checkedCell.setSubTitle("\(quest.Location) (\(quest.Difficulty))")
             checkedCell.subTitleLabel.textColor = UIColor.grayColor()
             if quest.isClosed() {
                 checkedCell.setSubTitle("Closed")
