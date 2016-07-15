@@ -140,6 +140,12 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
             
             rows[index].append([QuestDetailViewController.feedbackCellMessage])
             selectableRows.append(NSIndexPath(forItem: rows[index].count - 1, inSection: index))
+            
+            if NSUserDefaults.standardUserDefaults().boolForKey("goToPDF") {
+                self.performSegueWithIdentifier("showPDF", sender: object!.pdf)
+                NSUserDefaults.standardUserDefaults().setBool(false, forKey: "goToPDF")
+            }
+            
         }
     }
     
@@ -166,7 +172,7 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
                         self.saved = false
                         self.titleCell.endLoadingSave(false)
                         Answers.logCustomEventWithName("Unsaved quest", customAttributes: ["name" : quest.Name])
-                        if let delegate = self.delegate {
+                        if let delegate = self.delegate where State.getQuestID() != quest.objectId {
                             if let index = delegate.savedQuests.indexOf(quest) {
                                 delegate.savedQuests.removeAtIndex(index)
                             }
@@ -356,7 +362,7 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
     
     override func previewActionItems() -> [UIPreviewActionItem] {
         let saveQuest = UIPreviewAction(title: self.saved ? "Unsave" : "Save", style: UIPreviewActionStyle.Default) { (action, viewController) -> Void in
-            self.saveQuest()
+            self.saveQuestCheck()
         }
         
         let share = UIPreviewAction(title: "Share", style: UIPreviewActionStyle.Default) { (action, viewController) -> Void in

@@ -48,13 +48,29 @@ class FirstLoadViewController: UIViewController, MFMailComposeViewControllerDele
         NSUserDefaults.standardUserDefaults().synchronize()
     }
     
-    @IBAction func contact(sender: AnyObject) {
+    func contact() {
         let mailComposeViewController = configuredMailComposeViewController()
         if MFMailComposeViewController.canSendMail() {
             self.presentViewController(mailComposeViewController, animated: true, completion: nil)
         } else {
             self.showSendMailErrorAlert()
         }
+    }
+    
+    @IBAction func otherResources(sender: AnyObject) {
+        let alert = UIAlertController(title: "Resources", message: nil, preferredStyle: .ActionSheet)
+        
+        alert.addAction(UIAlertAction(title: "Privacy Policy", style: .Default, handler: { (action) in
+            UIApplication.sharedApplication().openURL(NSURL(string: "http://www.cs.dartmouth.edu/~jkotz/Valley-Quest/")!)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Contact us", style: .Default, handler: { (action) in
+            self.contact()
+        }))
+
+        alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+        
+        self.presentViewController(alert, animated: true, completion: nil)
     }
     
     @IBAction func donate(sender: AnyObject) {

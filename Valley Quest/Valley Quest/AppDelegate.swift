@@ -45,6 +45,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var id: String?
     var mainViewController: QuestController?
     var locationController: LocationController?
+    var sendFeedbackOnLoad = false
+    
+    let currentQuestShortcutItem = UIApplicationShortcutItem(type: "currentQuest", localizedTitle: "Active Quest", localizedSubtitle: nil, icon: UIApplicationShortcutIcon(type: .Play), userInfo: nil)
+    let feedbackShortcutItem = UIApplicationShortcutItem(type: "feedback", localizedTitle: "Send Feedback", localizedSubtitle: nil, icon: UIApplicationShortcutIcon(type: .Compose), userInfo: nil)
     
     func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
         print("url: \(url.absoluteString) options: \(options)")
@@ -53,18 +57,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return true
     }
+    
+    func application(application: UIApplication, performActionForShortcutItem shortcutItem: UIApplicationShortcutItem, completionHandler: (Bool) -> Void) {
+        if shortcutItem == currentQuestShortcutItem {
+            if let id = State.getQuestID() {
+                NSUserDefaults.standardUserDefaults().setBool(true, forKey: "goToPDF")
+                loadQuest(id)
+                completionHandler(true)
+            }
+        }else if shortcutItem.type == "feedback" {
+            if let mainViewController = mainViewController {
+                mainViewController.sendFeedback()
+            }else{
+                sendFeedbackOnLoad = true
+            }
+            completionHandler(true)
+        }else{
+            completionHandler(false)
+        }
+    }
+    
+    func evaluateShortCuts() {
+        var shortcuts: [UIApplicationShortcutItem] = []
+        if State.getQuestID() != nil  {
+            shortcuts.append(currentQuestShortcutItem)
+        }
+        shortcuts.append(feedbackShortcutItem)
+        UIApplication.sharedApplication().shortcutItems = shortcuts
+    }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         Fabric.with([Crashlytics.self])
         
-        let currentQuestShortcutItem = UIApplicationShortcutItem(type: "currentQuest", localizedTitle: "Go to Current Quest")
-        let savedQuestShortcutItem = UIApplicationShortcutItem(type: "savedQuest", localizedTitle: "Saved Quests")
-        let shortcuts = [currentQuestShortcutItem, savedQuestShortcutItem]
+        evaluateShortCuts()
 
         Quest.registerSubclass()
         Feedback.registerSubclass()
         QuestGPSSet.registerSubclass()
-        UIApplication.sharedApplication().shortcutItems = shortcuts
         
         Parse.enableLocalDatastore()
         Parse.setApplicationId("ZoalMIIVftZEKQoUcIWFkQqJWDsn2zYF8jJZiBlz", clientKey: "Sd3CVO3sXH8muH70ut5fOINuvee4zk8OaAxyoxTH")
@@ -78,6 +107,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let id = id {
             viewController.loadQuestView(id)
         }
+        
+        if sendFeedbackOnLoad {
+            viewController.sendFeedback()
+        }
+        
+        sendFeedbackOnLoad = false
     }
 
     func applicationWillResignActive(application: UIApplication) {
@@ -114,6 +149,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
         if userActivity.activityType == CSSearchableItemActionType {
             if let id = userActivity.userInfo?[CSSearchableItemActivityIdentifier] as? String {
+                NSUserDefaults.standardUserDefaults().setBool(true, forKey: "goToPDF")
                 loadQuest(id);
             }
         }

@@ -482,7 +482,9 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
         }
         
         if let destination = segue.destinationViewController as? FirstLoadViewController {
-            destination.goString = "Done"
+            if NSUserDefaults.standardUserDefaults().boolForKey("hasLaunched") {
+                destination.goString = "Done"
+            }
         }
     }
     

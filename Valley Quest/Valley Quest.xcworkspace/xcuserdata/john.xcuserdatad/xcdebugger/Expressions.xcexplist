@@ -3,10 +3,10 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "LocationController.locationManager(CLLocationManager, didChangeAuthorizationStatus : CLAuthorizationStatus) -&gt; ():GPSHelper.swift">
+         contextName = "QuestDetailViewController.viewDidAppear(Bool) -&gt; ():QuestDetailViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "CLLocationManager.locationServicesEnabled()">
+               value = " NSUserDefaults.standardUserDefaults().boolForKey(&quot;goToPDF&quot;)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -23,6 +23,14 @@
          <PersistentStrings>
             <PersistentString
                value = "delegate.locationController!.authStatus">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "LocationController.locationManager(CLLocationManager, didChangeAuthorizationStatus : CLAuthorizationStatus) -&gt; ():GPSHelper.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "CLLocationManager.locationServicesEnabled()">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

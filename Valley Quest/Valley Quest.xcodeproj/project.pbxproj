@@ -195,7 +195,6 @@
 				52232EC91D22E466001E3955 /* QuestController.swift */,
 				52232ED31D22E494001E3955 /* Parse Classes */,
 				52232ECB1D22E46F001E3955 /* FirstLoadViewController.swift */,
-				522038ED1D23183A009D69B1 /* ValleyQuestState.swift */,
 				52232ECD1D22E47A001E3955 /* PlaceholderViewController.swift */,
 				52232ED41D22E4B7001E3955 /* QuestDetailViewController.swift */,
 				52232EE21D22E56C001E3955 /* PDFViewController.swift */,
@@ -245,6 +244,7 @@
 				52232ECF1D22E48D001E3955 /* Quest.swift */,
 				52232ED01D22E48D001E3955 /* Feedback.swift */,
 				525D51621D349BB8000BEEF8 /* GPSHelper.swift */,
+				522038ED1D23183A009D69B1 /* ValleyQuestState.swift */,
 			);
 			name = "Parse Classes";
 			sourceTree = "<group>";
@@ -715,7 +715,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Valley Quest/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vitalcommunities.ValleyQuest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -735,7 +735,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Valley Quest/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vitalcommunities.ValleyQuest;
 				PRODUCT_NAME = "$(TARGET_NAME)";

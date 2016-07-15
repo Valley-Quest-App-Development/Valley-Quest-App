@@ -97,6 +97,10 @@ class PDFViewController: UIViewController, UIWebViewDelegate {
                 })
             }
         }
+        
+        if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+            delegate.evaluateShortCuts()
+        }
     }
     
     func makeFinished() {
@@ -111,6 +115,10 @@ class PDFViewController: UIViewController, UIWebViewDelegate {
                     self.endGPSSet.addEnd(loc)
                 })
             }
+        }
+        
+        if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+            delegate.evaluateShortCuts()
         }
     }
     

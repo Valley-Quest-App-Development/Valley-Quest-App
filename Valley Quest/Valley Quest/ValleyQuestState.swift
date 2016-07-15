@@ -108,6 +108,10 @@ class State {
         }
     }
     
+    static func getQuestID() -> String? {
+        return defaults.objectForKey("questInProgress") as? String
+    }
+    
     static func hasQuestLoaded() -> Bool {
         return questInProgressStored != nil
     }
