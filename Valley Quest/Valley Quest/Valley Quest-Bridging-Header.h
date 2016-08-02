@@ -4,3 +4,4 @@
 
 #import "SWRevealViewController.h"
 #import "Reachability.h"
+#import <Google/Analytics.h>

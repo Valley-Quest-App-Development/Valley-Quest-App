@@ -1,6 +1,0 @@
-framework module Pods_Valley_QuestTests {
-  umbrella header "Pods-Valley QuestTests-umbrella.h"
-
-  export *
-  module * { export * }
-}

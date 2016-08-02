@@ -4,6 +4,23 @@ PODS:
   - Crashlytics (3.7.2):
     - Fabric (~> 1.6.3)
   - Fabric (1.6.7)
+  - FirebaseAnalytics (3.2.1):
+    - FirebaseInstanceID (~> 1.0)
+    - GoogleInterchangeUtilities (~> 1.2)
+    - GoogleSymbolUtilities (~> 1.1)
+    - GoogleUtilities (~> 1.3)
+  - FirebaseInstanceID (1.0.7)
+  - Google/Analytics (3.0.3):
+    - Google/Core
+    - GoogleAnalytics (~> 3.12)
+  - Google/Core (3.0.3):
+    - FirebaseAnalytics (~> 3.2)
+  - GoogleAnalytics (3.14.0)
+  - GoogleInterchangeUtilities (1.2.1):
+    - GoogleSymbolUtilities (~> 1.0)
+  - GoogleSymbolUtilities (1.1.1)
+  - GoogleUtilities (1.3.1):
+    - GoogleSymbolUtilities (~> 1.0)
   - Parse (1.13.0):
     - Bolts/Tasks (~> 1.6)
   - SCLAlertView (0.5.9)
@@ -12,6 +29,7 @@ DEPENDENCIES:
   - BEMCheckBox
   - Crashlytics
   - Fabric
+  - Google/Analytics
   - Parse
   - SCLAlertView
 
@@ -20,9 +38,16 @@ SPEC CHECKSUMS:
   Bolts: a0058fa3b331c5a1e4402d534f2dae36dbff31e4
   Crashlytics: 130ab943f8c78cda7a814b434f270b2e2c8a3cba
   Fabric: caf7580c725e64db144f610ac65cd60956911dc7
+  FirebaseAnalytics: 0fd6532cb2c3d03cd5cf26ad295ccb091efd3104
+  FirebaseInstanceID: a9d923f3d0b6fbf9fac89310860357aaadc34be5
+  Google: 813c467362eabc11385f5a5cc9ad0cb651a58f4e
+  GoogleAnalytics: 9be1afdb8deeac4bb5f13ca7f7d3b9db2a1f43dc
+  GoogleInterchangeUtilities: def8415a862effc67d549d5b5b0b9c7a2f97d4de
+  GoogleSymbolUtilities: 33117db1b5f290c6fbf259585e4885b4c84b98d7
+  GoogleUtilities: 56c5ac05b7aa5dc417a1bb85221a9516e04d7032
   Parse: f51c24d2feb412e4b2d6cc73d37cb24e8d0089bc
   SCLAlertView: d7c6a48c7d340e60206d4ed0e8ebcbff3b9d2a44
 
-PODFILE CHECKSUM: e9604d33c800e3b2a36404714b95b16f2a091dcc
+PODFILE CHECKSUM: f2bcd86dfae94380f4dc8b8222b505c5f406378f
 
 COCOAPODS: 1.0.1

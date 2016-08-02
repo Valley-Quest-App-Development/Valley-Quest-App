@@ -14,6 +14,10 @@ import MessageUI
 import SCLAlertView
 import Crashlytics
 
+let QUEST_VIEW_KEY = "quest_viewed"
+let USER_ACTION_KEY = "user_action"
+let QUEST_SAVE_KEY = "quest_saved"
+let QUEST_UNSAVE_KEY = "quest_unsaved"
 
 class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
@@ -36,6 +40,16 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
     
     override func viewDidAppear(animated: Bool) {
 //        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        
+        let tracker = GAI.sharedInstance().defaultTracker
+        if let quest = object {
+            tracker.send(GAIDictionaryBuilder.createEventWithCategory(
+                    USER_ACTION_KEY,
+                    action: QUEST_VIEW_KEY,
+                    label: quest.objectId,
+                    value: nil
+                ).build() as [NSObject: AnyObject])
+        }
         
         if showFeedback {
             self.performSegueWithIdentifier("showFeedbackView", sender: nil)
@@ -178,6 +192,13 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
                             }
                             delegate.tableView.reloadData()
                         }
+                        
+                        GAI.sharedInstance().defaultTracker.send(GAIDictionaryBuilder.createEventWithCategory(
+                            USER_ACTION_KEY,
+                            action: QUEST_UNSAVE_KEY,
+                            label: quest.objectId,
+                            value: nil
+                            ).build() as [NSObject: AnyObject])
                     }else{
                         print(error?.description)
                         self.titleCell.endLoadingSave(true)
@@ -202,6 +223,14 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
                         if NSUserDefaults.standardUserDefaults().objectForKey("saveDone") == nil || !NSUserDefaults.standardUserDefaults().boolForKey("saveDone") {
                             SCLAlertView().showSuccess("Saved!", subTitle: "Your saved quests will be shown at the top of the quest list")
                         }
+                        
+                        
+                        GAI.sharedInstance().defaultTracker.send(GAIDictionaryBuilder.createEventWithCategory(
+                            USER_ACTION_KEY,
+                            action: QUEST_SAVE_KEY,
+                            label: quest.objectId,
+                            value: nil
+                            ).build() as [NSObject: AnyObject])
                         
                         NSUserDefaults.standardUserDefaults().setBool(true, forKey: "saveDone")
                     }else{

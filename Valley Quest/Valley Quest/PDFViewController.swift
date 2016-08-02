@@ -12,6 +12,9 @@ import Parse
 import SCLAlertView
 import Crashlytics
 
+let FINISH_QUEST_KEY = "finished_quest"
+let START_QUEST_KEY = "start_quest"
+
 class PDFViewController: UIViewController, UIWebViewDelegate {
     @IBOutlet weak var pdfView: UIWebView!
     @IBOutlet weak var startButton: UIButton!
@@ -98,6 +101,14 @@ class PDFViewController: UIViewController, UIWebViewDelegate {
             }
         }
         
+        let tracker = GAI.sharedInstance().defaultTracker
+        tracker.send(GAIDictionaryBuilder.createEventWithCategory(
+                USER_ACTION_KEY,
+                action: START_QUEST_KEY,
+                label: quest.objectId,
+                value: nil
+            ).build() as [NSObject : AnyObject])
+        
         if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
             delegate.evaluateShortCuts()
         }
@@ -116,6 +127,14 @@ class PDFViewController: UIViewController, UIWebViewDelegate {
                 })
             }
         }
+        
+        let tracker = GAI.sharedInstance().defaultTracker
+        tracker.send(GAIDictionaryBuilder.createEventWithCategory(
+                USER_ACTION_KEY,
+                action: FINISH_QUEST_KEY,
+                label: quest.objectId,
+                value: nil
+            ).build() as [NSObject : AnyObject])
         
         if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
             delegate.evaluateShortCuts()

@@ -36,6 +36,7 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
     var filteredQuests = [Quest]()
     var savedQuests = [Quest]()
     var loading = false
+    var loggedSearch = false
     
     var topGestureRecognizer = UIGestureRecognizer()
 
@@ -244,6 +245,27 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
     
     func isSearching() -> Bool {
         return self.searchController.active && self.searchController.searchBar.text != ""
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        logSearchComplete(nil)
+        loggedSearch = false
+    }
+    
+    func logSearchComplete(quest: Quest?) {
+        if !loggedSearch {
+            var dict = ["type" : searchController.searchBar.scopeButtonTitles![searchController.searchBar.selectedScopeButtonIndex]]
+            if let quest = quest {
+                dict["selectedQuest"] = quest.Name
+            }
+            
+            Answers.logCustomEventWithName("Searched", customAttributes: dict)
+            
+            
+            GAI.sharedInstance().defaultTracker.send(GAIDictionaryBuilder.createEventWithCategory(USER_ACTION_KEY, action: "searched_by_" + dict["type"]!, label: quest?.objectId, value: nil).build() as [NSObject : AnyObject])
+        }
+        
+        loggedSearch = true
     }
     
     func getQuestAt(indexPath: NSIndexPath) -> Quest {
@@ -491,8 +513,13 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         // This way we deselect the cell
         tableView.cellForRowAtIndexPath(indexPath)?.setSelected(false, animated: true)
+        
+        let quest = self.getQuestAt(indexPath)
+        if isSearching() {
+            logSearchComplete(quest)
+        }
         // A cell was clicked, so we will go to it's detail page
-        self.performSegueWithIdentifier("showQuestDetail", sender: self.getQuestAt(indexPath))
+        self.performSegueWithIdentifier("showQuestDetail", sender: quest)
     }
     
     override func didReceiveMemoryWarning() {
