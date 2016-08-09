@@ -95,8 +95,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Feedback.registerSubclass()
         QuestGPSSet.registerSubclass()
         
+        // Initialize Parse.
+        let parseConfig = ParseClientConfiguration {
+            $0.applicationId = "ZoalMIIVftZEKQoUcIWFkQqJWDsn2zYF8jJZiBlz"
+            $0.clientKey = ""
+            $0.server = "https://valleyquest.herokuapp.com/parse"
+            $0.localDatastoreEnabled = true
+        }
+        //        Parse.setApplicationId("ZoalMIIVftZEKQoUcIWFkQqJWDsn2zYF8jJZiBlz", clientKey: "Sd3CVO3sXH8muH70ut5fOINuvee4zk8OaAxyoxTH")
         Parse.enableLocalDatastore()
-        Parse.setApplicationId("ZoalMIIVftZEKQoUcIWFkQqJWDsn2zYF8jJZiBlz", clientKey: "Sd3CVO3sXH8muH70ut5fOINuvee4zk8OaAxyoxTH")
+        Parse.initializeWithConfiguration(parseConfig)
         
         var configureError:NSError?
         GGLContext.sharedInstance().configureWithError(&configureError)

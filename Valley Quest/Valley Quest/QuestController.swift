@@ -320,6 +320,17 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
             
             let reach = Reachability.reachabilityForInternetConnection()
             
+            if (reach.currentReachabilityStatus() != NotReachable) {
+                let query: PFQuery = PFQuery(className: "Quests")
+                query.limit = 1000
+                self.completeRefreshQuery(query){ (success, error) in
+                    self.tableView.reloadData()
+                    self.refreshControl?.endRefreshing()
+                    self.refreshControl?.attributedTitle = NSAttributedString(string: "Pull to refresh")
+                    self.loading = false
+                }
+            }
+            
             let firstQuery: PFQuery = PFQuery(className: "Quests")
             firstQuery.limit = 1000
             firstQuery.fromLocalDatastore()
@@ -337,17 +348,6 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
                     self.tableView.reloadData()
                 }
             })
-            
-            if (reach.currentReachabilityStatus() != NotReachable) {
-                let query: PFQuery = PFQuery(className: "Quests")
-                query.limit = 1000
-                self.completeRefreshQuery(query){ (success, error) in
-                    self.tableView.reloadData()
-                    self.refreshControl?.endRefreshing()
-                    self.refreshControl?.attributedTitle = NSAttributedString(string: "Pull to refresh")
-                    self.loading = false
-                }
-            }
         }
     }
     
