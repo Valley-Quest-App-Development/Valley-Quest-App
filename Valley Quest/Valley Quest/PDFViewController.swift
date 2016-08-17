@@ -208,7 +208,7 @@ class PDFViewController: UIViewController, UIWebViewDelegate {
     
     func webViewDidFinishLoad(webView: UIWebView) {
         if (UIDevice.currentDevice().userInterfaceIdiom == .Phone) {
-            webView.scrollView.setContentOffset(CGPointMake(0, -self.navigationController!.navigationBar.frame.height - 15), animated: false)
+//            webView.scrollView.setContentOffset(CGPointMake(0, -self.navigationController!.navigationBar.frame.height - 15), animated: false)
             activityIndicator.stopAnimating()
         }
     }
