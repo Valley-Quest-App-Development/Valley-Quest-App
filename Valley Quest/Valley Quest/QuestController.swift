@@ -30,8 +30,6 @@ extension UIColor {
 let NEAR_DISTANCE = 20 // I'm not sure what units to use yet
 
 class QuestController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIViewControllerPreviewingDelegate, UISearchResultsUpdating, UISearchBarDelegate, MFMailComposeViewControllerDelegate {
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var revealButton: UIBarButtonItem!
     @IBOutlet weak var selector: NPSegmentedControl!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var topSelector: NSLayoutConstraint!
@@ -41,13 +39,14 @@ class QuestController: UIViewController, UITableViewDelegate, UITableViewDataSou
     var quests = [Quest]()
     var filteredQuests = [Quest]()
     var savedQuests = [Quest]()
-    var nearQuests = [Quest]()
+    var nearQuests = [(Quest, String)]()
     
     let backColor = UIColor(netHex: 0x78db82)
     var loading = false
     var loggedSearch = false
+    var showingNearMe = false
     var hasGPS = false
-    var showNearMe: Bool {
+    var showNearMeSelector: Bool {
         set {
             selector.hidden = !newValue
             if !newValue {
@@ -61,11 +60,22 @@ class QuestController: UIViewController, UITableViewDelegate, UITableViewDataSou
         }
     }
     
+    var currentLocation: CLLocation?
+    
     var topGestureRecognizer = UIGestureRecognizer()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        showNearMe = false
+        showNearMeSelector = false
+        
+        if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+            delegate.locationController = LocationController()
+            delegate.locationController?.getOneLocation({ (location) in
+                self.currentLocation = location
+                self.searchForNearQuests()
+            })
+        }
+        
         // Do any additional setup after loading the view, typically from a nib.
         self.title = "Quests"
         
@@ -125,10 +135,6 @@ class QuestController: UIViewController, UITableViewDelegate, UITableViewDataSou
             if let _ = quest where error == nil {
                 self.tableView.reloadData()
             }
-        }
-        
-        if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
-            delegate.locationController = LocationController()
         }
     }
     
@@ -255,11 +261,11 @@ class QuestController: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
-        showNearMe = false
+        showNearMeSelector = false
     }
     
     func searchBarTextDidEndEditing(searchBar: UISearchBar) {
-        showNearMe = hasGPS
+        showNearMeSelector = hasGPS
     }
     
     func updateSearchResultsForSearchController(searchController: UISearchController) {
@@ -274,7 +280,8 @@ class QuestController: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        if scrollView.contentOffset.y > 45 {
+        
+        if scrollView.contentOffset.y > 45 || showingNearMe {
             selector.backgroundColor = UIColor.clearColor()
             selector.unselectedColor = backColor
         }else{
@@ -283,11 +290,35 @@ class QuestController: UIViewController, UITableViewDelegate, UITableViewDataSou
         }
     }
     
+    func searchForNearQuests() {
+        nearQuests.removeAll()
+//        if let myLoc = self.currentLocation {
+            for quest in quests {
+                if (quest.hasGPS()) {
+                    // and if quest is within range...
+                    nearQuests.append((quest, "unknown"));
+                }
+            }
+            
+            nearQuests.sortInPlace({ (obj1, obj2) -> Bool in
+                return obj1.1 >= obj2.1;
+            })
+//        }
+    }
+    
     func refreshData() {
         loading = true
         self.refreshControl.beginRefreshing()
         self.refreshControl.attributedTitle = NSAttributedString(string: "Refreshing...")
         let object = PFQuery(className: "serverMove")
+        
+        if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+            delegate.locationController?.getOneLocation({ (location) in
+                self.currentLocation = location
+                self.searchForNearQuests()
+            })
+        }
+        
         object.findObjectsInBackgroundWithBlock { (objects, error) in
             if let objects = objects where objects.count > 0 {
                 SCLAlertView().showNotice("Server maintainance", subTitle: "The sever is under maintanance")
@@ -320,6 +351,7 @@ class QuestController: UIViewController, UITableViewDelegate, UITableViewDataSou
                         }
                     }
                     Quest.sortQuests(&self.savedQuests)
+                    self.searchForNearQuests()
                     self.tableView.reloadData()
                 }
             })
@@ -333,7 +365,7 @@ class QuestController: UIViewController, UITableViewDelegate, UITableViewDataSou
                 CSSearchableIndex.defaultSearchableIndex().deleteAllSearchableItemsWithCompletionHandler(nil)
                 let result = Quest.getQuestsFromPFOBjects(checkedResults)
                 self.quests = result.0
-                self.showNearMe = result.1
+                self.showNearMeSelector = result.1
                 self.hasGPS = result.1
                 Quest.sortQuests(&self.quests)
                 callback(true, error)
@@ -384,10 +416,18 @@ class QuestController: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // This is the number of cells to show
+        if showingNearMe {
+            return nearQuests.count
+        }
+        
         return getQuestListAt(section).count
     }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if showingNearMe {
+            return nil
+        }
+        
         if self.isSearching() {
             return nil
         }
@@ -423,6 +463,10 @@ class QuestController: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // We have no need for sections, but we have to have one
+        if showingNearMe {
+            return 1
+        }
+        
         if isSearching() {
             return 1
         }
@@ -440,13 +484,17 @@ class QuestController: UIViewController, UITableViewDelegate, UITableViewDataSou
             cell = nib.objectAtIndex(0) as? UITableViewCell
         }
         
-        let quest = getQuestAt(indexPath)
+        let quest = !showingNearMe ? getQuestAt(indexPath) : nearQuests[indexPath.row].0
         
         // We need to prove that it is a Quest cell if we want to do all this
         if let checkedCell = cell as? QuestCell {
             // Setting the title and description
             checkedCell.setTitle(quest.Name)
             checkedCell.setSubTitle("\(quest.Location) (\(quest.Difficulty))")
+            if showingNearMe {
+                checkedCell.setSubTitle("\(quest.Location) (Distance: \(nearQuests[indexPath.row].1))")
+            }
+            
             checkedCell.subTitleLabel.textColor = UIColor.grayColor()
             if quest.isClosed() {
                 checkedCell.setSubTitle("Closed")
@@ -498,6 +546,23 @@ class QuestController: UIViewController, UITableViewDelegate, UITableViewDataSou
         }
         // A cell was clicked, so we will go to it's detail page
         self.performSegueWithIdentifier("showQuestDetail", sender: quest)
+    }
+    
+    @IBAction func selectorChangedValue(sender: NPSegmentedControl) {
+        self.showingNearMe = sender.selectedIndex() == 1
+        
+        tableView.tableHeaderView = sender.selectedIndex() == 1 ? nil : searchController.searchBar
+        
+        
+        sender.backgroundColor = sender.selectedIndex() == 1 ? UIColor.clearColor() : backColor
+        sender.unselectedColor = sender.selectedIndex() == 1 ? backColor : UIColor.clearColor()
+        
+        refreshControl.backgroundColor = sender.selectedIndex() == 1 ? UIColor.whiteColor() : backColor
+        
+        self.refreshControl.tintColor = sender.selectedIndex() == 1 ? UIColor.blackColor() : UIColor.whiteColor()
+        
+        searchForNearQuests()
+        self.tableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {

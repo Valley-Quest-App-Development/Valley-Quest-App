@@ -34,7 +34,6 @@ class Quest: PFObject, PFSubclassing {
     @NSManaged var Season: String
     @NSManaged var SpecialFeatures: String
     @NSManaged var Location: String
-    @NSManaged var GPS: PFGeoPoint?
     @NSManaged var Bring: String?
     @NSManaged var Description: String
     @NSManaged var Difficulty: String
@@ -85,7 +84,7 @@ class Quest: PFObject, PFSubclassing {
     }
     
     func hasGPS() -> Bool {
-        return self.GPS != nil
+        return self.gps_loc != nil
     }
     
     func hasClues() -> Bool {
@@ -132,7 +131,7 @@ class Quest: PFObject, PFSubclassing {
                 quest.addToSpotlight()
                 if let loc = quest.gps_loc {
                     quest.start = CLLocation(latitude: loc.latitude, longitude: loc.longitude);
-                    if let end = quest.gps_end {
+                    if quest.gps_end != nil {
                         // TODO: deal with a string :(
                     }
                     foundGPS = true

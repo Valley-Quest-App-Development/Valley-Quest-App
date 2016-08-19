@@ -25,6 +25,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="kBM-l8-lrg"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="selectorChangedValue:" destination="aBo-bT-38x" eventType="valueChanged" id="7dT-QB-9tC"/>
+                                </connections>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="81" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CNQ-bf-Lpq">
                                 <rect key="frame" x="0.0" y="114" width="600" height="486"/>

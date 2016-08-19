@@ -439,7 +439,7 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
         
         if let destination = segue.destinationViewController as? DirectionsViewController, let quest = object {
             var coords: CLLocationCoordinate2D?
-            if let gps = quest.GPS {
+            if let gps = quest.gps_loc {
                 coords = CLLocationCoordinate2DMake(gps.latitude, gps.longitude)
             }
             
