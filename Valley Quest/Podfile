@@ -12,6 +12,7 @@ target 'Valley Quest' do
   pod 'Fabric'
   pod 'Crashlytics'
   pod 'Google/Analytics'
+  pod 'NPSegmentedControl'
 
   target 'Valley QuestTests' do
     inherit! :search_paths

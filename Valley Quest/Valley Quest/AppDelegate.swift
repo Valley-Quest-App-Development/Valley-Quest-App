@@ -28,9 +28,6 @@ extension UIApplication {
                 return topViewController(selected)
             }
         }
-        if let reveal = base as? SWRevealViewController {
-            return topViewController(reveal.frontViewController)
-        }
         if let presented = base?.presentedViewController {
             return topViewController(presented)
         }
@@ -172,8 +169,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func loadQuest(id: String) {
         self.id = id
-        let mainController = self.window!.rootViewController as! SWRevealViewController
-        if let navController = mainController.rightViewController as? UINavigationController {
+        if let navController = self.window!.rootViewController as? UINavigationController {
             navController.popToRootViewControllerAnimated(true)
             
             if let mainVC = navController.topViewController as? QuestController {

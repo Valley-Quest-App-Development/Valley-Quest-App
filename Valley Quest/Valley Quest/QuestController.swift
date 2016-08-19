@@ -27,21 +27,45 @@ extension UIColor {
     }
 }
 
-class QuestController: UITableViewController, UIViewControllerPreviewingDelegate, UISearchResultsUpdating, UISearchBarDelegate, MFMailComposeViewControllerDelegate {
+let NEAR_DISTANCE = 20 // I'm not sure what units to use yet
+
+class QuestController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIViewControllerPreviewingDelegate, UISearchResultsUpdating, UISearchBarDelegate, MFMailComposeViewControllerDelegate {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var revealButton: UIBarButtonItem!
+    @IBOutlet weak var selector: NPSegmentedControl!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var topSelector: NSLayoutConstraint!
     
     let searchController = UISearchController(searchResultsController: nil)
+    var refreshControl = UIRefreshControl()
     var quests = [Quest]()
     var filteredQuests = [Quest]()
     var savedQuests = [Quest]()
+    var nearQuests = [Quest]()
+    
+    let backColor = UIColor(netHex: 0x78db82)
     var loading = false
     var loggedSearch = false
+    var hasGPS = false
+    var showNearMe: Bool {
+        set {
+            selector.hidden = !newValue
+            if !newValue {
+                topSelector.constant = 0;
+            }else{
+                topSelector.constant = 50;
+            }
+        }
+        get {
+            return !selector.hidden
+        }
+    }
     
     var topGestureRecognizer = UIGestureRecognizer()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        showNearMe = false
         // Do any additional setup after loading the view, typically from a nib.
         self.title = "Quests"
         
@@ -50,6 +74,16 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
             registerForPreviewingWithDelegate(self, sourceView: view)
             
         }
+        
+        selector.cursor = UIImageView(image: UIImage(named: "tabindicator"))
+        selector.setItems(["All quests", "Near me"]);
+        selector.backgroundColor = backColor
+        selector.unselectedFont = UIFont(name: "AvenirNext", size: 16)
+        selector.selectedFont = UIFont(name: "AvenirNext-Bold", size: 16)
+        selector.unselectedTextColor = UIColor(white: 1, alpha: 0.8)
+        selector.unselectedColor = UIColor.clearColor()
+        selector.selectedTextColor = UIColor(white: 1, alpha: 1)
+        selector.selectedColor = UIColor(red: 67/255, green: 198/255, blue: 88/255, alpha: 1)
         
         if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
             delegate.registerMainViewController(self)
@@ -60,19 +94,20 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.scopeButtonTitles = ["Name", "Location"]
         searchController.searchBar.tintColor = UIColor.whiteColor()
-        searchController.searchBar.backgroundColor = UIColor(netHex: 0x4DC45F)
-        searchController.searchBar.barTintColor = UIColor(netHex: 0x4DC45F)
+        searchController.searchBar.backgroundColor = backColor
+        searchController.searchBar.barTintColor = backColor
+        searchController.searchBar.delegate = self
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
         
         // Add a refresh control
-        self.refreshControl = UIRefreshControl()
-        self.refreshControl?.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        self.refreshControl?.backgroundColor = UIColor(red: 0.85, green: 0.85, blue: 0.85, alpha: 1.0)
-        self.refreshControl?.tintColor = UIColor.whiteColor()
-        self.refreshControl?.addTarget(self, action: #selector(QuestController.refreshData), forControlEvents: UIControlEvents.ValueChanged)
+        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        self.refreshControl.backgroundColor = backColor
+        self.refreshControl.tintColor = UIColor.whiteColor()
+        self.refreshControl.addTarget(self, action: #selector(QuestController.refreshData), forControlEvents: UIControlEvents.ValueChanged)
         
-        self.refreshControl?.beginRefreshing()
+        self.refreshControl.beginRefreshing()
+        tableView.addSubview(refreshControl)
 //        setUpHamberger()
         refreshData()
         
@@ -80,7 +115,7 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
         infoButton.addTarget(self, action: #selector(QuestController.showInfo), forControlEvents: .TouchUpInside)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: infoButton)
         
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Send feedback", style: .Plain, target: self, action: #selector(QuestController.sendFeedback))
+//        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Send feedback", style: .Plain, target: self, action: #selector(QuestController.sendFeedback))
         
         if NSUserDefaults.standardUserDefaults().objectForKey("hasLaunched") == nil || !NSUserDefaults.standardUserDefaults().boolForKey("hasLaunched") {
             showInfo()
@@ -92,11 +127,8 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
             }
         }
         
-        if QuestGPSSet.GPSIsEnabled() {
-            if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
-                delegate.locationController = LocationController()
-                delegate.locationController?.getOneLocation(nil)
-            }
+        if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+            delegate.locationController = LocationController()
         }
     }
     
@@ -150,93 +182,18 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
     
     override func viewDidAppear(animated: Bool) {
         if quests.count == 0 && loading {
-            self.refreshControl?.beginRefreshing()
-        }
-    }
-    
-    func setUpHamberger() {
-        if let revealViewController = self.revealViewController() {
-            self.revealButton.target = self
-            self.revealButton.action = #selector(QuestController.toggleSide)
-            self.navigationController?.navigationBar.addGestureRecognizer(revealViewController.panGestureRecognizer())
-            self.view.addGestureRecognizer(revealViewController.panGestureRecognizer())
+            self.refreshControl.beginRefreshing()
         }
     }
     
     override func viewWillAppear(animated: Bool) {
         if self.loading {
-            self.tableView.setContentOffset(CGPointMake(0, -self.refreshControl!.frame.size.height), animated: true)
-            self.refreshControl?.beginRefreshing()
+            self.tableView.setContentOffset(CGPointMake(0, -self.refreshControl.frame.size.height), animated: true)
+            self.refreshControl.beginRefreshing()
         }
         
         self.tableView.reloadData()
         refreshData()
-        
-        topGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(QuestController.tappedTopNavBar))
-        self.navigationController?.navigationBar.addGestureRecognizer(topGestureRecognizer)
-        
-        if NSUserDefaults.standardUserDefaults().objectForKey("hasLaunched") != nil && NSUserDefaults.standardUserDefaults().boolForKey("hasLaunched") {
-            showGPSHelperAlert()
-        }
-        
-//        self.navigationController?.navigationBar.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-//        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-    }
-    
-    func showGPSHelperAlert() {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        let calendar: NSCalendar = NSCalendar.currentCalendar()
-        
-        if defaults.objectForKey("GPSAnswered") == nil || !defaults.boolForKey("GPSAnswered") {
-            if let date = defaults.objectForKey("GPSLastAsked") as? NSDate {
-                let startOfDate = calendar.startOfDayForDate(date)
-                let startOfNow = calendar.startOfDayForDate(NSDate())
-                
-                if calendar.components(.Day, fromDate: startOfDate, toDate: startOfNow, options: []).day < 3 {
-                    return
-                }
-            }
-            
-            let alert = SCLAlertView(appearance: noCloseButton)
-            alert.addButton("Sure, I'll help", action: {
-                defaults.setBool(true, forKey: "GPSAnswered")
-                defaults.setBool(true, forKey: "GPSEnabled")
-                
-                if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
-                    delegate.locationController = LocationController(answeredCallback: {
-                    })
-                }
-            })
-            alert.addButton("No", action: {
-                defaults.setBool(true, forKey: "GPSAnswered")
-                defaults.setBool(false, forKey: "GPSEnabled")
-            })
-            alert.addButton("More info", action: {
-                self.showGPSMoreInfoAlert()
-            })
-            alert.addButton("Ask later", action: {
-                defaults.setObject(NSDate(), forKey: "GPSLastAsked")
-            })
-            
-            alert.showInfo("Help us out?", subTitle: "You can help us improve the app. When you start or end a quest, the app will simply store your GPS coordinates to improve the app for other people")
-        }
-    }
-    
-    func showGPSMoreInfoAlert() {
-        let alert = SCLAlertView(appearance: noCloseButton)
-        alert.addButton("Done") { 
-            self.showGPSHelperAlert()
-        }
-        alert.showInfo("GPS Help Info", subTitle: "In future versions we hope to help people navigate to the start of quests and to provide hints about the box locations, but at the moment we don't have any data for these spots. The data you collect as you complete quests will be immensely useful, and of course will be completely anonymous and very securely transfered")
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-//        self.view.removeGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        self.navigationController?.navigationBar.removeGestureRecognizer(topGestureRecognizer)
-    }
-    
-    func toggleSide() {
-        self.revealViewController().revealToggle(nil)
     }
     
     func searchBar(searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
@@ -297,6 +254,14 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
         }
     }
     
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        showNearMe = false
+    }
+    
+    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        showNearMe = hasGPS
+    }
+    
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         filteredQuests = quests.filter({ (quest) -> Bool in
             if searchController.searchBar.scopeButtonTitles![searchController.searchBar.selectedScopeButtonIndex] == "Name" {
@@ -308,14 +273,24 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
         self.tableView.reloadData()
     }
     
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        if scrollView.contentOffset.y > 45 {
+            selector.backgroundColor = UIColor.clearColor()
+            selector.unselectedColor = backColor
+        }else{
+            selector.backgroundColor = backColor
+            selector.unselectedColor = UIColor.clearColor()
+        }
+    }
+    
     func refreshData() {
         loading = true
-        self.refreshControl?.beginRefreshing()
-        self.refreshControl?.attributedTitle = NSAttributedString(string: "Refreshing...")
+        self.refreshControl.beginRefreshing()
+        self.refreshControl.attributedTitle = NSAttributedString(string: "Refreshing...")
         let object = PFQuery(className: "serverMove")
         object.findObjectsInBackgroundWithBlock { (objects, error) in
             if let objects = objects where objects.count > 0 {
-                SCLAlertView().showNotice("Server moved", subTitle: "The sever has been moved to a new location. Please update the app to get the right data")
+                SCLAlertView().showNotice("Server maintainance", subTitle: "The sever is under maintanance")
             }
             
             let reach = Reachability.reachabilityForInternetConnection()
@@ -325,8 +300,8 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
                 query.limit = 1000
                 self.completeRefreshQuery(query){ (success, error) in
                     self.tableView.reloadData()
-                    self.refreshControl?.endRefreshing()
-                    self.refreshControl?.attributedTitle = NSAttributedString(string: "Pull to refresh")
+                    self.refreshControl.endRefreshing()
+                    self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
                     self.loading = false
                 }
             }
@@ -356,7 +331,10 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
             
             if let checkedResults = results {
                 CSSearchableIndex.defaultSearchableIndex().deleteAllSearchableItemsWithCompletionHandler(nil)
-                self.quests = Quest.getQuestsFromPFOBjects(checkedResults)
+                let result = Quest.getQuestsFromPFOBjects(checkedResults)
+                self.quests = result.0
+                self.showNearMe = result.1
+                self.hasGPS = result.1
                 Quest.sortQuests(&self.quests)
                 callback(true, error)
                 return
@@ -371,10 +349,10 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
 //    }
     
     func hideRefreshControl() {
-        self.refreshControl?.endRefreshing()
+        self.refreshControl.endRefreshing()
     }
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         // Tells the cell how tall to be
         return 90
     }
@@ -404,12 +382,12 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
         return nil;
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // This is the number of cells to show
         return getQuestListAt(section).count
     }
     
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if self.isSearching() {
             return nil
         }
@@ -443,7 +421,7 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
         return nil
     }
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // We have no need for sections, but we have to have one
         if isSearching() {
             return 1
@@ -452,7 +430,7 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
         return 1 + (self.savedQuests.count > 0 ? 1 : 0) + (State.hasQuestLoaded() ? 1 : 0)
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // Gets a cell with the tableView style under the QuestCell class
         var cell: UITableViewCell? = tableView.dequeueReusableCellWithIdentifier("QuestCell")
         
@@ -510,7 +488,7 @@ class QuestController: UITableViewController, UIViewControllerPreviewingDelegate
         }
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         // This way we deselect the cell
         tableView.cellForRowAtIndexPath(indexPath)?.setSelected(false, animated: true)
         

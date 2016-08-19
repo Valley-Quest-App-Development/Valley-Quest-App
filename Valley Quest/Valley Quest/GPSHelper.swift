@@ -118,23 +118,7 @@ class QuestGPSSet: PFObject, PFSubclassing {
         }
     }
     
-    func addBox(box: CLLocation) {
-        self.point = PFGeoPoint(latitude: box.coordinate.latitude, longitude: box.coordinate.longitude)
-        self.type = .Box
-        self.saveEventually { (success, error) in
-            if success {
-                let relation = self.quest.relationForKey("GPSData")
-                relation.addObject(self)
-                self.quest.saveEventually()
-            }
-        }
-    }
-    
     static func parseClassName() -> String {
         return "QuestGPSSet"
-    }
-    
-    static func GPSIsEnabled() -> Bool {
-        return NSUserDefaults.standardUserDefaults().boolForKey("GPSEnabled")
     }
 }

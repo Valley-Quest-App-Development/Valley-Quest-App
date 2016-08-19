@@ -27,7 +27,6 @@ class PDFViewController: UIViewController, UIWebViewDelegate {
     var delegate: QuestDetailViewController?
     var startGPSSet = QuestGPSSet()
     var endGPSSet = QuestGPSSet()
-    var boxGPSSet = QuestGPSSet()
     
     override func viewDidLoad() {
         if file != nil {
@@ -46,11 +45,6 @@ class PDFViewController: UIViewController, UIWebViewDelegate {
         }
         
         activityIndicator.startAnimating()
-        
-        if QuestGPSSet.GPSIsEnabled() {
-            hintButton.title = "Mark box"
-            hintButton.enabled = true
-        }
     }
     
     func updateView() {
@@ -77,14 +71,7 @@ class PDFViewController: UIViewController, UIWebViewDelegate {
     }
     
     @IBAction func hintButtonPressed(sender: AnyObject) {
-        if QuestGPSSet.GPSIsEnabled() {
-            if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
-                delegate.locationController?.getOneLocation({ (loc) in
-                    self.boxGPSSet.quest = self.quest
-                    self.boxGPSSet.addBox(loc)
-                })
-            }
-        }
+        // TODO
     }
     
     func makeQuestInProgress() {
@@ -92,13 +79,12 @@ class PDFViewController: UIViewController, UIWebViewDelegate {
         self.cancelButton.enabled = true
         self.startButton.setTitle("Finish", forState: .Normal)
         self.startButton.setBackgroundImage(UIImage(named: "BubbleSecond"), forState: .Normal)
-        if QuestGPSSet.GPSIsEnabled() {
-            if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
-                delegate.locationController?.getOneLocation({ (loc) in
-                    self.startGPSSet.quest = self.quest
-                    self.startGPSSet.addStart(loc)
-                })
-            }
+        if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+            delegate.locationController?.getOneLocation({ (loc) in
+                self.startGPSSet = QuestGPSSet()
+                self.startGPSSet.quest = self.quest
+                self.startGPSSet.addStart(loc)
+            })
         }
         
         let tracker = GAI.sharedInstance().defaultTracker
@@ -119,13 +105,12 @@ class PDFViewController: UIViewController, UIWebViewDelegate {
         self.cancelButton.enabled = false
         self.startButton.setTitle("Start", forState: .Normal)
         self.startButton.setBackgroundImage(UIImage(named: "Bubble"), forState: .Normal)
-        if QuestGPSSet.GPSIsEnabled() {
-            if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
-                delegate.locationController?.getOneLocation({ (loc) in
-                    self.endGPSSet.quest = self.quest
-                    self.endGPSSet.addEnd(loc)
-                })
-            }
+        if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+            delegate.locationController?.getOneLocation({ (loc) in
+                self.startGPSSet = QuestGPSSet()
+                self.endGPSSet.quest = self.quest
+                self.endGPSSet.addEnd(loc)
+            })
         }
         
         let tracker = GAI.sharedInstance().defaultTracker
