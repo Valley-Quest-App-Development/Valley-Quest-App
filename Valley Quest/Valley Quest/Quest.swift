@@ -48,7 +48,16 @@ class Quest: PFObject, PFSubclassing {
     @NSManaged var gps_loc: PFGeoPoint?
     @NSManaged var gps_end: String?
     
-    var start: CLLocation?
+    var start: CLLocation? {
+        get {
+            if let loc = gps_loc {
+                return CLLocation(latitude: loc.latitude, longitude: loc.longitude);
+            }else{
+                return nil
+            }
+        }
+        set {}
+    }
     var end: CLLocation?
     
     // ----------------------------
@@ -129,13 +138,7 @@ class Quest: PFObject, PFSubclassing {
             if let quest = quest as? Quest {
                 array.append(quest)
                 quest.addToSpotlight()
-                if let loc = quest.gps_loc {
-                    quest.start = CLLocation(latitude: loc.latitude, longitude: loc.longitude);
-                    if quest.gps_end != nil {
-                        // TODO: deal with a string :(
-                    }
-                    foundGPS = true
-                }
+                foundGPS = foundGPS || quest.hasGPS()
             }
         }
         

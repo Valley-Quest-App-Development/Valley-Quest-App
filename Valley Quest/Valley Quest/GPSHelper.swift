@@ -15,6 +15,39 @@ class LocationController: NSObject, CLLocationManagerDelegate {
         case Single
         case Multi
     }
+    
+    class Distance {
+        private var distanceInMeters: CLLocationDistance
+        
+        init(distance: CLLocationDistance) {
+            self.distanceInMeters = distance
+        }
+        
+        var meters: Double {
+            set {self.distanceInMeters = newValue}
+            get {return self.distanceInMeters}
+        }
+        var feet: Double {
+            set {self.distanceInMeters = newValue / 3.28084}
+            get {return self.distanceInMeters * 3.28084}
+        }
+        var miles: Double {
+            set {self.distanceInMeters = newValue * 1609.34}
+            get {return self.distanceInMeters / 1609.34}
+        }
+        var kilometers: Double {
+            set {self.distanceInMeters = newValue * 1000.0}
+            get {return distanceInMeters / 1000.0}
+        }
+        var yard: Double {
+            set {distanceInMeters = newValue / 1.09361}
+            get {return distanceInMeters * 1.09361}
+        }
+        var nauticalMile: Double {
+            set {distanceInMeters = newValue * 1852}
+            get {return distanceInMeters / 1852}
+        }
+    }
 
     var locationManager = CLLocationManager()
     var authStatus: CLAuthorizationStatus = .NotDetermined
@@ -49,6 +82,13 @@ class LocationController: NSObject, CLLocationManagerDelegate {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
         self.method = .Single
+    }
+    
+    // Returns the distance in (meters, miles)
+    func calculateDistance(start: CLLocation, end: CLLocation) -> Distance {
+        let meters: CLLocationDistance = end.distanceFromLocation(start)
+        
+        return Distance(distance: meters)
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

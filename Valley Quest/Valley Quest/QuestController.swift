@@ -27,7 +27,7 @@ extension UIColor {
     }
 }
 
-let NEAR_DISTANCE = 20 // I'm not sure what units to use yet
+let NEAR_DISTANCE = 1000 // miles
 
 class QuestController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIViewControllerPreviewingDelegate, UISearchResultsUpdating, UISearchBarDelegate, MFMailComposeViewControllerDelegate {
     @IBOutlet weak var selector: NPSegmentedControl!
@@ -111,13 +111,13 @@ class QuestController: UIViewController, UITableViewDelegate, UITableViewDataSou
         tableView.tableHeaderView = searchController.searchBar
         
         // Add a refresh control
-        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        self.refreshControl.backgroundColor = backColor
-        self.refreshControl.tintColor = UIColor.whiteColor()
-        self.refreshControl.addTarget(self, action: #selector(QuestController.refreshData), forControlEvents: UIControlEvents.ValueChanged)
-        
-        self.refreshControl.beginRefreshing()
-        tableView.addSubview(refreshControl)
+//        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+//        self.refreshControl.backgroundColor = backColor
+//        self.refreshControl.tintColor = UIColor.whiteColor()
+//        self.refreshControl.addTarget(self, action: #selector(QuestController.refreshData), forControlEvents: UIControlEvents.ValueChanged)
+//        
+//        self.refreshControl.beginRefreshing()
+//        tableView.addSubview(refreshControl)
 //        setUpHamberger()
         refreshData()
         
@@ -232,6 +232,10 @@ class QuestController: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     func getQuestAt(indexPath: NSIndexPath) -> Quest {
+        if showingNearMe {
+            return nearQuests[indexPath.row].0
+        }
+        
         return getQuestListAt(indexPath.section)[indexPath.row]
     }
     
@@ -281,7 +285,7 @@ class QuestController: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         
-        if scrollView.contentOffset.y > 45 || showingNearMe {
+        if scrollView.contentOffset.y > 50 || showingNearMe {
             selector.backgroundColor = UIColor.clearColor()
             selector.unselectedColor = backColor
         }else{
@@ -291,19 +295,25 @@ class QuestController: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     func searchForNearQuests() {
+        print("Looking for near???")
         nearQuests.removeAll()
-//        if let myLoc = self.currentLocation {
+        if let myLoc = self.currentLocation {
             for quest in quests {
-                if (quest.hasGPS()) {
-                    // and if quest is within range...
-                    nearQuests.append((quest, "unknown"));
+                if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate where quest.hasGPS() {
+                    let distance = delegate.locationController!.calculateDistance(quest.start!, end: myLoc);
+                    
+                    
+                    print(distance.miles)
+                    if distance.miles < Double(NEAR_DISTANCE) {
+                        nearQuests.append((quest, "\(Int(distance.miles)) miles"));
+                    }
                 }
             }
             
             nearQuests.sortInPlace({ (obj1, obj2) -> Bool in
                 return obj1.1 >= obj2.1;
             })
-//        }
+        }
     }
     
     func refreshData() {
@@ -351,7 +361,6 @@ class QuestController: UIViewController, UITableViewDelegate, UITableViewDataSou
                         }
                     }
                     Quest.sortQuests(&self.savedQuests)
-                    self.searchForNearQuests()
                     self.tableView.reloadData()
                 }
             })
@@ -368,6 +377,7 @@ class QuestController: UIViewController, UITableViewDelegate, UITableViewDataSou
                 self.showNearMeSelector = result.1
                 self.hasGPS = result.1
                 Quest.sortQuests(&self.quests)
+                self.searchForNearQuests()
                 callback(true, error)
                 return
             }

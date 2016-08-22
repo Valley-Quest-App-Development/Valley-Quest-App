@@ -101,30 +101,14 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
             
             Answers.logCustomEventWithName("Quest View", customAttributes: ["name" : quest.Name])
             
-            if quest.hasClues() || quest.hasPDF() {
-                
-                
-                let textSize = UIFont.systemFontOfSize(16).sizeOfString(rows[index][rows[index].count - 1][1], constrainedToWidth: Double(self.view.frame.width)).width
-                
-                let mainTitleWidth = UIFont.systemFontOfSize(16).sizeOfString(rows[index][rows[index].count - 1][0], constrainedToWidth: Double(self.view.frame.width)).width
-                
-                // This determines if the string is too long to all be shown. If it is, we make is selectable so we can expand it for people
-                if textSize > self.view.frame.width - mainTitleWidth - 30 {
-                    selectableRows.append(NSIndexPath(forItem: rows[index].count - 1, inSection: index))
-                }
-                
-                // If there is a pdf, we can show it
-                if quest.hasPDF() {
-                    rows[index].append(["PDF"])
-                    selectableRows.append(NSIndexPath(forItem: rows[index].count - 1, inSection: index))
-                }
-                
-                if quest.hasClues() {
-                    rows[index].append(["Clues"])
-                    selectableRows.append(NSIndexPath(forItem: rows[index].count - 1, inSection: index))
-                }
-            }
+            let textSize = UIFont.systemFontOfSize(16).sizeOfString(rows[index][rows[index].count - 1][1], constrainedToWidth: Double(self.view.frame.width)).width
             
+            let mainTitleWidth = UIFont.systemFontOfSize(16).sizeOfString(rows[index][rows[index].count - 1][0], constrainedToWidth: Double(self.view.frame.width)).width
+            
+            // This determines if the string is too long to all be shown. If it is, we make is selectable so we can expand it for people
+            if textSize > self.view.frame.width - mainTitleWidth - 30 {
+                selectableRows.append(NSIndexPath(forItem: rows[index].count - 1, inSection: index))
+            }
             
             
             if let correction = quest.Correction {
@@ -271,6 +255,10 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
             cell.descriptionTextView.dataDetectorTypes = .All
             cell.userInteractionEnabled = true;
             
+            if !quest.hasPDF() && !quest.hasClues() {
+                cell.setCluesButtonEnabled(false)
+            }
+            
             titleCell = cell
             
             let query = PFQuery(className: "Quests")
@@ -338,6 +326,10 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
         return sections[section]
     }
     
+    func cluesButtonPressed() {
+        self.performSegueWithIdentifier("showPDF", sender: object!.pdf)
+    }
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         var animated = false
         let quest = object!
@@ -348,16 +340,6 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
         }
         
         switch rows[indexPath.section][indexPath.row][0]{
-            case "PDF":
-                animated = quest.hasPDF()
-                self.performSegueWithIdentifier("showPDF", sender: quest.pdf)
-            break
-            
-            case "Clues":
-                animated = quest.hasClues()
-                self.performSegueWithIdentifier("showClues", sender: nil)
-            break
-            
             case quest.Location:
                 animated = true
                 self.performSegueWithIdentifier("showDirections", sender: nil)
@@ -366,7 +348,7 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
             case "Things to bring":
                 if (self.selectableRows.contains(indexPath)) {
                     animated = true
-                    SCLAlertView().showInfo("Things to bring", subTitle: String(quest.Bring))
+                    SCLAlertView().showInfo("Things to bring", subTitle: String(quest.Bring!))
                 }
             break
             
