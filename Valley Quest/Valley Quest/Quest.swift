@@ -48,6 +48,11 @@ class Quest: PFObject, PFSubclassing {
     @NSManaged var gps_loc: PFGeoPoint?
     @NSManaged var gps_end: String?
     
+    var closed: Bool {
+        get { return self["closed"] as! Bool }
+        set { self["closed"] = newValue }
+    }
+    
     var start: CLLocation? {
         get {
             if let loc = gps_loc {
@@ -105,7 +110,7 @@ class Quest: PFObject, PFSubclassing {
     }
     
     func isClosed() -> Bool {
-        return (self.cluesLocation != nil && self.cluesLocation!.lowercaseString.containsString("closed")) || (self.Correction != nil && self.Correction!.lowercaseString.containsString("closed"))
+        return (self.cluesLocation != nil && self.cluesLocation!.lowercaseString.containsString("closed")) || (self.Correction != nil && self.Correction!.lowercaseString.containsString("closed")) || self.closed
     }
     
 //    func getSource() -> String? {

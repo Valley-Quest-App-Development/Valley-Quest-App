@@ -76,7 +76,7 @@ class QuestDetailCell: UITableViewCell {
     
     func makeClosed() {
         self.closed = true
-        self.cluesButton.enabled = false
+        self.setCluesButtonEnabled(false)
         self.updateDifficultyAndDuration()
     }
     

@@ -322,13 +322,6 @@ class QuestController: UIViewController, UITableViewDelegate, UITableViewDataSou
         self.refreshControl.attributedTitle = NSAttributedString(string: "Refreshing...")
         let object = PFQuery(className: "serverMove")
         
-        if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
-            delegate.locationController?.getOneLocation({ (location) in
-                self.currentLocation = location
-                self.searchForNearQuests()
-            })
-        }
-        
         object.findObjectsInBackgroundWithBlock { (objects, error) in
             if let objects = objects where objects.count > 0 {
                 SCLAlertView().showNotice("Server maintainance", subTitle: "The sever is under maintanance")
@@ -377,7 +370,14 @@ class QuestController: UIViewController, UITableViewDelegate, UITableViewDataSou
                 self.showNearMeSelector = result.1
                 self.hasGPS = result.1
                 Quest.sortQuests(&self.quests)
-                self.searchForNearQuests()
+                
+                
+                if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate where result.1 {
+                    delegate.locationController?.getOneLocation({ (location) in
+                        self.currentLocation = location
+                        self.searchForNearQuests()
+                    })
+                }
                 callback(true, error)
                 return
             }
