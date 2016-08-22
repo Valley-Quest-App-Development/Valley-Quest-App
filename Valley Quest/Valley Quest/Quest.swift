@@ -34,7 +34,6 @@ class Quest: PFObject, PFSubclassing {
     @NSManaged var Season: String
     @NSManaged var SpecialFeatures: String
     @NSManaged var Location: String
-    @NSManaged var GPS: PFGeoPoint?
     @NSManaged var Bring: String?
     @NSManaged var Description: String
     @NSManaged var Difficulty: String
@@ -46,6 +45,20 @@ class Quest: PFObject, PFSubclassing {
     @NSManaged var book: String?
     @NSManaged var Correction: String?
     @NSManaged var duration: NSNumber?
+    @NSManaged var gps_loc: PFGeoPoint?
+    @NSManaged var gps_end: String?
+    
+    var start: CLLocation? {
+        get {
+            if let loc = gps_loc {
+                return CLLocation(latitude: loc.latitude, longitude: loc.longitude);
+            }else{
+                return nil
+            }
+        }
+        set {}
+    }
+    var end: CLLocation?
     
     // ----------------------------
     // Initialization methods
@@ -80,7 +93,7 @@ class Quest: PFObject, PFSubclassing {
     }
     
     func hasGPS() -> Bool {
-        return self.GPS != nil
+        return self.gps_loc != nil
     }
     
     func hasClues() -> Bool {
@@ -115,19 +128,21 @@ class Quest: PFObject, PFSubclassing {
     }
     
     /**
-     Parses the given PFObjects into quest objects
+     Parses the given PFObjects into quest objects, and returns a tuple. The second object is a boolean that indicates if there are quests with gps
     */
-    class func getQuestsFromPFOBjects(objects: [PFObject]) -> Array<Quest> {
+    class func getQuestsFromPFOBjects(objects: [PFObject]) -> (Array<Quest>, Bool) {
         var array = [Quest]()
+        var foundGPS = false
         
         for quest in objects {
             if let quest = quest as? Quest {
                 array.append(quest)
                 quest.addToSpotlight()
+                foundGPS = foundGPS || quest.hasGPS()
             }
         }
         
-        return array
+        return (array, foundGPS)
     }
     
     static func sortQuests(inout quests: Array<Quest>) {
@@ -135,42 +150,4 @@ class Quest: PFObject, PFSubclassing {
             return quest1.Name < quest2.Name
         }
     }
-    
-    // Quicksort
-    
-    private static func quickSort(inout array: Array<Quest>, start: Int, end: Int) {
-        if (start >= end) {
-            return;
-        }
-        
-        let part = partition(&array, start: start, end: end)
-        
-        quickSort(&array, start: start, end: part - 1)
-        quickSort(&array, start: part + 1, end: end)
-    }
-    
-    private static func partition(inout array: Array<Quest>, start: Int, end: Int) -> Int {
-        let compareValue = array[end]
-        var under = start
-        var positon = start
-        
-        while (positon < end) {
-            if (compareValue.Name > array[positon].Name) {
-                swap(&array, a: positon, b: under)
-                under += 1
-            }
-            positon += 1
-        }
-        
-        swap(&array, a: end, b: under)
-        return under;
-    }
-    
-    private static func swap(inout array: Array<Quest>, a: Int, b: Int) {
-        let holder = array[a]
-        array[a] = array[b]
-        array[b] = holder
-    }
-    
-    // End Quicksort
 }

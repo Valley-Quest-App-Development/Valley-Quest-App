@@ -16,9 +16,9 @@ class QuestDetailCell: UITableViewCell {
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var staticItemsHeight: NSLayoutConstraint!
     @IBOutlet weak var saveButton: UIButton!
-    @IBOutlet weak var activity: UIActivityIndicatorView!
-    @IBOutlet weak var saveHeight: NSLayoutConstraint!
-    @IBOutlet weak var saveButtonBackground: UIImageView!
+    @IBOutlet weak var cluesHeight: NSLayoutConstraint!
+    @IBOutlet weak var cluesButtonBackground: UIImageView!
+    @IBOutlet weak var cluesButton: UIButton!
     
     private static let descriptionFont = UIFont.systemFontOfSize(15)
     private static let lineFragmentPadding: CGFloat = 10
@@ -29,8 +29,8 @@ class QuestDetailCell: UITableViewCell {
     var delegate: QuestDetailViewController?
     
     func initialize() {
-        self.saveButtonBackground.clipsToBounds = true;
-        self.saveButtonBackground.layer.cornerRadius = 10
+        self.cluesButtonBackground.clipsToBounds = true;
+        self.cluesButtonBackground.layer.cornerRadius = 10
         self.descriptionTextView.setContentOffset(CGPointMake(0, 0), animated: false)
     }
     
@@ -52,6 +52,11 @@ class QuestDetailCell: UITableViewCell {
         self.updateDifficultyAndDuration()
     }
     
+    func setCluesButtonEnabled(flag: Bool) {
+        self.cluesButton.enabled = flag
+        cluesButtonBackground.image = UIImage(named: flag ? "Save Button" : "Save Button disabled")
+    }
+    
     @IBAction func save(sender: UIButton) {
         if let delegate = delegate {
             if NSUserDefaults.standardUserDefaults().objectForKey("saveDone") == nil || !NSUserDefaults.standardUserDefaults().boolForKey("saveDone") && !delegate.saved {
@@ -71,22 +76,25 @@ class QuestDetailCell: UITableViewCell {
     
     func makeClosed() {
         self.closed = true
+        self.cluesButton.enabled = false
         self.updateDifficultyAndDuration()
     }
     
     func startLoadingSave() {
-        self.activity.startAnimating()
         self.saveButton.enabled = false
     }
     
     func endLoadingSave(saved: Bool) {
-        self.activity.stopAnimating()
         self.saveButton.enabled = true
         if saved {
-            self.saveButton.setTitle("✓ Saved", forState: .Normal)
+            self.saveButton.setImage(UIImage(named: "checkmark"), forState: .Normal)
         }else{
-            self.saveButton.setTitle("Save", forState: .Normal)
+            self.saveButton.setImage(UIImage(named: "cloud-download"), forState: .Normal)
         }
+    }
+    
+    @IBAction func cluesButtonPressed(sender: AnyObject) {
+        self.delegate!.cluesButtonPressed()
     }
     
     private func updateDifficultyAndDuration() {
@@ -120,7 +128,7 @@ class QuestDetailCell: UITableViewCell {
     }
     
     func getHeight() -> CGFloat {
-        let buttonHeight = 8 * 2 + (saveHeight != nil ? saveHeight.constant : 43)
+        let buttonHeight = 8 * 2 + (cluesHeight != nil ? cluesHeight.constant : 43)
         return self.getHeightOfDescription() + (staticItemsHeight != nil ? staticItemsHeight.constant : 74) + 35 + buttonHeight
     
     }
