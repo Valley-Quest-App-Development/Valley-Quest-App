@@ -75,7 +75,6 @@
 		2EE58D8C1BE3809F7FA2EAF1 /* Pods_Valley_QuestTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Valley_QuestTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FFE5D1F6CE686101582F07F /* Pods_Valley_Quest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Valley_Quest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		380DEB1881F2958CD1B1825B /* Pods_Valley_QuestUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Valley_QuestUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		52005B691D6B950F008489D3 /* Parse Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "Parse Playground.playground"; sourceTree = "<group>"; };
 		520B85DD1D41610700CEDAC6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		522038ED1D23183A009D69B1 /* ValleyQuestState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValleyQuestState.swift; sourceTree = "<group>"; };
 		52232E961D22E316001E3955 /* Valley Quest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Valley Quest.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -198,7 +197,6 @@
 			isa = PBXGroup;
 			children = (
 				52232E991D22E316001E3955 /* AppDelegate.swift */,
-				52005B691D6B950F008489D3 /* Parse Playground.playground */,
 				52232EC91D22E466001E3955 /* QuestController.swift */,
 				52232ED31D22E494001E3955 /* Parse Classes */,
 				52232ECB1D22E46F001E3955 /* FirstLoadViewController.swift */,
