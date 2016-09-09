@@ -1,7 +1,7 @@
 PODS:
   - BEMCheckBox (1.2.1)
   - Bolts/Tasks (1.7.0)
-  - Crashlytics (3.7.3):
+  - Crashlytics (3.8.1):
     - Fabric (~> 1.6.3)
   - Fabric (1.6.7)
   - FirebaseAnalytics (3.2.1):
@@ -38,7 +38,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   BEMCheckBox: 264b8b72aa92adbfefa265cc58a0cdb86b207b9f
   Bolts: a0058fa3b331c5a1e4402d534f2dae36dbff31e4
-  Crashlytics: 76f6beaff70acf226139582c09c78461597c2b98
+  Crashlytics: 4391d8df0b125345e9f209c5db6e7f40a6a8435d
   Fabric: caf7580c725e64db144f610ac65cd60956911dc7
   FirebaseAnalytics: 0fd6532cb2c3d03cd5cf26ad295ccb091efd3104
   FirebaseInstanceID: a9d923f3d0b6fbf9fac89310860357aaadc34be5

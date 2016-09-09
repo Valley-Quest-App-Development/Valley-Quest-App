@@ -10,61 +10,42 @@ import Foundation
 import MapKit
 
 class DirectionsViewController: UIViewController {
-    @IBOutlet weak var openInMapsButton: UIButton!
-    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UITextView!
     
-    var text: String?
-    var coords: CLLocationCoordinate2D?
-    var name: String?
-    
-    func setThings(text: String, coords: CLLocationCoordinate2D?, name: String) {
-        self.text = text
-        self.coords = coords
-        self.name = name
-        if label != nil {
-            reload()
-        }
-    }
+    var quest: Quest!
     
     override func viewDidLoad() {
-        self.title = name
-        reload()
-    }
-    
-    func reload() {
-        if let text = self.text {
-            if let label = self.label {
-                print(text);
-                let paragraphStyle = NSMutableParagraphStyle()
-                
-                if (UIDevice.currentDevice().userInterfaceIdiom == .Pad) {
-                    paragraphStyle.lineSpacing = 30
-                }else{
-                    paragraphStyle.maximumLineHeight = 20
-                    paragraphStyle.minimumLineHeight = 5
-                }
-                
-                paragraphStyle.alignment = NSTextAlignment.Center
-                
-                let attrString = NSMutableAttributedString(string: text)
-                attrString.addAttribute(NSParagraphStyleAttributeName, value:paragraphStyle, range:NSMakeRange(0, attrString.length))
-                
-                label.attributedText = attrString
-            }
-            if coords == nil {
-                openInMapsButton.hidden = true
-                openInMapsButton.enabled = false
-            }
+        super.viewDidLoad()
+        
+        descriptionLabel.text = quest.Description
+        titleLabel.text = quest.Name
+        
+        if let gps = quest.gps_loc {
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = CLLocationCoordinate2D(latitude: gps.latitude, longitude: gps.longitude)
+            
+            self.mapView.addAnnotation(annotation)
         }
     }
     
-    @IBAction func openInMaps(sender: AnyObject) {
-        if let coords = coords, let name = name {
-            HelperMethods.openLocation(coords, name: name)
+    func processName(string: String) -> String {
+        var output = string.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+        
+        if (!output.lowercaseString.containsString("quest")) {
+            output += " Quest"
         }
+        
+        return output
     }
     
-    @IBAction func hide(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(true)
+    @IBAction func mapKitTouched(sender: AnyObject) {
+        if let data = quest.gps_loc {
+            let coordinate = CLLocationCoordinate2D(latitude: data.latitude, longitude: data.longitude)
+            let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: coordinate, addressDictionary:nil))
+            mapItem.name = processName(quest.Name) + " Start"
+            mapItem.openInMapsWithLaunchOptions([MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving])
+        }
     }
 }

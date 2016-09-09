@@ -89,6 +89,7 @@ class Modifier {
         private var value: String
         private var query: String
         var quests: [Quest]
+        var givenQuestNames = [String]()
         
         init(value: String) {
             self.value = value
@@ -107,6 +108,10 @@ class Modifier {
             query.limit = 1000
             
             completeQuery(query, callback: callback)
+        }
+        
+        func splitQuestsWithSeperator(seperator: Character) {
+            givenQuestNames = self.value.characters.split{$0 == seperator}.map(String.init)
         }
         
         private func completeQuery(query: PFQuery, callback: (error: NSError?) -> Void) {

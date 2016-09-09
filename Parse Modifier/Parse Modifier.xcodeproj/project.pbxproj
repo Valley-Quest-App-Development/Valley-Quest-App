@@ -29,6 +29,7 @@
 		5212AA641D6B9AC50037634C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5212AA661D6B9AC50037634C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5216AB301D71FD9D00C4A535 /* MapBuildings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapBuildings.swift; sourceTree = "<group>"; };
+		5282E8131D82637E0040D4EA /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		8C7DEDF0CB1151CED8552838 /* Pods-Parse Modifier.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parse Modifier.release.xcconfig"; path = "Pods/Target Support Files/Pods-Parse Modifier/Pods-Parse Modifier.release.xcconfig"; sourceTree = "<group>"; };
 		F23F733504D267C0DE896A44 /* Pods_Parse_Modifier.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Parse_Modifier.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -48,6 +49,7 @@
 		5212AA511D6B9AC50037634C = {
 			isa = PBXGroup;
 			children = (
+				5282E8131D82637E0040D4EA /* MyPlayground.playground */,
 				52030E3C1D6B9E6700C659E4 /* BridgingHeader.h */,
 				5212AA5C1D6B9AC50037634C /* Parse Modifier */,
 				5212AA5B1D6B9AC50037634C /* Products */,

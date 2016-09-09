@@ -79,7 +79,7 @@ class Quest: PFObject, PFSubclassing {
     }
     
     func isClosed() -> Bool {
-        return (self.cluesLocation != nil && self.cluesLocation!.lowercaseString.containsString("closed")) || (self.Correction != nil && self.Correction!.lowercaseString.containsString("closed")) || self.closed
+        return (self.cluesLocation != nil && self.cluesLocation!.lowercaseString.containsString("closed")) || (self.Correction != nil && self.Correction!.lowercaseString.containsString("closed"))
     }
     
 //    func getSource() -> String? {

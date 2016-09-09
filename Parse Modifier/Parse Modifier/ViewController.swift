@@ -11,15 +11,15 @@ import Cocoa
 class ViewController: NSViewController {
     
     // Name the process you are doing
-    let processName = "BookUp Delete Buildings"
+    let processName = "Fix Closed Quests"
     
     // This is where I will place code for performing an action
     // I should run done when I finish, and error if I fail
     // I should call updateProgress when I have an update in my progress
     func go(value: String, query: String) {
-        let mod = Modifier.BookUpModifyer(value: value, query: query)
+        let mod = Modifier.QuestMod(value: value, query: query)
         
-        bookupRemoveBuilings(mod)
+        repairAllClosed(mod)
     }
     
     func bookupRemoveBuilings(mod: Modifier.BookUpModifyer) {
@@ -75,6 +75,85 @@ class ViewController: NSViewController {
     }
     
     // -- My functions --
+    
+    func makeAllClosed(mod: Modifier.QuestMod) {
+        self.logMessage("Loading...", newLine: true)
+        mod.loadQuests { (error) in
+            self.logMessage(" done", newLine: false)
+            
+            self.logMessage("Splitting...", newLine: true)
+            mod.splitQuestsWithSeperator("&")
+            self.logMessage(" done", newLine: false)
+            
+            self.initProgress(Double(2 + mod.quests.count * mod.givenQuestNames.count + mod.quests.count))
+            
+            
+            self.logMessage("Compiling...", newLine: true)
+            var i = 0;
+            
+            var closedQuests = [Quest]()
+            for quest in mod.quests {
+                var x = 0;
+                for name in mod.givenQuestNames {
+                    self.updateProgress(Double(2 + x * i))
+                    let name1 = quest.Name
+                    
+                    let difference = zip(name.characters, name1.characters).filter{$0 != $1}
+                    
+                    if difference.count < 12 || name1.containsString(name) || name.containsString(name1) {
+                        
+                        quest.closed = true
+                        closedQuests.append(quest)
+                    }
+                    x += 1;
+                }
+                i += 1;
+            }
+            self.logMessage(" done", newLine: false)
+            
+            self.logMessage("Saving...", newLine: true)
+            mod.saveAll({ (error) in
+                self.done(Quest.getNamesString(closedQuests, separator: "\n"))
+                }, progress: { (progress) in
+                    self.initProgress(Double(2 + mod.quests.count * mod.givenQuestNames.count + progress))
+            })
+        }
+    }
+    
+    func searchAndDelete(mod: Modifier.QuestMod) {
+        self.logMessage("Searching...", newLine: true)
+        mod.search { (error) in
+            if let error = error {
+                self.error(String(error))
+                return
+            }
+            
+            self.initProgress(Double(2 + mod.quests.count))
+            
+            self.logMessage(" done", newLine: false)
+            self.updateProgress(1)
+            
+            self.logMessage("Compiling...", newLine: true)
+            let string = Quest.getNamesAndLocsString(mod.quests, separator: "\n")
+            self.logMessage(" done", newLine: false)
+            
+            self.updateProgress(2)
+            
+            self.logMessage("Deleting...", newLine: true)
+            var i = 0;
+            for quest in mod.quests {
+                quest.deleteInBackgroundWithBlock({ (success, error) in
+                    i += 1;
+                    self.initProgress(Double(2 + i))
+                    
+                    if i >= mod.quests.count - 1 {
+                        self.logMessage(" done", newLine: false)
+                        self.done(Quest.getNamesAndLocsString(mod.quests, separator: "\n"))
+                    }
+                })
+            }
+        }
+    }
     
     func search(mod: Modifier.QuestMod) {
         self.initProgress(2)
