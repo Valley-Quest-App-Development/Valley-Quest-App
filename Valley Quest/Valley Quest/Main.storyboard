@@ -399,36 +399,48 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="UFe-tg-6bD">
-                                <rect key="frame" x="0.0" y="64" width="600" height="324"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="236"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="8vv-Bd-gyV" appends="YES" id="aaK-vY-959"/>
                                 </connections>
                             </mapView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="American Precision Museum Quest: Windsor in the 1860s" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="wEq-QY-OCd">
-                                <rect key="frame" x="20" y="396" width="560" height="29"/>
+                                <rect key="frame" x="20" y="308" width="560" height="29"/>
                                 <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="26"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="khG-vn-65M">
-                                <rect key="frame" x="20" y="433" width="560" height="167"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="khG-vn-65M">
+                                <rect key="frame" x="20" y="345" width="560" height="255"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Windsor is located on Rte. 5, between exits 8 and 9 off Interstate 91. American Precision Museum is located on Rte 5 (Main St.), at the south end of Windsor Village, just south of the stoplight at the intersection of Main and Union/Bridge streets.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
                             </textView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No location stored for this quest" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KCy-Pz-vuy">
+                                <rect key="frame" x="0.0" y="64" width="600" height="236"/>
+                                <color key="backgroundColor" red="0.33599137745569541" green="0.3430559961928934" blue="0.33856674842251921" alpha="0.34118150684931509" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wEq-QY-OCd" firstAttribute="top" secondItem="UFe-tg-6bD" secondAttribute="bottom" constant="8" id="18U-GS-41g"/>
                             <constraint firstItem="wEq-QY-OCd" firstAttribute="trailing" secondItem="MZn-JY-GDZ" secondAttribute="trailingMargin" id="5P4-ER-oWb"/>
+                            <constraint firstItem="KCy-Pz-vuy" firstAttribute="top" secondItem="afu-9B-JRx" secondAttribute="bottom" id="91n-yU-MT1"/>
+                            <constraint firstItem="KCy-Pz-vuy" firstAttribute="leading" secondItem="MZn-JY-GDZ" secondAttribute="leadingMargin" constant="-20" id="FR0-xL-2SS"/>
                             <constraint firstItem="khG-vn-65M" firstAttribute="top" secondItem="wEq-QY-OCd" secondAttribute="bottom" constant="8" id="FlW-ju-e86"/>
-                            <constraint firstItem="S8w-tK-EEh" firstAttribute="top" secondItem="UFe-tg-6bD" secondAttribute="bottom" constant="212" id="J0J-Rg-m5s"/>
+                            <constraint firstItem="S8w-tK-EEh" firstAttribute="top" secondItem="UFe-tg-6bD" secondAttribute="bottom" constant="300" id="J0J-Rg-m5s"/>
                             <constraint firstItem="S8w-tK-EEh" firstAttribute="top" secondItem="khG-vn-65M" secondAttribute="bottom" id="RDG-Vm-7bw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KCy-Pz-vuy" secondAttribute="trailing" constant="-20" id="SjB-yW-3q6"/>
                             <constraint firstAttribute="trailing" secondItem="UFe-tg-6bD" secondAttribute="trailing" id="Tzw-7k-u2d"/>
                             <constraint firstItem="wEq-QY-OCd" firstAttribute="leading" secondItem="MZn-JY-GDZ" secondAttribute="leadingMargin" id="UM3-cz-Z6m"/>
                             <constraint firstItem="khG-vn-65M" firstAttribute="trailing" secondItem="MZn-JY-GDZ" secondAttribute="trailingMargin" id="blZ-n3-OV8"/>
+                            <constraint firstItem="KCy-Pz-vuy" firstAttribute="height" secondItem="UFe-tg-6bD" secondAttribute="height" id="enL-zy-xWg"/>
                             <constraint firstItem="khG-vn-65M" firstAttribute="leading" secondItem="MZn-JY-GDZ" secondAttribute="leadingMargin" id="gbF-3Z-BcG"/>
                             <constraint firstItem="UFe-tg-6bD" firstAttribute="top" secondItem="afu-9B-JRx" secondAttribute="bottom" id="hH9-UW-TLD"/>
                             <constraint firstItem="UFe-tg-6bD" firstAttribute="leading" secondItem="MZn-JY-GDZ" secondAttribute="leading" id="rGW-Kv-RgP"/>
@@ -437,6 +449,7 @@
                     <connections>
                         <outlet property="descriptionLabel" destination="khG-vn-65M" id="mqz-WW-0sh"/>
                         <outlet property="mapView" destination="UFe-tg-6bD" id="DSQ-rq-5kJ"/>
+                        <outlet property="missingLocationLabel" destination="KCy-Pz-vuy" id="mLs-HH-Ed5"/>
                         <outlet property="titleLabel" destination="wEq-QY-OCd" id="krn-0o-oVZ"/>
                     </connections>
                 </viewController>

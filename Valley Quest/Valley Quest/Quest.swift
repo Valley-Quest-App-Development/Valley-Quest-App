@@ -55,7 +55,7 @@ class Quest: PFObject, PFSubclassing {
     
     var start: CLLocation? {
         get {
-            if let loc = gps_loc {
+            if let loc = gps_loc where PFConfig.currentConfig().objectForKey("showGPS") as! Bool {
                 return CLLocation(latitude: loc.latitude, longitude: loc.longitude);
             }else{
                 return nil
@@ -98,7 +98,7 @@ class Quest: PFObject, PFSubclassing {
     }
     
     func hasGPS() -> Bool {
-        return self.gps_loc != nil
+        return self.start != nil
     }
     
     func hasClues() -> Bool {
