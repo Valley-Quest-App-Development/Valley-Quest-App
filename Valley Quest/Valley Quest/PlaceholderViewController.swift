@@ -44,7 +44,7 @@ class PlaceholderViewController: UIViewController, MFMailComposeViewControllerDe
     func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
         controller.dismissViewControllerAnimated(true, completion: nil)
         feedbackButton.enabled = true;
-        if result == MFMailComposeResultSent {
+        if result == .Sent {
             SCLAlertView().showSuccess("Thank you", subTitle: "")
         }else{
             showSendMailErrorAlert()

@@ -58,7 +58,7 @@ class FeedbackViewController: UITableViewController {
                 var cell = tableView.dequeueReusableCellWithIdentifier("cell") as? FeedbackTextViewCell
                 
                 if cell == nil {
-                    let nib: NSArray = NSBundle.mainBundle().loadNibNamed("FeedbackTextViewCell", owner: self, options: nil)
+                    let nib: NSArray = NSBundle.mainBundle().loadNibNamed("FeedbackTextViewCell", owner: self, options: nil)!
                     cell = nib.objectAtIndex(0) as? FeedbackTextViewCell
                 }
                 self.messageTextView = cell!.textView

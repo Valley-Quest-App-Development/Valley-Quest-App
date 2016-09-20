@@ -156,11 +156,11 @@ class QuestController: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
         controller.dismissViewControllerAnimated(true, completion: nil)
-        if result == MFMailComposeResultSent {
+        if result == .Sent {
             let alert = SCLAlertView()
             
             alert.addButton("Rate the app", action: { 
-                UIApplication.sharedApplication().openURL(NSURL(string : "itms-apps://itunes.apple.com/app/id1083576851")!)
+                UIApplication.sharedApplication().openURL(NSURL(string : "itms-apps://itunes.apple.com/app/id1083576851")!, options: [:], completionHandler: nil)
             })
                 
             alert.showSuccess("Thank you!", subTitle: "We very much appreciate your feedback. If you would like to help us out further please rate the app")
@@ -490,7 +490,7 @@ class QuestController: UIViewController, UITableViewDelegate, UITableViewDataSou
         
         // If it can't find one, then we will load it from the actuall class
         if cell == nil {
-            let nib: NSArray = NSBundle.mainBundle().loadNibNamed("QuestCell", owner: self, options: nil)
+            let nib: NSArray = NSBundle.mainBundle().loadNibNamed("QuestCell", owner: self, options: nil)!
             cell = nib.objectAtIndex(0) as? UITableViewCell
         }
         

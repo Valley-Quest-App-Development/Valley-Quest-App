@@ -61,7 +61,7 @@ class FirstLoadViewController: UIViewController, MFMailComposeViewControllerDele
         let alert = UIAlertController(title: "Resources", message: nil, preferredStyle: .ActionSheet)
         
         alert.addAction(UIAlertAction(title: "Privacy Policy", style: .Default, handler: { (action) in
-            UIApplication.sharedApplication().openURL(NSURL(string: "http://www.cs.dartmouth.edu/~jkotz/Valley-Quest/")!)
+            UIApplication.sharedApplication().openURL(NSURL(string: "http://www.cs.dartmouth.edu/~jkotz/Valley-Quest/")!, options: [:], completionHandler: nil)
         }))
         
         alert.addAction(UIAlertAction(title: "Contact us", style: .Default, handler: { (action) in
@@ -75,7 +75,7 @@ class FirstLoadViewController: UIViewController, MFMailComposeViewControllerDele
     
     @IBAction func donate(sender: AnyObject) {
         if let url = NSURL(string: "https://www.networkforgood.org/donation/ExpressDonation.aspx?ORGID2=030355283&vlrStratCode=sZOvB%2f0cd%2fdoiEayuvrC00Wpqg5KQXiMKCNvYiEF8abJeD1aG8utwd4qpQEAinGo") {
-            UIApplication.sharedApplication().openURL(url)
+            UIApplication.sharedApplication().openURL(url, options: [:], completionHandler: nil)
         }
     }
     
@@ -97,7 +97,7 @@ class FirstLoadViewController: UIViewController, MFMailComposeViewControllerDele
     
     func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
         controller.dismissViewControllerAnimated(true, completion: nil)
-        if result == MFMailComposeResultSent {
+        if result == .Sent {
 //            SCLAlertView().showSuccess("Thank you", subTitle: "")
         }else{
             showSendMailErrorAlert()

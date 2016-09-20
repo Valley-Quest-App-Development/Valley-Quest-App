@@ -180,7 +180,7 @@ class PDFViewController: UIViewController, UIWebViewDelegate {
                     }
                 })
                 alert.addButton("Rate the app", action: {
-                    UIApplication.sharedApplication().openURL(NSURL(string : "itms-apps://itunes.apple.com/app/id1083576851")!)
+                    UIApplication.sharedApplication().openURL(NSURL(string : "itms-apps://itunes.apple.com/app/id1083576851")!, options: [:], completionHandler: nil)
                 })
                 alert.showSuccess("Complete", subTitle: "You have now completed \(numComplete + 1) quests! Nice work!")
                 NSUserDefaults.standardUserDefaults().setInteger(numComplete + 1, forKey: "questsCompleted")

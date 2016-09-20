@@ -35,7 +35,7 @@ class CluesViewController: UITableViewController {
         var cell: VariableHeightCell? = tableView.dequeueReusableCellWithIdentifier("cluesCell") as? VariableHeightCell
         
         if cell == nil {
-            let nib: NSArray = NSBundle.mainBundle().loadNibNamed("VariableHeightCell", owner: self, options: nil)
+            let nib: NSArray = NSBundle.mainBundle().loadNibNamed("VariableHeightCell", owner: self, options: nil)!
             cell = nib.objectAtIndex(0) as? VariableHeightCell
         }
         
