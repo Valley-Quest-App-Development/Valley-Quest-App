@@ -14,14 +14,4 @@ target 'Valley Quest' do
   pod 'Google/Analytics'
   pod 'NPSegmentedControl'
 
-  target 'Valley QuestTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'Valley QuestUITests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
 end

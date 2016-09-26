@@ -178,7 +178,7 @@ class QuestController: UIViewController, UITableViewDelegate, UITableViewDataSou
         }
     }
     
-    func tappedTopNavBar() {
+    @IBAction func tappedNavBar(sender: AnyObject) {
         self.tableView.setContentOffset(CGPointMake(0, -self.searchController.searchBar.frame.height * 1.4), animated: true)
     }
     
@@ -193,11 +193,6 @@ class QuestController: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     override func viewWillAppear(animated: Bool) {
-        if self.loading {
-            self.tableView.setContentOffset(CGPointMake(0, -self.refreshControl.frame.size.height), animated: true)
-            self.refreshControl.beginRefreshing()
-        }
-        
         self.tableView.reloadData()
         refreshData()
     }
@@ -318,46 +313,35 @@ class QuestController: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     func refreshData() {
         loading = true
-        self.refreshControl.beginRefreshing()
-        self.refreshControl.attributedTitle = NSAttributedString(string: "Refreshing...")
-        let object = PFQuery(className: "serverMove")
+            
+        let reach = Reachability.reachabilityForInternetConnection()
         
-        object.findObjectsInBackgroundWithBlock { (objects, error) in
-            if let objects = objects where objects.count > 0 {
-                SCLAlertView().showNotice("Server maintainance", subTitle: "The sever is under maintanance")
+        if (reach.currentReachabilityStatus() != NotReachable) {
+            let query: PFQuery = PFQuery(className: "Quests")
+            query.limit = 1000
+            self.completeRefreshQuery(query){ (success, error) in
+                self.tableView.reloadData()
+                self.loading = false
             }
-            
-            let reach = Reachability.reachabilityForInternetConnection()
-            
-            if (reach.currentReachabilityStatus() != NotReachable) {
-                let query: PFQuery = PFQuery(className: "Quests")
-                query.limit = 1000
-                self.completeRefreshQuery(query){ (success, error) in
-                    self.tableView.reloadData()
-                    self.refreshControl.endRefreshing()
-                    self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-                    self.loading = false
-                }
-            }
-            
-            let firstQuery: PFQuery = PFQuery(className: "Quests")
-            firstQuery.limit = 1000
-            firstQuery.fromLocalDatastore()
-            firstQuery.findObjectsInBackgroundWithBlock({ (objects, error) in
-                if let objects = objects as? [Quest] {
-                    self.savedQuests.removeAll()
-                    for object in objects {
-                        if State.questInProgress != nil && object.objectId != State.questInProgress?.objectId {
-                            self.savedQuests.append(object)
-                        }else if State.questInProgress == nil {
-                            self.savedQuests.append(object)
-                        }
-                    }
-                    Quest.sortQuests(&self.savedQuests)
-                    self.tableView.reloadData()
-                }
-            })
         }
+        
+        let firstQuery: PFQuery = PFQuery(className: "Quests")
+        firstQuery.limit = 1000
+        firstQuery.fromLocalDatastore()
+        firstQuery.findObjectsInBackgroundWithBlock({ (objects, error) in
+            if let objects = objects as? [Quest] {
+                self.savedQuests.removeAll()
+                for object in objects {
+                    if State.questInProgress != nil && object.objectId != State.questInProgress?.objectId {
+                        self.savedQuests.append(object)
+                    }else if State.questInProgress == nil {
+                        self.savedQuests.append(object)
+                    }
+                }
+                Quest.sortQuests(&self.savedQuests)
+                self.tableView.reloadData()
+            }
+        })
     }
     
     func completeRefreshQuery(query: PFQuery, callback: (Bool, NSError?) -> Void) {

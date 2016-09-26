@@ -64,6 +64,7 @@ class Quest: PFObject, PFSubclassing {
         set {}
     }
     var end: CLLocation?
+    var saved = false
     
     // ----------------------------
     // Initialization methods

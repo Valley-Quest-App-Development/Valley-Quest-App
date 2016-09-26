@@ -167,6 +167,10 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
                 // Then unsave it
                 quest.unpinInBackgroundWithBlock({ (success, error) in
                     if success {
+                        if let pdf = quest.pdf {
+                            pdf.unsaveLocally()
+                        }
+                        
                         self.saved = false
                         self.titleCell.endLoadingSave(false)
                         Answers.logCustomEventWithName("Unsaved quest", customAttributes: ["name" : quest.Name])
@@ -193,30 +197,69 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
                 // Save it
                 quest.pinInBackgroundWithBlock({ (success, error) in
                     if success {
-                        self.saved = true
-                        self.titleCell.endLoadingSave(true)
-                        Answers.logCustomEventWithName("Saved quest", customAttributes: ["name" : quest.Name])
-                        if let delegate = self.delegate {
-                            if delegate.savedQuests.indexOf(quest) == nil {
-                                delegate.savedQuests.append(quest)
-                                Quest.sortQuests(&delegate.savedQuests)
+                        if let pdf = quest.pdf {
+                            pdf.saveLocallyWithBlock({ (success, error) in
+                                if success {
+                                    
+                                    self.saved = true
+                                    self.titleCell.endLoadingSave(true)
+                                    
+                                    Answers.logCustomEventWithName("Saved quest", customAttributes: ["name" : quest.Name])
+                                    if let delegate = self.delegate {
+                                        if delegate.savedQuests.indexOf(quest) == nil {
+                                            delegate.savedQuests.append(quest)
+                                            Quest.sortQuests(&delegate.savedQuests)
+                                        }
+                                        delegate.tableView.reloadData()
+                                    }
+                                    
+                                    if NSUserDefaults.standardUserDefaults().objectForKey("saveDone") == nil || !NSUserDefaults.standardUserDefaults().boolForKey("saveDone") {
+                                        SCLAlertView().showSuccess("Saved!", subTitle: "Your saved quests will be shown at the top of the quest list")
+                                    }
+                                    
+                                    
+                                    GAI.sharedInstance().defaultTracker.send(GAIDictionaryBuilder.createEventWithCategory(
+                                        USER_ACTION_KEY,
+                                        action: QUEST_SAVE_KEY,
+                                        label: quest.objectId,
+                                        value: nil
+                                        ).build() as [NSObject: AnyObject])
+                                    
+                                    NSUserDefaults.standardUserDefaults().setBool(true, forKey: "saveDone")
+                                    
+                                }else{
+                                    print(error?.description)
+                                    self.titleCell.endLoadingSave(true)
+                                    SCLAlertView().showError("Failed to save!", subTitle: "Contact Vital Communities for support")
+                                }
+                            })
+                        }else{
+                            self.saved = true
+                            self.titleCell.endLoadingSave(true)
+                            
+                            Answers.logCustomEventWithName("Saved quest", customAttributes: ["name" : quest.Name])
+                            if let delegate = self.delegate {
+                                if delegate.savedQuests.indexOf(quest) == nil {
+                                    delegate.savedQuests.append(quest)
+                                    Quest.sortQuests(&delegate.savedQuests)
+                                }
+                                delegate.tableView.reloadData()
                             }
-                            delegate.tableView.reloadData()
+                            
+                            if NSUserDefaults.standardUserDefaults().objectForKey("saveDone") == nil || !NSUserDefaults.standardUserDefaults().boolForKey("saveDone") {
+                                SCLAlertView().showSuccess("Saved!", subTitle: "Your saved quests will be shown at the top of the quest list")
+                            }
+                            
+                            
+                            GAI.sharedInstance().defaultTracker.send(GAIDictionaryBuilder.createEventWithCategory(
+                                USER_ACTION_KEY,
+                                action: QUEST_SAVE_KEY,
+                                label: quest.objectId,
+                                value: nil
+                                ).build() as [NSObject: AnyObject])
+                            
+                            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "saveDone")
                         }
-                        
-                        if NSUserDefaults.standardUserDefaults().objectForKey("saveDone") == nil || !NSUserDefaults.standardUserDefaults().boolForKey("saveDone") {
-                            SCLAlertView().showSuccess("Saved!", subTitle: "Your saved quests will be shown at the top of the quest list")
-                        }
-                        
-                        
-                        GAI.sharedInstance().defaultTracker.send(GAIDictionaryBuilder.createEventWithCategory(
-                            USER_ACTION_KEY,
-                            action: QUEST_SAVE_KEY,
-                            label: quest.objectId,
-                            value: nil
-                            ).build() as [NSObject: AnyObject])
-                        
-                        NSUserDefaults.standardUserDefaults().setBool(true, forKey: "saveDone")
                     }else{
                         print(error?.description)
                         self.titleCell.endLoadingSave(true)
@@ -269,6 +312,7 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
                         if object.objectId == quest.objectId {
                             // It was previously there
                             self.saved = true;
+                            quest.saved = true;
                             dispatch_async(dispatch_get_main_queue(), {
                                 self.titleCell.endLoadingSave(true)
                             })
@@ -293,9 +337,11 @@ class QuestDetailViewController: UIViewController, UITableViewDelegate, UITableV
         cell?.detailTextLabel?.text = rows[indexPath.section ][indexPath.row].count > 1 ? rows[indexPath.section][indexPath.row][1] : ""
         if selectableRowsContains(indexPath) {
             cell?.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+            cell?.userInteractionEnabled = true
         }else{
             cell?.accessoryType = .None
             cell?.selectionStyle = UITableViewCellSelectionStyle.None
+            cell?.userInteractionEnabled = false
         }
         
         return cell!

@@ -35,6 +35,130 @@ extension UIApplication {
     }
 }
 
+extension NSFileManager {
+    class func documentsDir() -> String {
+        var paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) as [String]
+        return paths[0]
+    }
+    
+    class func cachesDir() -> String {
+        var paths = NSSearchPathForDirectoriesInDomains(.CachesDirectory, .UserDomainMask, true) as [String]
+        return paths[0]
+    }
+}
+
+
+extension PFFile {
+    func saveLocally() {
+        saveLocallyWithBlock(nil)
+    }
+    
+    func unsaveLocally() {
+        unsaveLocallyWithBlock(nil)
+    }
+    
+    private static func getDirectoryPath() -> NSURL? {
+        return NSURL(fileURLWithPath: NSFileManager.documentsDir()).URLByAppendingPathComponent("pdfs")
+    }
+    
+    func getLocalFilePath() -> NSURL? {
+        return PFFile.getDirectoryPath()?.URLByAppendingPathComponent(self.name)
+    }
+    
+    func getLocalFilePathString() -> String? {
+        return self.getLocalFilePath()?.absoluteString?.stringByReplacingOccurrencesOfString("file://", withString: "")
+    }
+    
+    func isSaved() -> Bool {
+        print("is saved?")
+        if let path = self.getLocalFilePath()?.absoluteString?.stringByReplacingOccurrencesOfString("file://", withString: "") {
+            let result = NSFileManager.defaultManager().fileExistsAtPath(path)
+            print(result ? "Yes" : "No")
+            return result
+        }
+        
+        print("No")
+        return false
+    }
+    
+    func unsaveLocallyWithBlock(block: PFBooleanResultBlock?) {
+        if self.isSaved() {
+            do {
+                try NSFileManager.defaultManager().removeItemAtURL(self.getLocalFilePath()!)
+                
+                if let block = block {
+                    block(true, nil)
+                }
+            } catch {
+                if let block = block {
+                    block(false, NSError(domain: "PFFile", code: 5001, userInfo: nil))
+                }
+            }
+        }else{
+            if let block = block {
+                block(true, nil)
+            }
+        }
+    }
+    
+    func saveLocallyWithBlock(block: PFBooleanResultBlock?) {
+        dispatch_async(dispatch_queue_create("com.vitalcommunities.ValleyQuest", nil)) {
+            self.getFilePathInBackgroundWithBlock { (url, error) in
+                if let url = url {
+                    
+                    
+                    let pdfData = NSData(contentsOfFile: url)
+                    if let directory = PFFile.getDirectoryPath() {
+                        
+                        do {
+                            try NSFileManager.defaultManager().createDirectoryAtURL(directory, withIntermediateDirectories: false, attributes: nil)
+                        } catch {
+                            // It already exists
+                        }
+                        
+                        if let filePath = self.getLocalFilePath() {
+                            
+                            do {
+                                try pdfData?.writeToURL(filePath, options: NSDataWritingOptions(rawValue: NSUTF8StringEncoding))
+                            
+                                dispatch_async(dispatch_get_main_queue(), {
+                                    if let block = block {
+                                        block(true, nil);
+                                    }
+                                })
+                            } catch {
+                                dispatch_async(dispatch_get_main_queue(), {
+                                    if let block = block {
+                                        block(false, NSError(domain: "PFFile", code: 5000, userInfo: nil));
+                                    }
+                                })
+                            }
+                        }else{
+                            dispatch_async(dispatch_get_main_queue(), {
+                                if let block = block {
+                                    block(false, NSError(domain: "PFFile", code: 5000, userInfo: nil));
+                                }
+                            })
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    func getFilePath(block: PFFilePathResultBlock?) {
+        if (self.isSaved()) {
+            print("Getting from local db")
+            if let block = block {
+                block(self.getLocalFilePathString(), nil)
+            }
+        }else{
+            print("Getting from parse")
+            self.getFilePathInBackgroundWithBlock(block)
+        }
+    }
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

@@ -20,7 +20,7 @@ class DirectionsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        descriptionLabel.text = quest.Description
+        descriptionLabel.text = quest.Directions
         titleLabel.text = quest.Name
         
         if let gps = quest.start?.coordinate {
@@ -35,7 +35,7 @@ class DirectionsViewController: UIViewController {
     
     func updateMapPermissions() {
         missingLocationLabel.hidden = quest.hasGPS()
-        self.mapView.userInteractionEnabled = quest.hasPDF()
+        self.mapView.userInteractionEnabled = quest.hasGPS()
     }
     
     func processName(string: String) -> String {

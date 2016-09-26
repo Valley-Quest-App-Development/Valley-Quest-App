@@ -3,18 +3,10 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "QuestDetailViewController.viewDidAppear(Bool) -&gt; ():QuestDetailViewController.swift">
+         contextName = "PFFile.isSaved() -&gt; Bool:AppDelegate.swift">
          <PersistentStrings>
             <PersistentString
-               value = " NSUserDefaults.standardUserDefaults().boolForKey(&quot;goToPDF&quot;)">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "LocationController.locationManager(CLLocationManager, didUpdateLocations : [CLLocation]) -&gt; ():GPSHelper.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "method">
+               value = "self.getLocalFilePath()">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -31,6 +23,38 @@
          <PersistentStrings>
             <PersistentString
                value = "CLLocationManager.locationServicesEnabled()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PFFile.unsaveLocallyWithBlock((Bool, NSError?) -&gt; ()?) -&gt; ():AppDelegate.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.getLocalFilePath()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PDFViewController.updateView() -&gt; ():PDFViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.file?.url">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "LocationController.locationManager(CLLocationManager, didUpdateLocations : [CLLocation]) -&gt; ():GPSHelper.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "method">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "QuestDetailViewController.viewDidAppear(Bool) -&gt; ():QuestDetailViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = " NSUserDefaults.standardUserDefaults().boolForKey(&quot;goToPDF&quot;)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

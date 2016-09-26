@@ -17,7 +17,7 @@ let START_QUEST_KEY = "start_quest"
 
 class PDFViewController: UIViewController, UIWebViewDelegate {
     @IBOutlet weak var pdfView: UIWebView!
-    @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var startButton: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var hintButton: UIBarButtonItem!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -37,10 +37,12 @@ class PDFViewController: UIViewController, UIWebViewDelegate {
         startButton.enabled = false
         State.loadQuestInProgress { (quest, error) in
             if let quest = quest where (error == nil && quest.objectId == self.quest.objectId) {
-                self.startButton.setTitle("Finish", forState: .Normal)
-                self.startButton.setBackgroundImage(UIImage(named: "BubbleSecond"), forState: .Normal)
+                self.startButton.title = "Finish"
+                self.startButton.style = .Done
+//                self.startButton.setBackgroundImage(UIImage(named: "BubbleSecond"), forState: .Normal)
                 self.cancelButton.enabled = true
             }
+            
             self.startButton.enabled = true
         }
         
@@ -51,7 +53,7 @@ class PDFViewController: UIViewController, UIWebViewDelegate {
         if let activityIndicator = activityIndicator {
             activityIndicator.startAnimating()
         }
-        file?.getFilePathInBackgroundWithBlock({ (path, error) -> Void in
+        file?.getFilePath({ (path, error) -> Void in
             if let checkedPath = path {
                 if self.pdfView != nil {
                     self.pdfView.loadRequest(NSURLRequest(URL: NSURL.fileURLWithPath(checkedPath)))
@@ -77,8 +79,9 @@ class PDFViewController: UIViewController, UIWebViewDelegate {
     func makeQuestInProgress() {
         self.startButton.enabled = true
         self.cancelButton.enabled = true
-        self.startButton.setTitle("Finish", forState: .Normal)
-        self.startButton.setBackgroundImage(UIImage(named: "BubbleSecond"), forState: .Normal)
+        self.startButton.title = "Finish"
+        self.startButton.style = .Done
+//        self.startButton.setBackgroundImage(UIImage(named: "BubbleSecond"), forState: .Normal)
         if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
             delegate.locationController?.getOneLocation({ (loc) in
                 self.startGPSSet = QuestGPSSet()
@@ -103,8 +106,8 @@ class PDFViewController: UIViewController, UIWebViewDelegate {
     func makeFinished() {
         self.startButton.enabled = true
         self.cancelButton.enabled = false
-        self.startButton.setTitle("Start", forState: .Normal)
-        self.startButton.setBackgroundImage(UIImage(named: "Bubble"), forState: .Normal)
+        self.startButton.title = "Start"
+//        self.startButton.setBackgroundImage(UIImage(named: "Bubble"), forState: .Normal)
         if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
             delegate.locationController?.getOneLocation({ (loc) in
                 self.startGPSSet = QuestGPSSet()
@@ -126,7 +129,7 @@ class PDFViewController: UIViewController, UIWebViewDelegate {
         }
     }
     
-    @IBAction func startQuest(sender: UIButton) {
+    @IBAction func startQuest(sender: AnyObject) {
         if (self.pdfView.hidden) {
             SCLAlertView().showNotice("Still loading", subTitle: "You can't start the quest until you have the clues")
             return
@@ -153,8 +156,8 @@ class PDFViewController: UIViewController, UIWebViewDelegate {
                 alert.addButton("Dismiss", action: {})
                 
                 alert.showWarning("Already questing", subTitle: "You already have another quest active (\(prevQuest.Name)). Do you want to end that one?")
-            
-            
+                
+                
             }else{
                 // Start new quest
                 
