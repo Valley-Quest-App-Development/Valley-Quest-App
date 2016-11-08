@@ -11,23 +11,26 @@ import Cocoa
 class ViewController: NSViewController {
     
     // Name the process you are doing
-    let processName = "Fix Closed Quests"
+    let processName = "Delete object test"
     
     // This is where I will place code for performing an action
     // I should run done when I finish, and error if I fail
     // I should call updateProgress when I have an update in my progress
-    func go(value: String, query: String) {
-        let mod = Modifier.QuestMod(value: value, query: query)
-        
-        repairAllClosed(mod)
+    func go(_ value: String, query: String) {
+        let mod = Modifier.BookUpModifyer(value: value, query: query)
+        mod.tryRemoveItem({ (string) in
+            self.logMessage(string, newLine: true)
+        }, { (success) in
+            self.done(success ? "Test was successful" : "Test failed!")
+        })
     }
     
-    func bookupRemoveBuilings(mod: Modifier.BookUpModifyer) {
+    func bookupRemoveBuilings(_ mod: Modifier.BookUpModifyer) {
         
         self.logMessage("Searching...", newLine: true)
         mod.search { (error) in
             if let error = error {
-                self.error(String(error))
+                self.error(String(describing: error))
                 return
             }
             self.logMessage(" done", newLine: false)
@@ -42,7 +45,7 @@ class ViewController: NSViewController {
             self.logMessage("Deleting...", newLine: true)
             mod.removeAllBuildings({ (done: Bool, error: NSError?) in
                 if let error = error {
-                    self.logMessage("ERROR!: " + String(error), newLine: true)
+                    self.logMessage("ERROR!: " + String(describing: error), newLine: true)
                 }
                 
                 if done {
@@ -60,12 +63,12 @@ class ViewController: NSViewController {
         }
     }
     
-    func bookupSearch(mod: Modifier.BookUpModifyer) {
+    func bookupSearch(_ mod: Modifier.BookUpModifyer) {
         
         self.logMessage("Searching...", newLine: true)
         mod.search { (error) in
             if let error = error {
-                self.error(String(error))
+                self.error(String(describing: error))
                 return
             }
             self.logMessage(" done", newLine: false)
@@ -76,7 +79,7 @@ class ViewController: NSViewController {
     
     // -- My functions --
     
-    func makeAllClosed(mod: Modifier.QuestMod) {
+    func makeAllClosed(_ mod: Modifier.QuestMod) {
         self.logMessage("Loading...", newLine: true)
         mod.loadQuests { (error) in
             self.logMessage(" done", newLine: false)
@@ -100,7 +103,7 @@ class ViewController: NSViewController {
                     
                     let difference = zip(name.characters, name1.characters).filter{$0 != $1}
                     
-                    if difference.count < 12 || name1.containsString(name) || name.containsString(name1) {
+                    if difference.count < 12 || name1.contains(name) || name.contains(name1) {
                         
                         quest.closed = true
                         closedQuests.append(quest)
@@ -120,11 +123,11 @@ class ViewController: NSViewController {
         }
     }
     
-    func searchAndDelete(mod: Modifier.QuestMod) {
+    func searchAndDelete(_ mod: Modifier.QuestMod) {
         self.logMessage("Searching...", newLine: true)
         mod.search { (error) in
             if let error = error {
-                self.error(String(error))
+                self.error(String(describing: error))
                 return
             }
             
@@ -142,25 +145,25 @@ class ViewController: NSViewController {
             self.logMessage("Deleting...", newLine: true)
             var i = 0;
             for quest in mod.quests {
-                quest.deleteInBackgroundWithBlock({ (success, error) in
+                quest.deleteInBackground(block: { (success, error) in
                     i += 1;
                     self.initProgress(Double(2 + i))
                     
                     if i >= mod.quests.count - 1 {
                         self.logMessage(" done", newLine: false)
-                        self.done(Quest.getNamesAndLocsString(mod.quests, separator: "\n"))
+                        self.done(string)
                     }
                 })
             }
         }
     }
     
-    func search(mod: Modifier.QuestMod) {
+    func search(_ mod: Modifier.QuestMod) {
         self.initProgress(2)
         self.logMessage("Searching...", newLine: true)
         mod.search { (error) in
             if let error = error {
-                self.error(String(error))
+                self.error(String(describing: error))
                 return
             }
             
@@ -177,11 +180,11 @@ class ViewController: NSViewController {
         }
     }
     
-    func getNames(mod: Modifier.QuestMod) {
+    func getNames(_ mod: Modifier.QuestMod) {
         self.logMessage("Loading quests...", newLine: true)
         mod.loadQuests { (error) in
             if let error = error {
-                self.error(String(error))
+                self.error(String(describing: error))
                 return
             }
             self.logMessage(" done", newLine: false)
@@ -199,11 +202,11 @@ class ViewController: NSViewController {
         }
     }
     
-    func repairAllClosed(mod: Modifier.QuestMod) {
+    func repairAllClosed(_ mod: Modifier.QuestMod) {
         self.logMessage("Loading quests...", newLine: true)
         mod.loadQuests { (error) in
             if let error = error {
-                self.error(String(error))
+                self.error(String(describing: error))
                 return
             }
             self.logMessage(" done", newLine: false)
@@ -221,7 +224,7 @@ class ViewController: NSViewController {
             self.logMessage("Saving...", newLine: true)
             mod.saveAll({ (error) in
                 if let error = error {
-                    self.error(String(error))
+                    self.error(String(describing: error))
                     return
                 }
                 self.logMessage(" done", newLine: false)
@@ -234,11 +237,11 @@ class ViewController: NSViewController {
         }
     }
     
-    func getAllNeedingPDFs(mod: Modifier.QuestMod) {
+    func getAllNeedingPDFs(_ mod: Modifier.QuestMod) {
         self.logMessage("Loading quests...", newLine: true)
         mod.loadQuests { (error) in
             if let error = error {
-                self.error(String(error))
+                self.error(String(describing: error))
                 return
             }
             self.logMessage(" done", newLine: false)
@@ -286,7 +289,7 @@ class ViewController: NSViewController {
     
     
     var log: String = ""
-    func logMessage(string: String, newLine: Bool) {
+    func logMessage(_ string: String, newLine: Bool) {
         if log != "" && newLine {
             log += "\n"
         }
@@ -296,26 +299,26 @@ class ViewController: NSViewController {
         resultsField.string = log
     }
     
-    func updateProgress(val: Double) {
+    func updateProgress(_ val: Double) {
         progressIndicator.doubleValue = val
     }
     
-    func initProgress(val: Double) {
+    func initProgress(_ val: Double) {
         progressIndicator.maxValue = val
     }
     
-    @IBAction func goButtonPressed(sender: AnyObject) {
+    @IBAction func goButtonPressed(_ sender: AnyObject) {
         let value = valueField.stringValue
         let query = queryField.stringValue
-        valueField.enabled = false
-        queryField.enabled = false
-        goButton.enabled = false
-        cancelButton.enabled = true
+        valueField.isEnabled = false
+        queryField.isEnabled = false
+        goButton.isEnabled = false
+        cancelButton.isEnabled = true
         
         resultsField.string = ""
-        resultsField.textColor = NSColor.blackColor()
+        resultsField.textColor = NSColor.black
         activityIndicator.startAnimation(self)
-        activityIndicator.hidden = false
+        activityIndicator.isHidden = false
         progressIndicator.doubleValue = 0
         progressIndicator.startAnimation(self)
         
@@ -324,36 +327,36 @@ class ViewController: NSViewController {
         go(value, query: query)
     }
     
-    @IBAction func cancel(sender: AnyObject) {
+    @IBAction func cancel(_ sender: AnyObject) {
         error("Canceled");
     }
     
-    func done(results: String){
-        valueField.enabled = true
-        goButton.enabled = true
-        queryField.enabled = true
-        cancelButton.enabled = false
+    func done(_ results: String){
+        valueField.isEnabled = true
+        goButton.isEnabled = true
+        queryField.isEnabled = true
+        cancelButton.isEnabled = false
         
-        resultsField.textColor = NSColor.blackColor()
+        resultsField.textColor = NSColor.black
         progressIndicator.doubleValue = 0
         resultsField.string = "\(log)\n----Results----\n\(results)"
         progressIndicator.stopAnimation(self)
         activityIndicator.stopAnimation(self)
-        activityIndicator.hidden = true
+        activityIndicator.isHidden = true
     }
     
-    func error(error: String) {
-        valueField.enabled = true
-        goButton.enabled = true
-        queryField.enabled = true
-        cancelButton.enabled = false
+    func error(_ error: String) {
+        valueField.isEnabled = true
+        goButton.isEnabled = true
+        queryField.isEnabled = true
+        cancelButton.isEnabled = false
         
-        resultsField.textColor = NSColor.redColor()
+        resultsField.textColor = NSColor.red
         progressIndicator.doubleValue = 0
         resultsField.string = "\(log)\n----Results----\n\(error)"
         progressIndicator.stopAnimation(self)
         activityIndicator.stopAnimation(self)
-        activityIndicator.hidden = true
+        activityIndicator.isHidden = true
     }
     
     override func viewDidLoad() {
@@ -361,12 +364,6 @@ class ViewController: NSViewController {
         
         titleLabel.stringValue = processName
         // Do any additional setup after loading the view.
-    }
-
-    override var representedObject: AnyObject? {
-        didSet {
-        // Update the view, if already loaded.
-        }
     }
 }
 

@@ -12,8 +12,8 @@ import Parse
 
 class Modifier {
     class BookUpModifyer {
-        private var value: String
-        private var query: String
+        fileprivate var value: String
+        fileprivate var query: String
         var buildings: [MapBuildings]
         
         init(value: String) {
@@ -28,22 +28,22 @@ class Modifier {
             self.query = query
         }
         
-        func loadBuildings(callback: (NSError?) -> Void) {
+        func loadBuildings(_ callback: @escaping (NSError?) -> Void) {
             let query = MapBuildings.query()!
             query.limit = 1000
             
             completeQuery(query, callback: callback)
         }
         
-        func getSearchQuery() -> PFQuery {
+        func getSearchQuery() -> PFQuery<PFObject> {
             let query = MapBuildings.query()!
             query.limit = 1000
-            query.whereKey("name", containsString: self.query)
+            query.whereKey("name", contains: self.query)
             
             return query
         }
         
-        func search(callback: (NSError?) -> Void) {
+        func search(_ callback: @escaping (NSError?) -> Void) {
             if self.query == "" && self.query.characters.count < 8 {
                 callback(NSError(domain: "MapBuildings", code: 300, userInfo: ["message": "You must have a query!"]))
             }
@@ -51,43 +51,82 @@ class Modifier {
             completeQuery(getSearchQuery(), callback: callback);
         }
         
-        private func completeQuery(query: PFQuery, callback: (error: NSError?) -> Void) {
-            query.findObjectsInBackgroundWithBlock { (objects, error) in
-                if let buildings = objects as? [MapBuildings] where error == nil {
+        fileprivate func completeQuery(_ query: PFQuery<PFObject>, callback: @escaping (_ error: NSError?) -> Void) {
+            query.findObjectsInBackground { (objects, error) in
+                if let buildings = objects as? [MapBuildings] , error == nil {
                     self.buildings = buildings
-                    callback(error: nil)
+                    callback(nil)
                 }else{
-                    callback(error: error)
+                    callback(error as NSError?)
                 }
             }
         }
         
-        func removeAllBuildings(callback: (done: Bool, error: NSError?) -> Void, progress: (Int) -> Void)  {
+        func removeAllBuildings(_ callback: @escaping (_ done: Bool, _ error: NSError?) -> Void, progress: @escaping (Int) -> Void)  {
             var left = self.buildings.count
             for building in buildings {
-                building.deleteInBackgroundWithBlock({ (success, error) in
+                building.deleteInBackground(block: { (success, error) in
                     if !success {
-                        callback(done: false, error: NSError(domain: "MapBuildings", code: 500, userInfo: ["message": "Failed to delete an object"]))
+                        callback(false, NSError(domain: "MapBuildings", code: 500, userInfo: ["message": "Failed to delete an object"]))
                     }
                     
                     if error != nil {
-                        callback(done: false, error: error)
+                        callback(false, error as NSError?)
                     }
                     
                     left -= 1;
                     progress(self.buildings.count - left);
                     
                     if left <= 0 {
-                        callback(done: true, error: nil)
+                        callback(true, nil)
                     }
+                })
+            }
+        }
+        
+        func tryRemoveItem(_ progress: @escaping (_ string: String) -> Void, _ complete: @escaping (_ success: Bool) -> Void) {
+            let query = PFQuery(className: "studyGroup")
+            query.whereKey("isClassGroup", equalTo: true)
+            var successful = true
+            
+            query.getFirstObjectInBackground { (object, error) in
+                object?.deleteInBackground(block: { (success, error) in
+                    progress(success ? "Deleted the object!" : "Couldn't delete the object")
+                    successful = !success
+                    if let error = error {
+                        progress(error.localizedDescription)
+                        successful = error.localizedDescription == "Can't delete class groups!"
+                    }
+                    
+                    PFObject(withoutDataWithClassName: "studyGroup", objectId: object?.objectId).fetchInBackground(block: { (object, error) in
+                        if object == nil && error != nil {
+                            successful = false
+                        }else{
+                            successful = true && successful
+                        }
+                        
+                        
+                        
+                        object?.saveInBackground(block: { (success, error) in
+                            progress(success ? "Re-saved the object" : "Failed to save!")
+                            if let error = error {
+                                progress("Error: " + error.localizedDescription)
+                            }
+                            complete(successful)
+                        })
+                        
+                        if object == nil {
+                            complete(successful)
+                        }
+                    })
                 })
             }
         }
     }
     
     class QuestMod {
-        private var value: String
-        private var query: String
+        fileprivate var value: String
+        fileprivate var query: String
         var quests: [Quest]
         var givenQuestNames = [String]()
         
@@ -103,38 +142,38 @@ class Modifier {
             self.query = query
         }
         
-        func loadQuests(callback: (error: NSError?) -> Void) {
+        func loadQuests(_ callback: @escaping (_ error: NSError?) -> Void) {
             let query = Quest.query()!
             query.limit = 1000
             
             completeQuery(query, callback: callback)
         }
         
-        func splitQuestsWithSeperator(seperator: Character) {
+        func splitQuestsWithSeperator(_ seperator: Character) {
             givenQuestNames = self.value.characters.split{$0 == seperator}.map(String.init)
         }
         
-        private func completeQuery(query: PFQuery, callback: (error: NSError?) -> Void) {
-            query.findObjectsInBackgroundWithBlock { (objects, error) in
-                if let quests = objects as? [Quest] where error == nil {
+        fileprivate func completeQuery(_ query: PFQuery<PFObject>, callback: @escaping (_ error: NSError?) -> Void) {
+            query.findObjectsInBackground { (objects, error) in
+                if let quests = objects as? [Quest] , error == nil {
                     self.quests = quests
-                    callback(error: nil)
+                    callback(nil)
                 }else{
-                    callback(error: error)
+                    callback(error as NSError?)
                 }
             }
         }
         
-        func getSearchQuery() -> PFQuery {
+        func getSearchQuery() -> PFQuery<PFObject> {
             let query = Quest.query()!
             query.limit = 1000
             query.addAscendingOrder(self.value)
-            query.whereKey(self.value, containsString: self.query)
+            query.whereKey(self.value, contains: self.query)
             
             return query
         }
         
-        func search(callback: (error: NSError?) -> Void) {
+        func search(_ callback: @escaping (_ error: NSError?) -> Void) {
             completeQuery(getSearchQuery(), callback: callback)
         }
         
@@ -157,12 +196,12 @@ class Modifier {
         }
         
         // Returns max progress
-        func saveAll(callback: (error: NSError?) -> Void, progress: (Int) -> Void) -> Int {
+        func saveAll(_ callback: @escaping (_ error: NSError?) -> Void, progress: @escaping (Int) -> Void) {
             var left = quests.count
             var failed = 0
             
             for quest in quests {
-                quest.saveInBackgroundWithBlock({ (success, error) in
+                quest.saveInBackground(block: { (success, error) in
                     left -= 1
                     
                     progress(self.quests.count - left);
@@ -172,7 +211,7 @@ class Modifier {
                             failed += 1
                             
                             if failed >= self.quests.count / 3 {
-                                callback(error: error)
+                                callback(error as NSError?)
                                 return
                             }
                             
@@ -182,12 +221,60 @@ class Modifier {
                     
                     
                     if left <= 0 {
-                        callback(error: nil)
+                        callback(nil)
                     }
                 })
             }
+        }
+    }
+    
+    class QuestGPSMod {
+        var values: [Quest.QuestGPSSet] = []
+        var validLocs: Dictionary<String, (start: CLLocation, end: CLLocation)> = [:]
+        
+        func loadValues(_ callback: @escaping (_ error: Error?) -> Void) {
+            let query = Quest.QuestGPSSet.query()
             
-            return quests.count
+            query?.findObjectsInBackground(block: { (objects, error) in
+                if let objects = objects as? [Quest.QuestGPSSet] {
+                    self.values = objects
+                }
+                callback(error)
+            })
+        }
+        
+        func processValues(_ callback: @escaping (_ error: NSError?) -> Void, progress: @escaping (Int) -> Void) {
+            
+            DispatchQueue.global(qos: .background).async {
+                var dict: Dictionary<String, (start: [CLLocation], end: [CLLocation])> = [:]
+                
+                for set in self.values {
+                    let loc = CLLocation(latitude: set.point.latitude, longitude: set.point.longitude)
+                    let value = dict[set.quest.objectId!]
+                    
+                    if set.placeType == "start" {
+                        if let value = value {
+                            var start = value.start
+                            start.append(loc)
+                        }else{
+                            dict[set.quest.objectId!] = ([loc], [])
+                        }
+                    }else{
+                        // Its end
+                        if value != nil {
+                            
+                        }else{
+                            dict[set.quest.objectId!] = ([], [loc])
+                        }
+                    }
+                    
+                    //
+                }
+                
+                DispatchQueue.main.async {
+                    callback(nil)
+                }
+            }
         }
     }
 }

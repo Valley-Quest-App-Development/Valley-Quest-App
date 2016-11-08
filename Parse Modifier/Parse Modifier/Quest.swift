@@ -79,7 +79,7 @@ class Quest: PFObject, PFSubclassing {
     }
     
     func isClosed() -> Bool {
-        return (self.cluesLocation != nil && self.cluesLocation!.lowercaseString.containsString("closed")) || (self.Correction != nil && self.Correction!.lowercaseString.containsString("closed"))
+        return (self.cluesLocation != nil && self.cluesLocation!.lowercased().contains("closed")) || (self.Correction != nil && self.Correction!.lowercased().contains("closed"))
     }
     
 //    func getSource() -> String? {
@@ -104,7 +104,7 @@ class Quest: PFObject, PFSubclassing {
     /**
      Parses the given PFObjects into quest objects, and returns a tuple. The second object is a boolean that indicates if there are quests with gps
     */
-    class func getQuestsFromPFOBjects(objects: [PFObject]) -> Array<Quest> {
+    class func getQuestsFromPFOBjects(_ objects: [PFObject]) -> Array<Quest> {
         var array = [Quest]()
         
         if let newArray = objects as? [Quest] {
@@ -114,13 +114,13 @@ class Quest: PFObject, PFSubclassing {
         return array
     }
     
-    static func sortQuests(inout quests: Array<Quest>) {
-        quests.sortInPlace { (quest1, quest2) -> Bool in
+    static func sortQuests(_ quests: inout Array<Quest>) {
+        quests.sort { (quest1, quest2) -> Bool in
             return quest1.Name < quest2.Name
         }
     }
     
-    static func getNames(array: [Quest]) -> Array<String> {
+    static func getNames(_ array: [Quest]) -> Array<String> {
         var output: Array<String> = []
         
         for quest in array {
@@ -130,7 +130,7 @@ class Quest: PFObject, PFSubclassing {
         return output
     }
     
-    static func getNamesString(array: [Quest], separator: String) -> String {
+    static func getNamesString(_ array: [Quest], separator: String) -> String {
         var output = ""
         
         for quest in array {
@@ -140,7 +140,7 @@ class Quest: PFObject, PFSubclassing {
         return output
     }
     
-    static func getNamesAndLocs(array: [Quest]) -> Array<(String, String)> {
+    static func getNamesAndLocs(_ array: [Quest]) -> Array<(String, String)> {
         var output: Array<(String, String)> = []
         
         for quest in array {
@@ -150,7 +150,7 @@ class Quest: PFObject, PFSubclassing {
         return output
     }
     
-    static func getNamesAndLocsString(array: [Quest], separator: String) -> String {
+    static func getNamesAndLocsString(_ array: [Quest], separator: String) -> String {
         var output = ""
         
         for quest in array {
@@ -158,5 +158,15 @@ class Quest: PFObject, PFSubclassing {
         }
         
         return output
+    }
+    
+    class QuestGPSSet: PFObject, PFSubclassing {
+        @NSManaged var quest: Quest
+        @NSManaged var placeType: String
+        @NSManaged var point: PFGeoPoint
+        
+        static func parseClassName() -> String {
+            return "QuestGPSSet"
+        }
     }
 }

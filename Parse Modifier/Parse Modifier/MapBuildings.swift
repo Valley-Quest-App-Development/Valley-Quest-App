@@ -18,7 +18,7 @@ class MapBuildings: PFObject, PFSubclassing {
         return "MapBuildings"
     }
     
-    static func getNamesString(array: [MapBuildings], separator: String) -> String {
+    static func getNamesString(_ array: [MapBuildings], separator: String) -> String {
         var output = ""
         
         for building in array {
